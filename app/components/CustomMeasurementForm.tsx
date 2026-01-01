@@ -178,33 +178,30 @@ export default function CustomMeasurementForm() {
         </div>
 
         {/* Images Column - Desktop Only */}
-        <div className="hidden md:flex flex-col gap-4 items-center">
-          <div className='flex flex-row'>
-            <div className="relative ">
-            <Image
-              src="/size/custom_1.tiff"
-              alt="Measurement Guide 1"
-              height={64}
-              width={64}
-              className="object-contain"
-            />
+        <div className="hidden md:flex flex-col gap-4 items-center sticky top-32">
+          <div className='flex flex-row gap-4'>
+            <div className="relative w-[200px] h-[300px]">
+              <Image
+                src="/size/custom_1.tiff"
+                alt="Measurement Guide 1"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="relative w-[200px] h-[300px]">
+              <Image
+                src="/size/custom_2.tiff"
+                alt="Measurement Guide 2"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
-          <div className="relative">
-            <Image
-              src="/size/custom_2.tiff"
-              alt="Measurement Guide 2"
-              height={64}
-              width={64}
-              className="object-contain"
-            />
-          </div>
-          </div>
-          <div className="relative ">
+          <div className="relative w-[200px] h-[300px]">
             <Image
               src="/size/custom_3.tiff"
               alt="Measurement Guide 3"
-              height={64}
-              width={64}
+              fill
               className="object-contain"
             />
           </div>

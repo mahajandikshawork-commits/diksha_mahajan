@@ -53,9 +53,9 @@ export default function ProductPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Side - Image Gallery */}
-            <div className="flex gap-4 overflow-hidden">
+            <div className="flex flex-col-reverse md:flex-row gap-4 overflow-hidden">
               {/* Vertical Thumbnail Strip */}
-              <div className="flex flex-col gap-2 overflow-y-auto max-h-[85vh] flex-shrink-0">
+              <div className="flex md:flex-col gap-2 overflow-y-auto max-h-[85vh] flex-shrink-0">
                 {productMedia.map((media, index) => (
                   <button
                     key={index}
@@ -182,17 +182,7 @@ export default function ProductPage() {
                   <BsWhatsapp size={20} />
                   ORDER ON WHATSAPP
                 </button>
-
-                <button className="w-full border border-gray-300 py-3 uppercase tracking-wider hover:border-black transition-colors">
-                  PRICE MATCH PROMISE
-                </button>
               </div>
-
-              {/* Wishlist */}
-              <button className="flex items-center gap-2 text-sm hover:opacity-70 transition-opacity">
-                <BsHeart size={20} />
-                Add to Wishlist
-              </button>
 
               {/* Product Details */}
               <div className="pt-6 border-t space-y-3 text-sm">
