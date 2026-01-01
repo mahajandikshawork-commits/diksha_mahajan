@@ -15,13 +15,13 @@ export default function AboutSection() {
               DIKSHA MAHAJAN
             </h2>
             
-            <p className="text-gray-600 leading-relaxed max-w-2xl w-full">
+            <p className="text-gray-600 leading-relaxed max-w-md w-full">
               I'm a paragraph. Click here to add your own text and edit me. It's easy. Just click 
               "Edit Text" or double click me to add your own content and make changes to the font. 
               I'm a great place for you to tell a story and let your users know a little more about you.
             </p>
 
-            <div className="flex w-full justify-center">
+            <div className="flex w-full md:justify-start justify-center">
               <Button text="EXPLORE" href="/about" />
             </div>
           </div>

@@ -5,7 +5,7 @@ export default function SpotlightSection() {
   return (
     <section className="py-16 md:py-48 px-8 bg-[#F5F1E8]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-2xl font-light tracking-[0.2em] text-center mb-4 uppercase">
+        <h2 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-4 uppercase">
           In The Spotlight
         </h2>
         
