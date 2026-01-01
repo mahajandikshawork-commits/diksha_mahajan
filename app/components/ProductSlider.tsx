@@ -19,6 +19,8 @@ export default function ProductSlider() {
                     price={product.price}
                     mediaType={product.mediaType as 'image' | 'video'}
                     mediaSrc={product.mediaSrc}
+                    mainImage={product.mainImage}
+                    productId={index}
                   />
                 </div>
               ))}
@@ -39,6 +41,8 @@ export default function ProductSlider() {
                   price={product.price}
                   mediaType={product.mediaType as 'image' | 'video'}
                   mediaSrc={product.mediaSrc}
+                  mainImage={product.mainImage}
+                  productId={index}
                 />
               </div>
             ))}

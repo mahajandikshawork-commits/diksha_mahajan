@@ -1,13 +1,9 @@
-import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
-import Footer from '../components/Footer';
 import productsData from '@/data/products.json';
 
 export default function CollectionPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      
       <main className="pt-32 pb-16 px-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-light tracking-[0.2em] text-center mb-12 uppercase">
@@ -23,13 +19,13 @@ export default function CollectionPage() {
                 price={product.price}
                 mediaType={product.mediaType as 'image' | 'video'}
                 mediaSrc={product.mediaSrc}
+                mainImage={product.mainImage}
+                productId={index}
               />
             ))}
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }
