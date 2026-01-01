@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { BsHandbag } from 'react-icons/bs';
 import { HiMenuAlt3 } from 'react-icons/hi';
@@ -9,10 +11,11 @@ import { IoClose, IoSearch } from 'react-icons/io5';
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <>
-            <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black text-white">
+            <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/80 backdrop-blur-sm text-white">
                 <div className="w-full px-8 py-6">
                     {/* Mobile Layout */}
                     <div className="flex md:hidden items-center justify-between">
@@ -25,14 +28,16 @@ export default function Header() {
                         </button>
 
                         <div className="flex-1 flex justify-center px-4">
-                            <Image
-                                src="/logo.PNG"
-                                alt="Diksha Mahajan"
-                                width={180}
-                                height={45}
-                                priority
-                                className="object-contain max-w-full h-auto"
-                            />
+                            <Link href="/">
+                                <Image
+                                    src="/logo.PNG"
+                                    alt="Diksha Mahajan"
+                                    width={180}
+                                    height={45}
+                                    priority
+                                    className="object-contain max-w-full h-auto cursor-pointer"
+                                />
+                            </Link>
                         </div>
 
                         <button className="relative hover:opacity-70 transition-opacity focus:outline-none flex-shrink-0" aria-label="Cart">
@@ -46,26 +51,39 @@ export default function Header() {
                     {/* Desktop Layout */}
                     <div className="hidden md:grid md:grid-cols-3 items-center">
                         <nav className="flex items-center gap-8 text-sm tracking-wider">
-                            <a href="#about" className="hover:opacity-70 transition-opacity uppercase">
+                            <a 
+                                href="#about" 
+                                className="hover:opacity-70 transition-opacity uppercase"
+                            >
                                 About Us
                             </a>
-                            <a href="#collection" className="hover:opacity-70 transition-opacity uppercase">
+                            <Link 
+                                href="/collection"
+                                className={`hover:opacity-70 transition-opacity uppercase ${
+                                    pathname === '/collection' ? 'text-[#DCC898]' : ''
+                                }`}
+                            >
                                 Collection
-                            </a>
-                            <a href="#appointment" className="hover:opacity-70 transition-opacity uppercase">
+                            </Link>
+                            <a 
+                                href="#appointment" 
+                                className="hover:opacity-70 transition-opacity uppercase"
+                            >
                                 Book Your Appointment
                             </a>
                         </nav>
 
                         <div className="flex justify-center items-center">
-                            <Image
-                                src="/logo.PNG"
-                                alt="Diksha Mahajan"
-                                width={250}
-                                height={50}
-                                priority
-                                className="object-contain"
-                            />
+                            <Link href="/">
+                                <Image
+                                    src="/logo.PNG"
+                                    alt="Diksha Mahajan"
+                                    width={250}
+                                    height={50}
+                                    priority
+                                    className="object-contain cursor-pointer"
+                                />
+                            </Link>
                         </div>
 
                         <div className="flex items-center gap-4 justify-end">
@@ -153,13 +171,15 @@ export default function Header() {
                                 >
                                     About Us
                                 </a>
-                                <a
-                                    href="#collection"
+                                <Link
+                                    href="/collection"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="text-xl md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
+                                    className={`text-xl md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase ${
+                                        pathname === '/collection' ? 'text-[#DCC898]' : ''
+                                    }`}
                                 >
                                     Collection
-                                </a>
+                                </Link>
                                 <a
                                     href="#appointment"
                                     onClick={() => setIsMenuOpen(false)}

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "VIARA",
+    "price": "Rs.110,000",
+    "mediaType": "video",
+    "mediaSrc": "/videos/nazm.mp4"
+  },
+  {
+    "name": "FARIDA",
+    "price": "Rs.95,000",
+    "mediaType": "video",
+    "mediaSrc": "/videos/noor-e-fiza.MP4"
+  },
+  {
+    "name": "MAHAN",
+    "price": "Rs.175,000",
+    "mediaType": "video",
+    "mediaSrc": "/videos/aaina.mp4"
+  },
+  {
+    "name": "ISMAIL",
+    "price": "Rs.58,800",
+    "mediaType": "video",
+    "mediaSrc": "/videos/nazm.mp4"
+  },
+  {
+    "name": "AVIVA",
+    "price": "Rs.95,000",
+    "mediaType": "image",
+    "mediaSrc": "/image.webp"
+  },
+  {
+    "name": "HABIB",
+    "price": "Rs.58,800",
+    "mediaType": "video",
+    "mediaSrc": "/videos/aaina.mp4"
+  },
+  {
+    "name": "ADAIA",
+    "price": "Rs.187,000",
+    "mediaType": "video",
+    "mediaSrc": "/videos/nazm.mp4"
+  }
+]
