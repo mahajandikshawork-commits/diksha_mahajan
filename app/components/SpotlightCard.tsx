@@ -47,16 +47,9 @@ export default function SpotlightCard({ title, images }: SpotlightCardProps) {
         ))}
       </div>
 
-      {/* Title */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white py-4 text-center">
-        <h3 className="text-sm font-medium tracking-[0.2em] uppercase">
-          {title}
-        </h3>
-      </div>
-
       {/* Dots Indicator */}
       {images.length > 1 && (
-        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10">
           {images.map((_, index) => (
             <button
               key={index}

@@ -52,7 +52,7 @@ export default function Header() {
                     <div className="hidden md:grid md:grid-cols-3 items-center">
                         <nav className="flex items-center gap-8 text-sm tracking-wider">
                             <a 
-                                href="#about" 
+                                href="/about" 
                                 className="hover:opacity-70 transition-opacity uppercase"
                             >
                                 About Us

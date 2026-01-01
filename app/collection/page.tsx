@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
+import Footer from '../components/Footer';
 import productsData from '@/data/products.json';
 
 export default function CollectionPage() {
@@ -27,6 +28,8 @@ export default function CollectionPage() {
           </div>
         </div>
       </main>
+      
+      <Footer />
     </div>
   );
 }

@@ -4,20 +4,25 @@ interface ButtonProps {
   text: string;
   href?: string;
   onClick?: () => void;
-  variant?: 'default' | 'outline';
+  variant?: 'default' | 'outline' | 'inverted';
 }
 
 export default function Button({ text, href, onClick, variant = 'outline' }: ButtonProps) {
   const buttonClasses = variant === 'outline'
-    ? "relative px-12 py-3 border-2 border-black text-black font-medium tracking-wider uppercase overflow-hidden group"
-    : "relative px-12 py-3 bg-black text-white border-2 border-black font-medium tracking-wider uppercase overflow-hidden group";
+    ? "relative md:px-12 px-8 py-3 border-1 border-black text-black font-medium tracking-wider uppercase overflow-hidden group"
+    : variant === 'inverted'
+    ? "relative md:px-12 px-8 py-3 border-1 border-white text-white font-medium tracking-wider uppercase overflow-hidden group"
+    : "relative md:px-12 px-8 py-3 bg-black text-white border-1 border-black font-medium tracking-wider uppercase overflow-hidden group";
+
+  const textHoverColor = variant === 'inverted' ? 'group-hover:text-black' : 'group-hover:text-white';
+  const bgColor = variant === 'inverted' ? 'bg-white' : 'bg-black';
 
   const content = (
     <>
-      <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+      <span className={`relative z-10 ${textHoverColor} transition-colors duration-300`}>
         {text}
       </span>
-      <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+      <div className={`absolute inset-0 ${bgColor} transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out`} />
     </>
   );
 
