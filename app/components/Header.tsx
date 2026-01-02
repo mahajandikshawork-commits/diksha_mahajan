@@ -7,11 +7,13 @@ import { useState } from 'react';
 import { BsHandbag } from 'react-icons/bs';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import { IoClose, IoSearch } from 'react-icons/io5';
+import { useCart } from '../context/CartContext';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const pathname = usePathname();
+    const { cartCount } = useCart();
 
     return (
         <>
@@ -40,12 +42,14 @@ export default function Header() {
                             </Link>
                         </div>
 
-                        <button className="relative hover:opacity-70 transition-opacity focus:outline-none flex-shrink-0" aria-label="Cart">
+                        <Link href="/cart" className="relative hover:opacity-70 transition-opacity focus:outline-none flex-shrink-0" aria-label="Cart">
                             <BsHandbag size={24} className="outline-none" />
-                            <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                                0
-                            </span>
-                        </button>
+                            {cartCount > 0 && (
+                                <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                                    {cartCount}
+                                </span>
+                            )}
+                        </Link>
                     </div>
 
                     {/* Desktop Layout */}
@@ -95,12 +99,14 @@ export default function Header() {
                                 <IoSearch size={22} />
                             </button>
 
-                            <button className="relative hover:opacity-70 transition-opacity focus:outline-none" aria-label="Cart">
+                            <Link href="/cart" className="relative hover:opacity-70 transition-opacity focus:outline-none" aria-label="Cart">
                                 <BsHandbag size={24} className="outline-none" />
-                                <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                                    0
-                                </span>
-                            </button>
+                                {cartCount > 0 && (
+                                    <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                                        {cartCount}
+                                    </span>
+                                )}
+                            </Link>
                         </div>
                     </div>
 

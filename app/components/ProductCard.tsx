@@ -66,10 +66,10 @@ export default function ProductCard({ name, price, mediaType, mediaSrc, mainImag
         </div>
 
         <div className="p-4 text-center">
-          <h3 className="text-lg font-medium tracking-wider uppercase mb-1">
+          <h3 className="md:text-lg text-xs font-medium tracking-wider uppercase mb-1">
             {name}
           </h3>
-          <p className="text-sm text-gray-600">
+          <p className="md:text-sm text-xs text-gray-600">
             {price}
           </p>
         </div>

@@ -8,10 +8,12 @@ import SizeChartModal from '../../components/SizeChartModal';
 import ProductSlider from '../../components/ProductSlider';
 import { BsWhatsapp, BsHeart } from 'react-icons/bs';
 import productsData from '@/data/products.json';
+import { useCart } from '../../context/CartContext';
 
 export default function ProductPage() {
   const params = useParams();
   const productId = params.id as string;
+  const { addToCart } = useCart();
   
   const product = productsData.find((p, index) => index.toString() === productId) || productsData[0];
   
@@ -60,6 +62,25 @@ export default function ProductPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert('Please select a size');
+      return;
+    }
+
+    const priceNumber = parseInt(product.price.replace(/[^0-9]/g, ''));
+    
+    addToCart({
+      id: parseInt(productId),
+      name: product.name,
+      description: (product as any).description || '',
+      price: product.price,
+      priceNumber,
+      image: product.mainImage,
+      size: selectedSize,
+    });
   };
 
   return (
@@ -185,7 +206,10 @@ export default function ProductPage() {
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-6">
-                <button className="w-full bg-white border border-black text-black py-3 uppercase tracking-wider hover:bg-gray-50 transition-colors">
+                <button 
+                  onClick={handleAddToCart}
+                  className="w-full bg-white border border-black text-black py-3 uppercase tracking-wider hover:bg-gray-50 transition-colors"
+                >
                   ADD TO CART
                 </button>
                 

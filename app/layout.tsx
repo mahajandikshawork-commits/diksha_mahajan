@@ -3,6 +3,8 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext";
+import CartSidebar from "./components/CartSidebar";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -26,9 +28,12 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased`}
         style={{ fontFamily: 'var(--font-montserrat)' }}
       >
-        <Header />
-        {children}
-        <Footer />
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+          <CartSidebar />
+        </CartProvider>
       </body>
     </html>
   );
