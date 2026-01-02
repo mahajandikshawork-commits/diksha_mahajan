@@ -1,93 +1,105 @@
 [
   {
-    "name": "VIARA",
+    "name": "FEATHERED ROSE",
+    "description": "Rose Pink Embroidered Cape with Drape Skirt",
     "price": "Rs.110,000",
-    "mediaType": "video",
-    "mediaSrc": "/videos/nazm.mp4",
-    "mainImage": "/image.webp",
-    "images": [
-      "/image.webp",
-      "/image.webp",
-      "/image.webp",
-      "/image.webp"
-    ]
-  },
-  {
-    "name": "FARIDA",
-    "price": "Rs.95,000",
-    "mediaType": "video",
-    "mediaSrc": "/videos/noor-e-fiza.MP4",
-    "mainImage": "/image.webp",
-    "images": [
-      "/image.webp",
-      "/image.webp",
-      "/image.webp",
-      "/image.webp"
-    ]
-  },
-  {
-    "name": "MAHAN",
-    "price": "Rs.175,000",
-    "mediaType": "video",
-    "mediaSrc": "/videos/aaina.mp4",
-    "mainImage": "/image.webp",
-    "images": [
-      "/image.webp",
-      "/image.webp",
-      "/image.webp",
-      "/image.webp"
-    ]
-  },
-  {
-    "name": "ISMAIL",
-    "price": "Rs.58,800",
-    "mediaType": "video",
-    "mediaSrc": "/videos/nazm.mp4",
-    "mainImage": "/image.webp",
-    "images": [
-      "/image.webp",
-      "/image.webp",
-      "/image.webp",
-      "/image.webp"
-    ]
-  },
-  {
-    "name": "AVIVA",
-    "price": "Rs.95,000",
+    "collection": "aaina",
     "mediaType": "image",
-    "mediaSrc": "/image.webp",
-    "mainImage": "/image.webp",
+    "mediaSrc": "/aaina/feathered_rose/main.jpg",
+    "mainImage": "/aaina/feathered_rose/main.jpg",
     "images": [
-      "/image.webp",
-      "/image.webp",
-      "/image.webp",
-      "/image.webp"
+      "/aaina/feathered_rose/main.jpg",
+      "/aaina/feathered_rose/Diksha mahajan1669.jpg",
+      "/aaina/feathered_rose/Diksha mahajan1750.jpg",
+      "/aaina/feathered_rose/Diksha mahajan1757.jpg"
     ]
   },
   {
-    "name": "HABIB",
+    "name": "GLIDED GRACE",
+    "description": "Gold Embroidered Cape Set",
+    "price": "Rs.95,000",
+    "collection": "aaina",
+    "mediaType": "image",
+    "mediaSrc": "/aaina/glided_grace/main.jpg",
+    "mainImage": "/aaina/glided_grace/main.jpg",
+    "images": [
+      "/aaina/glided_grace/main.jpg",
+      "/aaina/glided_grace/Diksha mahajan1476.jpg",
+      "/aaina/glided_grace/Diksha mahajan1535.jpg"
+    ]
+  },
+  {
+    "name": "GULAABI NOOR",
+    "description": "Rose Pink Embroidered Suit set",
+    "price": "Rs.175,000",
+    "collection": "aaina",
+    "mediaType": "image",
+    "mediaSrc": "/aaina/gulaabi_noor/main.jpg",
+    "mainImage": "/aaina/gulaabi_noor/main.jpg",
+    "images": [
+      "/aaina/gulaabi_noor/main.jpg",
+      "/aaina/gulaabi_noor/Diksha mahajan1918.jpg",
+      "/aaina/gulaabi_noor/Diksha mahajan1919.jpg",
+      "/aaina/gulaabi_noor/Diksha mahajan1940.jpg"
+    ]
+  },
+  {
+    "name": "SAGE SYMPHONY",
+    "description": "Green Embroidered Cape with Drape Skirt",
     "price": "Rs.58,800",
-    "mediaType": "video",
-    "mediaSrc": "/videos/aaina.mp4",
-    "mainImage": "/image.webp",
+    "collection": "aaina",
+    "mediaType": "image",
+    "mediaSrc": "/aaina/sage_symphony/main.jpg",
+    "mainImage": "/aaina/sage_symphony/main.jpg",
     "images": [
-      "/image.webp",
-      "/image.webp",
-      "/image.webp",
-      "/image.webp"
+      "/aaina/sage_symphony/main.jpg",
+      "/aaina/sage_symphony/Diksha mahajan2267.jpg"
     ]
   },
   {
-    "name": "ADAIA",
-    "price": "Rs.187,000",
-    "mediaType": "video",
-    "mediaSrc": "/videos/nazm.mp4",
-    "mainImage": "/image.webp",
+    "name": "SHAAN-E-DUPATTA",
+    "description": "Gold Embroidered Lehenga set with Double Dupatta",
+    "price": "Rs.95,000",
+    "collection": "aaina",
+    "mediaType": "image",
+    "mediaSrc": "/aaina/shaan-e-dupatta/main.jpg",
+    "mainImage": "/aaina/shaan-e-dupatta/main.jpg",
     "images": [
-      "/image.webp",
-      "/image.webp",
-      "/image.webp",
-      "/image.webp"
+      "/aaina/shaan-e-dupatta/main.jpg",
+      "/aaina/shaan-e-dupatta/Diksha mahajan1762.jpg",
+      "/aaina/shaan-e-dupatta/Diksha mahajan1757.jpg",
+      "/aaina/shaan-e-dupatta/Diksha mahajan1819.jpg"
+    ]
+  },
+  {
+    "name": "SILVER LULLABY",
+    "description": "Midnight blue Embroidered Drape Saree",
+    "price": "Rs.58,800",
+    "collection": "aaina",
+    "mediaType": "image",
+    "mediaSrc": "/aaina/silver_lullaby/main.jpg",
+    "mainImage": "/aaina/silver_lullaby/main.jpg",
+    "images": [
+      "/aaina/silver_lullaby/main.jpg",
+      "/aaina/silver_lullaby/Diksha mahajan2001.jpg",
+      "/aaina/silver_lullaby/Diksha mahajan2062.jpg",
+      "/aaina/silver_lullaby/Diksha mahajan2069.jpg"
+    ]
+  },
+  {
+    "name": "SWAROVSKI SERIES",
+    "description": "Midnight blue Corset Gown",
+    "price": "Rs.187,000",
+    "collection": "aaina",
+    "mediaType": "image",
+    "mediaSrc": "/aaina/swarovski_series/main.jpg",
+    "mainImage": "/aaina/swarovski_series/main.jpg",
+    "images": [
+      "/aaina/swarovski_series/main.jpg",
+      "/aaina/swarovski_series/Diksha mahajan2001 copy.jpg",
+      "/aaina/swarovski_series/Diksha mahajan2062 copy.jpg",
+      "/aaina/swarovski_series/Diksha mahajan2088.jpg",
+      "/aaina/swarovski_series/IMG_5891.JPG"
     ]
   }
 ]

@@ -4,11 +4,11 @@ import Button from './Button';
 
 export default function AboutSection() {
   return (
-    <section className="relative w-full bg-white py-16 md:py-0">
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="relative w-full bg-white py-0">
+      <div className="max-w-7xl mx-auto px-0 md:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="space-y-6 md:py-16 w-full">
+          <div className="space-y-6 p-8 md:py-16 w-full">
             <h2 className="text-2xl md:text-4xl font-light tracking-wider leading-tight">
               FROM THE<br />
               HOUSE OF<br />
@@ -27,7 +27,7 @@ export default function AboutSection() {
           </div>
 
           {/* Image */}
-          <div className="relative h-[600px] w-full">
+          <div className="relative h-[400px] md:h-[600px] w-full">
             <Image
               src="/image.png"
               alt="Diksha Mahajan Collection"

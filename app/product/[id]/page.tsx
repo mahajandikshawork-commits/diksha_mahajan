@@ -19,6 +19,8 @@ export default function ProductPage() {
   const [selectedSize, setSelectedSize] = useState('');
   const [showCustomForm, setShowCustomForm] = useState(false);
   const [showSizeChart, setShowSizeChart] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   // Build media array combining images and video if available
   const productMedia: Array<{type: 'image' | 'video', src: string}> = [];
@@ -47,13 +49,26 @@ export default function ProductPage() {
     setShowCustomForm(size === 'Custom');
   };
 
+  const toggleDropdown = (section: string) => {
+    setOpenDropdown(openDropdown === section ? null : section);
+  };
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
+
   return (
     <div className="min-h-screen bg-white">      
-      <main className="pt-32 pb-16 px-4 md:px-8">
+      <main className="pt-24 md:pt-32 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Side - Image Gallery */}
-            <div className="flex flex-col-reverse md:flex-row gap-4 overflow-hidden">
+            <div className="flex flex-col-reverse md:flex-row gap-4 overflow-hidden md:sticky md:top-32 md:self-start">
               {/* Vertical Thumbnail Strip */}
               <div className="flex md:flex-col gap-2 overflow-y-auto max-h-[85vh] flex-shrink-0">
                 {productMedia.map((media, index) => (
@@ -187,15 +202,187 @@ export default function ProductPage() {
               {/* Product Details */}
               <div className="pt-6 border-t space-y-3 text-sm">
                 <p className="font-medium uppercase tracking-wider">
-                  RUCHED CORSET PAIRED WITH HEAVY EMBROIDERED LEHENGA AND DUPATTA
+                  {product.description}
                 </p>
-                
                 <div className="space-y-2 text-gray-700">
                   <p><span className="font-medium">Color:</span> AMBER YELLOW FANAH PRINT</p>
                   <p><span className="font-medium">Fabric:</span> SILK ORGANZA</p>
                   <p><span className="font-medium">NO OF COMPONENTS:</span> 3</p>
                   <p><span className="font-medium">DELIVERY TIME:</span> 4-5WEEKS</p>
                   <p><span className="font-medium">Wash Care:</span> Dry Clean</p>
+                </div>
+              </div>
+
+              {/* Collapsible Sections */}
+              <div className="pt-6 space-y-3">
+                {/* Manufactured and Packed By */}
+                <div className="border-t">
+                  <button
+                    onClick={() => toggleDropdown('manufactured')}
+                    className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
+                  >
+                    <span>MANUFACTURED AND PACKED BY</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'manufactured' ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === 'manufactured' && (
+                    <div className="pb-4 text-sm text-gray-700 space-y-1">
+                      <p>Address: RUKAAN INTERNATIONAL PRIVATE LIMITED, Basement, Plot No- K 257, Maidan Garhi</p>
+                      <p>Road, New Delhi- 110074 South Delhi, Delhi, India</p>
+                      <p className="pt-2">Country Of Origin: India</p>
+                      <p className="pt-2">Email: Orders@mahimamahajan.in</p>
+                      <p>Tel: +91- 9811004752</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Country of Origin */}
+                <div className="border-t">
+                  <button
+                    onClick={() => toggleDropdown('country')}
+                    className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
+                  >
+                    <span>COUNTRY OF ORIGIN</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'country' ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === 'country' && (
+                    <div className="pb-4 text-sm text-gray-700">
+                      <p>India</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Customer Care */}
+                <div className="border-t">
+                  <button
+                    onClick={() => toggleDropdown('customer')}
+                    className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
+                  >
+                    <span>CUSTOMER CARE</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'customer' ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === 'customer' && (
+                    <div className="pb-4 text-sm text-gray-700">
+                      <p>Email: Orders@mahimamahajan.in</p>
+                      <p>Tel: +91- 9811004752</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Shipping Information */}
+                <div className="border-t">
+                  <button
+                    onClick={() => toggleDropdown('shipping')}
+                    className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
+                  >
+                    <span>SHIPPING INFORMATION</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'shipping' ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === 'shipping' && (
+                    <div className="pb-4 text-sm text-gray-700 space-y-2">
+                      <p>Prices are inclusive of all taxes, Packaging and handling.</p>
+                      <p className="font-medium">Shipping in India:</p>
+                      <p>Free of charge</p>
+                      <p className="font-medium pt-2">International Shipping:</p>
+                      <p>For international purchases, duties and taxes may be applicable based on the import laws of your country.</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Ask a Question */}
+                <div className="border-t">
+                  <button
+                    onClick={() => toggleDropdown('question')}
+                    className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
+                  >
+                    <span>ASK A QUESTION</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'question' ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === 'question' && (
+                    <div className="pb-4">
+                      <p className="text-sm text-gray-600 mb-4">Leave your message and we'll get back to you shortly.</p>
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <label className="text-xs uppercase tracking-wide block mb-2">NAME *</label>
+                            <input
+                              type="text"
+                              name="name"
+                              value={formData.name}
+                              onChange={handleFormChange}
+                              placeholder="Ex: John"
+                              required
+                              className="w-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-black"
+                            />
+                          </div>
+                          <div>
+                            <label className="text-xs uppercase tracking-wide block mb-2">EMAIL *</label>
+                            <input
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleFormChange}
+                              placeholder="Ex: John@gmail.com"
+                              required
+                              className="w-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-black"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label className="text-xs uppercase tracking-wide block mb-2">MESSAGE *</label>
+                          <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleFormChange}
+                            placeholder="Ex: I want to know more about the product"
+                            required
+                            rows={4}
+                            className="w-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-black resize-none"
+                          />
+                        </div>
+                        <button
+                          type="submit"
+                          className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-2 uppercase tracking-wider text-sm transition-colors"
+                        >
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

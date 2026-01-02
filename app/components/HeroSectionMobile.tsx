@@ -136,7 +136,7 @@ export default function HeroSectionMobile() {
         </svg>
       </button>
 
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+      {/* <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         {videos.map((_, index) => (
           <button
             key={index}
@@ -147,7 +147,7 @@ export default function HeroSectionMobile() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

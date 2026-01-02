@@ -31,7 +31,7 @@ export default function ProductSlider() {
       </section>
 
       {/* Mobile View */}
-      <section className="md:hidden py-16 bg-gray-50">
+      <section className="md:hidden pt-8 md:py-16 bg-gray-50">
         <div className="overflow-x-auto scrollbar-hide">
           <div className="flex gap-4 px-4" style={{ width: 'max-content' }}>
             {productsData.map((product, index) => (
