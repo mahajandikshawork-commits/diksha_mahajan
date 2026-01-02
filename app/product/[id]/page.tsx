@@ -152,29 +152,29 @@ export default function ProductPage() {
             </div>
 
             {/* Right Side - Product Info */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Brand & Product Name */}
               <div>
-                <p className="text-sm tracking-[0.3em] uppercase text-gray-600 mb-2">
-                  DIKSHAMAHAJAN
+                <p className="text-xs tracking-[0.3em] uppercase text-gray-600 mb-2">
+                  {product.collection}
                 </p>
-                <h1 className="text-3xl md:text-4xl font-light tracking-wider uppercase">
+                <h1 className="text-xl md:text-4xl font-medium tracking-wider uppercase">
                   {product.name}
                 </h1>
-                <p className="text-sm text-gray-600 mt-2">MMAW25W-955</p>
+                {/* <p className="text-sm text-gray-600 mt-2">DMAW25W-955</p> */}
               </div>
 
               {/* Price */}
               <div>
-                <p className="text-2xl font-light">{product.price}</p>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-lg font-light">{product.price}</p>
+                <p className="text-xs text-gray-600 mt-1">
                   Inclusive of all taxes. Shipping calculated at checkout.
                 </p>
               </div>
 
               {/* Size Selection */}
               <div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-2">
                   <label className="text-sm uppercase tracking-wider">SIZE</label>
                   <button
                     onClick={() => setShowSizeChart(true)}
@@ -189,7 +189,7 @@ export default function ProductPage() {
                     <button
                       key={size}
                       onClick={() => handleSizeSelect(size)}
-                      className={`px-6 py-2 border ${
+                      className={`md:px-6 px-4 md:py-2 py-1 text-xs md:text-sm border ${
                         selectedSize === size
                           ? 'border-black bg-black text-white'
                           : 'border-gray-300 hover:border-black'
@@ -208,16 +208,16 @@ export default function ProductPage() {
               <div className="space-y-3 pt-6">
                 <button 
                   onClick={handleAddToCart}
-                  className="w-full bg-white border border-black text-black py-3 uppercase tracking-wider hover:bg-gray-50 transition-colors"
+                  className="w-full bg-white border text-xs md:text-sm border-black text-black py-2 uppercase tracking-wider hover:bg-gray-50 transition-colors"
                 >
                   ADD TO CART
                 </button>
                 
-                <button className="w-full bg-black text-white py-3 uppercase tracking-wider hover:bg-gray-800 transition-colors">
+                <button className="w-full bg-black text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-gray-800 transition-colors">
                   BUY IT NOW
                 </button>
 
-                <button className="w-full bg-[#25D366] text-white py-3 uppercase tracking-wider hover:bg-[#20BA5A] transition-colors flex items-center justify-center gap-2">
+                <button className="w-full bg-[#25D366] text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-[#20BA5A] transition-colors flex items-center justify-center gap-2">
                   <BsWhatsapp size={20} />
                   ORDER ON WHATSAPP
                 </button>

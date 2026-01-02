@@ -5,7 +5,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white">
       <main className="pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-light tracking-[0.2em] text-center mb-16 uppercase">
+          <h1 className="text-xl md:text-3xl font-light tracking-[0.2em] text-center md:mb-16 mb-8 uppercase">
             {aboutData.title}
           </h1>
           

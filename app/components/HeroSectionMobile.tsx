@@ -85,10 +85,10 @@ export default function HeroSectionMobile() {
             <div className="absolute inset-0 bg-black/30 pointer-events-none" />
 
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white pointer-events-none">
-              <h2 className="text-3xl font-light tracking-[0.2em] mb-2">
+              <h2 className="text-xl font-light tracking-[0.2em] mb-2">
                 {video.title}
               </h2>
-              <p className="text-sm tracking-wider opacity-90">
+              <p className="text-xs tracking-wider opacity-90">
                 {video.subtitle}
               </p>
             </div>
