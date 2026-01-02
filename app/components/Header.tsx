@@ -17,7 +17,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/80 backdrop-blur-sm text-white">
+            <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/90 backdrop-blur-sm text-white">
                 <div className="w-full px-8 py-6">
                     {/* Mobile Layout */}
                     <div className="flex md:hidden items-center justify-between">

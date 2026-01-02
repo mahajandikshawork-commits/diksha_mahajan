@@ -3,8 +3,8 @@ import spotlightData from '@/data/spotlight.json';
 
 export default function SpotlightSection() {
   return (
-    <section className="py-16 md:py-32 md:pt-24 px-8 bg-[#F5F1E8]">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 md:py-32 md:pt-24 bg-[#F5F1E8]">
+      <div className="w-full mx-auto px-8">
         <h2 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-4 uppercase">
           In The Spotlight
         </h2>
@@ -13,15 +13,32 @@ export default function SpotlightSection() {
           where timelessness meets the women rewriting tradition
         </p>
 
-        {/* Desktop: 4 columns, Mobile: 2x2 grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {spotlightData.map((category, index) => (
-            <SpotlightCard
-              key={index}
-              title={category.title}
-              images={category.images}
-            />
-          ))}
+        {/* Mobile & Tablet: Horizontal Scroll */}
+        <div className="lg:hidden overflow-x-auto scrollbar-hide -mx-8 px-8">
+          <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
+            {spotlightData.map((category, index) => (
+              <div key={index} className="w-64 md:w-80 flex-shrink-0">
+                <SpotlightCard
+                  title={category.title}
+                  images={category.images}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid Layout - 4 columns first row, 3 columns second row */}
+        <div className="hidden lg:block">
+          {/* First Row - 4 items */}
+          <div className="grid grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
+            {spotlightData.map((category, index) => (
+              <SpotlightCard
+                key={index}
+                title={category.title}
+                images={category.images}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

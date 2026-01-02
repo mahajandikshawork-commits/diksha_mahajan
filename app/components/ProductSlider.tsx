@@ -9,7 +9,7 @@ export default function ProductSlider() {
     <>
       {/* Desktop View */}
       <section className="hidden md:block py-24 px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full mx-auto">
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-6" style={{ width: 'max-content' }}>
               {productsData.map((product, index) => (

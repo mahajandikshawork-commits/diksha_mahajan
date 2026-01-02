@@ -1,28 +1,33 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from 'next/image';
 
 interface VideoItem {
   src: string;
+  coverImage: string;
   title: string;
   subtitle: string;
 }
 
 const videos: VideoItem[] = [
   {
-    src: '/videos/nazm.mp4',
-    title: 'NAZM',
-    subtitle: 'The Story of Her Becoming',
-  },
-  {
     src: '/videos/noor-e-fiza.MP4',
+    coverImage: '/Noor-e-Fiza cover homepage.JPG',
     title: 'NOOR-E-FIZA',
     subtitle: 'Light of the Atmosphere',
   },
   {
     src: '/videos/aaina.mp4',
+    coverImage: '/Aaina cover homepage.JPG',
     title: 'AAINA',
     subtitle: 'The Mirror Collection',
+  },
+  {
+    src: '/videos/nazm.mp4',
+    coverImage: '/Nazm cover homepage.jpg',
+    title: 'NAZM',
+    subtitle: 'The Story of Her Becoming',
   },
 ];
 
@@ -51,7 +56,7 @@ export default function HeroSectionDesktop() {
   };
 
   return (
-    <section className="relative w-full h-screen">
+    <section className="relative w-full h-screen top-22">
       <div className="grid grid-cols-3 h-screen">
         {videos.map((video, index) => (
           <div
@@ -67,6 +72,18 @@ export default function HeroSectionDesktop() {
               }
             }}
           >
+            {/* Cover Image */}
+            <div className={`absolute inset-0 transition-opacity duration-300 ${activeVideo === index ? 'opacity-0' : 'opacity-100'}`}>
+              <Image
+                src={video.coverImage}
+                alt={video.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+
+            {/* Video */}
             <video
               ref={(el) => {
                 videoRefs.current[index] = el;
@@ -79,15 +96,6 @@ export default function HeroSectionDesktop() {
             >
               <source src={video.src} type="video/mp4" />
             </video>
-
-            <div className="absolute bottom-0 left-0 right-0 p-8 text-white pointer-events-none">
-              <h2 className="text-2xl font-light tracking-[0.2em] mb-2">
-                {video.title}
-              </h2>
-              <p className="text-sm tracking-wider opacity-90">
-                {video.subtitle}
-              </p>
-            </div>
           </div>
         ))}
       </div>

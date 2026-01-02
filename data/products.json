@@ -101,5 +101,106 @@
       "/aaina/swarovski_series/Diksha mahajan2088.jpg",
       "/aaina/swarovski_series/IMG_5891.JPG"
     ]
+  },
+  {
+    "name": "CRIMSON WHISPERS",
+    "description": "Red Embroidered Lehenga Set",
+    "price": "Rs.125,000",
+    "collection": "nazm",
+    "mediaType": "image",
+    "mediaSrc": "/products/Crimson Whispers/Main.jpeg",
+    "mainImage": "/products/Crimson Whispers/Main.jpeg",
+    "images": [
+      "/products/Crimson Whispers/Main.jpeg",
+      "/products/Crimson Whispers/DSC08332.jpeg",
+      "/products/Crimson Whispers/DSC08333.jpeg",
+      "/products/Crimson Whispers/DSC08342.jpeg"
+    ]
+  },
+  {
+    "name": "EMERALD WHISPERS",
+    "description": "Green Embroidered Lehenga Set",
+    "price": "Rs.145,000",
+    "collection": "noor-e-fiza",
+    "mediaType": "image",
+    "mediaSrc": "/products/Emerald Whispers/Main.JPEG",
+    "mainImage": "/products/Emerald Whispers/Main.JPEG",
+    "images": [
+      "/products/Emerald Whispers/Main.JPEG",
+      "/products/Emerald Whispers/DSC06254.JPEG",
+      "/products/Emerald Whispers/DSC06265.JPEG",
+      "/products/Emerald Whispers/DSC06325.JPEG"
+    ]
+  },
+  {
+    "name": "GOLDEN HOUR",
+    "description": "Gold Embroidered Lehenga Set",
+    "price": "Rs.135,000",
+    "collection": "nazm",
+    "mediaType": "image",
+    "mediaSrc": "/products/Golden Hour/Main.JPEG",
+    "mainImage": "/products/Golden Hour/Main.JPEG",
+    "images": [
+      "/products/Golden Hour/Main.JPEG",
+      "/products/Golden Hour/Copy of IMG_9791.JPEG",
+      "/products/Golden Hour/Copy of IMG_9803.JPEG"
+    ]
+  },
+  {
+    "name": "MOONLIT PAUSE",
+    "description": "Blue Embroidered Lehenga Set",
+    "price": "Rs.115,000",
+    "collection": "nazm",
+    "mediaType": "image",
+    "mediaSrc": "/products/Moonlit Pause/main.JPEG",
+    "mainImage": "/products/Moonlit Pause/main.JPEG",
+    "images": [
+      "/products/Moonlit Pause/main.JPEG",
+      "/products/Moonlit Pause/Copy of IMG_9696.JPEG"
+    ]
+  },
+  {
+    "name": "PRINTED SILENCE",
+    "description": "Printed Embroidered Lehenga Set",
+    "price": "Rs.105,000",
+    "collection": "nazm",
+    "mediaType": "image",
+    "mediaSrc": "/products/Printed Silence/Main.JPEG",
+    "mainImage": "/products/Printed Silence/Main.JPEG",
+    "images": [
+      "/products/Printed Silence/Main.JPEG",
+      "/products/Printed Silence/Copy of IMG_9780.JPEG",
+      "/products/Printed Silence/Copy of IMG_9789.JPEG"
+    ]
+  },
+  {
+    "name": "RUHANI",
+    "description": "Pink Embroidered Lehenga Set",
+    "price": "Rs.155,000",
+    "collection": "noor-e-fiza",
+    "mediaType": "image",
+    "mediaSrc": "/products/Ruhani/Main.JPEG",
+    "mainImage": "/products/Ruhani/Main.JPEG",
+    "images": [
+      "/products/Ruhani/Main.JPEG",
+      "/products/Ruhani/DSC05756.JPEG",
+      "/products/Ruhani/DSC05783.JPEG",
+      "/products/Ruhani/DSC05834.JPEG"
+    ]
+  },
+  {
+    "name": "SAFFRON DUSK",
+    "description": "Orange Embroidered Lehenga Set",
+    "price": "Rs.120,000",
+    "collection": "nazm",
+    "mediaType": "image",
+    "mediaSrc": "/products/Saffron Dusk/Main.JPEG",
+    "mainImage": "/products/Saffron Dusk/Main.JPEG",
+    "images": [
+      "/products/Saffron Dusk/Main.JPEG",
+      "/products/Saffron Dusk/Copy of IMG_9596.JPEG",
+      "/products/Saffron Dusk/Copy of IMG_9604.JPEG",
+      "/products/Saffron Dusk/Copy of IMG_9613.JPEG"
+    ]
   }
 ]
