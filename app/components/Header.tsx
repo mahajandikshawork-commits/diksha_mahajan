@@ -167,14 +167,14 @@ export default function Header() {
                                 <a
                                     href="#about"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="text-xl md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
+                                    className="text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
                                 >
                                     About Us
                                 </a>
                                 <Link
                                     href="/collection"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`text-xl md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase ${
+                                    className={`text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase ${
                                         pathname === '/collection' ? 'text-[#DCC898]' : ''
                                     }`}
                                 >
@@ -183,7 +183,7 @@ export default function Header() {
                                 <a
                                     href="#appointment"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="text-xl md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
+                                    className="text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
                                 >
                                     Book Your Appointment
                                 </a>
