@@ -3,7 +3,7 @@ import spotlightData from '@/data/spotlight.json';
 
 export default function SpotlightSection() {
   return (
-    <section className="py-16 md:py-48 px-8 bg-[#F5F1E8]">
+    <section className="py-16 md:py-32 md:pt-24 px-8 bg-[#F5F1E8]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-4 uppercase">
           In The Spotlight
