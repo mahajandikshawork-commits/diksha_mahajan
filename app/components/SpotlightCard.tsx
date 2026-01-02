@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 interface SpotlightCardProps {
@@ -10,14 +10,6 @@ interface SpotlightCardProps {
 
 export default function SpotlightCard({ title, images }: SpotlightCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // Auto-slide every 3 seconds
-
-    return () => clearInterval(interval);
-  }, [images.length]);
 
   const handleClick = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length);

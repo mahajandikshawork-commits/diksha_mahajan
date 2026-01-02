@@ -4,7 +4,7 @@ import Button from './Button';
 
 export default function AboutSection() {
   return (
-    <section className="relative w-full min-h-screen bg-white py-16 md:py-0">
+    <section className="relative w-full bg-white py-16 md:py-0">
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
@@ -27,7 +27,7 @@ export default function AboutSection() {
           </div>
 
           {/* Image */}
-          <div className="relative h-[600px] md:h-screen w-full">
+          <div className="relative h-[600px] w-full">
             <Image
               src="/image.png"
               alt="Diksha Mahajan Collection"
