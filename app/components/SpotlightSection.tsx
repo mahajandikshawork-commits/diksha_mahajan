@@ -14,7 +14,7 @@ export default function SpotlightSection() {
         </p>
 
         {/* Mobile & Tablet: Horizontal Scroll */}
-        <div className="lg:hidden overflow-x-auto scrollbar-hide -mx-8 px-8">
+        <div className="overflow-x-auto scrollbar-hide -mx-8 px-8">
           <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
             {spotlightData.map((category, index) => (
               <div key={index} className="w-64 md:w-80 flex-shrink-0">
@@ -28,10 +28,10 @@ export default function SpotlightSection() {
         </div>
 
         {/* Desktop: Grid Layout - 4 columns first row, 3 columns second row */}
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block"> */}
           {/* First Row - 4 items */}
-          <div className="grid grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
-            {spotlightData.map((category, index) => (
+          {/* <div className="grid grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto"> */}
+            {/* {spotlightData.map((category, index) => (
               <SpotlightCard
                 key={index}
                 title={category.title}
@@ -39,7 +39,7 @@ export default function SpotlightSection() {
               />
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

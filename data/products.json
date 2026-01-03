@@ -1,183 +1,15 @@
 [
   {
-    "name": "FEATHERED ROSE",
-    "description": "Rose Pink Embroidered Cape with Drape Skirt",
-    "price": "Rs.110,000",
-    "collection": "aaina",
-    "mediaType": "image",
-    "mediaSrc": "/aaina/feathered_rose/main.jpg",
-    "mainImage": "/aaina/feathered_rose/main.jpg",
-    "images": [
-      "/aaina/feathered_rose/main.jpg",
-      "/aaina/feathered_rose/Diksha mahajan1669.jpg",
-      "/aaina/feathered_rose/Diksha mahajan1750.jpg",
-      "/aaina/feathered_rose/Diksha mahajan1757.jpg"
-    ]
-  },
-  {
-    "name": "GLIDED GRACE",
-    "description": "Gold Embroidered Cape Set",
-    "price": "Rs.95,000",
-    "collection": "aaina",
-    "mediaType": "image",
-    "mediaSrc": "/aaina/glided_grace/main.jpg",
-    "mainImage": "/aaina/glided_grace/main.jpg",
-    "images": [
-      "/aaina/glided_grace/main.jpg",
-      "/aaina/glided_grace/Diksha mahajan1476.jpg",
-      "/aaina/glided_grace/Diksha mahajan1535.jpg"
-    ]
-  },
-  {
-    "name": "GULAABI NOOR",
-    "description": "Rose Pink Embroidered Suit set",
-    "price": "Rs.175,000",
-    "collection": "aaina",
-    "mediaType": "image",
-    "mediaSrc": "/aaina/gulaabi_noor/main.jpg",
-    "mainImage": "/aaina/gulaabi_noor/main.jpg",
-    "images": [
-      "/aaina/gulaabi_noor/main.jpg",
-      "/aaina/gulaabi_noor/Diksha mahajan1918.jpg",
-      "/aaina/gulaabi_noor/Diksha mahajan1919.jpg",
-      "/aaina/gulaabi_noor/Diksha mahajan1940.jpg"
-    ]
-  },
-  {
-    "name": "SAGE SYMPHONY",
-    "description": "Green Embroidered Cape with Drape Skirt",
-    "price": "Rs.58,800",
-    "collection": "aaina",
-    "mediaType": "image",
-    "mediaSrc": "/aaina/sage_symphony/main.jpg",
-    "mainImage": "/aaina/sage_symphony/main.jpg",
-    "images": [
-      "/aaina/sage_symphony/main.jpg",
-      "/aaina/sage_symphony/Diksha mahajan2267.jpg"
-    ]
-  },
-  {
-    "name": "SHAAN-E-DUPATTA",
-    "description": "Gold Embroidered Lehenga set with Double Dupatta",
-    "price": "Rs.95,000",
-    "collection": "aaina",
-    "mediaType": "image",
-    "mediaSrc": "/aaina/shaan-e-dupatta/main.jpg",
-    "mainImage": "/aaina/shaan-e-dupatta/main.jpg",
-    "images": [
-      "/aaina/shaan-e-dupatta/main.jpg",
-      "/aaina/shaan-e-dupatta/Diksha mahajan1762.jpg",
-      "/aaina/shaan-e-dupatta/Diksha mahajan1757.jpg",
-      "/aaina/shaan-e-dupatta/Diksha mahajan1819.jpg"
-    ]
-  },
-  {
-    "name": "SILVER LULLABY",
-    "description": "Midnight blue Embroidered Drape Saree",
-    "price": "Rs.58,800",
-    "collection": "aaina",
-    "mediaType": "image",
-    "mediaSrc": "/aaina/silver_lullaby/main.jpg",
-    "mainImage": "/aaina/silver_lullaby/main.jpg",
-    "images": [
-      "/aaina/silver_lullaby/main.jpg",
-      "/aaina/silver_lullaby/Diksha mahajan2001.jpg",
-      "/aaina/silver_lullaby/Diksha mahajan2062.jpg",
-      "/aaina/silver_lullaby/Diksha mahajan2069.jpg"
-    ]
-  },
-  {
-    "name": "SWAROVSKI SERIES",
-    "description": "Midnight blue Corset Gown",
-    "price": "Rs.187,000",
-    "collection": "aaina",
-    "mediaType": "image",
-    "mediaSrc": "/aaina/swarovski_series/main.jpg",
-    "mainImage": "/aaina/swarovski_series/main.jpg",
-    "images": [
-      "/aaina/swarovski_series/main.jpg",
-      "/aaina/swarovski_series/Diksha mahajan2001 copy.jpg",
-      "/aaina/swarovski_series/Diksha mahajan2062 copy.jpg",
-      "/aaina/swarovski_series/Diksha mahajan2088.jpg",
-      "/aaina/swarovski_series/IMG_5891.JPG"
-    ]
-  },
-  {
-    "name": "CRIMSON WHISPERS",
-    "description": "Red Embroidered Lehenga Set",
-    "price": "Rs.125,000",
-    "collection": "nazm",
-    "mediaType": "image",
-    "mediaSrc": "/products/Crimson Whispers/Main.jpeg",
-    "mainImage": "/products/Crimson Whispers/Main.jpeg",
-    "images": [
-      "/products/Crimson Whispers/Main.jpeg",
-      "/products/Crimson Whispers/DSC08332.jpeg",
-      "/products/Crimson Whispers/DSC08333.jpeg",
-      "/products/Crimson Whispers/DSC08342.jpeg"
-    ]
-  },
-  {
-    "name": "EMERALD WHISPERS",
-    "description": "Green Embroidered Lehenga Set",
-    "price": "Rs.145,000",
-    "collection": "noor-e-fiza",
-    "mediaType": "image",
-    "mediaSrc": "/products/Emerald Whispers/Main.JPEG",
-    "mainImage": "/products/Emerald Whispers/Main.JPEG",
-    "images": [
-      "/products/Emerald Whispers/Main.JPEG",
-      "/products/Emerald Whispers/DSC06254.JPEG",
-      "/products/Emerald Whispers/DSC06265.JPEG",
-      "/products/Emerald Whispers/DSC06325.JPEG"
-    ]
-  },
-  {
-    "name": "GOLDEN HOUR",
-    "description": "Gold Embroidered Lehenga Set",
-    "price": "Rs.135,000",
-    "collection": "nazm",
-    "mediaType": "image",
-    "mediaSrc": "/products/Golden Hour/Main.JPEG",
-    "mainImage": "/products/Golden Hour/Main.JPEG",
-    "images": [
-      "/products/Golden Hour/Main.JPEG",
-      "/products/Golden Hour/Copy of IMG_9791.JPEG",
-      "/products/Golden Hour/Copy of IMG_9803.JPEG"
-    ]
-  },
-  {
-    "name": "MOONLIT PAUSE",
-    "description": "Blue Embroidered Lehenga Set",
-    "price": "Rs.115,000",
-    "collection": "nazm",
-    "mediaType": "image",
-    "mediaSrc": "/products/Moonlit Pause/main.JPEG",
-    "mainImage": "/products/Moonlit Pause/main.JPEG",
-    "images": [
-      "/products/Moonlit Pause/main.JPEG",
-      "/products/Moonlit Pause/Copy of IMG_9696.JPEG"
-    ]
-  },
-  {
-    "name": "PRINTED SILENCE",
-    "description": "Printed Embroidered Lehenga Set",
-    "price": "Rs.105,000",
-    "collection": "nazm",
-    "mediaType": "image",
-    "mediaSrc": "/products/Printed Silence/Main.JPEG",
-    "mainImage": "/products/Printed Silence/Main.JPEG",
-    "images": [
-      "/products/Printed Silence/Main.JPEG",
-      "/products/Printed Silence/Copy of IMG_9780.JPEG",
-      "/products/Printed Silence/Copy of IMG_9789.JPEG"
-    ]
-  },
-  {
     "name": "RUHANI",
-    "description": "Pink Embroidered Lehenga Set",
-    "price": "Rs.155,000",
+    "description": "Ruhani is an expression of quiet strength and sensual elegance. Crafted in a rich brown tone, this corset gown features a sculpted bodice that contours the form, paired with fluid embroidered drape sleeves that moves effortlessly with the wearer. The interplay of structure and softness creates a striking yet refined silhouette, designed for celebrations that call for glamour.",
+    "occasion": "Cocktail | Reception | Evening Soiree's",
+    "price": "Rs.22,999",
     "collection": "noor-e-fiza",
+    "materials": "Sand-Wash Satin & Soft Net",
+    "color": "Dark Brown",
+    "components": "1",
+    "modelSize": "Medium",
+    "modelHeight": "5'8\"",
     "mediaType": "image",
     "mediaSrc": "/products/Ruhani/Main.JPEG",
     "mainImage": "/products/Ruhani/Main.JPEG",
@@ -189,10 +21,184 @@
     ]
   },
   {
+    "name": "EMERALD WHISPERS",
+    "description": "Designed for comfort without compromising on detail, Emerald Whispers captures the poetry of movement and the richness of festive greens with it's intricately embroidered straight pants paired with a softly draped kurta, creating a silhouette that is fluid, elegant, and effortlessly modern. Paired with a fluid dupatta, the ensemble is a perfect for occasions where ease and elegance come together.",
+    "occasion": "Mehendi | Cocktail | Reception | Intimate Wedding Functions",
+    "price": "Rs.17,999",
+    "collection": "noor-e-fiza",
+    "materials": "Silk Satin & Net embroidered pants",
+    "color": "Green to Silver ombré",
+    "components": "3",
+    "modelSize": "Medium",
+    "modelHeight": "5'8\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Emerald Whispers/Main.JPEG",
+    "mainImage": "/products/Emerald Whispers/Main.JPEG",
+    "images": [
+      "/products/Emerald Whispers/Main.JPEG",
+      "/products/Emerald Whispers/DSC06254.JPEG",
+      "/products/Emerald Whispers/DSC06265.JPEG",
+      "/products/Emerald Whispers/DSC06325.JPEG"
+    ]
+  },
+  {
+    "name": "MIDNIGHT HOUR",
+    "description": "This midnight hour lehenga set features a richly embroidered blouse paired with a layered skirt, embroidered around the broad waist belt and a sheer sequin-embroidered dupatta cape. The dupatta adds drama and movement with its sequin hangings and tassels drops making this ensemble ideal for cocktail nights.",
+    "occasion": "Cocktail | Sangeet | Wedding soirée",
+    "price": "Rs.17,999",
+    "collection": "noor-e-fiza",
+    "materials": "Soft net",
+    "color": "Navy Blue",
+    "components": "3",
+    "modelSize": "Medium",
+    "modelHeight": "5'8\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Midnight Hour/DSC06058.jpg",
+    "mainImage": "/products/Midnight Hour/DSC06058.jpg",
+    "images": [
+      "/products/Midnight Hour/DSC06058.jpg",
+      "/products/Midnight Hour/DSC06063.JPEG",
+      "/products/Midnight Hour/DSC06096.JPEG",
+      "/products/Midnight Hour/DSC06143.JPEG",
+      "/products/Midnight Hour/DSC06152.JPEG",
+      "/products/Midnight Hour/DSC06178.JPEG"
+    ]
+  },
+  {
+    "name": "FIZA AFTER MIDNIGHT",
+    "description": "A statement jumpsuit crafted with intricate tonal embroidery, paired with a sheer embroidered cape. This outfit balances structure and fluidity, offering a bold yet graceful alternative to traditional occasion wear. Perfect for women seeking a modern, powerful silhouette without compromising on festive detailing.",
+    "occasion": "Cocktail | Reception | Evening Festivities",
+    "price": "Rs.13,999",
+    "collection": "noor-e-fiza",
+    "materials": "Raw Silk",
+    "color": "Navy Blue",
+    "components": "2",
+    "modelSize": "X.Small",
+    "modelHeight": "5'7\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Fiza after Midnight/DSC06058.jpg",
+    "mainImage": "/products/Fiza after Midnight/main.jpeg",
+    "images": [
+      "/products/Fiza after Midnight/main.jpeg",
+      "/products/Fiza after Midnight/DSC06177.jpeg",
+      "/products/Fiza after Midnight/DSC06192.jpeg",
+      "/products/Fiza after Midnight/DSC06219.jpeg",
+      "/products/Fiza after Midnight/DSC06229.jpeg"
+    ]
+  },
+  {
+    "name": "OMBRÉ MIRAGE",
+    "description": "A contemporarily embroidered saree gown in shades of green to silver, features a sculpted corset bodice and a seamless ruched saree drape on the shoulder that transitions through deep green tones. Designed for effortless elegance, this fishtail bottom of the gown keeps it modern yet traditional with the saree pallu.",
+    "occasion": "Cocktail | Reception | Evening Soirées",
+    "price": "Rs.23,999",
+    "collection": "noor-e-fiza",
+    "materials": "Soft Net",
+    "color": "Green to Silver ombré",
+    "components": "1",
+    "modelSize": "X.Small",
+    "modelHeight": "5'7\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Ombré Mirage/DSC06024.jpeg",
+    "mainImage": "/products/Ombré Mirage/DSC06024.jpeg",
+    "images": [
+      "/products/Ombré Mirage/DSC06024.jpeg"
+    ]
+  },
+  {
+    "name": "THE BLUE AFFAIRÈ",
+    "description": "A modern draped skirt with an embroidered waistband paired with a delicately embroidered blouse with sheer pearl detailings. The fluid skirt drape creates graceful movement, while the embroidery adds a refined festive touch. The pearl dupatta and tassel detailings adds to the elegance of the ensemble making it perfect for intimate functions and pre-wedding events.",
+    "occasion": "Cocktail | Reception | Intimate Wedding Functions",
+    "price": "Rs.15,999",
+    "collection": "noor-e-fiza",
+    "materials": "Silk Satin & Soft Net",
+    "color": "Blue",
+    "components": "3",
+    "modelSize": "X.Small",
+    "modelHeight": "5'7\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/The Blue Affairè/main.jpg",
+    "mainImage": "/products/The Blue Affairè/main.jpg",
+    "images": [
+      "/products/The Blue Affairè/main.jpg",
+      "/products/The Blue Affairè/DSC06384.jpg",
+      "/products/The Blue Affairè/DSC06416.jpg",
+      "/products/The Blue Affairè/DSC06443.jpeg"
+    ]
+  },
+  {
+    "name": "EVENING WINE",
+    "description": "A rich wine drape saree designed with intricate ombré embroidery and a modern silhouette. The deep hue and delicate tassel detailing around the pallu and blouse create a dramatic yet refined look, ideal for evening celebrations.",
+    "occasion": "Cocktail | Reception | Wedding",
+    "price": "Rs.24,999",
+    "collection": "noor-e-fiza",
+    "materials": "Soft Net",
+    "color": "Wine",
+    "components": "2",
+    "modelSize": "Medium",
+    "modelHeight": "5'8\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Evening wine/main.jpg",
+    "mainImage": "/products/Evening wine/main.jpg",
+    "images": [
+      "/products/Evening wine/main.jpg",
+      "/products/Evening wine/DSC05617.jpg",
+      "/products/Evening wine/DSC05618.jpg",
+      "/products/Evening wine/DSC05667.JPEG",
+      "/products/Evening wine/diksha mahajan shoot5565.jpg"
+    ]
+  },
+  {
+    "name": "CHAAND SAAYA",
+    "description": "A contemporary grey kurta crafted with subtle textural embroidery and distinctive button detailing. Clean, minimal, and elegant, this piece is designed for modern men who prefer quiet luxury.",
+    "occasion": "Cocktail | Reception | Evening festivities",
+    "price": "Rs.8,999",
+    "collection": "noor-e-fiza",
+    "materials": "Silk",
+    "color": "Grey",
+    "components": "1",
+    "modelSize": "Large",
+    "modelHeight": "6'3\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Chaand Saaya/DSC06032.JPEG",
+    "mainImage": "/products/Chaand Saaya/DSC06032.JPEG",
+    "images": [
+      "/products/Chaand Saaya/DSC06032.JPEG",
+      "/products/Chaand Saaya/DSC06038.JPEG",
+      "/products/Chaand Saaya/DSC06042.JPEG",
+      "/products/Chaand Saaya/DSC06162.JPEG"
+    ]
+  },
+  {
+    "name": "MINT SOVEREIGN",
+    "description": "A refreshing mint green kurta featuring tonal embroidery paired with upada silk pants giving a relaxed yet refined silhouette. Designed for comfort and elegance, this piece is ideal for daytime festivities, summer weddings, and intimate celebrations.",
+    "occasion": "Mehendi | Day Weddings | Festive Wear",
+    "price": "Rs.12,999",
+    "collection": "noor-e-fiza",
+    "materials": "Silk",
+    "color": "Mint Green",
+    "components": "2",
+    "modelSize": "Large",
+    "modelHeight": "6'3\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Mint Sovereign /main.jpeg",
+    "mainImage": "/products/Mint Sovereign /main.jpeg",
+    "images": [
+      "/products/Mint Sovereign /main.jpeg",
+      "/products/Mint Sovereign /DSC05841.jpg",
+      "/products/Mint Sovereign /DSC05891.jpeg"
+    ]
+  },
+  {
     "name": "SAFFRON DUSK",
-    "description": "Orange Embroidered Lehenga Set",
-    "price": "Rs.120,000",
+    "description": "Saffron Dusk",
+    "occasion": "Weddings | Festive Wear",
+    "price": "Rs.13,999",
     "collection": "nazm",
+    "materials": "Viscose Silk & Silk Organza",
+    "color": "Red",
+    "components": "1",
+    "modelSize": "Small",
+    "modelHeight": "5'9\"",
     "mediaType": "image",
     "mediaSrc": "/products/Saffron Dusk/Main.JPEG",
     "mainImage": "/products/Saffron Dusk/Main.JPEG",
@@ -201,6 +207,215 @@
       "/products/Saffron Dusk/Copy of IMG_9596.JPEG",
       "/products/Saffron Dusk/Copy of IMG_9604.JPEG",
       "/products/Saffron Dusk/Copy of IMG_9613.JPEG"
+    ]
+  },
+  {
+    "name": "CRIMSON WHISPERS",
+    "description": "Crimson Whispers",
+    "occasion": "Trousseau | Festive wear",
+    "price": "Rs.6,999",
+    "collection": "nazm",
+    "materials": "Silk Satin & Silk Velvet",
+    "color": "Red",
+    "components": "2",
+    "modelSize": "X.Small",
+    "modelHeight": "5'11\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Crimson Whispers/Main.jpeg",
+    "mainImage": "/products/Crimson Whispers/Main.jpeg",
+    "images": [
+      "/products/Crimson Whispers/Main.jpeg",
+      "/products/Crimson Whispers/DSC08332.jpeg",
+      "/products/Crimson Whispers/DSC08333.jpeg",
+      "/products/Crimson Whispers/DSC08342.jpeg"
+    ]
+  },
+  {
+    "name": "GOLDEN HOUR",
+    "description": "Golden Hour",
+    "occasion": "Trousseau | Festive wear | Day Weddings",
+    "price": "Rs.5,999",
+    "collection": "nazm",
+    "materials": "Silk Crepe",
+    "color": "Olive Green",
+    "components": "1",
+    "modelSize": "Small",
+    "modelHeight": "5'9\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Golden Hour/Main.JPEG",
+    "mainImage": "/products/Golden Hour/Main.JPEG",
+    "images": [
+      "/products/Golden Hour/Main.JPEG",
+      "/products/Golden Hour/Copy of IMG_9791.JPEG",
+      "/products/Golden Hour/Copy of IMG_9803.JPEG"
+    ]
+  },
+  {
+    "name": "PRINTED SILENCE",
+    "description": "Printed Silence",
+    "occasion": "Trousseau",
+    "price": "Rs.999",
+    "collection": "nazm",
+    "materials": "Silk Crepe",
+    "color": "Mustard Yellow",
+    "components": "1",
+    "modelSize": "Small",
+    "modelHeight": "5'9\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Printed Silence/Main.JPEG",
+    "mainImage": "/products/Printed Silence/Main.JPEG",
+    "images": [
+      "/products/Printed Silence/Main.JPEG",
+      "/products/Printed Silence/Copy of IMG_9780.JPEG",
+      "/products/Printed Silence/Copy of IMG_9789.JPEG"
+    ]
+  },
+  {
+    "name": "MOONLIT PAUSE",
+    "description": "Moonlit Pause",
+    "occasion": "Trousseau | Festive wear | Day Weddings",
+    "price": "Rs.12,999",
+    "collection": "nazm",
+    "materials": "Silk Crepe",
+    "color": "Gold Beige",
+    "components": "1",
+    "modelSize": "X.Small",
+    "modelHeight": "5'11\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/Moonlit Pause/main.JPEG",
+    "mainImage": "/products/Moonlit Pause/main.JPEG",
+    "images": [
+      "/products/Moonlit Pause/main.JPEG",
+      "/products/Moonlit Pause/Copy of IMG_9696.JPEG"
+    ]
+  },
+  {
+    "name": "FEATHERED ROSÈ",
+    "description": "Feathered Rosè",
+    "occasion": "Trousseau | Mehendi | Cocktail",
+    "price": "Rs.13,999",
+    "collection": "aaina",
+    "materials": "Silk organza & Silk Satin",
+    "color": "Rose Pink",
+    "components": "3",
+    "modelSize": "Small",
+    "modelHeight": "5'10\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/feathered_rose/main.jpg",
+    "mainImage": "/products/feathered_rose/main.jpg",
+    "images": [
+      "/products/feathered_rose/main.jpg",
+      "/products/feathered_rose/Diksha mahajan1669.jpg",
+      "/products/feathered_rose/Diksha mahajan1750.jpg",
+      "/products/feathered_rose/Diksha mahajan1757.jpg"
+    ]
+  },
+  {
+    "name": "SAGE SYMPHONY",
+    "description": "Sage Symphony",
+    "occasion": "Reception | Mehendi | Cocktail | Evening Soirée",
+    "price": "Rs.13,999",
+    "collection": "aaina",
+    "materials": "Silk Crepe & Soft Net",
+    "color": "Mehendi Green",
+    "components": "3",
+    "modelSize": "Small",
+    "modelHeight": "5'10\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/sage_symphony/main.jpg",
+    "mainImage": "/products/sage_symphony/main.jpg",
+    "images": [
+      "/products/sage_symphony/main.jpg"
+    ]
+  },
+  {
+    "name": "SHAAN-E-DUPATTA",
+    "description": "Shaan-e-dupatta",
+    "occasion": "Reception | Wedding",
+    "price": "Rs.20,999",
+    "collection": "aaina",
+    "materials": "Soft Net",
+    "color": "Gold",
+    "components": "3",
+    "modelSize": "Small",
+    "modelHeight": "5'12\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/shaan-e-dupatta/main.jpg",
+    "mainImage": "/products/shaan-e-dupatta/main.jpg",
+    "images": [
+      "/products/shaan-e-dupatta/main.jpg"
+    ]
+  },
+  {
+    "name": "GLIDED GRACE",
+    "description": "Glided Grace",
+    "occasion": "Trousseau | Reception | Cocktail | Evening Soirée",
+    "price": "Rs.12,999",
+    "collection": "aaina",
+    "materials": "Silk Satin & Soft Net",
+    "color": "Gold Beige",
+    "components": "3",
+    "modelSize": "Small",
+    "modelHeight": "5'10\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/glided_grace/main.jpg",
+    "mainImage": "/products/glided_grace/main.jpg",
+    "images": [
+      "/products/glided_grace/main.jpg"
+    ]
+  },
+  {
+    "name": "GULABI NOOR",
+    "description": "Gulabi Noor",
+    "occasion": "Trousseau | Pooja Ceremony | Sangeet",
+    "price": "Rs.12,999",
+    "collection": "aaina",
+    "materials": "Silk Organza",
+    "color": "Rose Pink",
+    "components": "3",
+    "modelSize": "Small",
+    "modelHeight": "5'12\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/gulaabi_noor/main.jpg",
+    "mainImage": "/products/gulaabi_noor/main.jpg",
+    "images": [
+      "/products/gulaabi_noor/main.jpg"
+    ]
+  },
+  {
+    "name": "SWAROVSKI SERIES",
+    "description": "Swarovski Series",
+    "occasion": "Reception | Cocktail | Evening Soirée",
+    "price": "Rs.14,999",
+    "collection": "aaina",
+    "materials": "Silk Net",
+    "color": "Midnight Blue",
+    "components": "1",
+    "modelSize": "Small",
+    "modelHeight": "5'10\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/swarovski_series/main.jpg",
+    "mainImage": "/products/swarovski_series/main.jpg",
+    "images": [
+      "/products/swarovski_series/main.jpg"
+    ]
+  },
+  {
+    "name": "SILVER LULLABY",
+    "description": "Silver Lullaby",
+    "occasion": "Reception | Cocktail | Evening Soirée",
+    "price": "Rs.14,999",
+    "collection": "aaina",
+    "materials": "Silk Net",
+    "color": "Midnight Blue",
+    "components": "2",
+    "modelSize": "Small",
+    "modelHeight": "5'10\"",
+    "mediaType": "image",
+    "mediaSrc": "/products/silver_lullaby/main.jpg",
+    "mainImage": "/products/silver_lullaby/main.jpg",
+    "images": [
+      "/products/silver_lullaby/main.jpg"
     ]
   }
 ]

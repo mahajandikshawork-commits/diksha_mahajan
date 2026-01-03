@@ -12,6 +12,12 @@ interface VideoItem {
 
 const videos: VideoItem[] = [
   {
+    src: '/videos/nazm.mp4',
+    coverImage: '/nazm.jpeg',
+    title: 'NAZM',
+    subtitle: 'The Story of Her Becoming',
+  },
+  {
     src: '/videos/noor-e-fiza.MP4',
     coverImage: '/Noor-e-Fiza cover homepage.JPG',
     title: 'NOOR-E-FIZA',
@@ -22,12 +28,6 @@ const videos: VideoItem[] = [
     coverImage: '/Aaina cover homepage.JPG',
     title: 'AAINA',
     subtitle: 'The Mirror Collection',
-  },
-  {
-    src: '/videos/nazm.mp4',
-    coverImage: '/Nazm cover homepage.jpg',
-    title: 'NAZM',
-    subtitle: 'The Story of Her Becoming',
   },
 ];
 

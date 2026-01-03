@@ -14,9 +14,9 @@ export default function ProductPage() {
   const params = useParams();
   const productId = params.id as string;
   const { addToCart } = useCart();
-  
+
   const product = productsData.find((p, index) => index.toString() === productId) || productsData[0];
-  
+
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('');
   const [showCustomForm, setShowCustomForm] = useState(false);
@@ -25,20 +25,20 @@ export default function ProductPage() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   // Build media array combining images and video if available
-  const productMedia: Array<{type: 'image' | 'video', src: string}> = [];
-  
+  const productMedia: Array<{ type: 'image' | 'video', src: string }> = [];
+
   // Add images
   if ((product as any).images && Array.isArray((product as any).images)) {
     (product as any).images.forEach((img: string) => {
       productMedia.push({ type: 'image', src: img });
     });
   }
-  
+
   // Add video if available and mediaType is video
   if (product.mediaType === 'video' && product.mediaSrc) {
     productMedia.push({ type: 'video', src: product.mediaSrc });
   }
-  
+
   // Fallback to mediaSrc if no media available
   if (productMedia.length === 0) {
     productMedia.push({ type: product.mediaType as 'image' | 'video', src: product.mediaSrc });
@@ -71,7 +71,7 @@ export default function ProductPage() {
     }
 
     const priceNumber = parseInt(product.price.replace(/[^0-9]/g, ''));
-    
+
     addToCart({
       id: parseInt(productId),
       name: product.name,
@@ -84,7 +84,7 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">      
+    <div className="min-h-screen bg-white">
       <main className="pt-24 md:pt-32 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -96,9 +96,8 @@ export default function ProductPage() {
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`flex-shrink-0 w-20 h-24 border-2 ${
-                      selectedImage === index ? 'border-black' : 'border-gray-200'
-                    } overflow-hidden relative`}
+                    className={`flex-shrink-0 w-20 h-24 border-2 ${selectedImage === index ? 'border-black' : 'border-gray-200'
+                      } overflow-hidden relative`}
                   >
                     {media.type === 'video' ? (
                       <>
@@ -189,11 +188,10 @@ export default function ProductPage() {
                     <button
                       key={size}
                       onClick={() => handleSizeSelect(size)}
-                      className={`md:px-6 px-4 md:py-2 py-1 text-xs md:text-sm border ${
-                        selectedSize === size
+                      className={`md:px-6 px-4 md:py-2 py-1 text-xs md:text-sm border ${selectedSize === size
                           ? 'border-black bg-black text-white'
                           : 'border-gray-300 hover:border-black'
-                      } transition-colors`}
+                        } transition-colors`}
                     >
                       {size}
                     </button>
@@ -206,13 +204,13 @@ export default function ProductPage() {
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-6">
-                <button 
+                <button
                   onClick={handleAddToCart}
                   className="w-full bg-white border text-xs md:text-sm border-black text-black py-2 uppercase tracking-wider hover:bg-gray-50 transition-colors"
                 >
                   ADD TO CART
                 </button>
-                
+
                 <button className="w-full bg-black text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-gray-800 transition-colors">
                   BUY IT NOW
                 </button>
@@ -223,31 +221,30 @@ export default function ProductPage() {
                 </button>
               </div>
 
-              {/* Product Details */}
+              {/* Product Description */}
               <div className="pt-6 border-t space-y-3 text-sm">
-                <p className="font-medium uppercase tracking-wider">
+                <p className="font-light tracking-wide text-gray-700">
                   {product.description}
                 </p>
-                <div className="space-y-2 text-gray-700">
-                  <p><span className="font-medium">Color:</span> AMBER YELLOW FANAH PRINT</p>
-                  <p><span className="font-medium">Fabric:</span> SILK ORGANZA</p>
-                  <p><span className="font-medium">NO OF COMPONENTS:</span> 3</p>
-                  <p><span className="font-medium">DELIVERY TIME:</span> 4-5WEEKS</p>
-                  <p><span className="font-medium">Wash Care:</span> Dry Clean</p>
-                </div>
+                {(product as any).occasion && (
+                  <div className="pt-2">
+                    <p className="text-xs font-medium uppercase tracking-wider text-gray-800 mb-1">Occasions</p>
+                    <p className="font-light text-gray-700">{(product as any).occasion}</p>
+                  </div>
+                )}
               </div>
 
               {/* Collapsible Sections */}
-              <div className="pt-6 space-y-3">
-                {/* Manufactured and Packed By */}
+              <div className="pt-6 space-y-0">
+                {/* Product Details */}
                 <div className="border-t">
                   <button
-                    onClick={() => toggleDropdown('manufactured')}
+                    onClick={() => toggleDropdown('details')}
                     className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
                   >
-                    <span>MANUFACTURED AND PACKED BY</span>
+                    <span>PRODUCT DETAILS</span>
                     <svg
-                      className={`w-4 h-4 transition-transform ${openDropdown === 'manufactured' ? 'rotate-180' : ''}`}
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'details' ? 'rotate-180' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -255,13 +252,20 @@ export default function ProductPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  {openDropdown === 'manufactured' && (
-                    <div className="pb-4 text-sm text-gray-700 space-y-1">
-                      <p>Address: RUKAAN INTERNATIONAL PRIVATE LIMITED, Basement, Plot No- K 257, Maidan Garhi</p>
-                      <p>Road, New Delhi- 110074 South Delhi, Delhi, India</p>
-                      <p className="pt-2">Country Of Origin: India</p>
-                      <p className="pt-2">Email: Orders@mahimamahajan.in</p>
-                      <p>Tel: +91- 9811004752</p>
+                  {openDropdown === 'details' && (
+                    <div className="pb-4 space-y-2 text-sm text-gray-700">
+                      {(product as any).materials && (
+                        <p><span className="font-medium">Materials:</span> {(product as any).materials}</p>
+                      )}
+                      {(product as any).color && (
+                        <p><span className="font-medium">Color:</span> {(product as any).color}</p>
+                      )}
+                      {(product as any).components && (
+                        <p><span className="font-medium">No. of Components:</span> {(product as any).components}</p>
+                      )}
+                      {(product as any).modelSize && (product as any).modelHeight && (
+                        <p><span className="font-medium">Model:</span> Wearing Size {(product as any).modelSize}, Height {(product as any).modelHeight}</p>
+                      )}
                     </div>
                   )}
                 </div>
@@ -289,15 +293,15 @@ export default function ProductPage() {
                   )}
                 </div>
 
-                {/* Customer Care */}
+                {/* Care & Guide */}
                 <div className="border-t">
                   <button
-                    onClick={() => toggleDropdown('customer')}
+                    onClick={() => toggleDropdown('care')}
                     className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
                   >
-                    <span>CUSTOMER CARE</span>
+                    <span>CARE & GUIDE</span>
                     <svg
-                      className={`w-4 h-4 transition-transform ${openDropdown === 'customer' ? 'rotate-180' : ''}`}
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'care' ? 'rotate-180' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -305,21 +309,20 @@ export default function ProductPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  {openDropdown === 'customer' && (
+                  {openDropdown === 'care' && (
                     <div className="pb-4 text-sm text-gray-700">
-                      <p>Email: Orders@mahimamahajan.in</p>
-                      <p>Tel: +91- 9811004752</p>
+                      <p>Dry-clean only</p>
                     </div>
                   )}
                 </div>
 
-                {/* Shipping Information */}
+                {/* Shipping */}
                 <div className="border-t">
                   <button
                     onClick={() => toggleDropdown('shipping')}
                     className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
                   >
-                    <span>SHIPPING INFORMATION</span>
+                    <span>SHIPPING</span>
                     <svg
                       className={`w-4 h-4 transition-transform ${openDropdown === 'shipping' ? 'rotate-180' : ''}`}
                       fill="none"
@@ -331,24 +334,21 @@ export default function ProductPage() {
                   </button>
                   {openDropdown === 'shipping' && (
                     <div className="pb-4 text-sm text-gray-700 space-y-2">
-                      <p>Prices are inclusive of all taxes, Packaging and handling.</p>
-                      <p className="font-medium">Shipping in India:</p>
-                      <p>Free of charge</p>
-                      <p className="font-medium pt-2">International Shipping:</p>
-                      <p>For international purchases, duties and taxes may be applicable based on the import laws of your country.</p>
+                      <p>Free Shipping in India.</p>
+                      <p>For international purchases, shipping and taxes would be applicable based on the import laws of your country.</p>
                     </div>
                   )}
                 </div>
 
-                {/* Ask a Question */}
+                {/* Delivery & Returns */}
                 <div className="border-t">
                   <button
-                    onClick={() => toggleDropdown('question')}
+                    onClick={() => toggleDropdown('delivery')}
                     className="w-full flex justify-between items-center py-4 text-sm uppercase tracking-wider hover:opacity-70 transition-opacity"
                   >
-                    <span>ASK A QUESTION</span>
+                    <span>DELIVERY & RETURNS</span>
                     <svg
-                      className={`w-4 h-4 transition-transform ${openDropdown === 'question' ? 'rotate-180' : ''}`}
+                      className={`w-4 h-4 transition-transform ${openDropdown === 'delivery' ? 'rotate-180' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -356,55 +356,10 @@ export default function ProductPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  {openDropdown === 'question' && (
-                    <div className="pb-4">
-                      <p className="text-sm text-gray-600 mb-4">Leave your message and we'll get back to you shortly.</p>
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <label className="text-xs uppercase tracking-wide block mb-2">NAME *</label>
-                            <input
-                              type="text"
-                              name="name"
-                              value={formData.name}
-                              onChange={handleFormChange}
-                              placeholder="Ex: John"
-                              required
-                              className="w-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-black"
-                            />
-                          </div>
-                          <div>
-                            <label className="text-xs uppercase tracking-wide block mb-2">EMAIL *</label>
-                            <input
-                              type="email"
-                              name="email"
-                              value={formData.email}
-                              onChange={handleFormChange}
-                              placeholder="Ex: John@gmail.com"
-                              required
-                              className="w-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-black"
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <label className="text-xs uppercase tracking-wide block mb-2">MESSAGE *</label>
-                          <textarea
-                            name="message"
-                            value={formData.message}
-                            onChange={handleFormChange}
-                            placeholder="Ex: I want to know more about the product"
-                            required
-                            rows={4}
-                            className="w-full border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:border-black resize-none"
-                          />
-                        </div>
-                        <button
-                          type="submit"
-                          className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-2 uppercase tracking-wider text-sm transition-colors"
-                        >
-                          Submit
-                        </button>
-                      </form>
+                  {openDropdown === 'delivery' && (
+                    <div className="pb-4 text-sm text-gray-700 space-y-2">
+                      <p>Once an order is placed, it will be shipped within 15-20 business days.</p>
+                      <p>This item is not eligible for return or exchange. For any queries you can reach out to us at info@dikshamahajan.com or +91-9871907315</p>
                     </div>
                   )}
                 </div>
@@ -413,8 +368,8 @@ export default function ProductPage() {
           </div>
         </div>
       </main>
-      
-      <ProductSlider />      
+
+      <ProductSlider />
       {/* Size Chart Modal */}
       <SizeChartModal
         isOpen={showSizeChart}
