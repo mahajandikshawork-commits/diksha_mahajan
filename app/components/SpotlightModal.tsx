@@ -29,12 +29,10 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
 
   if (!isOpen) return null;
 
-  const handlePrevious = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  const handleImageClick = () => {
+    if (images.length > 1) {
+      setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }
   };
 
   const handleMoreInfo = () => {
@@ -42,28 +40,31 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={onClose}>
-      <div className="relative w-full max-w-4xl mx-4 bg-white rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" onClick={onClose}>
+      <div className="relative bg-white rounded-lg overflow-hidden max-w-md w-full" onClick={(e) => e.stopPropagation()}>
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full transition-colors"
+          className="absolute top-3 right-3 z-10 w-8 h-8 flex items-center justify-center bg-white/90 hover:bg-white rounded-full transition-colors shadow-md"
           aria-label="Close modal"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
         {/* Title */}
-        <div className="px-6 py-4 border-b">
-          <h2 className="text-xl md:text-2xl font-light tracking-wider uppercase text-center">
+        <div className="px-4 py-3 border-b">
+          <h2 className="text-lg md:text-xl font-light tracking-wider uppercase text-center">
             {title}
           </h2>
         </div>
 
-        {/* Image Carousel */}
-        <div className="relative aspect-[4/5] md:aspect-[16/10] bg-gray-100">
+        {/* Image Carousel - Clickable */}
+        <div 
+          className="relative aspect-[3/4] bg-gray-100 cursor-pointer"
+          onClick={handleImageClick}
+        >
           {images.map((image, index) => (
             <div
               key={index}
@@ -75,44 +76,23 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
                 src={image}
                 alt={`${title} ${index + 1}`}
                 fill
-                className="object-contain"
+                className="object-cover"
               />
             </div>
           ))}
 
-          {/* Navigation Arrows */}
-          {images.length > 1 && (
-            <>
-              <button
-                onClick={handlePrevious}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full transition-colors shadow-lg"
-                aria-label="Previous image"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <button
-                onClick={handleNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full transition-colors shadow-lg"
-                aria-label="Next image"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </>
-          )}
-
           {/* Dots Indicator */}
           {images.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
               {images.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentImageIndex(index)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentImageIndex(index);
+                  }}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentImageIndex ? 'bg-black w-6' : 'bg-black/30'
+                    index === currentImageIndex ? 'bg-white w-6' : 'bg-white/50'
                   }`}
                   aria-label={`Go to image ${index + 1}`}
                 />
@@ -122,10 +102,10 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
         </div>
 
         {/* More Info Button */}
-        <div className="px-6 py-6 border-t">
+        <div className="px-4 py-4 border-t">
           <button
             onClick={handleMoreInfo}
-            className="w-full bg-black text-white py-3 uppercase tracking-wider text-sm hover:bg-gray-800 transition-colors"
+            className="w-full bg-black text-white py-2.5 uppercase tracking-wider text-sm hover:bg-gray-800 transition-colors"
           >
             More Info
           </button>

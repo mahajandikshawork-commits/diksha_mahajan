@@ -13,7 +13,7 @@ interface VideoItem {
 const videos: VideoItem[] = [
   {
     src: '/videos/noor-e-fiza.MP4',
-    coverImage: '/Noor-e-Fiza cover homepage.JPG',
+    coverImage: '/noor-e-fiza-cover.JPG',
     title: 'NOOR-E-FIZA',
     subtitle: 'Light of the Atmosphere',
   },

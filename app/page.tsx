@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <HeroSection />
-      <div className="md:py-24 py-8"><ProductSlider /></div>
+      <div className="md:pt-24 pt-8"><ProductSlider /></div>
       <AboutSection />
       <SpotlightSection />
       <AppointmentSection />
