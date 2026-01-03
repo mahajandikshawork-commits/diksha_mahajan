@@ -7,7 +7,7 @@
       "/In the Spotlight/Aparna Thomas/Copy of IMG_9857.JPG",
       "/In the Spotlight/Aparna Thomas/Copy of IMG_9858.JPG"
     ],
-    "product": "shaan-e-dupatta"
+    "slug": "shaan-e-dupatta"
   },
   {
     "title": "Caratlane",
@@ -16,7 +16,7 @@
       "/In the Spotlight/Caratlane/Wedg0976.jpeg",
       "/In the Spotlight/Caratlane/Wedg0984.jpeg"
     ],
-    "product": "gulabi-noor"
+    "slug": "gulabi-noor"
   },
   {
     "title": "Neelam Giri",
@@ -26,7 +26,7 @@
       "/In the Spotlight/Neelam Giri/IMG_6003.jpg",
       "/In the Spotlight/Neelam Giri/IMG_6004.jpg"
     ],
-    "product":"glided-grace"
+    "slug":"glided-grace"
   },
   {
     "title": "Priya Dorra",
@@ -35,7 +35,7 @@
       "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0766.jpg",
       "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0767.jpg"
     ],
-    "product": "feathered-rose"
+    "slug": "feathered-rose"
   },
   {
     "title": "Riya Thiyagarajan",
@@ -44,7 +44,7 @@
       "/In the Spotlight/Riya Thiyagarajan/Copy of IMG_5858.JPG",
       "/In the Spotlight/Riya Thiyagarajan/Copy of IMG_5859.JPG"
     ],
-    "product":"shaan-e-dupatta"
+    "slug":"shaan-e-dupatta"
   },
   {
     "title": "Sivaangi Krishnakumar",
@@ -53,6 +53,6 @@
       "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01255.JPEG",
       "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01274.JPEG"
     ],
-    "product": "silver-lullaby"
+    "slug": "silver-lullaby"
   }
 ]

@@ -10,10 +10,10 @@ interface ProductCardProps {
   mediaType: 'image' | 'video';
   mediaSrc: string;
   mainImage?: string;
-  productId: number;
+  slug: string;
 }
 
-export default function ProductCard({ name, price, mediaType, mediaSrc, mainImage, productId }: ProductCardProps) {
+export default function ProductCard({ name, price, mediaType, mediaSrc, mainImage, slug }: ProductCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -37,7 +37,7 @@ export default function ProductCard({ name, price, mediaType, mediaSrc, mainImag
   };
 
   return (
-    <Link href={`/product/${productId}`}>
+    <Link href={`/product/${slug}`}>
       <div 
         className="relative bg-white overflow-hidden cursor-pointer group"
         onMouseEnter={handleMouseEnter}

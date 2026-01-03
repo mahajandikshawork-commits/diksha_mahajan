@@ -21,6 +21,7 @@ export default function SpotlightSection() {
                 <SpotlightCard
                   title={category.title}
                   images={category.images}
+                  slug={category.slug}
                 />
               </div>
             ))}

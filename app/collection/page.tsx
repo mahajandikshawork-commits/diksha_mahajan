@@ -20,7 +20,7 @@ export default function CollectionPage() {
                 mediaType={product.mediaType as 'image' | 'video'}
                 mediaSrc={product.mediaSrc}
                 mainImage={product.mainImage}
-                productId={index}
+                slug={product.slug}
               />
             ))}
           </div>

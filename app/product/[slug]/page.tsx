@@ -12,10 +12,11 @@ import { useCart } from '../../context/CartContext';
 
 export default function ProductPage() {
   const params = useParams();
-  const productId = params.id as string;
+  const productSlug = params.slug as string;
   const { addToCart } = useCart();
 
-  const product = productsData.find((p, index) => index.toString() === productId) || productsData[0];
+  const product = productsData.find((p) => p.slug === productSlug) || productsData[0];
+  const productIndex = productsData.findIndex((p) => p.slug === productSlug);
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('');
@@ -73,7 +74,7 @@ export default function ProductPage() {
     const priceNumber = parseInt(product.price.replace(/[^0-9]/g, ''));
 
     addToCart({
-      id: parseInt(productId),
+      id: productIndex >= 0 ? productIndex : 0,
       name: product.name,
       description: (product as any).description || '',
       price: product.price,

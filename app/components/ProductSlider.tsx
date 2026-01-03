@@ -20,7 +20,7 @@ export default function ProductSlider() {
                     mediaType={product.mediaType as 'image' | 'video'}
                     mediaSrc={product.mediaSrc}
                     mainImage={product.mainImage}
-                    productId={index}
+                    slug={product.slug}
                   />
                 </div>
               ))}
@@ -42,7 +42,7 @@ export default function ProductSlider() {
                   mediaType={product.mediaType as 'image' | 'video'}
                   mediaSrc={product.mediaSrc}
                   mainImage={product.mainImage}
-                  productId={index}
+                  slug={product.slug}
                 />
               </div>
             ))}

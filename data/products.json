@@ -297,10 +297,10 @@
     "modelSize": "X.Small",
     "modelHeight": "5'11\"",
     "mediaType": "image",
-    "mediaSrc": "/products/Moonlit Pause/main.JPEG",
-    "mainImage": "/products/Moonlit Pause/main.JPEG",
+    "mediaSrc": "/products/Moonlit Pause/main.jpeg",
+    "mainImage": "/products/Moonlit Pause/main.jpeg",
     "images": [
-      "/products/Moonlit Pause/main.JPEG",
+      "/products/Moonlit Pause/main.jpeg",
       "/products/Moonlit Pause/img1.jpeg"
     ]
   },
