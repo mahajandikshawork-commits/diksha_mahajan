@@ -194,8 +194,8 @@
     "mainImage": "/products/Mint Sovereign /main.jpeg",
     "images": [
       "/products/Mint Sovereign /main.jpeg",
-      "/products/Mint Sovereign /DSC05841.jpg",
-      "/products/Mint Sovereign /DSC05891.jpeg"
+      "/products/Mint Sovereign /DSC05891.jpeg",
+      "/products/Mint Sovereign /DSC05841.jpg"
     ]
   },
   {
@@ -265,7 +265,6 @@
   },
   {
     "name": "PRINTED SILENCE",
-    
     "slug": "printed-silence",
     "description": "a whisper in motion, printed silence is crafted in pure crepe and adorned with delicate prints that speak softly but linger long. A timeless trousseau layer light, expressive, and effortlessly personal.",
     "occasion": "Trousseau",
@@ -277,12 +276,12 @@
     "modelSize": "Small",
     "modelHeight": "5'9\"",
     "mediaType": "image",
-    "mediaSrc": "/products/Printed Silence/Main.JPEG",
-    "mainImage": "/products/Printed Silence/Main.JPEG",
+    "mediaSrc": "/products/Printed Silence/Main.jpeg",
+    "mainImage": "/products/Printed Silence/Main.jpeg",
     "images": [
-      "/products/Printed Silence/Main.JPEG",
-      "/products/Printed Silence/Copy_of_IMG_9780.jpg",
-      "/products/Printed Silence/Copy of IMG_9789.JPEG"
+      "/products/Printed Silence/Main.jpeg",
+      "/products/Printed Silence/img1.jpeg",
+      "/products/Printed Silence/img2.jpeg"
     ]
   },
   {
