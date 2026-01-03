@@ -80,6 +80,7 @@ export default function HeroSectionDesktop() {
                 fill
                 className="object-cover"
                 priority
+                unoptimized
               />
             </div>
 

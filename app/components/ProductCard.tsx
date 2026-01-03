@@ -61,6 +61,7 @@ export default function ProductCard({ name, price, mediaType, mediaSrc, mainImag
               alt={name}
               fill
               className="object-cover"
+              unoptimized
             />
           )}
         </div>

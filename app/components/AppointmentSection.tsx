@@ -12,6 +12,7 @@ export default function AppointmentSection() {
           fill
           className="object-cover"
           priority
+          unoptimized
         />
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/40" />

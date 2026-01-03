@@ -82,6 +82,7 @@ export default function HeroSectionMobile() {
                 fill
                 className="object-cover"
                 priority={index === 0}
+                unoptimized
               />
             </div>
 
