@@ -190,10 +190,10 @@
     "modelSize": "Large",
     "modelHeight": "6'3\"",
     "mediaType": "image",
-    "mediaSrc": "/products/Mint Sovereign/main.jpeg",
-    "mainImage": "/products/Mint Sovereign/main.jpeg",
+    "mediaSrc": "/products/Mint Sovereign/Main.jpeg",
+    "mainImage": "/products/Mint Sovereign/Main.jpeg",
     "images": [
-      "/products/Mint Sovereign/main.jpeg",
+      "/products/Mint Sovereign/Main.jpeg",
       "/products/Mint Sovereign/DSC05891.jpeg",
       "/products/Mint Sovereign/DSC05841.jpg"
     ]
@@ -297,10 +297,10 @@
     "modelSize": "X.Small",
     "modelHeight": "5'11\"",
     "mediaType": "image",
-    "mediaSrc": "/products/Moonlit Pause/main.jpeg",
-    "mainImage": "/products/Moonlit Pause/main.jpeg",
+    "mediaSrc": "/products/Moonlit Pause/Main.jpeg",
+    "mainImage": "/products/Moonlit Pause/Main.jpeg",
     "images": [
-      "/products/Moonlit Pause/main.jpeg",
+      "/products/Moonlit Pause/Main.jpeg",
       "/products/Moonlit Pause/img1.jpeg"
     ]
   },
