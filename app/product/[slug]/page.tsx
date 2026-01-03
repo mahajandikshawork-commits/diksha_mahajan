@@ -216,10 +216,15 @@ export default function ProductPage() {
                   BUY IT NOW
                 </button>
 
-                <button className="w-full bg-[#25D366] text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-[#20BA5A] transition-colors flex items-center justify-center gap-2">
+                <a 
+                  href="https://wa.me/919871907315"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#25D366] text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-[#20BA5A] transition-colors flex items-center justify-center gap-2"
+                >
                   <BsWhatsapp size={20} />
                   ORDER ON WHATSAPP
-                </button>
+                </a>
               </div>
 
               {/* Product Description */}

@@ -22,11 +22,11 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-medium mb-4 uppercase tracking-wider">Support</h3>
             <nav className="flex flex-col gap-3">
-              <Link href="/terms" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Terms & Condition
+              <Link href="/returns-exchange" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Returns & Exchange Policy
               </Link>
-              <Link href="/returns" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Returns & Exhanges
+              <Link href="/shipping" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Shipping Policy
               </Link>
             </nav>
           </div>
@@ -42,10 +42,10 @@ export default function Footer() {
                 dikshamahajan@gmail.com
               </a>
               <a 
-                href="tel:+919876543221" 
+                href="tel:+919871907315" 
                 className="text-sm text-gray-300 hover:text-white transition-colors block"
               >
-                +91 98765 43221
+                +91-9871907315
               </a>
               
               {/* Social Icons */}
@@ -60,7 +60,7 @@ export default function Footer() {
                   <BsInstagram className="text-black" size={20} />
                 </a>
                 <a
-                  href="https://wa.me/919876543221"
+                  href="https://wa.me/919871907315"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors"
