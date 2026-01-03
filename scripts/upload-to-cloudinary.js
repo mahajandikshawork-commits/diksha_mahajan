@@ -1,3 +1,4 @@
+require('dotenv').config({ path: '.env.local' });
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
