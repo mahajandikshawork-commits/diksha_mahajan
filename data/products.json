@@ -190,12 +190,12 @@
     "modelSize": "Large",
     "modelHeight": "6'3\"",
     "mediaType": "image",
-    "mediaSrc": "/products/Mint Sovereign /main.jpeg",
-    "mainImage": "/products/Mint Sovereign /main.jpeg",
+    "mediaSrc": "/products/Mint Sovereign/main.jpeg",
+    "mainImage": "/products/Mint Sovereign/main.jpeg",
     "images": [
-      "/products/Mint Sovereign /main.jpeg",
-      "/products/Mint Sovereign /DSC05891.jpeg",
-      "/products/Mint Sovereign /DSC05841.jpg"
+      "/products/Mint Sovereign/main.jpeg",
+      "/products/Mint Sovereign/DSC05891.jpeg",
+      "/products/Mint Sovereign/DSC05841.jpg"
     ]
   },
   {
