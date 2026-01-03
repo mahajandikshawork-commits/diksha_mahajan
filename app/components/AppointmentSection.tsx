@@ -30,7 +30,7 @@ export default function AppointmentSection() {
           Click Here To Schedule A Virtual Appointment At Our<br />
           Personalised Design Space
         </h2>
-        <Button text="APPOINTMENT" href="/appointment" variant="inverted" />
+        <Button text="APPOINTMENT" href={`https://wa.me/919871907315?text=${encodeURIComponent('Hello Team, I would like to book an appointment at your personalised design space')}`} variant="inverted" />
       </div>
     </section>
   );

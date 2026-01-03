@@ -217,7 +217,7 @@ export default function ProductPage() {
                 </button>
 
                 <a 
-                  href="https://wa.me/919871907315"
+                  href={`https://wa.me/919871907315?text=${encodeURIComponent(`Hello Team, I would like to enquire more about this product - ${product.name} from ${product.collection.toUpperCase()} collection`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-[#25D366] text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-[#20BA5A] transition-colors flex items-center justify-center gap-2"
