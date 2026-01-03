@@ -57,7 +57,6 @@ export default function CartSidebar() {
                         alt={item.name}
                         fill
                         className="object-cover"
-                        unoptimized
                       />
                     </div>
 

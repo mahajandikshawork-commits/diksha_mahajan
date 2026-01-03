@@ -186,7 +186,6 @@ export default function CustomMeasurementForm() {
                 alt="Measurement Guide 1"
                 fill
                 className="object-contain"
-                unoptimized
               />
             </div>
             <div className="relative w-[200px] h-[300px]">
@@ -195,7 +194,6 @@ export default function CustomMeasurementForm() {
                 alt="Measurement Guide 2"
                 fill
                 className="object-contain"
-                unoptimized
               />
             </div>
           </div>
@@ -205,7 +203,6 @@ export default function CustomMeasurementForm() {
               alt="Measurement Guide 3"
               fill
               className="object-contain"
-              unoptimized
             />
           </div>
         </div>

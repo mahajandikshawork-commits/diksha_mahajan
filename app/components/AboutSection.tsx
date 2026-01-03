@@ -34,7 +34,6 @@ export default function AboutSection() {
               fill
               className="object-cover"
               priority
-              unoptimized
             />
           </div>
         </div>

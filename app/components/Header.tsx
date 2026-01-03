@@ -38,7 +38,6 @@ export default function Header() {
                                     height={45}
                                     priority
                                     className="object-contain max-w-full h-auto cursor-pointer"
-                                    unoptimized
                                 />
                             </Link>
                         </div>
@@ -87,7 +86,6 @@ export default function Header() {
                                     height={50}
                                     priority
                                     className="object-contain cursor-pointer"
-                                    unoptimized
                                 />
                             </Link>
                         </div>
@@ -149,7 +147,6 @@ export default function Header() {
                                     height={50}
                                     priority
                                     className="object-contain"
-                                    unoptimized
                                 />
                             </div>
 

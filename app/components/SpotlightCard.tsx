@@ -35,7 +35,6 @@ export default function SpotlightCard({ title, images }: SpotlightCardProps) {
                 alt={`${title} ${index + 1}`}
                 fill
                 className="object-cover"
-                unoptimized
               />
             </div>
           ))}

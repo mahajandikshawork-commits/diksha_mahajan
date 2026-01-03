@@ -1,6 +1,7 @@
 [
   {
     "name": "RUHANI",
+    "slug": "ruhani",
     "description": "Ruhani is an expression of quiet strength and sensual elegance. Crafted in a rich brown tone, this corset gown features a sculpted bodice that contours the form, paired with fluid embroidered drape sleeves that moves effortlessly with the wearer. The interplay of structure and softness creates a striking yet refined silhouette, designed for celebrations that call for glamour.",
     "occasion": "Cocktail | Reception | Evening Soiree's",
     "price": "Rs.22,999",
@@ -22,6 +23,7 @@
   },
   {
     "name": "EMERALD WHISPERS",
+    "slug": "emerald-whispers",
     "description": "Designed for comfort without compromising on detail, Emerald Whispers captures the poetry of movement and the richness of festive greens with it's intricately embroidered straight pants paired with a softly draped kurta, creating a silhouette that is fluid, elegant, and effortlessly modern. Paired with a fluid dupatta, the ensemble is a perfect for occasions where ease and elegance come together.",
     "occasion": "Mehendi | Cocktail | Reception | Intimate Wedding Functions",
     "price": "Rs.17,999",
@@ -43,6 +45,7 @@
   },
   {
     "name": "MIDNIGHT HOUR",
+    "slug": "midnight-hour",
     "description": "This midnight hour lehenga set features a richly embroidered blouse paired with a layered skirt, embroidered around the broad waist belt and a sheer sequin-embroidered dupatta cape. The dupatta adds drama and movement with its sequin hangings and tassels drops making this ensemble ideal for cocktail nights.",
     "occasion": "Cocktail | Sangeet | Wedding soirée",
     "price": "Rs.17,999",
@@ -53,19 +56,20 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "image",
-    "mediaSrc": "h/products/Midnight Hour/main.JPEG",
-    "mainImage": "/products/Midnight Hour/main.JPEG",
+    "mediaSrc": "/products/Midnight Hour/main.jpeg",
+    "mainImage": "/products/Midnight Hour/main.jpeg",
     "images": [
+      "/products/Midnight Hour/main.jpeg",
       "/products/Midnight Hour/DSC06058.jpg",
-      "/products/Midnight Hour/main.JPEG",
-      "/products/Midnight Hour/DSC06096.JPEG",
-      "/products/Midnight Hour/DSC06143.JPEG",
-      "/products/Midnight Hour/DSC06152.JPEG",
-      "/products/Midnight Hour/DSC06178.JPEG"
+      "/products/Midnight Hour/DSC06096.jpeg",
+      "/products/Midnight Hour/DSC06143.jpeg",
+      "/products/Midnight Hour/DSC06152.jpeg",
+      "/products/Midnight Hour/DSC06178.jpeg"
     ]
   },
   {
     "name": "FIZA AFTER MIDNIGHT",
+    "slug": "fiza-after-midnight",
     "description": "A statement jumpsuit crafted with intricate tonal embroidery, paired with a sheer embroidered cape. This outfit balances structure and fluidity, offering a bold yet graceful alternative to traditional occasion wear. Perfect for women seeking a modern, powerful silhouette without compromising on festive detailing.",
     "occasion": "Cocktail | Reception | Evening Festivities",
     "price": "Rs.13,999",
@@ -76,7 +80,7 @@
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
     "mediaType": "image",
-    "mediaSrc": "/products/Fiza after Midnight/DSC06058.jpg",
+    "mediaSrc": "/products/Fiza after Midnight/main.jpeg",
     "mainImage": "/products/Fiza after Midnight/main.jpeg",
     "images": [
       "/products/Fiza after Midnight/main.jpeg",
@@ -88,6 +92,7 @@
   },
   {
     "name": "OMBRÉ MIRAGE",
+    "slug": "ombre-mirage",
     "description": "A contemporarily embroidered saree gown in shades of green to silver, features a sculpted corset bodice and a seamless ruched saree drape on the shoulder that transitions through deep green tones. Designed for effortless elegance, this fishtail bottom of the gown keeps it modern yet traditional with the saree pallu.",
     "occasion": "Cocktail | Reception | Evening Soirées",
     "price": "Rs.23,999",
@@ -106,6 +111,7 @@
   },
   {
     "name": "THE BLUE AFFAIRÈ",
+    "slug": "the-blue-affaire",
     "description": "A modern draped skirt with an embroidered waistband paired with a delicately embroidered blouse with sheer pearl detailings. The fluid skirt drape creates graceful movement, while the embroidery adds a refined festive touch. The pearl dupatta and tassel detailings adds to the elegance of the ensemble making it perfect for intimate functions and pre-wedding events.",
     "occasion": "Cocktail | Reception | Intimate Wedding Functions",
     "price": "Rs.15,999",
@@ -127,6 +133,8 @@
   },
   {
     "name": "EVENING WINE",
+    
+    "slug": "evening-wine",
     "description": "A rich wine drape saree designed with intricate ombré embroidery and a modern silhouette. The deep hue and delicate tassel detailing around the pallu and blouse create a dramatic yet refined look, ideal for evening celebrations.",
     "occasion": "Cocktail | Reception | Wedding",
     "price": "Rs.24,999",
@@ -149,6 +157,7 @@
   },
   {
     "name": "CHAAND SAAYA",
+    "slug": "chaand-saya",
     "description": "A contemporary grey kurta crafted with subtle textural embroidery and distinctive button detailing. Clean, minimal, and elegant, this piece is designed for modern men who prefer quiet luxury.",
     "occasion": "Cocktail | Reception | Evening festivities",
     "price": "Rs.8,999",
@@ -170,6 +179,7 @@
   },
   {
     "name": "MINT SOVEREIGN",
+    "slug": "mint-sovereign",
     "description": "A refreshing mint green kurta featuring tonal embroidery paired with upada silk pants giving a relaxed yet refined silhouette. Designed for comfort and elegance, this piece is ideal for daytime festivities, summer weddings, and intimate celebrations.",
     "occasion": "Mehendi | Day Weddings | Festive Wear",
     "price": "Rs.12,999",
@@ -190,6 +200,7 @@
   },
   {
     "name": "SAFFRON DUSK",
+    "slug": "saffron-dusk",
     "description": "In rich red pure silk, this one-piece suit is embroidered with delicate abkaan and sequin work. Lightweight yet striking, it's made for the modern bride's destination moments.",
     "occasion": "Weddings | Festive Wear",
     "price": "Rs.13,999",
@@ -211,6 +222,7 @@
   },
   {
     "name": "CRIMSON WHISPERS",
+    "slug": "crimson-whispers",
     "description": "A rich red satin shirt styled with effortless grace, paired with a minimal silk velvet printed jacket. Thoughtfully detailed on the sleeves and placket, this look blends understated opulence with contemporary charm perfect for pre-wedding soirées.",
     "occasion": "Trousseau | Festive wear",
     "price": "Rs.6,999",
@@ -232,6 +244,7 @@
   },
   {
     "name": "GOLDEN HOUR",
+    "slug": "golden-hour",
     "description": "A hand-crinkled beige skirt meets an intricately embroidered crepe cutwork shirt, this due blends ease with edge. Perfect for the bride who wants to be effortless, yet unforgettable.",
     "occasion": "Trousseau | Festive wear | Day Weddings",
     "price": "Rs.5,999",
@@ -252,6 +265,8 @@
   },
   {
     "name": "PRINTED SILENCE",
+    
+    "slug": "printed-silence",
     "description": "a whisper in motion, printed silence is crafted in pure crepe and adorned with delicate prints that speak softly but linger long. A timeless trousseau layer light, expressive, and effortlessly personal.",
     "occasion": "Trousseau",
     "price": "Rs.999",
@@ -272,6 +287,7 @@
   },
   {
     "name": "MOONLIT PAUSE",
+    "slug": "moonlit-pause",
     "description": "a pure crepe gown in soft beige, adorned with delicate embroidery on the sleeves, an ode to effortless grace, perfect for a chic and intimate celebration.",
     "occasion": "Trousseau | Festive wear | Day Weddings",
     "price": "Rs.12,999",
@@ -291,6 +307,7 @@
   },
   {
     "name": "FEATHERED ROSÈ",
+    "slug": "feathered-rose",
     "description": "A statement of fluid elegance, this cape kaftan in pure organza comes alive in soft pnk, detailed with feather accents on the sleeves for a touch of playful drama. Paired with a sculpted drape skirt in luxurious Armani satin, the ensemble blends couture finesse with modern ease.",
     "occasion": "Trousseau | Mehendi | Cocktail",
     "price": "Rs.13,999",
@@ -312,6 +329,7 @@
   },
   {
     "name": "SAGE SYMPHONY",
+    "slug": "sage-symphony",
     "description": "A contemporary silhoutte infused with couture detailing, this ensemble features a fluid drape skirt in rich green, cinched with an intricately embroidered waistband that defines elegance. Paired with a delicately embroidered kaftan, finished with playful tassels along the hem, the look strikes the perfect balance between comfort and sophistication.",
     "occasion": "Reception | Mehendi | Cocktail | Evening Soirée",
     "price": "Rs.13,999",
@@ -331,6 +349,7 @@
   },
   {
     "name": "SHAAN-E-DUPATTA",
+    "slug": "shaan-e-dupatta",
     "description": "This fishtail lehenga redefines grandeur with its sculpted silhouette and intricate embroidery. the ensemble comes with a delicately embroidered blouse, a gracefully attached dupatta adorned with lace and emroideery, and a second embroidered dupatta that elevates the lookinto regal perfection. Designed for the bride who treasures heritage yet embraces modernity, this double-dupatta statement is as versatile as it is breathtaking.",
     "occasion": "Reception | Wedding",
     "price": "Rs.20,999",
@@ -352,6 +371,7 @@
   },
   {
     "name": "GLIDED GRACE",
+    "slug": "glided-grace",
     "description": "A statement ensemble crafted for the modern bride's trousseau. This gold cape set features an intricately embroidered cape with delicate tassel details gracing the sleeves and hem. Paired with a structure corset blouse and fluid Armani satin pants, the look balances opulence with contemporary elegance, making it the perfect choice for a destination celebration or festive soirée",
     "occasion": "Trousseau | Reception | Cocktail | Evening Soirée",
     "price": "Rs.12,999",
@@ -372,6 +392,7 @@
   },
   {
     "name": "GULABI NOOR",
+    "slug": "gulabi-noor",
     "description": "An ethereal suit set in pure organza, dipped in the softest shade of blush pink. The kurta is adorned with delicate threadwork embroidery, while feather-kissed details on the dupatta hem and kurta edges add a dreamy flourish.",
     "occasion": "Trousseau | Pooja Ceremony | Sangeet",
     "price": "Rs.12,999",
@@ -393,6 +414,7 @@
   },
   {
     "name": "SWAROVSKI SERIES",
+    "slug": "swarovski-series",
     "description": "A cision in grey-blue, this Swarovski-studded gown captures the magic of moonlight. The corset-structred bodice is intricately ebroidered, sculpting elegance with every curve, while feather-adorned sleeves add ethereal drama.",
     "occasion": "Reception | Cocktail | Evening Soirée",
     "price": "Rs.14,999",
@@ -415,6 +437,7 @@
   },
   {
     "name": "SILVER LULLABY",
+    "slug": "silver-lullaby",
     "description": "An ode to modern couture rooted in timeless elegance, this Swarovski drape saree in a refined shade of blue-grey redefines ethereal glamour. Paired with a corset-style blouse featuring tone-on-tone embroidery, the ensemble balances structure with fluidity. Feather accents cascade along the pallu and ghera, while delicately paced tassels bring a playful rhythm to movement.",
     "occasion": "Reception | Cocktail | Evening Soirée",
     "price": "Rs.14,999",

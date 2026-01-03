@@ -112,7 +112,6 @@ export default function SizeChartModal({ isOpen, onClose, productName }: SizeCha
               width={800}
               height={400}
               className="w-full h-auto"
-              unoptimized
             />
           </div>
         </div>

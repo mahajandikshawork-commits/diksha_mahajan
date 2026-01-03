@@ -119,7 +119,6 @@ export default function ProductPage() {
                         width={60}
                         height={96}
                         className="w-full h-full object-cover"
-                        unoptimized
                       />
                     )}
                   </button>
@@ -145,7 +144,6 @@ export default function ProductPage() {
                       fill
                       className="object-cover"
                       priority
-                      unoptimized
                     />
                   </div>
                 )}
