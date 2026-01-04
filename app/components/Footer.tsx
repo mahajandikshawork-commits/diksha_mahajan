@@ -59,7 +59,7 @@ export default function Footer() {
                 >
                   <BsInstagram className="text-black" size={20} />
                 </a>
-                <a
+                {/* <a
                   href="https://wa.me/919871907315"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -67,7 +67,7 @@ export default function Footer() {
                   aria-label="WhatsApp"
                 >
                   <BsWhatsapp className="text-black" size={20} />
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
