@@ -254,8 +254,8 @@
     "components": "1",
     "modelSize": "Small",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Golden Hour/Main.JPEG",
+    "mediaType": "video",
+    "mediaSrc": "/products/Golden Hour/golden_hour_video.mp4",
     "mainImage": "/products/Golden Hour/Main.JPEG",
     "images": [
       "/products/Golden Hour/Main.JPEG",
@@ -296,8 +296,8 @@
     "components": "1",
     "modelSize": "X.Small",
     "modelHeight": "5'11\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Moonlit Pause/Main.jpeg",
+    "mediaType": "video",
+    "mediaSrc": "/products/Moonlit Pause/moonlit_pause_video.mp4",
     "mainImage": "/products/Moonlit Pause/Main.jpeg",
     "images": [
       "/products/Moonlit Pause/Main.jpeg",
@@ -358,8 +358,8 @@
     "components": "3",
     "modelSize": "Small",
     "modelHeight": "5'12\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/shaan-e-dupatta/main.jpg",
+    "mediaType": "video",
+    "mediaSrc": "/products/shaan-e-dupatta/shaan-e-dupatta.mov",
     "mainImage": "/products/shaan-e-dupatta/main.jpg",
     "images": [
       "/products/shaan-e-dupatta/main.jpg",

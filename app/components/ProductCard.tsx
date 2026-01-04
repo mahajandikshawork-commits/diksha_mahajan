@@ -45,16 +45,24 @@ export default function ProductCard({ name, price, mediaType, mediaSrc, mainImag
       >
         <div className="relative aspect-[3/4] overflow-hidden">
           {mediaType === 'video' ? (
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              loop
-              muted
-              playsInline
-              preload="metadata"
-            >
-              <source src={mediaSrc} type="video/mp4" />
-            </video>
+            <>
+              <video
+                ref={videoRef}
+                className={`w-full h-full object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              >
+                <source src={mediaSrc} type="video/mp4" />
+              </video>
+              <Image
+                src={mainImage || mediaSrc}
+                alt={name}
+                fill
+                className={`object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}
+              />
+            </>
           ) : (
             <Image
               src={mainImage || mediaSrc}

@@ -36,10 +36,10 @@ export default function Footer() {
             <h3 className="text-sm font-medium mb-4 uppercase tracking-wider">Keep in touch</h3>
             <div className="space-y-3">
               <a 
-                href="mailto:dikshamahajan@gmail.com" 
+                href="mailto:info@dikshamahajan.com" 
                 className="text-sm text-gray-300 hover:text-white transition-colors block"
               >
-                dikshamahajan@gmail.com
+                info@dikshamahajan.com
               </a>
               <a 
                 href="tel:+919871907315" 
