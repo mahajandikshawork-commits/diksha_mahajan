@@ -3,13 +3,13 @@ export default function ReturnsExchangePage() {
     <div className="min-h-screen bg-white">
       <main className="pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-xl md:text-3xl font-light tracking-[0.2em] text-center md:mb-16 mb-8 uppercase">
+          <h1 className="text-xl md:text-3xl font-medium tracking-[0.2em] text-center md:mb-16 mb-8 uppercase">
             Return & Exchange Policy
           </h1>
           
           <div className="space-y-8 text-gray-700 leading-relaxed">
             <p>
-              At Diksha Mahajan, every piece is thoughtfully crafted and made to order, tailored specifically to the client's individual measurements and design preferences. Due to which we do not offer returns, exchanges, or refunds once an order has been confirmed.
+              At Diksha Mahajan, every piece is thoughtfully crafted and made to order, tailored specifically to the client's individual measurements and design preferences. Due to which we do not offer <span className="font-semibold">no returns, exchanges, or refunds</span> once an order has been confirmed.
             </p>
 
             <div>
@@ -33,7 +33,7 @@ export default function ReturnsExchangePage() {
             </div>
 
             <div>
-              <h2 className="text-lg font-medium text-gray-900 mb-3">Sizing & Alterations Policy</h2>
+              <h2 className="text-xl md:text-3xl font-medium tracking-[0.2em] text-center md:my-16 mb-8 uppercase">Sizing & Alterations Policy</h2>
               <p className="mb-2">
                 In case of any sizing concerns, we offer complimentary alterations within 30 days of delivery of the garment, subject to the following conditions:
               </p>
@@ -73,8 +73,8 @@ export default function ReturnsExchangePage() {
             <div className="pt-4 border-t border-gray-200">
               <h2 className="text-lg font-medium text-gray-900 mb-3">Need Assistance?</h2>
               <p className="mb-2">For sizing guidance, customisation queries, or any questions before placing your order, our team is always happy to help.</p>
-              <p>📩 Email: <a href="mailto:info@dikshamahajan.com" className="text-gray-900 hover:underline">info@dikshamahajan.com</a></p>
-              <p>📞 WhatsApp: <a href="https://wa.me/919871907315" className="text-gray-900 hover:underline">+91-9871907315</a></p>
+              <p>📩 Email: <a href="mailto:info@dikshamahajan.com" className="text-gray-900 font-semibold hover:underline">info@dikshamahajan.com</a></p>
+              <p>📞 WhatsApp: <a href="https://wa.me/919871907315" className="text-gray-900 font-semibold hover:underline">+91-9871907315</a></p>
             </div>
           </div>
         </div>

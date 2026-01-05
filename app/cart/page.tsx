@@ -137,7 +137,6 @@ export default function CartPage() {
                   <div className="mt-6 pt-6 border-t text-xs md:text-sm text-gray-600 space-y-2">
                     <p>✓ Free shipping in India</p>
                     <p>✓ Secure checkout</p>
-                    <p>✓ Easy returns within 7 days</p>
                   </div>
                 </div>
               </div>
