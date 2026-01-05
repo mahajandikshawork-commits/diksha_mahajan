@@ -76,6 +76,7 @@ export default function ProductPage() {
     addToCart({
       id: productIndex >= 0 ? productIndex : 0,
       name: product.name,
+      tagline: product.tagline,
       description: (product as any).description || '',
       price: product.price,
       priceNumber,

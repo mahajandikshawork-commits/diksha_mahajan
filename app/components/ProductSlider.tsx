@@ -17,6 +17,7 @@ export default function ProductSlider() {
                   <ProductCard
                     name={product.name}
                     price={product.price}
+                    tagline={(product as any).tagline}
                     mediaType={product.mediaType as 'image' | 'video'}
                     mediaSrc={product.mediaSrc}
                     mainImage={product.mainImage}
@@ -39,6 +40,7 @@ export default function ProductSlider() {
                 <ProductCard
                   name={product.name}
                   price={product.price}
+                  tagline={(product as any).tagline}
                   mediaType={product.mediaType as 'image' | 'video'}
                   mediaSrc={product.mediaSrc}
                   mainImage={product.mainImage}

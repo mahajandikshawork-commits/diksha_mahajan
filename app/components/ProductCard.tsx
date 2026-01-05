@@ -7,13 +7,14 @@ import Link from 'next/link';
 interface ProductCardProps {
   name: string;
   price: string;
+  tagline?: string;
   mediaType: 'image' | 'video';
   mediaSrc: string;
   mainImage?: string;
   slug: string;
 }
 
-export default function ProductCard({ name, price, mediaType, mediaSrc, mainImage, slug }: ProductCardProps) {
+export default function ProductCard({ name, price, tagline, mediaType, mediaSrc, mainImage, slug }: ProductCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -77,6 +78,11 @@ export default function ProductCard({ name, price, mediaType, mediaSrc, mainImag
           <h3 className="md:text-lg text-xs font-medium tracking-wider uppercase mb-1">
             {name}
           </h3>
+          {tagline && (
+            <p className="md:text-xs text-[10px] text-gray-500 mb-1">
+              {tagline}
+            </p>
+          )}
           <p className="md:text-sm text-xs text-gray-600">
             {price}
           </p>

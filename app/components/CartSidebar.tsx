@@ -66,7 +66,7 @@ export default function CartSidebar() {
                         <h3 className="text-sm font-medium uppercase tracking-wider mb-1">
                           {item.name}
                         </h3>
-                        <p className="text-xs text-gray-600 mb-1">{item.description}</p>
+                        <p className="text-xs text-gray-600 mb-1">{item.tagline}</p>
                         <p className="text-xs text-gray-700">Size: {item.size}</p>
                       </div>
 

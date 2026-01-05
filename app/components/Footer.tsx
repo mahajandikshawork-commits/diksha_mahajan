@@ -54,20 +54,20 @@ export default function Footer() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="hover:opacity-70 transition-opacity"
                   aria-label="Instagram"
                 >
-                  <BsInstagram className="text-black" size={20} />
+                  <BsInstagram className="text-white" size={24} />
                 </a>
-                {/* <a
+                <a
                   href="https://wa.me/919871907315"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors"
+                  className="hover:opacity-70 transition-opacity"
                   aria-label="WhatsApp"
                 >
-                  <BsWhatsapp className="text-black" size={20} />
-                </a> */}
+                  <BsWhatsapp className="text-white" size={24} />
+                </a>
               </div>
             </div>
           </div>
