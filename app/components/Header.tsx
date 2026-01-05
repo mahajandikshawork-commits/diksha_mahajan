@@ -5,13 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { BsHandbag } from 'react-icons/bs';
-import { HiMenuAlt3 } from 'react-icons/hi';
-import { IoClose, IoSearch } from 'react-icons/io5';
+import { HiMenu} from 'react-icons/hi';
+import { IoClose } from 'react-icons/io5';
 import { useCart } from '../context/CartContext';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const pathname = usePathname();
     const { cartCount } = useCart();
 
@@ -26,7 +25,7 @@ export default function Header() {
                             className="hover:opacity-70 transition-opacity focus:outline-none flex-shrink-0"
                             aria-label="Menu"
                         >
-                            <HiMenuAlt3 size={28} />
+                            <HiMenu size={28} />
                         </button>
 
                         <div className="flex-1 flex justify-center px-4">
@@ -93,13 +92,13 @@ export default function Header() {
                         </div>
 
                         <div className="flex items-center gap-4 justify-end">
-                            <button
+                            {/* <button
                                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                                 className="hover:opacity-70 transition-opacity focus:outline-none"
                                 aria-label="Search"
                             >
                                 <IoSearch size={22} />
-                            </button>
+                            </button> */}
 
                             <Link href="/cart" className="relative hover:opacity-70 transition-opacity focus:outline-none" aria-label="Cart">
                                 <BsHandbag size={24} className="outline-none" />
@@ -111,21 +110,6 @@ export default function Header() {
                             </Link>
                         </div>
                     </div>
-
-                    {/* Desktop Search Bar */}
-                    {isSearchOpen && (
-                        <div className="mt-4 animate-fadeIn hidden md:block">
-                            <div className="relative max-w-md mx-auto">
-                                <IoSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50" size={20} />
-                                <input
-                                    type="text"
-                                    placeholder="Search..."
-                                    className="w-full bg-white/10 border border-white/20 rounded-full pl-12 pr-6 py-3 text-white placeholder-white/50 focus:outline-none focus:border-white/40"
-                                    autoFocus
-                                />
-                            </div>
-                        </div>
-                    )}
                 </div>
             </header>
 
@@ -160,8 +144,8 @@ export default function Header() {
                             </button>
                         </div>
 
-                        <div className="flex-1 flex flex-col items-center px-8">
-                            <div className="w-full max-w-md mb-12">
+                        <div className="flex-1 flex flex-col items-center py-8 px-8">
+                            {/* <div className="w-full max-w-md mb-12">
                                 <div className="relative">
                                     <IoSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50" size={20} />
                                     <input
@@ -170,7 +154,7 @@ export default function Header() {
                                         className="w-full bg-white/10 border border-white/20 rounded-full pl-12 pr-6 py-3 text-white placeholder-white/50 focus:outline-none focus:border-white/40"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <nav className="flex flex-col items-center gap-8 text-white mb-12">
                                 <a
                                     href="#about"

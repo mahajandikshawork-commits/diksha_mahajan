@@ -200,7 +200,7 @@ export default function CollectionPage() {
   );
 
   return (
-    <div className="min-h-screen bg-white pb-20 md:pb-0">
+    <div className="min-h-screen bg-white md:pb-0">
       <main className="pt-32 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-8 md:mb-12 uppercase">
