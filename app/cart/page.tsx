@@ -38,7 +38,7 @@ export default function CartPage() {
               {/* Cart Items */}
               <div className="lg:col-span-2 space-y-4">
                 {cartItems.map((item) => (
-                  <div key={item.id} className="border border-gray-200 p-4 md:p-6">
+                  <div key={`${item.id}-${item.size}`} className="border border-gray-200 p-4 md:p-6">
                     <div className="flex gap-4">
                       {/* Product Image */}
                       <div className="relative w-24 h-32 md:w-32 md:h-40 flex-shrink-0">
@@ -64,14 +64,14 @@ export default function CartPage() {
                           {/* Quantity Selector */}
                           <div className="flex items-center gap-3">
                             <button
-                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              onClick={() => updateQuantity(item.id, item.size, item.quantity - 1)}
                               className="md:w-8 md:h-8 w-4 h-4 border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
                             >
                               −
                             </button>
                             <span className="md:w-8 text-xs md:text-base text-center">{item.quantity}</span>
                             <button
-                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              onClick={() => updateQuantity(item.id, item.size, item.quantity + 1)}
                               className="md:w-8 md:h-8 w-4 h-4 border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
                             >
                               +
@@ -87,7 +87,7 @@ export default function CartPage() {
 
                       {/* Remove Button */}
                       <button
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() => removeFromCart(item.id, item.size)}
                         className="text-gray-400 hover:text-red-500 transition-colors"
                         aria-label="Remove item"
                       >

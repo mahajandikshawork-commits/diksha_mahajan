@@ -74,14 +74,14 @@ export default function CartSidebar() {
                         {/* Quantity Selector */}
                         <div className="flex items-center gap-2">
                           <button
-                            onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                            onClick={() => updateQuantity(item.id, item.size, item.quantity - 1)}
                             className="w-6 h-6 border border-gray-300 flex items-center justify-center text-xs hover:bg-gray-100 transition-colors"
                           >
                             −
                           </button>
                           <span className="text-sm w-6 text-center">{item.quantity}</span>
                           <button
-                            onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                            onClick={() => updateQuantity(item.id, item.size, item.quantity + 1)}
                             className="w-6 h-6 border border-gray-300 flex items-center justify-center text-xs hover:bg-gray-100 transition-colors"
                           >
                             +
@@ -95,7 +95,7 @@ export default function CartSidebar() {
 
                     {/* Remove Button */}
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => removeFromCart(item.id, item.size)}
                       className="text-gray-400 hover:text-red-500 transition-colors self-start"
                       aria-label="Remove item"
                     >
