@@ -73,8 +73,8 @@ export default function ReturnsExchangePage() {
             <div className="pt-4 border-t border-gray-200">
               <h2 className="text-lg font-medium text-gray-900 mb-3">Need Assistance?</h2>
               <p className="mb-2">For sizing guidance, customisation queries, or any questions before placing your order, our team is always happy to help.</p>
-              <p>📩 Email: <a href="mailto:info@dikshamahajan.com" className="text-gray-900 font-semibold hover:underline">info@dikshamahajan.com</a></p>
-              <p>📞 WhatsApp: <a href="https://wa.me/919871907315" className="text-gray-900 font-semibold hover:underline">+91-9871907315</a></p>
+              <p>📩 Email: <Link href="mailto:info@dikshamahajan.com" className="text-gray-900 font-semibold hover:underline">info@dikshamahajan.com</Link></p>
+              <p>📞 WhatsApp: <Link href="https://wa.me/919871907315" className="text-gray-900 font-semibold hover:underline">+91-9871907315</Link></p>
             </div>
           </div>
         </div>

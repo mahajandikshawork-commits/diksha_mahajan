@@ -217,7 +217,7 @@ export default function ProductPage() {
                   BUY IT NOW
                 </button>
 
-                <a 
+                <Link 
                   href={`https://wa.me/919871907315?text=${encodeURIComponent(`Hello Team, I would like to enquire more about this product - ${product.name} from ${product.collection.toUpperCase()} collection`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -225,7 +225,7 @@ export default function ProductPage() {
                 >
                   <BsWhatsapp size={20} />
                   ORDER ON WHATSAPP
-                </a>
+                </Link>
               </div>
 
               {/* Product Description */}
@@ -366,7 +366,7 @@ export default function ProductPage() {
                   {openDropdown === 'delivery' && (
                     <div className="pb-4 text-sm text-gray-700 space-y-2">
                       <p>Once an order is placed, it will be shipped within <span className='font-bold'>15-20 business days.</span></p>
-                      <p>This item is not eligible for <a href='/returns-exchange' className='border-b border-gray-400 text-blue-400 hover:text-blue-600'>return or exchange.</a><br/> For any queries you can reach out to us at <span className='font-bold'>info@dikshamahajan.com</span> or <span className='font-bold'>+91-9871907315</span></p>
+                      <p>This item is not eligible for <Link href='/returns-exchange' className='border-b border-gray-400 text-blue-400 hover:text-blue-600'>return or exchange.</Link><br/> For any queries you can reach out to us at <span className='font-bold'>info@dikshamahajan.com</span> or <span className='font-bold'>+91-9871907315</span></p>
                     </div>
                   )}
                 </div>

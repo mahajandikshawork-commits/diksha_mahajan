@@ -104,47 +104,8 @@ export default function HeroSectionMobile() {
         ))}
       </div>
 
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors z-10"
-        aria-label="Previous video"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="m15 18-6-6 6-6" />
-        </svg>
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors z-10"
-        aria-label="Next video"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-      </button>
-
-      {/* <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+      {/* Pagination Dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         {videos.map((_, index) => (
           <button
             key={index}
@@ -155,7 +116,7 @@ export default function HeroSectionMobile() {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div> */}
+      </div>
     </section>
   );
 }

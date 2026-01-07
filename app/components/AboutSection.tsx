@@ -25,7 +25,7 @@ export default function AboutSection() {
             
             <p className="text-gray-600 leading-relaxed max-w-md w-full">
               Diksha Mahajan positions bridalwear as more than clothing, framing each piece as a keepsake. The label's collections, including Aaina, range from fluid sarees and skirts to statement lehengas, cocktail gowns, and modern silhouettes suited for trousseau, festive events, and destination weddings.
-              Each creation is ... <a href="https://www.vogue.in/shopping/promotion/step-into-the-diwali-festivities-with-these-showstopping-ensembles" className="text-blue-600 hover:text-blue-800 underline" target="_blank" rel="noopener noreferrer">Read More</a>
+              Each creation is ... <Link href="https://www.vogue.in/shopping/promotion/step-into-the-diwali-festivities-with-these-showstopping-ensembles" className="text-blue-600 hover:text-blue-800 underline" target="_blank" rel="noopener noreferrer">Read More</Link>
             </p>
           </div>
 

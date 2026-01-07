@@ -115,13 +115,13 @@ export default function CartSidebar() {
               <span>Total</span>
               <span>Rs.{cartTotal.toLocaleString()}</span>
             </div>
-            <a
+            <Link
               href="/cart"
               className="block w-full bg-black text-white text-center py-3 uppercase tracking-wider hover:bg-gray-800 transition-colors"
               onClick={() => setIsCartOpen(false)}
             >
               View Cart & Checkout
-            </a>
+            </Link>
             <button
               onClick={() => setIsCartOpen(false)}
               className="block w-full border border-black text-black text-center py-3 uppercase tracking-wider hover:bg-gray-50 transition-colors"

@@ -35,22 +35,22 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-medium mb-4 uppercase tracking-wider">Keep in touch</h3>
             <div className="space-y-3">
-              <a 
+              <Link 
                 href="mailto:info@dikshamahajan.com" 
                 className="text-sm text-gray-300 hover:text-white transition-colors block"
               >
                 info@dikshamahajan.com
-              </a>
-              <a 
+              </Link>
+              <Link 
                 href="tel:+919871907315" 
                 className="text-sm text-gray-300 hover:text-white transition-colors block"
               >
                 +91-9871907315
-              </a>
+              </Link>
               
               {/* Social Icons */}
               <div className="flex gap-3 pt-2">
-                <a
+                <Link
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -58,8 +58,8 @@ export default function Footer() {
                   aria-label="Instagram"
                 >
                   <BsInstagram className="text-pink-400" size={24} />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://wa.me/919871907315"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -67,7 +67,7 @@ export default function Footer() {
                   aria-label="WhatsApp"
                 >
                   <BsWhatsapp className="text-green-400" size={24} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

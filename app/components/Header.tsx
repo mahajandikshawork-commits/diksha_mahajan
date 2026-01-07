@@ -54,12 +54,12 @@ export default function Header() {
                     {/* Desktop Layout */}
                     <div className="hidden md:grid md:grid-cols-3 items-center">
                         <nav className="flex items-center gap-8 text-xs tracking-wider">
-                            <a 
+                            <Link      
                                 href="/about" 
                                 className="hover:opacity-70 transition-opacity uppercase"
                             >
                                 About Us
-                            </a>
+                            </Link>
                             <Link 
                                 href="/collection"
                                 className={`hover:opacity-70 transition-opacity uppercase ${
@@ -68,14 +68,14 @@ export default function Header() {
                             >
                                 Collection
                             </Link>
-                            <a 
+                            <Link 
                                 href={`https://wa.me/919871907315?text=${encodeURIComponent('Hello Team, I would like to book an appointment at your personalised design space')}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:opacity-70 transition-opacity uppercase"
                             >
                                 Book Your Appointment
-                            </a>
+                            </Link>
                         </nav>
 
                         <div className="flex justify-center items-center">
@@ -156,13 +156,13 @@ export default function Header() {
                                 </div>
                             </div> */}
                             <nav className="flex flex-col items-center gap-8 text-white mb-12">
-                                <a
+                                <Link
                                     href="/about"
                                     onClick={() => setIsMenuOpen(false)}
                                     className="text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
                                 >
                                     About Us
-                                </a>
+                                </Link>
                                 <Link
                                     href="/collection"
                                     onClick={() => setIsMenuOpen(false)}
@@ -172,7 +172,7 @@ export default function Header() {
                                 >
                                     Collection
                                 </Link>
-                                <a
+                                <Link
                                     href={`https://wa.me/919871907315?text=${encodeURIComponent('Hello Team, I would like to book an appointment at your personalised design space')}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -180,7 +180,7 @@ export default function Header() {
                                     className="text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
                                 >
                                     Book Your Appointment
-                                </a>
+                                </Link>
                             </nav>
                         </div>
                     </div>

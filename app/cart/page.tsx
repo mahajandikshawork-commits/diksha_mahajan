@@ -26,12 +26,12 @@ export default function CartPage() {
           {cartItems.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-xl text-gray-600 mb-8">Your cart is empty</p>
-              <a
+              <Link
                 href="/collection"
                 className="inline-block bg-black text-white px-8 py-3 uppercase tracking-wider hover:bg-gray-800 transition-colors"
               >
                 Continue Shopping
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -127,12 +127,12 @@ export default function CartPage() {
                     Proceed to Checkout
                   </button>
 
-                  <a
+                  <Link
                     href="/collection"
                     className="block w-full text-center border border-black text-black text-xs md:text-base md:py-3 py-2 uppercase tracking-wider hover:bg-gray-50 transition-colors"
                   >
                     Continue Shopping
-                  </a>
+                  </Link>
 
                   <div className="mt-6 pt-6 border-t text-xs md:text-sm text-gray-600 space-y-2">
                     <p>✓ Free shipping in India</p>

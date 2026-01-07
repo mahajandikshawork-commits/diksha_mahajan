@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CartProvider } from "./context/CartContext";
 import CartSidebar from "./components/CartSidebar";
+import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
 
 const montserrat = Montserrat({
@@ -36,7 +37,7 @@ export default function RootLayout({
           <CartSidebar />
           
           {/* Fixed WhatsApp Button */}
-          <a
+          <Link
             href="https://wa.me/919871907315"
             target="_blank"
             rel="noopener noreferrer"
@@ -44,7 +45,7 @@ export default function RootLayout({
             aria-label="Chat on WhatsApp"
           >
             <BsWhatsapp className="text-white" size={28} />
-          </a>
+          </Link>
         </CartProvider>
       </body>
     </html>
