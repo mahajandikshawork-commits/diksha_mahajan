@@ -3,6 +3,7 @@
 import { useCart } from '../context/CartContext';
 import Image from 'next/image';
 import { BsX, BsTrash } from 'react-icons/bs';
+import Link from 'next/link';
 
 export default function CartSidebar() {
   const { cartItems, removeFromCart, updateQuantity, isCartOpen, setIsCartOpen, cartTotal } = useCart();

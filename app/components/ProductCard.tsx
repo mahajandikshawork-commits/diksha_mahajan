@@ -12,14 +12,16 @@ interface ProductCardProps {
   mediaSrc: string;
   mainImage?: string;
   slug: string;
+  showVideo?: boolean; // If false, always show image even for video products
+  autoplay?: boolean; // If true, video plays automatically without hover
 }
 
-export default function ProductCard({ name, price, tagline, mediaType, mediaSrc, mainImage, slug }: ProductCardProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
+export default function ProductCard({ name, price, tagline, mediaType, mediaSrc, mainImage, slug, showVideo = false, autoplay = false }: ProductCardProps) {
+  const [isPlaying, setIsPlaying] = useState(autoplay);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const handleMouseEnter = () => {
-    if (mediaType === 'video' && videoRef.current) {
+    if (!autoplay && showVideo && mediaType === 'video' && videoRef.current) {
       videoRef.current.play().catch(error => {
         if (error.name !== 'AbortError') {
           console.error('Video play error:', error);
@@ -30,7 +32,7 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
   };
 
   const handleMouseLeave = () => {
-    if (mediaType === 'video' && videoRef.current) {
+    if (!autoplay && showVideo && mediaType === 'video' && videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
       setIsPlaying(false);
@@ -45,24 +47,19 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
         onMouseLeave={handleMouseLeave}
       >
         <div className="relative aspect-[3/4] overflow-hidden">
-          {mediaType === 'video' ? (
+          {showVideo && mediaType === 'video' ? (
             <>
               <video
                 ref={videoRef}
-                className={`w-full h-full object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
+                className="w-full h-full object-cover"
                 loop
                 muted
                 playsInline
-                preload="metadata"
+                autoPlay={autoplay}
+                preload="auto"
               >
                 <source src={mediaSrc} type="video/mp4" />
               </video>
-              <Image
-                src={mainImage || mediaSrc}
-                alt={name}
-                fill
-                className={`object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}
-              />
             </>
           ) : (
             <Image

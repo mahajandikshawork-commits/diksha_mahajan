@@ -9,6 +9,7 @@ import ProductSlider from '../../components/ProductSlider';
 import { BsWhatsapp, BsHeart } from 'react-icons/bs';
 import productsData from '@/data/products.json';
 import { useCart } from '../../context/CartContext';
+import Link from 'next/link';
 
 export default function ProductPage() {
   const params = useParams();

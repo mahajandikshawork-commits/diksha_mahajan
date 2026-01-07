@@ -22,6 +22,8 @@ export default function ProductSlider() {
                     mediaSrc={product.mediaSrc}
                     mainImage={product.mainImage}
                     slug={product.slug}
+                    showVideo={true}
+                    autoplay={true}
                   />
                 </div>
               ))}
@@ -45,6 +47,8 @@ export default function ProductSlider() {
                   mediaSrc={product.mediaSrc}
                   mainImage={product.mainImage}
                   slug={product.slug}
+                  showVideo={true}
+                  autoplay={true}
                 />
               </div>
             ))}

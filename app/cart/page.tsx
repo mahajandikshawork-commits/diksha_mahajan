@@ -6,6 +6,7 @@ import CheckoutModal from '../components/CheckoutModal';
 import ProductSlider from '../components/ProductSlider';
 import { BsTrash } from 'react-icons/bs';
 import { useCart } from '../context/CartContext';
+import Link from 'next/link';
 
 export default function CartPage() {
   const [showCheckout, setShowCheckout] = useState(false);
