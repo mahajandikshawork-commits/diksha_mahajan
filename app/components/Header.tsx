@@ -157,7 +157,7 @@ export default function Header() {
                             </div> */}
                             <nav className="flex flex-col items-center gap-8 text-white mb-12">
                                 <a
-                                    href="#about"
+                                    href="/about"
                                     onClick={() => setIsMenuOpen(false)}
                                     className="text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
                                 >
