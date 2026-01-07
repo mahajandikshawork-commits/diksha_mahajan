@@ -3,7 +3,7 @@ export default function ShippingPage() {
     <div className="min-h-screen bg-white">
       <main className="pt-32 pb-16 px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-xl md:text-3xl font-light tracking-[0.2em] text-center md:mb-16 mb-8 uppercase">
+          <h1 className="text-xl md:text-3xl font-medium tracking-[0.2em] text-center md:mb-16 mb-8 uppercase">
             Shipping Policy
           </h1>
           
@@ -43,7 +43,7 @@ export default function ShippingPage() {
             <div>
               <h2 className="text-lg font-medium text-gray-900 mb-3">Damaged Packages</h2>
               <p>
-                If you receive a visibly damaged package, please notify us within 48 hours of delivery along with clear photographs of the package and product so that we can assist you accordingly.
+                If you receive a visibly damaged package, please notify us within <strong>48 hours</strong> of delivery along with clear photographs of the package and product so that we can assist you accordingly.
               </p>
             </div>
           </div>

@@ -57,7 +57,7 @@ export default function Footer() {
                   className="hover:opacity-70 transition-opacity"
                   aria-label="Instagram"
                 >
-                  <BsInstagram className="text-white" size={24} />
+                  <BsInstagram className="text-pink-400" size={24} />
                 </a>
                 <a
                   href="https://wa.me/919871907315"
@@ -66,7 +66,7 @@ export default function Footer() {
                   className="hover:opacity-70 transition-opacity"
                   aria-label="WhatsApp"
                 >
-                  <BsWhatsapp className="text-white" size={24} />
+                  <BsWhatsapp className="text-green-400" size={24} />
                 </a>
               </div>
             </div>
