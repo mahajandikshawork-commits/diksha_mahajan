@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
-export default function LoadingBar() {
+function LoadingBarContent() {
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const pathname = usePathname();
@@ -41,9 +41,17 @@ export default function LoadingBar() {
   return (
     <div className="fixed top-0 left-0 right-0 z-[9999] h-1">
       <div
-        className="h-full bg-black transition-all duration-300 ease-out"
+        className="h-full bg-[#F5F1E8] transition-all duration-300 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>
+  );
+}
+
+export default function LoadingBar() {
+  return (
+    <Suspense fallback={null}>
+      <LoadingBarContent />
+    </Suspense>
   );
 }
