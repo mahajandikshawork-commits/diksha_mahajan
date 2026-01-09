@@ -121,7 +121,7 @@ export default function HeroSectionMobile() {
               loop
               muted
               playsInline
-              preload="auto"
+              preload={index === currentSlide ? 'auto' : 'metadata'}
             >
               <source src={video.src} type="video/mp4" />
             </video>
