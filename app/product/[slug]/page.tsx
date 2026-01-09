@@ -178,20 +178,26 @@ export default function ProductPage() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-sm uppercase tracking-wider">SIZE</label>
-                  <button
-                    onClick={() => setShowSizeChart(true)}
-                    className="text-sm underline hover:no-underline flex items-center gap-1"
-                  >
-                    <span>✏️</span> Size Chart
-                  </button>
+                  {(product as any).status !== "out_of_stock" && (
+                    <button
+                      onClick={() => setShowSizeChart(true)}
+                      className="text-sm underline hover:no-underline flex items-center gap-1"
+                    >
+                      <span>✏️</span> Size Chart
+                    </button>
+                  )}
                 </div>
 
                 <div className="flex flex-wrap gap-3">
                   {sizes.map((size) => (
                     <button
                       key={size}
-                      onClick={() => handleSizeSelect(size)}
-                      className={`md:px-6 px-4 md:py-2 py-1 text-xs md:text-sm border ${selectedSize === size
+                      onClick={() => (product as any).status !== "out_of_stock" && handleSizeSelect(size)}
+                      disabled={(product as any).status === "out_of_stock"}
+                      className={`md:px-6 px-4 md:py-2 py-1 text-xs md:text-sm border ${
+                        (product as any).status === "out_of_stock"
+                          ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed'
+                          : selectedSize === size
                           ? 'border-black bg-black text-white'
                           : 'border-gray-300 hover:border-black'
                         } transition-colors`}
@@ -200,23 +206,34 @@ export default function ProductPage() {
                     </button>
                   ))}
                 </div>
-              </div>
 
               {/* Custom Measurement Form */}
-              {showCustomForm && <CustomMeasurementForm />}
+              {showCustomForm && (product as any).status !== "out_of_stock" && <CustomMeasurementForm />}
+              </div>
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-6">
-                <button
-                  onClick={handleAddToCart}
-                  className="w-full bg-white border text-xs md:text-sm border-black text-black py-2 uppercase tracking-wider hover:bg-gray-50 transition-colors"
-                >
-                  ADD TO CART
-                </button>
+                {(product as any).status !== "out_of_stock" && (
+                  <button
+                    onClick={handleAddToCart}
+                    className="w-full bg-white border text-xs md:text-sm border-black text-black py-2 uppercase tracking-wider hover:bg-gray-50 transition-colors"
+                  >
+                    ADD TO CART
+                  </button>
+                )}
 
-                <button className="w-full bg-black text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-gray-800 transition-colors">
-                  BUY IT NOW
-                </button>
+                {(product as any).status === "out_of_stock" ? (
+                  <button 
+                    disabled
+                    className="w-full bg-gray-300 text-xs md:text-sm text-gray-500 py-2 uppercase tracking-wider cursor-not-allowed"
+                  >
+                    OUT OF STOCK
+                  </button>
+                ) : (
+                  <button className="w-full bg-black text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-gray-800 transition-colors">
+                    BUY IT NOW
+                  </button>
+                )}
 
                 <Link 
                   href={`https://wa.me/919871907315?text=${encodeURIComponent(`Hello Team, I would like to enquire more about this product - ${product.name} from ${product.collection.toUpperCase()} collection`)}`}

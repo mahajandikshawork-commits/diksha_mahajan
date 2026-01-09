@@ -34,6 +34,8 @@ const videos: VideoItem[] = [
 export default function HeroSectionMobile() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % videos.length);
@@ -41,6 +43,26 @@ export default function HeroSectionMobile() {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + videos.length) % videos.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      // Swiped left - go to next slide
+      nextSlide();
+    }
+
+    if (touchEndX.current - touchStartX.current > 50) {
+      // Swiped right - go to previous slide
+      prevSlide();
+    }
   };
 
   useEffect(() => {
@@ -62,7 +84,12 @@ export default function HeroSectionMobile() {
 
   return (
     <section className="relative w-full h-screen">
-      <div className="relative w-full h-full overflow-hidden">
+      <div 
+        className="relative w-full h-full overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {videos.map((video, index) => (
           <div
             key={index}

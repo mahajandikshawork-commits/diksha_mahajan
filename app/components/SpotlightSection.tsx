@@ -9,7 +9,7 @@ export default function SpotlightSection() {
           In The Spotlight
         </h2>
         
-        <p className="text-center text-gray-600 mb-12 text-lg">
+        <p className="text-center text-gray-600 mb-12 text-base md:text-lg">
           where timelessness meets the women rewriting tradition
         </p>
 

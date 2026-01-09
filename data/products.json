@@ -2,6 +2,7 @@
   {
     "name": "RUHANI",
     "slug": "ruhani",
+    "status": "available",
     "tagline": "Drape Gown",
     "gender": "Womenswear",
     "productCategory": "Gown",
@@ -14,8 +15,8 @@
     "components": "1",
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Ruhani/Main.JPEG",
+    "mediaType": "video",
+    "mediaSrc": "/products/Ruhani/Ruhani.mov",
     "mainImage": "/products/Ruhani/Main.JPEG",
     "images": [
       "/products/Ruhani/Main.JPEG",
@@ -27,6 +28,7 @@
   {
     "name": "EMERALD WHISPERS",
     "slug": "emerald-whispers",
+    "status": "available",
     "tagline": "Embroidered pants with drape kurta set",
     "gender": "Womenswear",
     "productCategory": "Trouser set",
@@ -39,8 +41,8 @@
     "components": "3",
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Emerald Whispers/Main.JPEG",
+    "mediaType": "video",
+    "mediaSrc": "/products/Emerald Whispers/Emerald_Whispers.mov",
     "mainImage": "/products/Emerald Whispers/Main.JPEG",
     "images": [
       "/products/Emerald Whispers/Main.JPEG",
@@ -52,6 +54,7 @@
   {
     "name": "MIDNIGHT HOUR",
     "slug": "midnight-hour",
+    "status": "available",
     "tagline": "Embroidered Lehenga set",
     "gender": "Womenswear",
     "productCategory": "Suit set",
@@ -64,8 +67,8 @@
     "components": "3",
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Midnight Hour/main.jpeg",
+    "mediaType": "video",
+    "mediaSrc": "/products/Midnight Hour/Midnight hour.mp4",
     "mainImage": "/products/Midnight Hour/main.jpeg",
     "images": [
       "/products/Midnight Hour/main.jpeg",
@@ -79,6 +82,7 @@
   {
     "name": "FIZA AFTER MIDNIGHT",
     "slug": "fiza-after-midnight",
+    "status": "available",
     "tagline": "Embroidered Cape with Jumpsuit",
     "gender": "Womenswear",
     "productCategory": "Cape set",
@@ -91,8 +95,8 @@
     "components": "2",
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Fiza-After-Midnight/Main.jpeg",
+    "mediaType": "video",
+    "mediaSrc": "/products/Fiza-After-Midnight/Fiza after midnight.mp4",
     "mainImage": "/products/Fiza-After-Midnight/Main.jpeg",
     "images": [
       "/products/Fiza-After-Midnight/Main.jpeg",
@@ -105,6 +109,7 @@
   {
     "name": "OMBRÉ MIRAGE",
     "slug": "ombre-mirage",
+    "status": "available",
     "tagline": "Drape Saree Gown",
     "gender": "Womenswear",
     "productCategory": "Gown",
@@ -117,8 +122,8 @@
     "components": "1",
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Ombre_Mirage/DSC06024.jpeg",
+    "mediaType": "video",
+    "mediaSrc": "/products/Ombre_Mirage/Ombré mirage.mov",
     "mainImage": "/products/Ombre_Mirage/DSC06024.jpeg",
     "images": [
       "/products/Ombre_Mirage/DSC06024.jpeg"
@@ -127,6 +132,7 @@
   {
     "name": "THE BLUE AFFAIRÈ",
     "slug": "the-blue-affaire",
+    "status": "available",
     "tagline": "Drape Skirt with Embroidered Blouse set",
     "gender": "Womenswear",
     "productCategory": "Drape Skirt",
@@ -139,8 +145,8 @@
     "components": "3",
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/The Blue Affairè/main.jpg",
+    "mediaType": "video",
+    "mediaSrc": "/products/The Blue Affairè/The Blue Affaire.mov",
     "mainImage": "/products/The Blue Affairè/main.jpg",
     "images": [
       "/products/The Blue Affairè/main.jpg",
@@ -152,6 +158,7 @@
   {
     "name": "EVENING WINE",
     "slug": "evening-wine",
+    "status": "available",
     "tagline": "Drape Saree set",
     "gender": "Womenswear",
     "productCategory": "Drape saree",
@@ -164,8 +171,8 @@
     "components": "2",
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Evening wine/main.jpg",
+    "mediaType": "video",
+    "mediaSrc": "/products/Evening wine/Evening wine.mov",
     "mainImage": "/products/Evening wine/main.jpg",
     "images": [
       "/products/Evening wine/main.jpg",
@@ -178,6 +185,7 @@
   {
     "name": "CHAAND SAAYA",
     "slug": "chaand-saya",
+    "status": "available",
     "tagline": "Self textured Kurta",
     "gender": "Menswear",
     "productCategory": "Suit set",
@@ -190,8 +198,8 @@
     "components": "1",
     "modelSize": "Large",
     "modelHeight": "6'3\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Chaand Saaya/DSC06032.JPEG",
+    "mediaType": "video",
+    "mediaSrc": "/products/Chaand Saaya/Chaand saya.mov",
     "mainImage": "/products/Chaand Saaya/DSC06032.JPEG",
     "images": [
       "/products/Chaand Saaya/DSC06032.JPEG",
@@ -203,6 +211,7 @@
   {
     "name": "MINT SOVEREIGN",
     "slug": "mint-sovereign",
+    "status": "available",
     "tagline": "Mint Green Embroidered Kurta set",
     "gender": "Menswear",
     "productCategory": "Suit set",
@@ -215,8 +224,8 @@
     "components": "2",
     "modelSize": "Large",
     "modelHeight": "6'3\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Mint Sovereign/Main.jpeg",
+    "mediaType": "video",
+    "mediaSrc": "/products/Mint Sovereign/Mint Sovereign.mov",
     "mainImage": "/products/Mint Sovereign/Main.jpeg",
     "images": [
       "/products/Mint Sovereign/Main.jpeg",
@@ -227,6 +236,7 @@
   {
     "name": "SAFFRON DUSK",
     "slug": "saffron-dusk",
+    "status": "available",
     "tagline": "Embroidered Suit",
     "gender": "Womenswear",
     "productCategory": "Suit set",
@@ -252,6 +262,7 @@
   {
     "name": "CRIMSON WHISPERS",
     "slug": "crimson-whispers",
+    "status": "available",
     "tagline": "Printed velvet jacket set",
     "gender": "Womenswear",
     "productCategory": "Trouser set",
@@ -277,6 +288,7 @@
   {
     "name": "GOLDEN HOUR",
     "slug": "golden-hour",
+    "status": "available",
     "tagline": "Embroidered Shirt",
     "gender": "Womenswear",
     "productCategory": "Shirt",
@@ -301,6 +313,7 @@
   {
     "name": "PRINTED SILENCE",
     "slug": "printed-silence",
+    "status": "available",
     "tagline": "Scarf",
     "gender": "Womenswear",
     "productCategory": "Scarf",
@@ -325,6 +338,7 @@
   {
     "name": "MOONLIT PAUSE",
     "slug": "moonlit-pause",
+    "status": "available",
     "tagline": "Embroidered Gown",
     "gender": "Womenswear",
     "productCategory": "Gown",
@@ -348,6 +362,7 @@
   {
     "name": "FEATHERED ROSÈ",
     "slug": "feathered-rose",
+    "status": "available",
     "tagline": "Drape Skirt with Cape set",
     "gender": "Womenswear",
     "productCategory": ["Drape Skirt", "Cape set"],
@@ -373,6 +388,7 @@
   {
     "name": "SAGE SYMPHONY",
     "slug": "sage-symphony",
+    "status": "available",
     "tagline": "Drape Skirt with Cape set",
     "gender": "Womenswear",
     "productCategory": ["Drape Skirt", "Cape set"],
@@ -396,6 +412,7 @@
   {
     "name": "SHAAN-E-DUPATTA",
     "slug": "shaan-e-dupatta",
+    "status": "available",
     "tagline": "Embroidered lehenga set",
     "gender": "Womenswear",
     "productCategory": "Suit set",
@@ -421,6 +438,7 @@
   {
     "name": "GLIDED GRACE",
     "slug": "glided-grace",
+    "status": "available",
     "tagline": "Embroidered Cape set with Pants",
     "gender": "Womenswear",
     "productCategory": ["Cape set", "Trouser set"],
@@ -445,6 +463,7 @@
   {
     "name": "GULABI NOOR",
     "slug": "gulabi-noor",
+    "status": "available",
     "tagline": "Embroidered Suit Set",
     "gender": "Womenswear",
     "productCategory": "Suit set",
@@ -470,6 +489,7 @@
   {
     "name": "SWAROVSKI SERIES",
     "slug": "swarovski-series",
+    "status": "available",
     "tagline": "Embroidered Corset Gown",
     "gender": "Womenswear",
     "productCategory": "Gown",
@@ -496,12 +516,13 @@
   {
     "name": "SILVER LULLABY",
     "slug": "silver-lullaby",
+    "status": "out_of_stock",
     "tagline": "Drape saree set",
     "gender": "Womenswear",
     "productCategory": "Drape saree",
     "description": "An ode to modern couture rooted in timeless elegance, this Swarovski drape saree in a refined shade of blue-grey redefines ethereal glamour. Paired with a corset-style blouse featuring tone-on-tone embroidery, the ensemble balances structure with fluidity. Feather accents cascade along the pallu and ghera, while delicately paced tassels bring a playful rhythm to movement.",
     "occasion": "Reception | Cocktail | Evening Soirée",
-    "price": "Rs.14,999",
+    "price": "Rs.29,999",
     "collection": "aaina",
     "materials": "Silk Net",
     "color": "Midnight Blue",
