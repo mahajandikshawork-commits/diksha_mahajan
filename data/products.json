@@ -249,8 +249,8 @@
     "components": "1",
     "modelSize": "Small",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Saffron Dusk/Main.JPEG",
+    "mediaType": "video",
+    "mediaSrc": "/products/Saffron Dusk/Saffron Dusk.mov",
     "mainImage": "/products/Saffron Dusk/Main.JPEG",
     "images": [
       "/products/Saffron Dusk/Main.JPEG",
@@ -275,8 +275,8 @@
     "components": "2",
     "modelSize": "X.Small",
     "modelHeight": "5'11\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Crimson Whispers/Main.jpeg",
+    "mediaType": "video",
+    "mediaSrc": "/products/Crimson Whispers/Crimson Whispers.mov",
     "mainImage": "/products/Crimson Whispers/Main.jpeg",
     "images": [
       "/products/Crimson Whispers/Main.jpeg",
@@ -311,6 +311,30 @@
     ]
   },
   {
+    "name": "MOONLIT PAUSE",
+    "slug": "moonlit-pause",
+    "status": "available",
+    "tagline": "Embroidered Gown",
+    "gender": "Womenswear",
+    "productCategory": "Gown",
+    "description": "a pure crepe gown in soft beige, adorned with delicate embroidery on the sleeves, an ode to effortless grace, perfect for a chic and intimate celebration.",
+    "occasion": "Trousseau | Festive wear | Day Weddings",
+    "price": "Rs.12,999",
+    "collection": "nazm",
+    "materials": "Silk Crepe",
+    "color": "Gold Beige",
+    "components": "1",
+    "modelSize": "X.Small",
+    "modelHeight": "5'11\"",
+    "mediaType": "video",
+    "mediaSrc": "/products/Moonlit Pause/moonlit_pause_video.mp4",
+    "mainImage": "/products/Moonlit Pause/Main.jpeg",
+    "images": [
+      "/products/Moonlit Pause/Main.jpeg",
+      "/products/Moonlit Pause/img1.jpeg"
+    ]
+  },
+  {
     "name": "PRINTED SILENCE",
     "slug": "printed-silence",
     "status": "available",
@@ -333,30 +357,6 @@
       "/products/Printed Silence/Main.jpeg",
       "/products/Printed Silence/img1.jpeg",
       "/products/Printed Silence/img2.jpeg"
-    ]
-  },
-  {
-    "name": "MOONLIT PAUSE",
-    "slug": "moonlit-pause",
-    "status": "available",
-    "tagline": "Embroidered Gown",
-    "gender": "Womenswear",
-    "productCategory": "Gown",
-    "description": "a pure crepe gown in soft beige, adorned with delicate embroidery on the sleeves, an ode to effortless grace, perfect for a chic and intimate celebration.",
-    "occasion": "Trousseau | Festive wear | Day Weddings",
-    "price": "Rs.12,999",
-    "collection": "nazm",
-    "materials": "Silk Crepe",
-    "color": "Gold Beige",
-    "components": "1",
-    "modelSize": "X.Small",
-    "modelHeight": "5'11\"",
-    "mediaType": "video",
-    "mediaSrc": "/products/Moonlit Pause/moonlit_pause_video.mp4",
-    "mainImage": "/products/Moonlit Pause/Main.jpeg",
-    "images": [
-      "/products/Moonlit Pause/Main.jpeg",
-      "/products/Moonlit Pause/img1.jpeg"
     ]
   },
   {

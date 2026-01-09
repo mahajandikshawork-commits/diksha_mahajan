@@ -71,15 +71,13 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
           )}
         </div>
 
-        <div className="p-4 text-center">
-          <h3 className="md:text-lg text-xs font-medium tracking-wider uppercase mb-1">
+        <div className="py-4 text-center space-y-1">
+          <h3 className="md:text-lg text-xs font-medium tracking-wider uppercase line-clamp-2">
             {name}
           </h3>
-          {tagline && (
-            <p className="md:text-xs text-[10px] text-gray-500 mb-1">
-              {tagline}
-            </p>
-          )}
+          <p className="md:text-xs text-[10px] text-gray-500 line-clamp-2">
+            {tagline || '\u00A0'}
+          </p>
           <p className="md:text-sm text-xs text-gray-600">
             {price}
           </p>
