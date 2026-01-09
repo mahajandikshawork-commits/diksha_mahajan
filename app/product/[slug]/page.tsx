@@ -133,10 +133,10 @@ export default function ProductPage() {
                 {productMedia[selectedImage]?.type === 'video' ? (
                   <video
                     src={productMedia[selectedImage].src}
-                    controls
                     autoPlay
                     loop
                     muted
+                    playsInline
                     className="w-full h-full object-cover max-h-[85vh]"
                   />
                 ) : (
