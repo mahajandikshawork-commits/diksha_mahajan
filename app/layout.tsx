@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CartProvider } from "./context/CartContext";
 import CartSidebar from "./components/CartSidebar";
+import LoadingBar from "./components/LoadingBar";
 import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-montserrat)' }}
       >
         <CartProvider>
+          <LoadingBar />
           <Header />
           {children}
           <Footer />
