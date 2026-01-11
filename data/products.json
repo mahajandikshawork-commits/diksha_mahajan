@@ -16,7 +16,7 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Ruhani/Ruhani.mov",
+    "mediaSrc": "/products/Ruhani/Ruhani.mp4",
     "mainImage": "/products/Ruhani/Main.JPEG",
     "images": [
       "/products/Ruhani/Main.JPEG",
@@ -42,7 +42,7 @@
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
     "mediaType": "video",
-    "mediaSrc": "/products/The Blue Affairè/The Blue Affaire.mov",
+    "mediaSrc": "/products/The Blue Affairè/The Blue Affaire.mp4",
     "mainImage": "/products/The Blue Affairè/main.jpg",
     "images": [
       "/products/The Blue Affairè/main.jpg",
@@ -96,7 +96,7 @@
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Ombre_Mirage/Ombré mirage.mov",
+    "mediaSrc": "/products/Ombre_Mirage/Ombré mirage.mp4",
     "mainImage": "/products/Ombre_Mirage/DSC06024.jpeg",
     "images": [
       "/products/Ombre_Mirage/DSC06024.jpeg"
@@ -119,7 +119,7 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Evening wine/Evening wine.mov",
+    "mediaSrc": "/products/Evening wine/Evening wine.mp4",
     "mainImage": "/products/Evening wine/main.jpg",
     "images": [
       "/products/Evening wine/main.jpg",
@@ -146,7 +146,7 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Emerald Whispers/Emerald_Whispers.mov",
+    "mediaSrc": "/products/Emerald Whispers/Emerald_Whispers.mp4",
     "mainImage": "/products/Emerald Whispers/Main.JPEG",
     "images": [
       "/products/Emerald Whispers/Main.JPEG",
@@ -172,7 +172,7 @@
     "modelSize": "Large",
     "modelHeight": "6'3\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Chaand Saaya/Chaand saya.mov",
+    "mediaSrc": "/products/Chaand Saaya/Chaand saya.mp4",
     "mainImage": "/products/Chaand Saaya/DSC06032.JPEG",
     "images": [
       "/products/Chaand Saaya/DSC06032.JPEG",
@@ -225,7 +225,7 @@
     "modelSize": "Large",
     "modelHeight": "6'3\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Mint Sovereign/Mint Sovereign.mov",
+    "mediaSrc": "/products/Mint Sovereign/Mint Sovereign.mp4",
     "mainImage": "/products/Mint Sovereign/Main.jpeg",
     "images": [
       "/products/Mint Sovereign/Main.jpeg",
@@ -250,7 +250,7 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "/products/silver_lullaby/Silver Lullaby.mov",
+    "mediaSrc": "/products/silver_lullaby/Silver Lullaby.mp4",
     "mainImage": "/products/silver_lullaby/main.jpg",
     "images": [
       "/products/silver_lullaby/main.jpg",
@@ -276,7 +276,7 @@
     "modelSize": "Small",
     "modelHeight": "5'12\"",
     "mediaType": "video",
-    "mediaSrc": "/products/shaan-e-dupatta/shaan-e-dupatta.mov",
+    "mediaSrc": "/products/shaan-e-dupatta/shaan-e-dupatta.mp4",
     "mainImage": "/products/shaan-e-dupatta/main.jpg",
     "images": [
       "/products/shaan-e-dupatta/main.jpg",
@@ -305,7 +305,7 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "/products/feathered_rose/Feathered Rose.mov",
+    "mediaSrc": "/products/feathered_rose/Feathered Rose.mp4",
     "mainImage": "/products/feathered_rose/main.jpg",
     "images": [
       "/products/feathered_rose/main.jpg",
@@ -334,7 +334,7 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "/products/sage_symphony/Sage Symphony.mov",
+    "mediaSrc": "/products/sage_symphony/Sage Symphony.mp4",
     "mainImage": "/products/sage_symphony/main.jpg",
     "images": [
       "/products/sage_symphony/main.jpg",
@@ -358,7 +358,7 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "/products/swarovski_series/Swarovski Series.mov",
+    "mediaSrc": "/products/swarovski_series/Swarovski Series.mp4",
     "mainImage": "/products/swarovski_series/main.jpg",
     "images": [
       "/products/swarovski_series/main.jpg",
@@ -388,7 +388,7 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "/products/glided_grace/Glided Grace_.mov",
+    "mediaSrc": "/products/glided_grace/Glided Grace_.mp4",
     "mainImage": "/products/glided_grace/main.jpg",
     "images": [
       "/products/glided_grace/main.jpg",
@@ -413,7 +413,7 @@
     "modelSize": "Small",
     "modelHeight": "5'12\"",
     "mediaType": "video",
-    "mediaSrc": "/products/gulaabi_noor/Gulabi Noor.mov",
+    "mediaSrc": "/products/gulaabi_noor/Gulabi Noor.mp4",
     "mainImage": "/products/gulaabi_noor/main.jpg",
     "images": [
       "/products/gulaabi_noor/main.jpg",
@@ -464,7 +464,7 @@
     "modelSize": "Small",
     "modelHeight": "5'9\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Saffron Dusk/Saffron Dusk.mov",
+    "mediaSrc": "/products/Saffron Dusk/Saffron Dusk.mp4",
     "mainImage": "/products/Saffron Dusk/Main.JPEG",
     "images": [
       "/products/Saffron Dusk/Main.JPEG",
@@ -514,7 +514,7 @@
     "modelSize": "X.Small",
     "modelHeight": "5'11\"",
     "mediaType": "video",
-    "mediaSrc": "/products/Crimson Whispers/Crimson Whispers.mov",
+    "mediaSrc": "/products/Crimson Whispers/Crimson Whispers.mp4",
     "mainImage": "/products/Crimson Whispers/Main.jpeg",
     "images": [
       "/products/Crimson Whispers/Main.jpeg",
