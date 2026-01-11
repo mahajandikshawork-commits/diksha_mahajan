@@ -3,11 +3,11 @@ import Button from './Button';
 
 export default function AppointmentSection() {
   return (
-    <section className="relative w-full py-32 md:py-48">
+    <section className="relative h-screen w-full py-32 md:py-48">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/contact.webp"
+          src="/bg-image.jpeg"
           alt="Design Space"
           fill
           className="object-cover"

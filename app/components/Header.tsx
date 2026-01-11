@@ -19,13 +19,13 @@ export default function Header() {
             <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/90 backdrop-blur-sm text-white">
                 <div className="w-full px-8 py-6">
                     {/* Mobile Layout */}
-                    <div className="flex md:hidden items-center justify-between">
+                    <div className="flex lg:hidden items-center justify-between">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                             className="hover:opacity-70 transition-opacity focus:outline-none flex-shrink-0"
                             aria-label="Menu"
                         >
-                            <HiMenu size={28} />
+                            <HiMenu size={20} />
                         </button>
 
                         <div className="flex-1 flex justify-center px-4">
@@ -42,7 +42,7 @@ export default function Header() {
                         </div>
 
                         <Link href="/cart" className="relative hover:opacity-70 transition-opacity focus:outline-none flex-shrink-0" aria-label="Cart">
-                            <BsHandbag size={24} className="outline-none" />
+                            <BsHandbag size={20} className="outline-none" />
                             {cartCount > 0 && (
                                 <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
                                     {cartCount}
@@ -52,7 +52,7 @@ export default function Header() {
                     </div>
 
                     {/* Desktop Layout */}
-                    <div className="hidden md:grid md:grid-cols-3 items-center">
+                    <div className="hidden lg:grid lg:grid-cols-3 items-center">
                         <nav className="flex items-center gap-8 text-xs tracking-wider">
                             <Link      
                                 href="/about" 

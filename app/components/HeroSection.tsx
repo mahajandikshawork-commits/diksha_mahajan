@@ -4,10 +4,10 @@ import HeroSectionMobile from './HeroSectionMobile';
 export default function HeroSection() {
   return (
     <>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <HeroSectionDesktop />
       </div>
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <HeroSectionMobile />
       </div>
     </>

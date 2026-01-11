@@ -92,7 +92,7 @@ export default function ProductPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Side - Image Gallery */}
-            <div className="flex flex-col-reverse md:flex-row gap-4 overflow-hidden md:sticky md:top-32 md:self-start">
+            <div className="flex flex-col-reverse md:flex-row gap-4 overflow-hidden lg:sticky lg:top-32 lg:self-start">
               {/* Vertical Thumbnail Strip */}
               <div className="flex md:flex-col gap-2 overflow-y-auto max-h-[85vh] flex-shrink-0">
                 {productMedia.map((media, index) => (

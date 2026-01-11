@@ -8,7 +8,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-0 md:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
-          <div className="relative h-[400px] md:h-[600px] w-full">
+          <Link href='https://www.vogue.in/shopping/promotion/step-into-the-diwali-festivities-with-these-showstopping-ensembles'><div className="relative h-[400px] md:h-[600px] w-full">
             <Image
               src="/vogue.jpg"
               alt="Diksha Mahajan Collection"
@@ -17,6 +17,7 @@ export default function AboutSection() {
               priority
             />
           </div>
+          </Link>
           {/* Text Content */}
           <div className="space-y-6 p-8 md:py-16 w-full">
             <h2 className="text-2xl md:text-4xl font-light tracking-wider leading-tight">
