@@ -16,6 +16,9 @@ export default function AboutPage() {
               </p>
             ))}
           </div>
+          <h1 className="text-sm md:text-base italic font-medium tracking-[0.2em] text-center md:mb-16 md:mt-8 mb-8 uppercase">
+            - Diksha Mahajan
+          </h1>
         </div>
       </main>
     </div>

@@ -11,8 +11,8 @@ export default function ShippingPage() {
             <div>
               <h2 className="text-lg font-medium text-gray-900 mb-3">Shipping Timelines</h2>
               <ul className="list-disc pl-6 space-y-1">
-                <li><strong>Domestic Orders (India):</strong> Typically delivered within 15–20 business days after dispatch.</li>
-                <li><strong>International Orders:</strong> Typically delivered within 25–30 business days after dispatch, subject to customs and local courier regulations (if there is a priority shipment, do let us know in advance)</li>
+                <li><strong>Domestic Orders (India):</strong> Typically delivered within 15–20 business days after the order is placed.</li>
+                <li><strong>International Orders:</strong> Typically delivered within 25–30 business days after the order is placed, subject to customs and local courier regulations (if there is a priority shipment, do let us know in advance)</li>
               </ul>
             </div>
 

@@ -1,5 +1,14 @@
 [
   {
+    "title": "Sivaangi Krishnakumar",
+    "images": [
+      "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01146.JPEG",
+      "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01255.JPEG",
+      "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01274.JPEG"
+    ],
+    "slug": "silver-lullaby"
+  },
+  {
     "title": "Aparna Thomas",
     "images": [
       "/In the Spotlight/Aparna Thomas/Copy of IMG_9855.JPG",
@@ -29,15 +38,6 @@
     "slug":"glided-grace"
   },
   {
-    "title": "Priya Dorra",
-    "images": [
-      "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0763.jpg",
-      "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0766.jpg",
-      "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0767.jpg"
-    ],
-    "slug": "feathered-rose"
-  },
-  {
     "title": "Riya Thiyagarajan",
     "images": [
       "/In the Spotlight/Riya Thiyagarajan/Copy of IMG_5855.JPG",
@@ -47,12 +47,12 @@
     "slug":"shaan-e-dupatta"
   },
   {
-    "title": "Sivaangi Krishnakumar",
+    "title": "Priya Dorra",
     "images": [
-      "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01146.JPEG",
-      "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01255.JPEG",
-      "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01274.JPEG"
+      "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0763.jpg",
+      "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0766.jpg",
+      "/In the Spotlight/Priya Dorra/PP_11Dec25_shot0767.jpg"
     ],
-    "slug": "silver-lullaby"
+    "slug": "feathered-rose"
   }
 ]
