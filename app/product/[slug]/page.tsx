@@ -25,6 +25,7 @@ export default function ProductPage() {
   const [showSizeChart, setShowSizeChart] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [customMeasurements, setCustomMeasurements] = useState<Record<string, string>>({});
 
   // Build media array combining images and video if available
   const productMedia: Array<{ type: 'image' | 'video', src: string }> = [];
@@ -66,6 +67,10 @@ export default function ProductPage() {
     console.log('Form submitted:', formData);
   };
 
+  const handleMeasurementsChange = (measurements: Record<string, string>) => {
+    setCustomMeasurements(measurements);
+  };
+
   const handleAddToCart = () => {
     if (!selectedSize) {
       alert('Please select a size');
@@ -83,6 +88,7 @@ export default function ProductPage() {
       priceNumber,
       image: product.mainImage,
       size: selectedSize,
+      customMeasurements: selectedSize === 'Custom' ? customMeasurements : undefined,
     });
   };
 
@@ -211,7 +217,9 @@ export default function ProductPage() {
                 </div>
 
               {/* Custom Measurement Form */}
-              {showCustomForm && (product as any).status !== "out_of_stock" && <CustomMeasurementForm />}
+              {showCustomForm && (product as any).status !== "out_of_stock" && (
+                <CustomMeasurementForm onMeasurementsChange={handleMeasurementsChange} />
+              )}
               </div>
 
               {/* Action Buttons */}

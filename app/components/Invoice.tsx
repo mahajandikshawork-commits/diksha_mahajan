@@ -69,8 +69,7 @@ export default function Invoice({
         </head>
         <body>
           <div class="header">
-            <h1>DIKSHA MAHAJAN</h1>
-            <p>LUXURY BRIDAL COUTURE</p>
+            <img src="/logo.png" alt="Diksha Mahajan" style="max-width: 500px; height: auto; margin: 0 auto; display: block;" />
           </div>
           <div class="content">
             <div class="title">
@@ -187,11 +186,15 @@ export default function Invoice({
       {/* Invoice Content */}
       <div className="border-2 border-black p-8 md:p-12">
         {/* Header */}
-        <div className="bg-black text-white p-8 text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-light tracking-[0.3em] mb-2">
-            DIKSHA MAHAJAN
-          </h1>
-          <p className="text-sm tracking-[0.2em]">LUXURY BRIDAL COUTURE</p>
+        <div className="bg-black text-white p-8 flex justify-center items-center mb-8">
+          <Image
+            src="/logo.png"
+            alt="Diksha Mahajan"
+            width={600}
+            height={150}
+            className="max-w-full h-auto"
+            priority
+          />
         </div>
 
         {/* Invoice Title */}

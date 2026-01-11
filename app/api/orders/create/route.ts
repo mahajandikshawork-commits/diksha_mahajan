@@ -121,8 +121,7 @@ function generateEmailTemplate(
     </head>
     <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
       <div style="background-color: #000; color: #fff; padding: 30px; text-align: center;">
-        <h1 style="margin: 0; font-size: 28px; letter-spacing: 3px;">DIKSHA MAHAJAN</h1>
-        <p style="margin: 5px 0 0 0; font-size: 14px; letter-spacing: 2px;">LUXURY BRIDAL COUTURE</p>
+        <img src="https://dikshamahajan.com/logo.png" alt="Diksha Mahajan" style="max-width: 500px; height: auto; margin: 0 auto; display: block;" />
       </div>
       
       <div style="padding: 40px 30px;">

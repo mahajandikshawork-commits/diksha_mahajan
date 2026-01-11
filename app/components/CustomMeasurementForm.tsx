@@ -1,9 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-export default function CustomMeasurementForm() {
+interface CustomMeasurementFormProps {
+  onMeasurementsChange?: (measurements: Record<string, string>) => void;
+}
+
+export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMeasurementFormProps) {
   const [measurements, setMeasurements] = useState({
     shoulder: '',
     aboveBust: '',
@@ -22,11 +26,24 @@ export default function CustomMeasurementForm() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setMeasurements({
+    const newMeasurements = {
       ...measurements,
       [e.target.name]: e.target.value,
-    });
+    };
+    setMeasurements(newMeasurements);
+    
+    // Notify parent component of changes
+    if (onMeasurementsChange) {
+      onMeasurementsChange(newMeasurements);
+    }
   };
+
+  // Notify parent on mount
+  useEffect(() => {
+    if (onMeasurementsChange) {
+      onMeasurementsChange(measurements);
+    }
+  }, []);
 
   return (
     <div className="space-y-4 mt-6">

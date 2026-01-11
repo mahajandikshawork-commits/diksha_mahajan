@@ -12,6 +12,7 @@ export interface CartItem {
   image: string;
   size: string;
   quantity: number;
+  customMeasurements?: Record<string, string>;
 }
 
 interface CartContextType {
