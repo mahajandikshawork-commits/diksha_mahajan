@@ -51,7 +51,7 @@ export default function Footer() {
               {/* Social Icons */}
               <div className="flex gap-3 pt-2">
                 <Link
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/dikshamahajan_official/?igsh=MWVoM2x0NGc5ajdzcQ%3D%3D&utm_source=qr#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:opacity-70 transition-opacity"
