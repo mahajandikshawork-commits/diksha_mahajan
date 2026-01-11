@@ -92,7 +92,7 @@ export default function HeroSectionDesktop() {
               loop
               muted
               playsInline
-              preload="none"
+              preload="auto"
             >
               <source src={video.src} type="video/mp4" />
             </video>

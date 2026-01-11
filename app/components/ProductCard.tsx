@@ -74,7 +74,7 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
                 muted
                 playsInline
                 autoPlay={autoplay}
-                preload="none"
+                preload="auto"
                 poster={mainImage}
                 src={mediaSrc}
               />

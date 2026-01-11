@@ -139,7 +139,7 @@ export default function ProductPage() {
                     loop
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     className="w-full h-full object-cover max-h-[85vh]"
                   />
                 ) : (
