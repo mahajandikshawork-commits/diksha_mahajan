@@ -12,19 +12,19 @@ interface VideoItem {
 
 const videos: VideoItem[] = [
   {
-    src: '/videos/nazm.mp4',
+    src: 'https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156719/videos/nazm_hqiudv.mp4',
     coverImage: '/nazm.jpeg',
     title: 'NAZM',
     subtitle: 'The Story of Her Becoming',
   },
   {
-    src: '/videos/noor-e-fiza.MP4',
+    src: 'https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156749/videos/noor-e-fiza_egqxm4.mp4',
     coverImage: '/noor-e-fiza-cover.JPG',
     title: 'NOOR-E-FIZA',
     subtitle: 'Light of the Atmosphere',
   },
   {
-    src: '/videos/aaina.mp4',
+    src: 'https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156715/videos/aaina_jjuitn.mp4',
     coverImage: '/Aaina cover homepage.JPG',
     title: 'AAINA',
     subtitle: 'The Mirror Collection',
