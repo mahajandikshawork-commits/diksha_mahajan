@@ -76,7 +76,7 @@
       "/products/Midnight Hour/DSC06096.jpeg",
       "/products/Midnight Hour/DSC06143.jpeg",
       "/products/Midnight Hour/DSC06152.jpeg",
-      "/products/Midnight Hour/DSC06178.jpeg"
+      "/products/Midnight Hour/DSC06178.jpg"
     ]
   },
   {
@@ -202,10 +202,10 @@
     "mainImage": "/products/Fiza-After-Midnight/Main.jpeg",
     "images": [
       "/products/Fiza-After-Midnight/Main.jpeg",
-      "/products/Fiza-After-Midnight/DSC06177.jpeg",
+      "/products/Fiza-After-Midnight/DSC06177.jpg",
       "/products/Fiza-After-Midnight/DSC06219.jpeg",
-      "/products/Fiza-After-Midnight/DSC06224.jpeg",
-      "/products/Fiza-After-Midnight/DSC06229.jpeg"
+      "/products/Fiza-After-Midnight/DSC06224.jpg",
+      "/products/Fiza-After-Midnight/DSC06229.jpg"
     ]
   },
   {
@@ -494,7 +494,7 @@
     "mainImage": "/products/Moonlit Pause/Main.jpeg",
     "images": [
       "/products/Moonlit Pause/Main.jpeg",
-      "/products/Moonlit Pause/img1.jpeg"
+      "/products/Moonlit Pause/img1.jpg"
     ]
   },
   {
@@ -515,12 +515,12 @@
     "modelHeight": "5'11\"",
     "mediaType": "video",
     "mediaSrc": "/products/Crimson Whispers/Crimson_Whispers.mp4",
-    "mainImage": "/products/Crimson Whispers/Main.jpeg",
+    "mainImage": "/products/Crimson Whispers/Main.jpg",
     "images": [
-      "/products/Crimson Whispers/Main.jpeg",
-      "/products/Crimson Whispers/DSC08332.jpeg",
-      "/products/Crimson Whispers/DSC08333.jpeg",
-      "/products/Crimson Whispers/DSC08342.jpeg"
+      "/products/Crimson Whispers/Main.jpg",
+      "/products/Crimson Whispers/DSC08332.jpg",
+      "/products/Crimson Whispers/DSC08333.jpg",
+      "/products/Crimson Whispers/DSC08342.jpg"
     ]
   },
   {
@@ -544,7 +544,7 @@
     "mainImage": "/products/Printed Silence/Main.jpeg",
     "images": [
       "/products/Printed Silence/Main.jpeg",
-      "/products/Printed Silence/img1.jpeg",
+      "/products/Printed Silence/img1.jpg",
       "/products/Printed Silence/img2.jpeg"
     ]
   }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -18,24 +18,8 @@ interface ProductCardProps {
 
 export default function ProductCard({ name, price, tagline, mediaType, mediaSrc, mainImage, slug, showVideo = false, autoplay = false }: ProductCardProps) {
   const [isPlaying, setIsPlaying] = useState(autoplay);
-  const [isVisible, setIsVisible] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   const handleMouseEnter = () => {
     if (!autoplay && showVideo && mediaType === 'video' && videoRef.current) {
@@ -65,7 +49,7 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
         onMouseLeave={handleMouseLeave}
       >
         <div className="relative aspect-[3/4] overflow-hidden">
-          {showVideo && mediaType === 'video' && isVisible ? (
+          {showVideo && mediaType === 'video' ? (
             <>
               <video
                 ref={videoRef}
@@ -85,6 +69,7 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
               alt={name}
               fill
               className="object-cover"
+              priority
             />
           )}
         </div>

@@ -73,6 +73,7 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
                 alt={`${title} ${index + 1}`}
                 fill
                 className="object-cover"
+                priority
               />
             </div>
           ))}

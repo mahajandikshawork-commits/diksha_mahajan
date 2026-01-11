@@ -31,6 +31,7 @@ export default function SpotlightCard({ title, images, slug }: SpotlightCardProp
               alt={title}
               fill
               className="object-cover"
+              priority
             />
           </div>
         </div>

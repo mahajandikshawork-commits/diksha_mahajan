@@ -108,7 +108,7 @@ export default function ProductPage() {
                           src={media.src}
                           className="w-full h-full object-cover"
                           muted
-                          preload="none"
+                          preload="auto"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                           <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -123,7 +123,7 @@ export default function ProductPage() {
                         width={60}
                         height={96}
                         className="w-full h-full object-cover"
-                        loading="lazy"
+                        priority
                       />
                     )}
                   </button>
