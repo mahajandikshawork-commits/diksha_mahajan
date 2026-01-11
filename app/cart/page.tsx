@@ -1,15 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
-import CheckoutModal from '../components/CheckoutModal';
 import ProductSlider from '../components/ProductSlider';
 import { BsTrash } from 'react-icons/bs';
 import { useCart } from '../context/CartContext';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function CartPage() {
-  const [showCheckout, setShowCheckout] = useState(false);
+  const router = useRouter();
   const { cartItems, updateQuantity, removeFromCart } = useCart();
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.priceNumber * item.quantity), 0);
@@ -122,7 +121,7 @@ export default function CartPage() {
                   </div>
 
                   <button
-                    onClick={() => setShowCheckout(true)}
+                    onClick={() => router.push('/checkout')}
                     className="w-full bg-black text-white text-xs md:text-base md:py-3 py-2 uppercase tracking-wider hover:bg-gray-800 transition-colors mb-3"
                   >
                     Proceed to Checkout
@@ -148,13 +147,6 @@ export default function CartPage() {
 
       {/* Product Slider */}
       <ProductSlider />
-
-      {/* Checkout Modal */}
-      <CheckoutModal
-        isOpen={showCheckout}
-        onClose={() => setShowCheckout(false)}
-        total={total}
-      />
     </div>
   );
 }
