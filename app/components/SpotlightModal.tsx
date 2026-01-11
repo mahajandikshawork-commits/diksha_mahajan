@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface SpotlightModalProps {
   isOpen: boolean;
@@ -14,7 +14,6 @@ interface SpotlightModalProps {
 
 export default function SpotlightModal({ isOpen, onClose, title, images, slug }: SpotlightModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const router = useRouter();
 
   useEffect(() => {
     if (isOpen) {
@@ -35,9 +34,6 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
     }
   };
 
-  const handleMoreInfo = () => {
-    router.push(`/product/${slug}`);
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" onClick={onClose}>
@@ -103,12 +99,13 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
 
         {/* More Info Button */}
         <div className="px-4 py-4 border-t">
-          <button
-            onClick={handleMoreInfo}
-            className="w-full bg-black text-white py-2.5 uppercase tracking-wider text-sm hover:bg-gray-800 transition-colors"
-          >
-            More Info
-          </button>
+          <Link href={`/product/${slug}`} prefetch={true}>
+            <button
+              className="w-full bg-black text-white py-2.5 uppercase tracking-wider text-sm hover:bg-gray-800 transition-colors"
+            >
+              More Info
+            </button>
+          </Link>
         </div>
       </div>
     </div>

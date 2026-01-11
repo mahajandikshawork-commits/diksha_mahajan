@@ -57,7 +57,7 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
   };
 
   return (
-    <Link href={`/product/${slug}`}>
+    <Link href={`/product/${slug}`} prefetch={true}>
       <div 
         className="relative bg-white overflow-hidden cursor-pointer group"
         ref={cardRef}
@@ -74,7 +74,7 @@ export default function ProductCard({ name, price, tagline, mediaType, mediaSrc,
                 muted
                 playsInline
                 autoPlay={autoplay}
-                preload={autoplay ? 'auto' : 'metadata'}
+                preload="none"
                 poster={mainImage}
                 src={mediaSrc}
               />
