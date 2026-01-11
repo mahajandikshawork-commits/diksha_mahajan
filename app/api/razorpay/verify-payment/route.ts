@@ -4,6 +4,17 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
   try {
+    // Check if Razorpay credentials are configured
+    if (!process.env.RAZORPAY_KEY_SECRET) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Razorpay credentials not configured',
+        },
+        { status: 503 }
+      );
+    }
+
     const {
       razorpay_order_id,
       razorpay_payment_id,
@@ -14,7 +25,7 @@ export async function POST(req: NextRequest) {
 
     // Verify payment signature
     const generatedSignature = crypto
-      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET!)
+      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
       .digest('hex');
 
