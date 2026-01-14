@@ -187,13 +187,10 @@ export default function Invoice({
       <div className="border-2 border-black p-8 md:p-12">
         {/* Header */}
         <div className="bg-black text-white p-8 flex justify-center items-center mb-8">
-          <Image
+          <img
             src="/logo.png"
             alt="Diksha Mahajan"
-            width={600}
-            height={150}
-            className="max-w-full h-auto"
-            priority
+            style={{ maxWidth: '600px', height: 'auto' }}
           />
         </div>
 
@@ -375,6 +372,11 @@ export default function Invoice({
           }
           @page {
             margin: 1cm;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+            display: block;
           }
         }
       `}</style>

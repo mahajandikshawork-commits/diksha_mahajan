@@ -19,40 +19,90 @@ export default function CheckoutPage() {
     state: '',
     pincode: '',
   });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    state: '',
+    pincode: '',
+  });
 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors({
+        ...errors,
+        [name]: '',
+      });
+    }
   };
 
   const validateForm = () => {
     const { name, email, phone, address, city, state, pincode } = formData;
-    if (!name || !email || !phone || !address || !city || !state || !pincode) {
-      alert('Please fill all required fields');
-      return false;
+    const newErrors = {
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+      city: '',
+      state: '',
+      pincode: '',
+    };
+    let isValid = true;
+
+    if (!name.trim()) {
+      newErrors.name = 'Name is required';
+      isValid = false;
     }
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
-      alert('Please enter a valid email');
-      return false;
+    if (!email.trim()) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+      newErrors.email = 'Please enter a valid email';
+      isValid = false;
     }
-    if (!/^\d{10}$/.test(phone)) {
-      alert('Please enter a valid 10-digit phone number');
-      return false;
+    if (!phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+      isValid = false;
+    } else if (!/^\d{10}$/.test(phone)) {
+      newErrors.phone = 'Please enter a valid 10-digit phone number';
+      isValid = false;
     }
-    if (!/^\d{6}$/.test(pincode)) {
-      alert('Please enter a valid 6-digit pincode');
-      return false;
+    if (!address.trim()) {
+      newErrors.address = 'Address is required';
+      isValid = false;
     }
-    return true;
+    if (!city.trim()) {
+      newErrors.city = 'City is required';
+      isValid = false;
+    }
+    if (!state.trim()) {
+      newErrors.state = 'State is required';
+      isValid = false;
+    }
+    if (!pincode.trim()) {
+      newErrors.pincode = 'Pincode is required';
+      isValid = false;
+    } else if (!/^\d{6}$/.test(pincode)) {
+      newErrors.pincode = 'Please enter a valid 6-digit pincode';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handlePayment = async () => {
     if (!validateForm()) return;
     if (cartItems.length === 0) {
-      alert('Your cart is empty');
       return;
     }
 
@@ -126,91 +176,126 @@ export default function CheckoutPage() {
             
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Full Name *</label>
+                <label className={`block text-sm font-medium mb-2 ${errors.name ? 'text-red-500' : ''}`}>
+                  Full Name *
+                </label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-black"
+                  className={`w-full border px-4 py-2 focus:outline-none ${
+                    errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                  }`}
                   required
                 />
+                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Email *</label>
+                <label className={`block text-sm font-medium mb-2 ${errors.email ? 'text-red-500' : ''}`}>
+                  Email *
+                </label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-black"
+                  className={`w-full border px-4 py-2 focus:outline-none ${
+                    errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                  }`}
                   required
                 />
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Phone Number *</label>
+                <label className={`block text-sm font-medium mb-2 ${errors.phone ? 'text-red-500' : ''}`}>
+                  Phone Number *
+                </label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="10-digit number"
-                  className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-black"
+                  className={`w-full border px-4 py-2 focus:outline-none ${
+                    errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                  }`}
                   required
                 />
+                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Address *</label>
+                <label className={`block text-sm font-medium mb-2 ${errors.address ? 'text-red-500' : ''}`}>
+                  Address *
+                </label>
                 <textarea
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
                   rows={3}
-                  className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-black"
+                  className={`w-full border px-4 py-2 focus:outline-none ${
+                    errors.address ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                  }`}
                   required
                 />
+                {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address}</p>}
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">City *</label>
+                  <label className={`block text-sm font-medium mb-2 ${errors.city ? 'text-red-500' : ''}`}>
+                    City *
+                  </label>
                   <input
                     type="text"
                     name="city"
                     value={formData.city}
                     onChange={handleInputChange}
-                    className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-black"
+                    className={`w-full border px-4 py-2 focus:outline-none ${
+                      errors.city ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                    }`}
                     required
                   />
+                  {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">State *</label>
+                  <label className={`block text-sm font-medium mb-2 ${errors.state ? 'text-red-500' : ''}`}>
+                    State *
+                  </label>
                   <input
                     type="text"
                     name="state"
                     value={formData.state}
                     onChange={handleInputChange}
-                    className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-black"
+                    className={`w-full border px-4 py-2 focus:outline-none ${
+                      errors.state ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                    }`}
                     required
                   />
+                  {errors.state && <p className="text-red-500 text-xs mt-1">{errors.state}</p>}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Pincode *</label>
+                <label className={`block text-sm font-medium mb-2 ${errors.pincode ? 'text-red-500' : ''}`}>
+                  Pincode *
+                </label>
                 <input
                   type="text"
                   name="pincode"
                   value={formData.pincode}
                   onChange={handleInputChange}
                   placeholder="6-digit pincode"
-                  className="w-full border border-gray-300 px-4 py-2 focus:outline-none focus:border-black"
+                  className={`w-full border px-4 py-2 focus:outline-none ${
+                    errors.pincode ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                  }`}
                   required
                 />
+                {errors.pincode && <p className="text-red-500 text-xs mt-1">{errors.pincode}</p>}
               </div>
             </div>
           </div>
