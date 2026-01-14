@@ -12,13 +12,13 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
     shoulder: '',
     aboveBust: '',
     underbust: '',
-    nextDepthBack: '',
+    neckDepthBack: '',
     blouseWaist: '',
     sleevelength: '',
     armhole: '',
     bicep: '',
-    nextDepthFront: '',
-    nextDepthBackLower: '',
+    neckDepthFront: '',
+    neckDepthBackLower: '',
     lehengaWaist: '',
     hips: '',
     lehengaLength: '',
@@ -62,7 +62,7 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">ABOVE BUST:</label>
+            <label className="text-xs uppercase tracking-wide w-48">ABOVE BUST</label>
             <input
               type="text"
               name="aboveBust"
@@ -84,11 +84,11 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">NEXT DEPTH BACK</label>
+            <label className="text-xs uppercase tracking-wide w-48">NECK DEPTH BACK</label>
             <input
               type="text"
-              name="nextDepthBack"
-              value={measurements.nextDepthBack}
+              name="neckDepthBack"
+              value={measurements.neckDepthBack}
               onChange={handleChange}
               className="border border-gray-300 px-2 py-1.5 w-16 focus:outline-none focus:border-black text-sm"
             />
@@ -106,7 +106,7 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">SLEEVELENGTH</label>
+            <label className="text-xs uppercase tracking-wide w-48">SLEEVE LENGTH</label>
             <input
               type="text"
               name="sleevelength"
@@ -139,29 +139,29 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">NEXT DEPTH FRONT</label>
+            <label className="text-xs uppercase tracking-wide w-48">NECK DEPTH FRONT</label>
             <input
               type="text"
-              name="nextDepthFront"
-              value={measurements.nextDepthFront}
+              name="neckDepthFront"
+              value={measurements.neckDepthFront}
               onChange={handleChange}
               className="border border-gray-300 px-2 py-1.5 w-16 focus:outline-none focus:border-black text-sm"
             />
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">NEXT DEPTH BACK</label>
+            <label className="text-xs uppercase tracking-wide w-48">NECK DEPTH BACK LOWER</label>
             <input
               type="text"
-              name="nextDepthBackLower"
-              value={measurements.nextDepthBackLower}
+              name="neckDepthBackLower"
+              value={measurements.neckDepthBackLower}
               onChange={handleChange}
               className="border border-gray-300 px-2 py-1.5 w-16 focus:outline-none focus:border-black text-sm"
             />
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">LEHENGA/PALAZO WAIST</label>
+            <label className="text-xs uppercase tracking-wide w-48">LEHENGA/PANT WAIST</label>
             <input
               type="text"
               name="lehengaWaist"
@@ -183,7 +183,7 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">LEHENGA/PALAZO LENGTH WITH HEELS</label>
+            <label className="text-xs uppercase tracking-wide w-48">LEHENGA/PANT LENGTH WITH HEELS</label>
             <input
               type="text"
               name="lehengaLength"

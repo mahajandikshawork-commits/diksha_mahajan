@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import CustomMeasurementForm from '../../components/CustomMeasurementForm';
 import SizeChartModal from '../../components/SizeChartModal';
@@ -13,6 +13,7 @@ import Link from 'next/link';
 
 export default function ProductPage() {
   const params = useParams();
+  const router = useRouter();
   const productSlug = params.slug as string;
   const { addToCart } = useCart();
 
@@ -26,6 +27,7 @@ export default function ProductPage() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [customMeasurements, setCustomMeasurements] = useState<Record<string, string>>({});
+  const [showSizeError, setShowSizeError] = useState(false);
 
   // Build media array combining images and video if available
   const productMedia: Array<{ type: 'image' | 'video', src: string }> = [];
@@ -52,6 +54,7 @@ export default function ProductPage() {
   const handleSizeSelect = (size: string) => {
     setSelectedSize(size);
     setShowCustomForm(size === 'Custom');
+    setShowSizeError(false);
   };
 
   const toggleDropdown = (section: string) => {
@@ -73,7 +76,7 @@ export default function ProductPage() {
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert('Please select a size');
+      setShowSizeError(true);
       return;
     }
 
@@ -90,6 +93,30 @@ export default function ProductPage() {
       size: selectedSize,
       customMeasurements: selectedSize === 'Custom' ? customMeasurements : undefined,
     });
+    setShowSizeError(false);
+  };
+
+  const handleBuyNow = () => {
+    if (!selectedSize) {
+      setShowSizeError(true);
+      return;
+    }
+
+    const priceNumber = parseInt(product.price.replace(/[^0-9]/g, ''));
+
+    addToCart({
+      id: productIndex >= 0 ? productIndex : 0,
+      name: product.name,
+      tagline: product.tagline,
+      description: (product as any).description || '',
+      price: product.price,
+      priceNumber,
+      image: product.mainImage,
+      size: selectedSize,
+      customMeasurements: selectedSize === 'Custom' ? customMeasurements : undefined,
+    });
+
+    router.push('/checkout');
   };
 
   return (
@@ -184,9 +211,11 @@ export default function ProductPage() {
               </div>
 
               {/* Size Selection */}
-              <div>
+              <div className={`${showSizeError ? 'p-3 border-2 border-red-500 rounded-md' : ''}`}>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="text-sm uppercase tracking-wider">SIZE</label>
+                  <label className={`text-sm uppercase tracking-wider ${showSizeError ? 'text-red-500' : ''}`}>
+                    SIZE {showSizeError && <span className="text-red-500">*</span>}
+                  </label>
                   {(product as any).status !== "out_of_stock" && (
                     <button
                       onClick={() => setShowSizeChart(true)}
@@ -196,6 +225,10 @@ export default function ProductPage() {
                     </button>
                   )}
                 </div>
+
+                {showSizeError && (
+                  <p className="text-red-500 text-xs mb-2">Please select a size</p>
+                )}
 
                 <div className="flex flex-wrap gap-3">
                   {sizes.map((size) => (
@@ -241,7 +274,10 @@ export default function ProductPage() {
                     OUT OF STOCK
                   </button>
                 ) : (
-                  <button className="w-full bg-black text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-gray-800 transition-colors">
+                  <button 
+                    onClick={handleBuyNow}
+                    className="w-full bg-black text-xs md:text-sm text-white py-2 uppercase tracking-wider hover:bg-gray-800 transition-colors"
+                  >
                     BUY IT NOW
                   </button>
                 )}
