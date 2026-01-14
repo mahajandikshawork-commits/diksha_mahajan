@@ -12,13 +12,13 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
     shoulder: '',
     aboveBust: '',
     underbust: '',
-    neckDepthBack: '',
+    blouselength: '',
     blouseWaist: '',
     sleevelength: '',
     armhole: '',
     bicep: '',
     neckDepthFront: '',
-    neckDepthBackLower: '',
+    neckDepthBack: '',
     lehengaWaist: '',
     hips: '',
     lehengaLength: '',
@@ -84,11 +84,11 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">NECK DEPTH BACK</label>
+            <label className="text-xs uppercase tracking-wide w-48">BLOUSE LENGTH</label>
             <input
               type="text"
-              name="neckDepthBack"
-              value={measurements.neckDepthBack}
+              name="blouselength"
+              value={measurements.blouselength}
               onChange={handleChange}
               className="border border-gray-300 px-2 py-1.5 w-16 focus:outline-none focus:border-black text-sm"
             />
@@ -150,11 +150,11 @@ export default function CustomMeasurementForm({ onMeasurementsChange }: CustomMe
           </div>
 
           <div className="flex items-center gap-4">
-            <label className="text-xs uppercase tracking-wide w-48">NECK DEPTH BACK LOWER</label>
+            <label className="text-xs uppercase tracking-wide w-48">NECK DEPTH BACK</label>
             <input
               type="text"
-              name="neckDepthBackLower"
-              value={measurements.neckDepthBackLower}
+              name="neckDepthBack"
+              value={measurements.neckDepthBack}
               onChange={handleChange}
               className="border border-gray-300 px-2 py-1.5 w-16 focus:outline-none focus:border-black text-sm"
             />

@@ -307,7 +307,7 @@ export default function CheckoutPage() {
               
               <div className="space-y-4 mb-6">
                 {cartItems.map((item, index) => (
-                  <div key={`${item.id}-${item.size}-${index}`} className="flex gap-4 pb-4 border-b">
+                  <div key={`${item.id}-${item.size}-${index}`} className="flex gap-4">
                     <div className="relative w-20 h-24 flex-shrink-0">
                       <Image
                         src={item.image}
@@ -326,11 +326,14 @@ export default function CheckoutPage() {
                 ))}
               </div>
 
-              <div className="border-t pt-4">
+              <div className="border-t border-b py-4">
                 <div className="flex justify-between text-lg font-medium">
-                  <span>Total</span>
+                  <span>Total <span className="text-xs text-gray-600">(Inclusive of all taxes)</span></span>
                   <span>Rs.{cartTotal.toLocaleString('en-IN')}</span>
                 </div>
+              </div>
+              <div className="mt-6 text-xs md:text-sm text-gray-600 space-y-2">
+                  <p>✓ Free shipping in India</p>
               </div>
             </div>
 
