@@ -16,13 +16,13 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156142/Ruhani/Ruhani_qs6dnd.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156065/Ruhani/Main_an7kzm.jpg",
+    "mediaSrc": "/products/Ruhani/Ruhani.mp4",
+    "mainImage": "/products/Ruhani/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156065/Ruhani/Main_an7kzm.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156051/Ruhani/DSC05756_wlfpev.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156063/Ruhani/DSC05783_nkjqnw.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156052/Ruhani/DSC05834_jhp8eu.jpg"
+      "/products/Ruhani/Main.jpeg",
+      "/products/Ruhani/DSC05756.jpeg",
+      "/products/Ruhani/DSC05783.jpeg",
+      "/products/Ruhani/DSC05834.jpeg"
     ]
   },
   {
@@ -42,13 +42,13 @@
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156129/The%20Blue%20Affaire%CC%80/The_Blue_Affaire_pzzx1m.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157365/The%20Blue%20Affaire%CC%80/main_xaibfd.jpg",
+    "mediaSrc": "/products/The Blue Affairè/The_Blue_Affaire.mp4",
+    "mainImage": "/products/The Blue Affairè/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157365/The%20Blue%20Affaire%CC%80/main_xaibfd.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157375/The%20Blue%20Affaire%CC%80/DSC06384_og7z8f.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156098/The%20Blue%20Affaire%CC%80/DSC06416_lycbt0.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157372/The%20Blue%20Affaire%CC%80/DSC06443_icutjr.jpg"
+      "/products/The Blue Affairè/main.jpg",
+      "/products/The Blue Affairè/DSC06384.jpg",
+      "/products/The Blue Affairè/DSC06416.jpg",
+      "/products/The Blue Affairè/DSC06443.jpg"
     ]
   },
   {
@@ -68,15 +68,15 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156145/Midnight%20Hour/Midnight_hour_umtzm3.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157158/Midnight%20Hour/main_cyekyc.jpg",
+    "mediaSrc": "/products/Midnight Hour/Midnight_hour.mp4",
+    "mainImage": "/products/Midnight Hour/main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157158/Midnight%20Hour/main_cyekyc.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156044/Midnight%20Hour/DSC06058_dpzsya.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157162/Midnight%20Hour/DSC06096_pg2euy.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157163/Midnight%20Hour/DSC06143_mp70kj.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157171/Midnight%20Hour/DSC06152_vprcjv.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157166/Midnight%20Hour/DSC06178_u29la8.jpg"
+      "/products/Midnight Hour/main.jpeg",
+      "/products/Midnight Hour/DSC06058.jpg",
+      "/products/Midnight Hour/DSC06096.jpeg",
+      "/products/Midnight Hour/DSC06143.jpeg",
+      "/products/Midnight Hour/DSC06152.jpeg",
+      "/products/Midnight Hour/DSC06178.jpg"
     ]
   },
   {
@@ -96,10 +96,12 @@
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156110/Ombre_Mirage/Ombr%C3%A9_mirage_dcanub.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156037/Ombre_Mirage/DSC06024_rfkqem.jpg",
+    "mediaSrc": "/products/Ombre_Mirage/Ombré_mirage.mp4",
+    "mainImage": "/products/Ombre_Mirage/DSC06024.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156037/Ombre_Mirage/DSC06024_rfkqem.jpg"
+      "/products/Ombre_Mirage/DSC06024.jpeg",
+      "/products/Ombre_Mirage/img1.jpeg",
+      "/products/Ombre_Mirage/img2.jpeg"
     ]
   },
   {
@@ -119,14 +121,14 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156124/Evening%20wine/Evening_wine_qlihon.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156053/Evening%20wine/main_xlqlsg.jpg",
+    "mediaSrc": "/products/Evening wine/Evening_wine.mp4",
+    "mainImage": "/products/Evening wine/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156053/Evening%20wine/main_xlqlsg.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156044/Evening%20wine/DSC05617_rdgr9p.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156053/Evening%20wine/DSC05618_wasoqn.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156056/Evening%20wine/DSC05667_c4uw8u.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156043/Evening%20wine/diksha_mahajan_shoot5565_ulheh3.jpg"
+      "/products/Evening wine/main.jpg",
+      "/products/Evening wine/DSC05617.jpg",
+      "/products/Evening wine/DSC05618.jpg",
+      "/products/Evening wine/DSC05667.jpeg",
+      "/products/Evening wine/diksha mahajan shoot5565.jpg"
     ]
   },
   {
@@ -146,13 +148,13 @@
     "modelSize": "Medium",
     "modelHeight": "5'8\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156126/Emerald%20Whispers/Emerald_Whispers_zedsxo.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156056/Emerald%20Whispers/Main_eajclq.jpg",
+    "mediaSrc": "/products/Emerald Whispers/Emerald_Whispers.mp4",
+    "mainImage": "/products/Emerald Whispers/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156056/Emerald%20Whispers/Main_eajclq.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156039/Emerald%20Whispers/DSC06254_x7aqlh.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156048/Emerald%20Whispers/DSC06265_sn8cm6.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156050/Emerald%20Whispers/DSC06325_ht7ocn.jpg"
+      "/products/Emerald Whispers/Main.jpeg",
+      "/products/Emerald Whispers/DSC06254.jpeg",
+      "/products/Emerald Whispers/DSC06265.jpeg",
+      "/products/Emerald Whispers/DSC06325.jpeg"
     ]
   },
   {
@@ -172,13 +174,13 @@
     "modelSize": "Large",
     "modelHeight": "6'3\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156072/Chaand%20Saaya/Chaand_saya_j2rbsw.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156038/Chaand%20Saaya/DSC06032_jo1cxi.jpg",
+    "mediaSrc": "/products/Chaand Saaya/Chaand_saya.mp4",
+    "mainImage": "/products/Chaand Saaya/DSC06032.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156038/Chaand%20Saaya/DSC06032_jo1cxi.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156038/Chaand%20Saaya/DSC06038_qecv3j.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156037/Chaand%20Saaya/DSC06042_rwg3gt.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156039/Chaand%20Saaya/DSC06162_f4dcqe.jpg"
+      "/products/Chaand Saaya/DSC06032.jpeg",
+      "/products/Chaand Saaya/DSC06038.jpeg",
+      "/products/Chaand Saaya/DSC06042.jpeg",
+      "/products/Chaand Saaya/DSC06162.jpeg"
     ]
   },
   {
@@ -198,14 +200,14 @@
     "modelSize": "X.Small",
     "modelHeight": "5'7\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156124/Fiza-After-Midnight/Fiza_after_midnight_gv9kzl.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157092/Fiza-After-Midnight/Main_vjct1u.jpg",
+    "mediaSrc": "/products/Fiza-After-Midnight/Fiza_after_midnight.mp4",
+    "mainImage": "/products/Fiza-After-Midnight/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157092/Fiza-After-Midnight/Main_vjct1u.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157085/Fiza-After-Midnight/DSC06177_muc8lu.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157083/Fiza-After-Midnight/DSC06219_dbq9ch.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157093/Fiza-After-Midnight/DSC06224_i0rntg.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157078/Fiza-After-Midnight/DSC06229_oho6s3.jpg"
+      "/products/Fiza-After-Midnight/Main.jpeg",
+      "/products/Fiza-After-Midnight/DSC06177.jpg",
+      "/products/Fiza-After-Midnight/DSC06219.jpeg",
+      "/products/Fiza-After-Midnight/DSC06224.jpg",
+      "/products/Fiza-After-Midnight/DSC06229.jpeg"
     ]
   },
   {
@@ -225,12 +227,12 @@
     "modelSize": "Large",
     "modelHeight": "6'3\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156077/Mint%20Sovereign/Mint_sovereign_fvjtml.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157194/Mint%20Sovereign/Main_sotzpk.jpg",
+    "mediaSrc": "/products/Mint Sovereign/Mint_sovereign.mp4",
+    "mainImage": "/products/Mint Sovereign/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157194/Mint%20Sovereign/Main_sotzpk.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157197/Mint%20Sovereign/DSC05891_kxezvw.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157201/Mint%20Sovereign/DSC05841_vbbkns.jpg"
+      "/products/Mint Sovereign/Main.jpeg",
+      "/products/Mint Sovereign/DSC05891.jpeg",
+      "/products/Mint Sovereign/DSC05841.jpg"
     ]
   },
   {
@@ -250,13 +252,13 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156134/silver_lullaby/Silver_Lullaby_byxfpi.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156061/silver_lullaby/main_d6sqzq.jpg",
+    "mediaSrc": "/products/silver_lullaby/Silver_Lullaby.mp4",
+    "mainImage": "/products/silver_lullaby/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156061/silver_lullaby/main_d6sqzq.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156053/silver_lullaby/Diksha_mahajan2001_hsnrgo.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156058/silver_lullaby/Diksha_mahajan2062_zatutn.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156064/silver_lullaby/Diksha_mahajan2069_rdam3f.jpg"
+      "/products/silver_lullaby/main.jpg",
+      "/products/silver_lullaby/Diksha mahajan2001.jpg",
+      "/products/silver_lullaby/Diksha mahajan2062.jpg",
+      "/products/silver_lullaby/Diksha mahajan2069.jpg"
     ]
   },
   {
@@ -276,13 +278,13 @@
     "modelSize": "Small",
     "modelHeight": "5'12\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156101/shaan-e-dupatta/shaan-e-dupatta_ifgheo.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156052/shaan-e-dupatta/main_awv5qe.jpg",
+    "mediaSrc": "/products/shaan-e-dupatta/shaan-e-dupatta.mp4",
+    "mainImage": "/products/shaan-e-dupatta/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156052/shaan-e-dupatta/main_awv5qe.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156046/shaan-e-dupatta/Diksha_mahajan1757_fgp2vj.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156047/shaan-e-dupatta/Diksha_mahajan1762_g6mckn.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156056/shaan-e-dupatta/Diksha_mahajan1819_kgsgnh.jpg"
+      "/products/shaan-e-dupatta/main.jpg",
+      "/products/shaan-e-dupatta/Diksha mahajan1757.jpg",
+      "/products/shaan-e-dupatta/Diksha mahajan1762.jpg",
+      "/products/shaan-e-dupatta/Diksha mahajan1819.jpg"
     ]
   },
   {
@@ -305,13 +307,13 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156115/feathered_rose/Feathered_Rose_xqmzqd.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156039/feathered_rose/main_y2udyp.jpg",
+    "mediaSrc": "/products/feathered_rose/Feathered_Rose.mp4",
+    "mainImage": "/products/feathered_rose/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156039/feathered_rose/main_y2udyp.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156038/feathered_rose/Diksha_mahajan1669_lsxs0z.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156040/feathered_rose/Diksha_mahajan1750_hkv6mi.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156042/feathered_rose/Diksha_mahajan1757_t1hb2p.jpg"
+      "/products/feathered_rose/main.jpg",
+      "/products/feathered_rose/Diksha mahajan1669.jpg",
+      "/products/feathered_rose/Diksha mahajan1750.jpg",
+      "/products/feathered_rose/Diksha mahajan1757.jpg"
     ]
   },
   {
@@ -334,11 +336,11 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156112/sage_symphony/Sage_Symphony_gvcw3e.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156048/sage_symphony/main_rzsik8.jpg",
+    "mediaSrc": "/products/sage_symphony/Sage_Symphony.mp4",
+    "mainImage": "/products/sage_symphony/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156048/sage_symphony/main_rzsik8.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156042/sage_symphony/Diksha_mahajan2267_hvq6db.jpg"
+      "/products/sage_symphony/main.jpg",
+      "/products/sage_symphony/Diksha mahajan2267.jpg"
     ]
   },
   {
@@ -358,14 +360,14 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156140/swarovski_series/Swarovski_Series_tvsx2u.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156046/swarovski_series/main_lcv78i.jpg",
+    "mediaSrc": "/products/swarovski_series/Swarovski_Series.mp4",
+    "mainImage": "/products/swarovski_series/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156046/swarovski_series/main_lcv78i.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156059/swarovski_series/img2_gskrch.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156053/swarovski_series/img1_s1ebaa.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156054/swarovski_series/img3_gfwg9c.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156036/swarovski_series/IMG_5891_udkv0x.jpg"
+      "/products/swarovski_series/main.jpg",
+      "/products/swarovski_series/img2.jpg",
+      "/products/swarovski_series/img1.jpg",
+      "/products/swarovski_series/img3.jpg",
+      "/products/swarovski_series/IMG_5891.jpg"
     ]
   },
   {
@@ -388,12 +390,12 @@
     "modelSize": "Small",
     "modelHeight": "5'10\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156121/glided_grace/Glided_Grace__oambg0.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156040/glided_grace/main_b9vofr.jpg",
+    "mediaSrc": "/products/glided_grace/Glided_Grace_.mp4",
+    "mainImage": "/products/glided_grace/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156040/glided_grace/main_b9vofr.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156040/glided_grace/Diksha_mahajan1476_jcigd9.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156054/glided_grace/Diksha_mahajan1535_w1xkes.jpg"
+      "/products/glided_grace/main.jpg",
+      "/products/glided_grace/Diksha mahajan1476.jpg",
+      "/products/glided_grace/Diksha mahajan1535.jpg"
     ]
   },
   {
@@ -413,13 +415,13 @@
     "modelSize": "Small",
     "modelHeight": "5'12\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156101/gulaabi_noor/gulabi_noor_ik7pob.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156045/gulaabi_noor/main_g47tei.jpg",
+    "mediaSrc": "/products/gulaabi_noor/gulabi_noor.mp4",
+    "mainImage": "/products/gulaabi_noor/main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156045/gulaabi_noor/main_g47tei.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156041/gulaabi_noor/Diksha_mahajan1918_cvecu8.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156046/gulaabi_noor/Diksha_mahajan1919_krdtmr.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156037/gulaabi_noor/Diksha_mahajan1940_fnwhk4.jpg"
+      "/products/gulaabi_noor/main.jpg",
+      "/products/gulaabi_noor/Diksha mahajan1918.jpg",
+      "/products/gulaabi_noor/Diksha mahajan1919.jpg",
+      "/products/gulaabi_noor/Diksha mahajan1940.jpg"
     ]
   },
   {
@@ -439,12 +441,12 @@
     "modelSize": "Small",
     "modelHeight": "5'9\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156103/Golden%20Hour/golden_hour_video_h127gt.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156060/Golden%20Hour/Main_dwo89b.jpg",
+    "mediaSrc": "/products/Golden Hour/golden_hour_video.mp4",
+    "mainImage": "/products/Golden Hour/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156060/Golden%20Hour/Main_dwo89b.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156061/Golden%20Hour/Copy_of_IMG_9791_ucfedv.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156062/Golden%20Hour/Copy_of_IMG_9803_ta5vqg.jpg"
+      "/products/Golden Hour/Main.jpeg",
+      "/products/Golden Hour/Copy of IMG_9791.jpeg",
+      "/products/Golden Hour/Copy of IMG_9803.jpeg"
     ]
   },
   {
@@ -464,13 +466,13 @@
     "modelSize": "Small",
     "modelHeight": "5'9\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156080/Saffron%20Dusk/Saffron_Dusk_iceoo7.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156050/Saffron%20Dusk/Main_ft8pdh.jpg",
+    "mediaSrc": "/products/Saffron Dusk/Saffron_Dusk.mp4",
+    "mainImage": "/products/Saffron Dusk/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156050/Saffron%20Dusk/Main_ft8pdh.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156060/Saffron%20Dusk/Copy_of_IMG_9596_ca9zri.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156062/Saffron%20Dusk/Copy_of_IMG_9604_dau4jt.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156057/Saffron%20Dusk/Copy_of_IMG_9613_hakltg.jpg"
+      "/products/Saffron Dusk/Main.jpeg",
+      "/products/Saffron Dusk/img1.jpeg",
+      "/products/Saffron Dusk/img2.jpeg",
+      "/products/Saffron Dusk/img3.jpeg"
     ]
   },
   {
@@ -490,11 +492,11 @@
     "modelSize": "X.Small",
     "modelHeight": "5'11\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156124/Moonlit%20Pause/moonlit_pause_video_qsi4lq.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157249/Moonlit%20Pause/Main_xgfk9m.jpg",
+    "mediaSrc": "/products/Moonlit Pause/moonlit_pause_video.mp4",
+    "mainImage": "/products/Moonlit Pause/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157249/Moonlit%20Pause/Main_xgfk9m.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156089/Moonlit%20Pause/img1_mi2v9w.jpg"
+      "/products/Moonlit Pause/Main.jpeg",
+      "/products/Moonlit Pause/img1.jpg"
     ]
   },
   {
@@ -514,13 +516,13 @@
     "modelSize": "X.Small",
     "modelHeight": "5'11\"",
     "mediaType": "video",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/video/upload/v1768156075/Crimson%20Whispers/Crimson_Whispers_ctwqcx.mp4",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156089/Crimson%20Whispers/Main_c5cx6m.jpg",
+    "mediaSrc": "/products/Crimson Whispers/Crimson_Whispers.mp4",
+    "mainImage": "/products/Crimson Whispers/Main.jpg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156089/Crimson%20Whispers/Main_c5cx6m.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156071/Crimson%20Whispers/DSC08332_pztefp.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156089/Crimson%20Whispers/DSC08333_jkz3cn.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156092/Crimson%20Whispers/DSC08342_btctdk.jpg"
+      "/products/Crimson Whispers/Main.jpg",
+      "/products/Crimson Whispers/DSC08332.jpg",
+      "/products/Crimson Whispers/DSC08333.jpg",
+      "/products/Crimson Whispers/DSC08342.jpg"
     ]
   },
   {
@@ -540,12 +542,12 @@
     "modelSize": "Small",
     "modelHeight": "5'9\"",
     "mediaType": "image",
-    "mediaSrc": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157296/Printed%20Silence/Main_kcjlrq.jpg",
-    "mainImage": "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157296/Printed%20Silence/Main_kcjlrq.jpg",
+    "mediaSrc": "/products/Printed Silence/Main.jpeg",
+    "mainImage": "/products/Printed Silence/Main.jpeg",
     "images": [
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157296/Printed%20Silence/Main_kcjlrq.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768156085/Printed%20Silence/img1_rmfdue.jpg",
-      "https://res.cloudinary.com/dxnm4bfgv/image/upload/v1768157292/Printed%20Silence/img2_wcijy8.jpg"
+      "/products/Printed Silence/Main.jpeg",
+      "/products/Printed Silence/img1.jpg",
+      "/products/Printed Silence/img2.jpeg"
     ]
   }
 ]
