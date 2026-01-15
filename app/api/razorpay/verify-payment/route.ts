@@ -40,12 +40,13 @@ export async function POST(req: NextRequest) {
     }
 
     // Payment verified successfully, send emails
-    await sendOrderEmails(
-      customerDetails,
-      orderDetails,
-      razorpay_payment_id,
-      razorpay_order_id
-    );
+    // TODO: Uncomment when email configuration is ready
+    // await sendOrderEmails(
+    //   customerDetails,
+    //   orderDetails,
+    //   razorpay_payment_id,
+    //   razorpay_order_id
+    // );
 
     return NextResponse.json({
       success: true,
@@ -93,10 +94,10 @@ async function sendOrderEmails(
     html: emailTemplate,
   });
 
-  // Send to business email
+  // Send to admin email
   await transporter.sendMail({
     from: `"Diksha Mahajan" <${process.env.EMAIL_USER}>`,
-    to: 'dikshamahajan.work@gmail.com',
+    to: process.env.EMAIL_USER,
     subject: `New Order Received - ${orderId}`,
     html: emailTemplate,
   });

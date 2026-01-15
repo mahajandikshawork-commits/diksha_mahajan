@@ -109,16 +109,18 @@ export default function CheckoutPage() {
     setLoading(true);
 
     try {
-      // Create order (simulating successful payment)
-      const orderResponse = await fetch('/api/orders/create', {
+      // Create Razorpay order
+      const orderResponse = await fetch('/api/razorpay/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          orderDetails: {
-            items: cartItems,
-            total: `Rs.${cartTotal.toLocaleString('en-IN')}`,
+          amount: cartTotal,
+          currency: 'INR',
+          receipt: `receipt_${Date.now()}`,
+          notes: {
+            customer_name: formData.name,
+            customer_email: formData.email,
           },
-          customerDetails: formData,
         }),
       });
 
@@ -128,22 +130,85 @@ export default function CheckoutPage() {
         throw new Error(orderData.message || 'Failed to create order');
       }
 
-      // Store order data in sessionStorage for the success page
-      sessionStorage.setItem('orderData', JSON.stringify({
-        orderId: orderData.orderId,
-        orderDate: orderData.orderDate,
-        customerDetails: formData,
-        items: cartItems,
-        total: `Rs.${cartTotal.toLocaleString('en-IN')}`,
-      }));
+      // Initialize Razorpay payment
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        amount: orderData.order.amount,
+        currency: orderData.order.currency,
+        name: 'Diksha Mahajan',
+        description: 'Luxury Bridal Couture',
+        order_id: orderData.order.id,
+        handler: async function (response: any) {
+          try {
+            // Verify payment
+            const verifyResponse = await fetch('/api/razorpay/verify-payment', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                orderDetails: {
+                  items: cartItems,
+                  total: `Rs.${cartTotal.toLocaleString('en-IN')}`,
+                },
+                customerDetails: formData,
+              }),
+            });
 
-      // Clear cart and redirect to success page
-      clearCart();
-      router.push(`/order-success?order_id=${orderData.orderId}`);
+            const verifyData = await verifyResponse.json();
+
+            if (verifyData.success) {
+              // Store order data in sessionStorage for the success page
+              sessionStorage.setItem('orderData', JSON.stringify({
+                orderId: response.razorpay_order_id,
+                orderDate: new Date().toLocaleDateString('en-IN', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                }),
+                customerDetails: formData,
+                items: cartItems,
+                total: `Rs.${cartTotal.toLocaleString('en-IN')}`,
+              }));
+
+              // Clear cart and redirect to success page
+              clearCart();
+              router.push(`/order-success?order_id=${response.razorpay_order_id}`);
+            } else {
+              throw new Error('Payment verification failed');
+            }
+          } catch (error: any) {
+            console.error('Payment verification error:', error);
+            alert('Payment verification failed. Please contact support.');
+          }
+        },
+        prefill: {
+          name: formData.name,
+          email: formData.email,
+          contact: formData.phone,
+        },
+        notes: {
+          address: formData.address,
+          city: formData.city,
+          state: formData.state,
+          pincode: formData.pincode,
+        },
+        theme: {
+          color: '#000000',
+        },
+        modal: {
+          ondismiss: function () {
+            setLoading(false);
+          },
+        },
+      };
+
+      const razorpay = new (window as any).Razorpay(options);
+      razorpay.open();
     } catch (error: any) {
       console.error('Order error:', error);
       alert(error.message || 'Something went wrong. Please try again.');
-    } finally {
       setLoading(false);
     }
   };
@@ -342,7 +407,7 @@ export default function CheckoutPage() {
               disabled={loading}
               className="w-full bg-black text-white py-4 hover:bg-gray-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
-              {loading ? 'Processing Order...' : 'Place Order'}
+              {loading ? 'Processing...' : 'Proceed to Payment'}
             </button>
 
             <div className="mt-4 text-center text-sm text-gray-600">
