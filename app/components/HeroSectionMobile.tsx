@@ -25,7 +25,7 @@ const videos: VideoItem[] = [
   },
   {
     src: '/videos/nazm.mp4',
-    coverImage: '/Nazm cover homepage.jpg',
+    coverImage: '/nazm.jpeg',
     title: 'NAZM',
     subtitle: 'The Story of Her Becoming',
   },
