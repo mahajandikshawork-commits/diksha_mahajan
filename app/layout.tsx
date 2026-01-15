@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { CartProvider } from "./context/CartContext";
 import CartSidebar from "./components/CartSidebar";
 import LoadingBar from "./components/LoadingBar";
+import ClientLayout from "./components/ClientLayout";
 import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
 
@@ -32,22 +33,24 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-montserrat)' }}
       >
         <CartProvider>
-          <LoadingBar />
-          <Header />
-          {children}
-          <Footer />
-          <CartSidebar />
-          
-          {/* Fixed WhatsApp Button */}
-          <Link
-            href="https://wa.me/919871907315"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:bg-[#20BA5A] transition-all hover:scale-110 z-50"
-            aria-label="Chat on WhatsApp"
-          >
-            <BsWhatsapp className="text-white" size={28} />
-          </Link>
+          <ClientLayout>
+            <LoadingBar />
+            <Header />
+            {children}
+            <Footer />
+            <CartSidebar />
+            
+            {/* Fixed WhatsApp Button */}
+            <Link
+              href="https://wa.me/919871907315"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:bg-[#20BA5A] transition-all hover:scale-110 z-50"
+              aria-label="Chat on WhatsApp"
+            >
+              <BsWhatsapp className="text-white" size={28} />
+            </Link>
+          </ClientLayout>
         </CartProvider>
       </body>
     </html>
