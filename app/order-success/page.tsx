@@ -15,9 +15,136 @@ function OrderSuccessContent() {
     // Retrieve order data from sessionStorage
     const storedData = sessionStorage.getItem('orderData');
     if (storedData) {
-      setOrderData(JSON.parse(storedData));
+      const data = JSON.parse(storedData);
+      setOrderData(data);
+      
+      // Automatically trigger invoice download
+      setTimeout(() => {
+        downloadInvoice(data);
+      }, 1000);
     }
   }, []);
+
+  const downloadInvoice = (data: any) => {
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Invoice - ${data.orderId}</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            .header { background-color: #000; color: #fff; padding: 30px; text-align: center; }
+            .header h1 { margin: 0; font-size: 32px; letter-spacing: 5px; }
+            .header p { margin: 5px 0 0 0; font-size: 14px; letter-spacing: 2px; }
+            .content { padding: 40px 30px; }
+            .title { text-align: center; margin-bottom: 30px; }
+            .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+            .detail-box { background-color: #f5f5f5; padding: 20px; border-left: 4px solid #000; }
+            .detail-box h3 { margin: 0 0 10px 0; font-size: 14px; color: #666; text-transform: uppercase; }
+            .detail-box p { margin: 5px 0; font-size: 14px; }
+            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            thead { background-color: #000; color: #fff; }
+            th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+            th { font-weight: 600; }
+            .total-row { background-color: #f5f5f5; font-weight: 600; border-top: 2px solid #000; }
+            .footer { background-color: #000; color: #fff; padding: 20px; text-align: center; font-size: 12px; margin-top: 40px; }
+            .custom-measurements { margin-top: 8px; padding: 8px; background-color: #f9f9f9; font-size: 11px; }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1>DIKSHA MAHAJAN</h1>
+            <p>LUXURY BRIDAL & TROUSSEAU COUTURE</p>
+          </div>
+          <div class="content">
+            <div class="title">
+              <h2>ORDER INVOICE</h2>
+              <p>Thank you for your order!</p>
+            </div>
+            <div class="details-grid">
+              <div class="detail-box">
+                <h3>Order Details</h3>
+                <p><strong>Order ID:</strong> ${data.orderId}</p>
+                <p><strong>Order Date:</strong> ${data.orderDate}</p>
+                <p><strong>Status:</strong> <span style="color: #22c55e;">Confirmed</span></p>
+              </div>
+              <div class="detail-box">
+                <h3>Shipping Address</h3>
+                <p><strong>${data.customerDetails.name}</strong></p>
+                <p>${data.customerDetails.address}</p>
+                <p>${data.customerDetails.city}, ${data.customerDetails.state} - ${data.customerDetails.pincode}</p>
+              </div>
+            </div>
+            <div class="detail-box">
+              <h3>Contact Information</h3>
+              <p>📧 ${data.customerDetails.email}</p>
+              <p>📱 ${data.customerDetails.phone}</p>
+            </div>
+            <h3 style="margin-top: 30px;">Order Items</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th style="text-align: center;">Qty</th>
+                  <th style="text-align: right;">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${data.items.map((item: any) => `
+                  <tr>
+                    <td>
+                      <strong>${item.name}</strong><br/>
+                      <small style="color: #666;">${item.tagline}</small><br/>
+                      <small style="color: #666;">Size: ${item.size}</small>
+                      ${item.size === 'Custom' && item.customMeasurements ? `
+                        <div class="custom-measurements">
+                          <strong>Custom Measurements:</strong><br/>
+                          ${Object.entries(item.customMeasurements).map(([key, value]) => `${key}: ${value}`).join('<br/>')}
+                        </div>
+                      ` : ''}
+                    </td>
+                    <td style="text-align: center;">${item.quantity}</td>
+                    <td style="text-align: right;">${item.price}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+              <tfoot>
+                <tr class="total-row">
+                  <td colspan="2" style="text-align: right;">TOTAL:</td>
+                  <td style="text-align: right; font-size: 18px;">${data.total}</td>
+                </tr>
+              </tfoot>
+            </table>
+            <div style="background-color: #f5f1e8; padding: 20px; margin-top: 30px; border-radius: 5px;">
+              <h3>📦 What's Next?</h3>
+              <ul style="line-height: 1.8;">
+                <li>Your order will be processed within 2-3 business days</li>
+                <li>We'll send you shipping updates via email and WhatsApp</li>
+                <li>Estimated delivery: 15-20 business days (India) / 25-30 business days (International)</li>
+              </ul>
+            </div>
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee;">
+              <p>For any queries, contact us at:</p>
+              <p>📧 info@dikshamahajan.com | 📱 +91-9871907315</p>
+            </div>
+          </div>
+          <div class="footer">
+            <p>© ${new Date().getFullYear()} Diksha Mahajan. All rights reserved.</p>
+            <p>Luxury Bridal & Trousseau Couture</p>
+          </div>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.focus();
+      setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+      }, 250);
+    }
+  };
 
   if (!orderData) {
     return (

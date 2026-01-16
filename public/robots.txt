@@ -1,0 +1,14 @@
+# Robots.txt for Diksha Mahajan Website
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow checkout and cart pages from indexing
+Disallow: /checkout
+Disallow: /cart
+Disallow: /order-success
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://dikshamahajan.com/sitemap.xml

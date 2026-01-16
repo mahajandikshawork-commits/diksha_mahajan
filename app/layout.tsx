@@ -17,8 +17,76 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Diksha Mahajan - Luxury Bridal Wear",
-  description: "Discover exquisite bridal collections by Diksha Mahajan",
+  title: {
+    default: "Diksha Mahajan - Luxury Bridal Wear & Designer Lehengas | Indian Bridal Fashion",
+    template: "%s | Diksha Mahajan"
+  },
+  description: "Discover exquisite luxury bridal wear, designer lehengas, and bespoke Indian wedding outfits by Diksha Mahajan. Shop premium bridal collections, custom-made suits, and elegant festive wear for your special occasions.",
+  keywords: [
+    "Diksha Mahajan",
+    "luxury bridal wear",
+    "designer lehengas",
+    "Indian bridal fashion",
+    "wedding outfits",
+    "bridal lehenga",
+    "designer suits",
+    "custom bridal wear",
+    "trousseau collection",
+    "festive wear",
+    "cocktail dresses",
+    "reception outfits",
+    "embroidered suits",
+    "bridal couture",
+    "Indian designer wear"
+  ],
+  authors: [{ name: "Diksha Mahajan" }],
+  creator: "Diksha Mahajan",
+  publisher: "Diksha Mahajan",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://dikshamahajan.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "Diksha Mahajan - Luxury Bridal Wear & Designer Lehengas",
+    description: "Discover exquisite luxury bridal wear, designer lehengas, and bespoke Indian wedding outfits by Diksha Mahajan.",
+    url: 'https://dikshamahajan.com',
+    siteName: 'Diksha Mahajan',
+    images: [
+      {
+        url: '/logo.PNG',
+        width: 1200,
+        height: 630,
+        alt: 'Diksha Mahajan - Luxury Bridal Couture',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Diksha Mahajan - Luxury Bridal Wear & Designer Lehengas",
+    description: "Discover exquisite luxury bridal wear, designer lehengas, and bespoke Indian wedding outfits.",
+    images: ['/logo.PNG'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google Search Console verification code
+  },
 };
 
 export default function RootLayout({
