@@ -1,14 +1,59 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
 import ShopCollectionButton from './ShopCollectionButton';
 import productsData from '@/data/products.json';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
+const INITIAL_LOAD_COUNT = 3;
+
 export default function ProductSlider() {
   const desktopScrollRef = useRef<HTMLDivElement | null>(null);
   const mobileScrollRef = useRef<HTMLDivElement | null>(null);
+  const [visibleIndexes, setVisibleIndexes] = useState<Set<number>>(
+    new Set(Array.from({ length: INITIAL_LOAD_COUNT }, (_, i) => i))
+  );
+  const observersRef = useRef<Map<number, IntersectionObserver>>(new Map());
+
+  const createObserver = (index: number) => {
+    if (index < INITIAL_LOAD_COUNT) return null;
+    
+    return new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisibleIndexes(prev => {
+            const newSet = new Set(prev);
+            newSet.add(index);
+            return newSet;
+          });
+          observersRef.current.get(index)?.disconnect();
+          observersRef.current.delete(index);
+        }
+      },
+      {
+        rootMargin: '200px',
+        threshold: 0.01
+      }
+    );
+  };
+
+  const setObserverRef = (index: number) => (element: HTMLDivElement | null) => {
+    if (element && index >= INITIAL_LOAD_COUNT && !observersRef.current.has(index)) {
+      const observer = createObserver(index);
+      if (observer) {
+        observer.observe(element);
+        observersRef.current.set(index, observer);
+      }
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      observersRef.current.forEach(observer => observer.disconnect());
+      observersRef.current.clear();
+    };
+  }, []);
 
   const scroll = (ref: React.RefObject<HTMLDivElement | null>, direction: 'left' | 'right') => {
     const el = ref.current;
@@ -25,21 +70,28 @@ export default function ProductSlider() {
           <div className="relative">
             <div ref={desktopScrollRef} className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-6" style={{ width: 'max-content' }}>
-              {productsData.map((product, index) => (
-                <div key={index} className="w-80 flex-shrink-0">
-                  <ProductCard
-                    name={product.name}
-                    price={product.price}
-                    tagline={(product as any).tagline}
-                    mediaType={product.mediaType as 'image' | 'video'}
-                    mediaSrc={product.mediaSrc}
-                    mainImage={product.mainImage}
-                    slug={product.slug}
-                    showVideo={true}
-                    autoplay={true}
-                  />
-                </div>
-              ))}
+              {productsData.map((product, index) => {
+                const shouldShowVideo = visibleIndexes.has(index);
+                return (
+                  <div 
+                    key={index} 
+                    className="w-80 flex-shrink-0"
+                    ref={setObserverRef(index)}
+                  >
+                    <ProductCard
+                      name={product.name}
+                      price={product.price}
+                      tagline={(product as any).tagline}
+                      mediaType={product.mediaType as 'image' | 'video'}
+                      mediaSrc={product.mediaSrc}
+                      mainImage={product.mainImage}
+                      slug={product.slug}
+                      showVideo={shouldShowVideo}
+                      autoplay={shouldShowVideo}
+                    />
+                  </div>
+                );
+              })}
               </div>
             </div>
 
@@ -69,21 +121,28 @@ export default function ProductSlider() {
         <div className="relative">
           <div ref={mobileScrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-4 px-4" style={{ width: 'max-content' }}>
-            {productsData.map((product, index) => (
-              <div key={index} className="w-[45vw] flex-shrink-0">
-                <ProductCard
-                  name={product.name}
-                  price={product.price}
-                  tagline={(product as any).tagline}
-                  mediaType={product.mediaType as 'image' | 'video'}
-                  mediaSrc={product.mediaSrc}
-                  mainImage={product.mainImage}
-                  slug={product.slug}
-                  showVideo={true}
-                  autoplay={true}
-                />
-              </div>
-            ))}
+            {productsData.map((product, index) => {
+              const shouldShowVideo = visibleIndexes.has(index);
+              return (
+                <div 
+                  key={index} 
+                  className="w-[45vw] flex-shrink-0"
+                  ref={setObserverRef(index)}
+                >
+                  <ProductCard
+                    name={product.name}
+                    price={product.price}
+                    tagline={(product as any).tagline}
+                    mediaType={product.mediaType as 'image' | 'video'}
+                    mediaSrc={product.mediaSrc}
+                    mainImage={product.mainImage}
+                    slug={product.slug}
+                    showVideo={shouldShowVideo}
+                    autoplay={shouldShowVideo}
+                  />
+                </div>
+              );
+            })}
             </div>
           </div>
 

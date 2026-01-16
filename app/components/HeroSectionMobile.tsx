@@ -33,6 +33,7 @@ const videos: VideoItem[] = [
 
 export default function HeroSectionMobile() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [videosReady, setVideosReady] = useState<Set<number>>(new Set());
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
@@ -69,7 +70,9 @@ export default function HeroSectionMobile() {
     videoRefs.current.forEach((video, index) => {
       if (video) {
         if (index === currentSlide) {
-          video.play().catch(error => {
+          video.play().then(() => {
+            setVideosReady(prev => new Set(prev).add(index));
+          }).catch(error => {
             if (error.name !== 'AbortError') {
               console.error('Video play error:', error);
             }
@@ -101,8 +104,8 @@ export default function HeroSectionMobile() {
                 : 'translate-x-full'
             }`}
           >
-            {/* Cover Image - shown when video is not playing */}
-            <div className={`absolute inset-0 transition-opacity duration-300 ${index === currentSlide ? 'opacity-0' : 'opacity-100'}`}>
+            {/* Cover Image - shown until video is ready */}
+            <div className={`absolute inset-0 transition-opacity duration-300 ${index === currentSlide && videosReady.has(index) ? 'opacity-0' : 'opacity-100'}`}>
               <Image
                 src={video.coverImage}
                 alt={video.title}
@@ -122,6 +125,7 @@ export default function HeroSectionMobile() {
               muted
               playsInline
               preload="auto"
+              poster={video.coverImage}
             >
               <source src={video.src} type="video/mp4" />
             </video>
