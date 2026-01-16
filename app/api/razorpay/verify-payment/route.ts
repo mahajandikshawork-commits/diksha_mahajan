@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
-import { supabaseAdmin } from '@/lib/supabase-server';
 
 export async function POST(req: NextRequest) {
   try {
@@ -40,45 +39,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Payment verified successfully, save order to Supabase
-    const orderDate = new Date().toLocaleDateString('en-IN', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-
-    const orderData = {
-      order_id: razorpay_order_id,
-      payment_id: razorpay_payment_id,
-      order_date: orderDate,
-      customer_name: customerDetails.name,
-      customer_email: customerDetails.email,
-      customer_phone: customerDetails.phone,
-      customer_address: customerDetails.address,
-      customer_city: customerDetails.city,
-      customer_state: customerDetails.state,
-      customer_pincode: customerDetails.pincode,
-      items: orderDetails.items,
-      total: orderDetails.total,
-      status: 'confirmed',
-    };
-
-    const { error: dbError } = await supabaseAdmin
-      .from('orders')
-      .insert([orderData]);
-
-    if (dbError) {
-      console.error('Error saving order to database:', dbError);
-    }
-
     // Payment verified successfully, send emails
-    // TODO: Uncomment when email configuration is ready
-    // await sendOrderEmails(
-    //   customerDetails,
-    //   orderDetails,
-    //   razorpay_payment_id,
-    //   razorpay_order_id
-    // );
+    try {
+      await sendOrderEmails(
+        customerDetails,
+        orderDetails,
+        razorpay_payment_id,
+        razorpay_order_id
+      );
+    } catch (emailError) {
+      console.error('Error sending emails:', emailError);
+      // Don't fail the payment if email fails
+    }
 
     return NextResponse.json({
       success: true,
