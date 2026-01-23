@@ -14,41 +14,67 @@ export default function ProductSlider() {
   const [visibleIndexes, setVisibleIndexes] = useState<Set<number>>(
     new Set(Array.from({ length: INITIAL_LOAD_COUNT }, (_, i) => i))
   );
-  const observersRef = useRef<Map<number, IntersectionObserver>>(new Map());
-
-  const createObserver = (index: number) => {
-    if (index < INITIAL_LOAD_COUNT) return null;
-    
-    return new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisibleIndexes(prev => {
-            const newSet = new Set(prev);
-            newSet.add(index);
-            return newSet;
-          });
-          observersRef.current.get(index)?.disconnect();
-          observersRef.current.delete(index);
-        }
-      },
-      {
-        rootMargin: '200px',
-        threshold: 0.01
-      }
-    );
-  };
-
-  const setObserverRef = (index: number) => (element: HTMLDivElement | null) => {
-    if (element && index >= INITIAL_LOAD_COUNT && !observersRef.current.has(index)) {
-      const observer = createObserver(index);
-      if (observer) {
-        observer.observe(element);
-        observersRef.current.set(index, observer);
-      }
-    }
-  };
+  const observersRef = useRef<Map<string, IntersectionObserver>>(new Map());
+  const desktopItemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const mobileItemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    // Setup observers for desktop
+    if (desktopScrollRef.current) {
+      desktopItemRefs.current.forEach((element, index) => {
+        if (element && index >= INITIAL_LOAD_COUNT && !observersRef.current.has(`desktop-${index}`)) {
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting) {
+                setVisibleIndexes(prev => {
+                  const newSet = new Set(prev);
+                  newSet.add(index);
+                  return newSet;
+                });
+                observer.disconnect();
+                observersRef.current.delete(`desktop-${index}`);
+              }
+            },
+            {
+              root: desktopScrollRef.current,
+              rootMargin: '200px',
+              threshold: 0.01
+            }
+          );
+          observer.observe(element);
+          observersRef.current.set(`desktop-${index}`, observer);
+        }
+      });
+    }
+
+    // Setup observers for mobile
+    if (mobileScrollRef.current) {
+      mobileItemRefs.current.forEach((element, index) => {
+        if (element && index >= INITIAL_LOAD_COUNT && !observersRef.current.has(`mobile-${index}`)) {
+          const observer = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting) {
+                setVisibleIndexes(prev => {
+                  const newSet = new Set(prev);
+                  newSet.add(index);
+                  return newSet;
+                });
+                observer.disconnect();
+                observersRef.current.delete(`mobile-${index}`);
+              }
+            },
+            {
+              root: mobileScrollRef.current,
+              rootMargin: '200px',
+              threshold: 0.01
+            }
+          );
+          observer.observe(element);
+          observersRef.current.set(`mobile-${index}`, observer);
+        }
+      });
+    }
+
     return () => {
       observersRef.current.forEach(observer => observer.disconnect());
       observersRef.current.clear();
@@ -76,7 +102,7 @@ export default function ProductSlider() {
                   <div 
                     key={index} 
                     className="w-80 flex-shrink-0"
-                    ref={setObserverRef(index)}
+                    ref={(el) => { desktopItemRefs.current[index] = el; }}
                   >
                     <ProductCard
                       name={product.name}
@@ -127,7 +153,7 @@ export default function ProductSlider() {
                 <div 
                   key={index} 
                   className="w-[45vw] flex-shrink-0"
-                  ref={setObserverRef(index)}
+                  ref={(el) => { mobileItemRefs.current[index] = el; }}
                 >
                   <ProductCard
                     name={product.name}
