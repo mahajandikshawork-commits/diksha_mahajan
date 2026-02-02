@@ -9,6 +9,7 @@ import LoadingBar from "./components/LoadingBar";
 import ClientLayout from "./components/ClientLayout";
 import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -103,6 +104,9 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased`}
         style={{ fontFamily: 'var(--font-montserrat)' }}
       >
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
         <CartProvider>
           <ClientLayout>
             <LoadingBar />
