@@ -9,11 +9,11 @@ import { useRouter } from 'next/navigation';
 
 export default function CartPage() {
   const router = useRouter();
-  const { cartItems, updateQuantity, removeFromCart } = useCart();
+  const { cartItems, updateQuantity, removeFromCart, appliedCoupon, couponDiscount, finalTotal } = useCart();
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.priceNumber * item.quantity), 0);
   const shipping = 0;
-  const total = subtotal + shipping;
+  const total = finalTotal;
 
   return (
     <div className="min-h-screen bg-white">
@@ -114,6 +114,12 @@ export default function CartPage() {
                       <span>Shipping</span>
                       <span className="text-green-600">Free</span>
                     </div>
+                    {appliedCoupon && (
+                      <div className="flex justify-between text-xs md:text-base text-green-600">
+                        <span>Discount ({appliedCoupon})</span>
+                        <span>- Rs.{couponDiscount.toLocaleString()}</span>
+                      </div>
+                    )}
                     <div className="border-t pt-3 flex justify-between font-medium text-xs md:text-base">
                       <span>Total</span>
                       <span>Rs.{total.toLocaleString()}</span>

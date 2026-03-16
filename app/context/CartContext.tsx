@@ -25,6 +25,11 @@ interface CartContextType {
   setIsCartOpen: (isOpen: boolean) => void;
   cartCount: number;
   cartTotal: number;
+  appliedCoupon: string | null;
+  couponDiscount: number;
+  finalTotal: number;
+  applyCoupon: (code: string, discount: number) => void;
+  removeCoupon: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -32,6 +37,8 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
+  const [couponDiscount, setCouponDiscount] = useState(0);
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -75,10 +82,23 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const clearCart = () => {
     setCartItems([]);
+    setAppliedCoupon(null);
+    setCouponDiscount(0);
+  };
+
+  const applyCoupon = (code: string, discount: number) => {
+    setAppliedCoupon(code);
+    setCouponDiscount(discount);
+  };
+
+  const removeCoupon = () => {
+    setAppliedCoupon(null);
+    setCouponDiscount(0);
   };
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const cartTotal = cartItems.reduce((sum, item) => sum + item.priceNumber * item.quantity, 0);
+  const finalTotal = Math.max(0, cartTotal - couponDiscount);
 
   return (
     <CartContext.Provider
@@ -92,6 +112,11 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setIsCartOpen,
         cartCount,
         cartTotal,
+        appliedCoupon,
+        couponDiscount,
+        finalTotal,
+        applyCoupon,
+        removeCoupon,
       }}
     >
       {children}
