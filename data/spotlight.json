@@ -1,5 +1,34 @@
 [
   {
+    "title": "Aayat",
+    "images": [
+      "/In the Spotlight/Aayat/PravasiExpress260301184742.JPEG",
+      "/In the Spotlight/Aayat/PravasiExpress260301184818.JPEG",
+      "/In the Spotlight/Aayat/PravasiExpress260301185600.JPEG",
+      "/In the Spotlight/Aayat/PravasiExpress260301214501.JPEG"
+    ],
+    "slug": "aayat"
+  },
+  {
+    "title": "Arunita Kanjilal",
+    "images": [
+      "/In the Spotlight/Arunita Kanjilal/IMG_0482.JPG",
+      "/In the Spotlight/Arunita Kanjilal/IMG_0486.JPG",
+      "/In the Spotlight/Arunita Kanjilal/IMG_0489.JPG",
+      "/In the Spotlight/Arunita Kanjilal/IMG_0490.JPG"
+    ],
+    "slug": "riwaayat"
+  },
+  {
+    "title": "Akanksha Bhandari",
+    "images": [
+      "/In the Spotlight/Akanksha Bhandari/IMG_1174.jpg",
+      "/In the Spotlight/Akanksha Bhandari/IMG_1175.jpg",
+      "/In the Spotlight/Akanksha Bhandari/IMG_1176.jpg"
+    ],
+    "slug": "mehr"
+  },
+  {
     "title": "Sivaangi Krishnakumar",
     "images": [
       "/In the Spotlight/Sivaangi Krishnakumar/Copy of DSC01146.jpg",
