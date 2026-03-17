@@ -20,7 +20,7 @@ export default function CollectionPage() {
   const [isSortOpen, setIsSortOpen] = useState(true);
 
   const genderOptions = ['All', 'Menswear', 'Womenswear'];
-  const categoryOptions = ['All', 'Concept Saree', 'Saree set', 'Gown', 'Trouser set', 'Lehenga set', 'Suit set', 'Jacket set', 'Anarkali set', 'Sharara set', 'Drape Skirt', 'Cape set', 'Shirt', 'Scarf'];
+  const categoryOptions = ['All', 'Concept Saree', 'Gown', 'Trouser set', 'Lehenga set', 'Suit set', 'Jacket set', 'Anarkali set', 'Sharara set', 'Drape Skirt', 'Cape set', 'Shirt', 'Scarf'];
   const collectionOptions = ['All', 'Nazm', 'Aaina', 'Noor-e-Fiza', 'The Heritage Edit'];
 
   const filteredProducts = productsData.filter((product: any) => {

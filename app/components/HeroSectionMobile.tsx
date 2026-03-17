@@ -12,6 +12,12 @@ interface VideoItem {
 
 const videos: VideoItem[] = [
   {
+    src: '',
+    coverImage: '/the_heritage_edit.png',
+    title: 'THE HERITAGE EDIT',
+    subtitle: 'Timeless Elegance',
+  },
+  {
     src: '/videos/noor-e-fiza.MP4',
     coverImage: '/noor-e-fiza-cover.JPG',
     title: 'NOOR-E-FIZA',
@@ -68,7 +74,7 @@ export default function HeroSectionMobile() {
 
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
-      if (video) {
+      if (video && videos[index].src) {
         if (index === currentSlide) {
           video.play().then(() => {
             setVideosReady(prev => new Set(prev).add(index));
@@ -116,19 +122,21 @@ export default function HeroSectionMobile() {
             </div>
 
             {/* Video */}
-            <video
-              ref={(el) => {
-                videoRefs.current[index] = el;
-              }}
-              className="w-full h-full object-cover"
-              loop
-              muted
-              playsInline
-              preload="auto"
-              poster={video.coverImage}
-            >
-              <source src={video.src} type="video/mp4" />
-            </video>
+            {video.src && (
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                className="w-full h-full object-cover"
+                loop
+                muted
+                playsInline
+                preload="auto"
+                poster={video.coverImage}
+              >
+                <source src={video.src} type="video/mp4" />
+              </video>
+            )}
 
             <div className="absolute inset-0 bg-black/30 pointer-events-none" />
           </div>
