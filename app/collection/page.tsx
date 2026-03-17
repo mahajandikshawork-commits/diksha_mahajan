@@ -20,8 +20,8 @@ export default function CollectionPage() {
   const [isSortOpen, setIsSortOpen] = useState(true);
 
   const genderOptions = ['All', 'Menswear', 'Womenswear'];
-  const categoryOptions = ['All', 'Drape saree', 'Gown', 'Trouser set','Lehenga set', 'Suit set', 'Drape Skirt', 'Cape set', 'Shirt', 'Scarf'];
-  const collectionOptions = ['All', 'Nazm', 'Aaina', 'Noor-e-Fiza'];
+  const categoryOptions = ['All', 'Concept Saree', 'Saree set', 'Gown', 'Trouser set', 'Lehenga set', 'Suit set', 'Jacket set', 'Anarkali set', 'Sharara set', 'Drape Skirt', 'Cape set', 'Shirt', 'Scarf'];
+  const collectionOptions = ['All', 'Nazm', 'Aaina', 'Noor-e-Fiza', 'The Heritage Edit'];
 
   const filteredProducts = productsData.filter((product: any) => {
     const genderMatch = selectedGender === 'All' || product.gender === selectedGender;
@@ -32,7 +32,8 @@ export default function CollectionPage() {
         ? product.productCategory.includes(selectedCategory)
         : product.productCategory === selectedCategory);
     
-    const collectionMatch = selectedCollection === 'All' || product.collection.toLowerCase() === selectedCollection.toLowerCase();
+    const collectionMatch = selectedCollection === 'All' || 
+      product.collection.toLowerCase().replace(/[-\s]/g, '') === selectedCollection.toLowerCase().replace(/[-\s]/g, '');
     
     return genderMatch && categoryMatch && collectionMatch;
   });
