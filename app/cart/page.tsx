@@ -150,7 +150,6 @@ export default function CartPage() {
           )}
         </div>
       </main>
-
       {/* Product Slider */}
       <ProductSlider />
     </div>
