@@ -104,8 +104,8 @@
     "components": "3",
     "modelSize": "Small",
     "modelHeight": "5'12\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Zahira/DSC06924.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/Zahira/zahira.mp4",
     "mainImage": "/products/Zahira/DSC06924.webp",
     "images": [
       "/products/Zahira/DSC06924.webp",
@@ -134,8 +134,8 @@
     "components": "3",
     "modelSize": "Small",
     "modelHeight": "5'12\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/Gul-Noor/DSC06754.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/Gul-Noor/gulnoor.mp4",
     "mainImage": "/products/Gul-Noor/DSC06754.webp",
     "images": [
       "/products/Gul-Noor/DSC06754.webp",
