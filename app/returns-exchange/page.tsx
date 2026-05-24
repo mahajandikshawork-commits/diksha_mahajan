@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function ReturnsExchangePage() {
   return (
     <div className="min-h-screen bg-white">
-      <main className="pt-32 pb-16 px-8">
+      <main className="pt-40 pb-16 px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-xl md:text-3xl font-medium tracking-[0.2em] text-center md:mb-16 mb-8 uppercase">
             Return & Exchange Policy

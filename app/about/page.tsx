@@ -3,7 +3,7 @@ import aboutData from '@/data/about.json';
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      <main className="pt-32 pb-16 px-8">
+      <main className="pt-40 pb-16 px-8">
         <div className="md:max-w-5xl mx-auto">
           <h1 className="text-base md:text-2xl italic font-medium tracking-[0.2em] text-center md:mb-16 md:mt-8 mb-8 uppercase">
             '{aboutData.title}'

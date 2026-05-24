@@ -17,7 +17,7 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <main className="pt-24 md:pt-32 pb-16 px-4 md:px-8">
+      <main className="pt-32 md:pt-40 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-xl text-center md:text-4xl font-light tracking-[0.2em] mb-8 uppercase">
             Shopping Cart

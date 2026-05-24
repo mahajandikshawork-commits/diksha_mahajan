@@ -148,7 +148,7 @@ function OrderSuccessContent() {
 
   if (!orderData) {
     return (
-      <div className="min-h-screen bg-white pt-32 pb-16 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-white pt-40 pb-16 px-4 flex items-center justify-center">
         <div className="text-center">
           <p className="text-gray-600 mb-4">Loading order details...</p>
         </div>
@@ -157,7 +157,7 @@ function OrderSuccessContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32 pb-16 px-4">
+    <div className="min-h-screen bg-gray-50 pt-40 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Success Message */}
         <div className="text-center mb-8">
@@ -244,7 +244,7 @@ function OrderSuccessContent() {
 export default function OrderSuccessPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-white pt-32 pb-16 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-white pt-40 pb-16 px-4 flex items-center justify-center">
         <div className="text-center">Loading...</div>
       </div>
     }>

@@ -8,6 +8,7 @@ import { BsHandbag } from 'react-icons/bs';
 import { HiMenu} from 'react-icons/hi';
 import { IoClose } from 'react-icons/io5';
 import { useCart } from '../context/CartContext';
+import AnnouncementBar from './AnnouncementBar';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function Header() {
     return (
         <>
             <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/90 backdrop-blur-sm text-white">
-                <div className="w-full px-8 py-6">
+                <div className="w-full px-8 py-4">
                     {/* Mobile Layout */}
                     <div className="flex lg:hidden items-center justify-between">
                         <button
@@ -111,6 +112,7 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
+                <AnnouncementBar />
             </header>
 
             {isMenuOpen && (

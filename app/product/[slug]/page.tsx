@@ -31,6 +31,12 @@ export default function ProductPage() {
   const [customMeasurements, setCustomMeasurements] = useState<Record<string, string>>({});
   const [showSizeError, setShowSizeError] = useState(false);
 
+  const variants = (product as any).variants as { label: string; price: string; priceNumber: number }[] | undefined;
+  const [selectedVariant, setSelectedVariant] = useState(variants ? variants[0] : null);
+
+  const activePrice = selectedVariant ? selectedVariant.price : product.price;
+  const activePriceNumber = selectedVariant ? selectedVariant.priceNumber : parseInt(product.price.replace(/[^0-9]/g, ''));
+
   // Build media array combining images and video if available
   const productMedia: Array<{ type: 'image' | 'video', src: string }> = [];
 
@@ -82,15 +88,13 @@ export default function ProductPage() {
       return;
     }
 
-    const priceNumber = parseInt(product.price.replace(/[^0-9]/g, ''));
-
     addToCart({
       id: productIndex >= 0 ? productIndex : 0,
-      name: product.name,
+      name: product.name + (selectedVariant ? ` (${selectedVariant.label})` : ''),
       tagline: product.tagline,
       description: (product as any).description || '',
-      price: product.price,
-      priceNumber,
+      price: activePrice,
+      priceNumber: activePriceNumber,
       image: product.mainImage,
       size: selectedSize,
       customMeasurements: selectedSize === 'Custom' ? customMeasurements : undefined,
@@ -104,15 +108,13 @@ export default function ProductPage() {
       return;
     }
 
-    const priceNumber = parseInt(product.price.replace(/[^0-9]/g, ''));
-
     addToCart({
       id: productIndex >= 0 ? productIndex : 0,
-      name: product.name,
+      name: product.name + (selectedVariant ? ` (${selectedVariant.label})` : ''),
       tagline: product.tagline,
       description: (product as any).description || '',
-      price: product.price,
-      priceNumber,
+      price: activePrice,
+      priceNumber: activePriceNumber,
       image: product.mainImage,
       size: selectedSize,
       customMeasurements: selectedSize === 'Custom' ? customMeasurements : undefined,
@@ -123,11 +125,11 @@ export default function ProductPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <main className="pt-24 md:pt-32 pb-16 px-4 md:px-8">
+      <main className="pt-32 md:pt-40 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Side - Image Gallery */}
-            <div className="flex flex-col-reverse md:flex-row gap-4 overflow-hidden lg:sticky lg:top-32 lg:self-start">
+            <div className="flex flex-col-reverse md:flex-row gap-4 overflow-hidden lg:sticky lg:top-40 lg:self-start">
               {/* Vertical Thumbnail Strip */}
               <div className="flex md:flex-col gap-2 overflow-y-auto max-h-[85vh] flex-shrink-0">
                 {productMedia.map((media, index) => (
@@ -220,11 +222,34 @@ export default function ProductPage() {
 
               {/* Price */}
               <div>
-                <p className="text-lg font-light">{product.price}</p>
+                <p className="text-lg font-light">{activePrice}</p>
                 <p className="text-xs text-gray-600 mt-1">
                   Inclusive of all taxes. Shipping calculated at checkout.
                 </p>
               </div>
+
+              {/* Variant selector (dupatta option etc.) */}
+              {variants && variants.length > 0 && (
+                <div>
+                  <p className="text-sm uppercase tracking-wider mb-2">Select Option</p>
+                  <div className="flex flex-col gap-2">
+                    {variants.map((v) => (
+                      <button
+                        key={v.label}
+                        onClick={() => setSelectedVariant(v)}
+                        className={`w-full text-left px-4 py-2.5 text-sm border transition-colors ${
+                          selectedVariant?.label === v.label
+                            ? 'border-black bg-black text-white'
+                            : 'border-gray-300 hover:border-black'
+                        }`}
+                      >
+                        <span>{v.label}</span>
+                        <span className="float-right font-medium">{v.price}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Size Selection */}
               <div className={`${showSizeError ? 'p-3 border-2 border-red-500 rounded-md' : ''}`}>
