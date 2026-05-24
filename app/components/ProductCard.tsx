@@ -17,6 +17,7 @@ interface ProductCardProps {
   mediaSrc: string;
   mainImage?: string;
   slug: string;
+  status?: string;
   /** If false, always show image even for video products */
   showVideo?: boolean;
   /** If true, video plays automatically once it's in view */
@@ -31,9 +32,11 @@ export default function ProductCard({
   mediaSrc,
   mainImage,
   slug,
+  status,
   showVideo = false,
   autoplay = false,
 }: ProductCardProps) {
+  const isOutOfStock = status === 'out_of_stock';
   const [posterFaded, setPosterFaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const cardRef = useRef<HTMLDivElement | null>(null);
@@ -89,6 +92,13 @@ export default function ProductCard({
         onMouseLeave={handleMouseLeave}
       >
         <div className="relative aspect-[3/4] overflow-hidden">
+          {isOutOfStock && (
+            <div className="absolute inset-0 bg-black/40 z-10 flex items-end justify-center pb-4">
+              <span className="bg-white text-black text-[10px] md:text-xs tracking-widest uppercase px-3 py-1">
+                Out of Stock
+              </span>
+            </div>
+          )}
           {isVideo ? (
             <>
               {/* Poster image — visible until the first video frame paints. */}

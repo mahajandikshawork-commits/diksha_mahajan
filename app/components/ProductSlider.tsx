@@ -113,6 +113,7 @@ export default function ProductSlider() {
                         mediaSrc={product.mediaSrc}
                         mainImage={product.mainImage}
                         slug={product.slug}
+                        status={(product as any).status}
                         showVideo={shouldShowVideo}
                         autoplay={shouldShowVideo}
                       />
@@ -175,6 +176,7 @@ export default function ProductSlider() {
                       mediaSrc={product.mediaSrc}
                       mainImage={product.mainImage}
                       slug={product.slug}
+                      status={(product as any).status}
                       showVideo={shouldShowVideo}
                       autoplay={shouldShowVideo}
                     />

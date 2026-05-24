@@ -237,6 +237,7 @@ export default function CollectionPage() {
                     mediaSrc={product.mediaSrc}
                     mainImage={product.mainImage}
                     slug={product.slug}
+                    status={product.status}
                   />
                 ))}
               </div>
