@@ -49,18 +49,20 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Column 1: Logo + Support */}
-          <div className="flex flex-col items-center md:items-start gap-6">
-            <Image
+          <div className="flex flex-col items-start gap-6">
+            <div className="flex items-center md:items-start w-full justify-center md:justify-start">
+              <Image
               src="/logo.webp"
               alt="Diksha Mahajan"
               width={280}
               height={50}
               className="object-contain"
             />
+            </div>
 
             {/* Support Links */}
             <div>
-              <h3 className="text-sm font-medium mb-4 uppercase tracking-wider">Support</h3>
+              <h3 className="text-sm font-medium items-start mb-4 uppercase tracking-wider">Support</h3>
               <nav className="flex flex-col gap-3">
                 <Link href="/returns-exchange" className="text-sm text-gray-300 hover:text-white transition-colors">
                   Returns & Exchange Policy

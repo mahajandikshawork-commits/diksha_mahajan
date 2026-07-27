@@ -248,7 +248,7 @@ export default function CollectionPage() {
 
   return (
     <div className="min-h-screen bg-white md:pb-0">
-      <main className="pt-40 pb-16 px-4 md:px-8">
+      <main className="pt-40 pb-4 md:pb-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <h1 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-4 md:mb-6 uppercase">
@@ -370,91 +370,21 @@ export default function CollectionPage() {
       )}
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-12">
-        <h3 className="text-xl font-light flex items-center justify-center md:text-4xl font-bold tracking-[0.2em] mb-12 uppercase">
-          Begin your couture journey with us
-        </h3>
+      <section className="w-full pt-4 pb-8  md:pb-12">
         <div className="flex flex-col items-center justify-center px-8 text-center">
           <div className="flex flex-col sm:flex-row gap-4 md:gap-12">
-            <button
-              onClick={() => setShowSubscribePopup(true)}
-              className="relative inline-block px-10 py-3 border-1 border-[#DCC898] text-black font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+            <Link
+              href="/book-appointment"
+              className="relative inline-block px-10 py-3 border-1 border-[#DCC898] text-black font-medium tracking-wider text-xs md:text-sm uppercase overflow-hidden group"
             >
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                Subscribe to Receive Updates
+                Begin your couture journey with us
               </span>
               <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Subscribe Popup */}
-      {showSubscribePopup && (
-        <div
-          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4"
-          onClick={() => {
-            setShowSubscribePopup(false);
-            setSubscribeMessage('');
-          }}
-        >
-          <div
-            className="bg-[#FAF8F5] rounded-lg shadow-2xl p-8 md:p-10 w-full max-w-md relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => {
-                setShowSubscribePopup(false);
-                setSubscribeMessage('');
-              }}
-              className="absolute top-4 right-4 text-gray-500 hover:text-black transition-colors"
-              aria-label="Close"
-            >
-              <IoClose size={24} />
-            </button>
-
-            <h3 className="text-lg md:text-xl font-light tracking-[0.15em] uppercase mb-2 text-center text-black">
-              Subscribe
-            </h3>
-            <p className="text-sm text-gray-500 mb-6 text-center tracking-wide">
-              Receive updates on new collections, journal stories, and exclusive releases
-            </p>
-
-            <form onSubmit={handleSubscribe} className="space-y-4">
-              <input
-                type="text"
-                value={subscribeName}
-                onChange={(e) => setSubscribeName(e.target.value)}
-                placeholder="Your name"
-                className="w-full border border-gray-300 px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
-              />
-              <input
-                type="email"
-                value={subscribeEmail}
-                onChange={(e) => setSubscribeEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full border border-gray-300 px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
-              />
-              <button
-                type="submit"
-                disabled={subscribing}
-                className="relative w-full px-8 py-3 bg-[#DCC898] text-black font-medium tracking-wider text-xs uppercase overflow-hidden group border-1 border-[#DCC898] disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                  {subscribing ? 'Subscribing...' : 'Subscribe'}
-                </span>
-                <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-              </button>
-            </form>
-
-            {subscribeMessage && (
-              <p className={`text-xs mt-4 text-center ${subscribeMessage.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>
-                {subscribeMessage}
-              </p>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
