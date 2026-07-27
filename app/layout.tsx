@@ -11,6 +11,7 @@ import ClientLayout from "./components/ClientLayout";
 import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import WelcomePopup from "./components/WelcomePopup";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -162,7 +163,8 @@ fbq('track', 'PageView');`}
             {children}
             <Footer />
             <CartSidebar />
-            
+            <WelcomePopup />
+
             {/* Fixed WhatsApp Button */}
             <Link
               href="https://wa.me/919871907315"
