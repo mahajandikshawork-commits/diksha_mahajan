@@ -141,7 +141,7 @@ export default function CartPage() {
                   </Link>
 
                   <div className="mt-6 pt-6 border-t text-xs md:text-sm text-gray-600 space-y-2">
-                    <p>✓ Free shipping on all orders within India</p>
+                    <p>✓ Free shipping on all orders PAN India</p>
                     <p>✓ International deliveries subject to additional courier charges</p>
                     <p>✓ Secure checkout</p>
                   </div>

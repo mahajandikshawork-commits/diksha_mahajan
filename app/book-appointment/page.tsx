@@ -21,7 +21,6 @@ export default function BookAppointmentPage() {
     city: '',
     phone: '',
     email: '',
-    weddingDate: '',
     event: '',
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -219,25 +218,11 @@ export default function BookAppointmentPage() {
                   </div>
                 </div>
 
-                {/* Row 3: Wedding Date + Event */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-medium mb-2 tracking-wide">
-                      Wedding Date
-                    </label>
-                    <input
-                      type="date"
-                      name="weddingDate"
-                      value={formData.weddingDate}
-                      onChange={handleChange}
-                      className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-black transition-colors bg-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2 tracking-wide">
-                      Event <span className="text-red-500">*</span>
-                    </label>
+                {/* Row 3: Event */}
+                <div>
+                  <label className="block text-sm font-medium mb-2 tracking-wide">
+                    Event <span className="text-red-500">*</span>
+                  </label>
                     <select
                       name="event"
                       value={formData.event}
@@ -258,7 +243,6 @@ export default function BookAppointmentPage() {
                     {errors.event && (
                       <p className="text-red-500 text-xs mt-1">{errors.event}</p>
                     )}
-                  </div>
                 </div>
 
                 {/* Submit Button */}

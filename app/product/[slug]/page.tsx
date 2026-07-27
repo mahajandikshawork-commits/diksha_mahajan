@@ -447,7 +447,7 @@ export default function ProductPage() {
                   </button>
                   {openDropdown === 'shipping' && (
                     <div className="pb-4 text-sm text-gray-700 space-y-2">
-                      <p>Free shipping on all orders within India.</p>
+                      <p>Free shipping on all orders PAN India.</p>
                       <p>International deliveries are subject to additional courier charges.</p>
                     </div>
                   )}

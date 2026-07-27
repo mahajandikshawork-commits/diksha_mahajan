@@ -21,6 +21,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    window.dispatchEvent(new Event('loading-complete'));
   };
 
   return (

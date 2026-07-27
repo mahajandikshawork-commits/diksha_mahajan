@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, city, phone, email, weddingDate, event } = await req.json();
+    const { name, city, phone, email, event } = await req.json();
 
     if (!name || !email || !phone || !city || !event) {
       return NextResponse.json(
@@ -56,7 +56,6 @@ export async function POST(req: NextRequest) {
             <p style="margin: 5px 0;"><strong>City:</strong> ${city}</p>
             <p style="margin: 5px 0;"><strong>Phone:</strong> ${phone}</p>
             <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
-            <p style="margin: 5px 0;"><strong>Wedding Date:</strong> ${weddingDate || 'Not specified'}</p>
             <p style="margin: 5px 0;"><strong>Event:</strong> ${event}</p>
             <p style="margin: 5px 0;"><strong>Submitted on:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
           </div>

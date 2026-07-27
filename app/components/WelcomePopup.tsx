@@ -15,8 +15,16 @@ export default function WelcomePopup() {
     const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
 
     useEffect(() => {
-        const timer = setTimeout(() => setIsVisible(true), 5000);
-        return () => clearTimeout(timer);
+        const handleLoadingComplete = () => {
+            const timer = setTimeout(() => setIsVisible(true), 5000);
+            return () => clearTimeout(timer);
+        };
+
+        window.addEventListener('loading-complete', handleLoadingComplete);
+
+        return () => {
+            window.removeEventListener('loading-complete', handleLoadingComplete);
+        };
     }, []);
 
     const handleClose = () => {

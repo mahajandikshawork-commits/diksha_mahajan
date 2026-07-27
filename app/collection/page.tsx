@@ -21,6 +21,50 @@ export default function CollectionPage() {
   const [isCollectionOpen, setIsCollectionOpen] = useState(true);
   const [isSortOpen, setIsSortOpen] = useState(true);
 
+  // Subscribe popup state
+  const [showSubscribePopup, setShowSubscribePopup] = useState(false);
+  const [subscribeName, setSubscribeName] = useState('');
+  const [subscribeEmail, setSubscribeEmail] = useState('');
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeMessage, setSubscribeMessage] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!subscribeName.trim()) {
+      setSubscribeMessage('Please enter your name');
+      return;
+    }
+    if (!subscribeEmail.trim() || !/^\S+@\S+\.\S+$/.test(subscribeEmail)) {
+      setSubscribeMessage('Please enter a valid email');
+      return;
+    }
+    setSubscribing(true);
+    setSubscribeMessage('');
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: subscribeName, email: subscribeEmail }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSubscribeMessage('Thank you for subscribing!');
+        setSubscribeName('');
+        setSubscribeEmail('');
+        setTimeout(() => {
+          setShowSubscribePopup(false);
+          setSubscribeMessage('');
+        }, 2000);
+      } else {
+        setSubscribeMessage(data.message || 'Something went wrong.');
+      }
+    } catch {
+      setSubscribeMessage('Failed to subscribe. Please try again.');
+    } finally {
+      setSubscribing(false);
+    }
+  };
+
   const genderOptions = ['All', 'Menswear', 'Womenswear'];
   const categoryOptions = ['All', 'Concept Saree', 'Gown', 'Trouser set', 'Lehenga set', 'Suit set', 'Jacket set', 'Anarkali set', 'Sharara set', 'Drape Skirt', 'Cape set', 'Shirt', 'Scarf'];
   const collectionOptions = ['All', 'Nazm', 'Aaina', 'Noor-e-Fiza', 'The Heritage Edit'];
@@ -212,12 +256,12 @@ export default function CollectionPage() {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-2xl italic font-light text-center text-gray-700 mb-6 md:mb-8 tracking-wide">
+          <p className="text-base md:text-xl italic font-light text-center text-gray-700 mb-6 md:mb-8 tracking-wide">
             Your heirloom begins here.
           </p>
 
           {/* Description Paragraph */}
-          <p className="text-sm md:text-base text-gray-600 text-center max-w-3xl mx-auto mb-10 md:mb-16 leading-relaxed">
+          <p className="text-sm md:text-sm text-gray-600 text-center max-w-8xl mx-auto mb-10 md:mb-16 leading-relaxed">
             Every ensemble from Diksha Mahajan bridal is built on three promises: craft, comfort, and character. From the first consultation to the final drape, we design around your silhouette, your skin tone, and the way you move, so your outfit looks unmistakably yours & not just another catalogue piece.
           </p>
           
@@ -326,31 +370,106 @@ export default function CollectionPage() {
       )}
 
       {/* CTA Section */}
-      <section className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden">
+      <section className="relative h-[20vh] md:h-[20vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/bg-image.webp"
-            alt="Begin Your Bridal Journey"
+            alt="Begin Your Couture Journey"
             fill
             className="object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center text-white">
-          <h2 className="text-xl md:text-4xl font-light tracking-[0.2em] mb-10 uppercase">
-            Begin Your Bridal Journey
-          </h2>
-          <Link
-            href="/book-appointment"
-            className="relative inline-block px-12 py-3 border-1 border-white text-white font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
-          >
-            <span className="relative z-10 group-hover:text-black transition-colors duration-300">
-              Book Your Appointment
-            </span>
-            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-12">
+            <Link
+              href="/book-appointment"
+              className="relative inline-block px-10 py-3 border-1 border-white text-white font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+            >
+              <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+                Begin Your Couture Journey
+              </span>
+              <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+            </Link>
+            <button
+              onClick={() => setShowSubscribePopup(true)}
+              className="relative inline-block px-10 py-3 border-1 border-white text-white font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+            >
+              <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+                Subscribe to Receive Updates
+              </span>
+              <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+            </button>
+          </div>
         </div>
       </section>
+
+      {/* Subscribe Popup */}
+      {showSubscribePopup && (
+        <div
+          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4"
+          onClick={() => {
+            setShowSubscribePopup(false);
+            setSubscribeMessage('');
+          }}
+        >
+          <div
+            className="bg-[#FAF8F5] rounded-lg shadow-2xl p-8 md:p-10 w-full max-w-md relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => {
+                setShowSubscribePopup(false);
+                setSubscribeMessage('');
+              }}
+              className="absolute top-4 right-4 text-gray-500 hover:text-black transition-colors"
+              aria-label="Close"
+            >
+              <IoClose size={24} />
+            </button>
+
+            <h3 className="text-lg md:text-xl font-light tracking-[0.15em] uppercase mb-2 text-center text-black">
+              Subscribe
+            </h3>
+            <p className="text-sm text-gray-500 mb-6 text-center tracking-wide">
+              Receive updates on new collections, journal stories, and exclusive releases
+            </p>
+
+            <form onSubmit={handleSubscribe} className="space-y-4">
+              <input
+                type="text"
+                value={subscribeName}
+                onChange={(e) => setSubscribeName(e.target.value)}
+                placeholder="Your name"
+                className="w-full border border-gray-300 px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
+              />
+              <input
+                type="email"
+                value={subscribeEmail}
+                onChange={(e) => setSubscribeEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full border border-gray-300 px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
+              />
+              <button
+                type="submit"
+                disabled={subscribing}
+                className="relative w-full px-8 py-3 bg-[#DCC898] text-black font-medium tracking-wider text-xs uppercase overflow-hidden group border-1 border-[#DCC898] disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                  {subscribing ? 'Subscribing...' : 'Subscribe'}
+                </span>
+                <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+              </button>
+            </form>
+
+            {subscribeMessage && (
+              <p className={`text-xs mt-4 text-center ${subscribeMessage.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>
+                {subscribeMessage}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
