@@ -70,9 +70,7 @@ export default function Header() {
                                 Collection
                             </Link>
                             <Link 
-                                href={`https://wa.me/919871907315?text=${encodeURIComponent('Hello Team, I would like to book an appointment at your personalised design space')}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="/book-appointment"
                                 className="hover:opacity-70 transition-opacity uppercase"
                             >
                                 Book Your Appointment
@@ -175,9 +173,7 @@ export default function Header() {
                                     Collection
                                 </Link>
                                 <Link
-                                    href={`https://wa.me/919871907315?text=${encodeURIComponent('Hello Team, I would like to book an appointment at your personalised design space')}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    href="/book-appointment"
                                     onClick={() => setIsMenuOpen(false)}
                                     className="text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase"
                                 >

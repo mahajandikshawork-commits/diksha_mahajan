@@ -29,7 +29,7 @@ export default function AppointmentSection() {
         <h2 className="text-sm md:text-2xl font-light tracking-[0.3em] mb-8 uppercase max-w-4xl leading-relaxed">
           Click Here To Schedule A Virtual Appointment
         </h2>
-        <Button text="BOOK YOUR APPOINTMENT" href={`https://wa.me/919871907315?text=${encodeURIComponent('Hello Team, I would like to book a virtual appointment for a personalised consultation')}`} variant="inverted" />
+        <Button text="BOOK YOUR APPOINTMENT" href="/book-appointment" variant="inverted" />
       </div>
     </section>
   );
