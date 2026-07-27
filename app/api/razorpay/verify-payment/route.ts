@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   try {
@@ -39,7 +40,60 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Payment verified successfully, send emails
+    // Payment verified successfully
+    // Store order in Supabase
+    try {
+      const { data: orderData, error: dbError } = await supabase
+        .from('orders')
+        .insert({
+          razorpay_order_id: razorpay_order_id,
+          razorpay_payment_id: razorpay_payment_id,
+          customer_name: customerDetails.name,
+          customer_email: customerDetails.email,
+          customer_phone: customerDetails.phone || null,
+          customer_address: customerDetails.address || null,
+          customer_city: customerDetails.city || null,
+          customer_state: customerDetails.state || null,
+          customer_pincode: customerDetails.pincode || null,
+          items: orderDetails.items || [],
+          total: orderDetails.total || '',
+          coupon_code: orderDetails.couponCode || null,
+          discount_amount: orderDetails.discountAmount || null,
+          final_total: orderDetails.finalTotal || orderDetails.total || '',
+          status: 'paid',
+        })
+        .select('id')
+        .single();
+
+      if (dbError) {
+        console.error('Supabase error (order):', dbError);
+      } else if (orderData && orderDetails.items?.length > 0) {
+        // Insert individual order items
+        const orderItems = orderDetails.items.map((item: any) => ({
+          order_id: orderData.id,
+          product_id: item.id || null,
+          product_name: item.name || '',
+          product_tagline: item.tagline || null,
+          size: item.size || '',
+          quantity: item.quantity || 1,
+          price: item.price || '',
+          price_number: item.priceNumber || 0,
+          custom_measurements: item.customMeasurements || null,
+        }));
+
+        const { error: itemsError } = await supabase
+          .from('order_items')
+          .insert(orderItems);
+
+        if (itemsError) {
+          console.error('Supabase error (order_items):', itemsError);
+        }
+      }
+    } catch (dbError) {
+      console.error('Supabase error (order):', dbError);
+    }
+
+    // Send emails
     try {
       await sendOrderEmails(
         customerDetails,

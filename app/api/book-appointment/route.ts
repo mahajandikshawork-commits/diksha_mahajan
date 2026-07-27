@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, city, phone, email, event } = await req.json();
+    const { name, city, countryCode, phone, email, event } = await req.json();
 
     if (!name || !email || !phone || !city || !event) {
       return NextResponse.json(
@@ -54,7 +55,7 @@ export async function POST(req: NextRequest) {
           <div class="details">
             <p style="margin: 5px 0;"><strong>Name:</strong> ${name}</p>
             <p style="margin: 5px 0;"><strong>City:</strong> ${city}</p>
-            <p style="margin: 5px 0;"><strong>Phone:</strong> ${phone}</p>
+            <p style="margin: 5px 0;"><strong>Phone:</strong> ${countryCode} ${phone}</p>
             <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
             <p style="margin: 5px 0;"><strong>Event:</strong> ${event}</p>
             <p style="margin: 5px 0;"><strong>Submitted on:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
@@ -72,6 +73,15 @@ export async function POST(req: NextRequest) {
       </body>
       </html>
     `;
+
+    // Store in Supabase
+    const { error: dbError } = await supabase
+      .from('appointment_bookings')
+      .insert({ name, city, phone: `${countryCode} ${phone}`, email, event });
+
+    if (dbError) {
+      console.error('Supabase error (appointment):', dbError);
+    }
 
     // Send to customer
     await transporter.sendMail({
