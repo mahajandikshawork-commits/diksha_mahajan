@@ -262,7 +262,7 @@ export default function CollectionPage() {
 
           {/* Description Paragraph */}
           <p className="text-sm md:text-sm text-gray-600 text-center max-w-8xl mx-auto mb-10 md:mb-16 leading-relaxed">
-            Every ensemble from Diksha Mahajan bridal is built on three promises: <strong>craft</strong>, <strong>comfort</strong>, and <strong>character</strong>. From the first consultation to the final drape, we design around your silhouette, your skin tone, and the way you move, so your outfit looks unmistakably yours & not just another catalogue piece.
+            Every ensemble from Diksha Mahajan is built on three promises: <strong>craft</strong>, <strong>comfort</strong>, and <strong>character</strong>. From the first consultation to the final drape, we design around your silhouette, your skin tone, and the way you move, so your outfit looks unmistakably yours & not just another catalogue piece.
           </p>
           
           <div className="flex gap-8">
@@ -370,7 +370,10 @@ export default function CollectionPage() {
       )}
 
       {/* CTA Section */}
-      <section className="w-full py-12 md:py-16">
+      <section className="w-full py-12 md:py-12">
+        <h3 className="text-xl font-light flex items-center justify-center md:text-4xl font-bold tracking-[0.2em] mb-12 uppercase">
+          Begin your couture journey with us
+        </h3>
         <div className="flex flex-col items-center justify-center px-8 text-center">
           <div className="flex flex-col sm:flex-row gap-4 md:gap-12">
             <button
