@@ -4,9 +4,7 @@ export default function AnnouncementBar() {
   const messages: LogoItem[] = [
     { node: <span>Free shipping on all orders PAN India</span> },
     { node: <span className="text-[#DCC898]">&bull;</span> },
-    { node: <span>International deliveries subject to additional courier charges</span> },
-    { node: <span className="text-[#DCC898]">&bull;</span> },
-    { node: <span>Bespoke bridal couture by Diksha Mahajan</span> },
+    { node: <span>International deliveries are subject to additional courier charges</span> },
     { node: <span className="text-[#DCC898]">&bull;</span> },
   ];
 
