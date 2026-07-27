@@ -19,10 +19,10 @@ export default function ShippingPage() {
             <div>
               <h2 className="text-lg font-medium text-gray-900 mb-3">Shipping Charges</h2>
               <p>
-                We offer free shipping across India on all our orders.
+                Free shipping on all orders within India. International deliveries are subject to additional courier charges.
               </p>
               <p className="mt-2">
-                International orders are subject to custom duties, taxes, or import charges, which are to be borne by the client.
+                International orders are also subject to custom duties, taxes, or import charges, which are to be borne by the client.
               </p>
             </div>
 

@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import ProductCard from '../components/ProductCard';
 import productsData from '@/data/products.json';
 import { IoFilter, IoClose, IoChevronDown, IoChevronUp } from 'react-icons/io5';
@@ -204,9 +206,20 @@ export default function CollectionPage() {
     <div className="min-h-screen bg-white md:pb-0">
       <main className="pt-40 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-8 md:mb-12 uppercase">
-            Our Collection
+          {/* Heading */}
+          <h1 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-4 md:mb-6 uppercase">
+            From the Atelier
           </h1>
+
+          {/* Subheading */}
+          <p className="text-lg md:text-2xl italic font-light text-center text-gray-700 mb-6 md:mb-8 tracking-wide">
+            Your heirloom begins here.
+          </p>
+
+          {/* Description Paragraph */}
+          <p className="text-sm md:text-base text-gray-600 text-center max-w-3xl mx-auto mb-10 md:mb-16 leading-relaxed">
+            Every ensemble from Diksha Mahajan bridal is built on three promises: craft, comfort, and character. From the first consultation to the final drape, we design around your silhouette, your skin tone, and the way you move, so your outfit looks unmistakably yours & not just another catalogue piece.
+          </p>
           
           <div className="flex gap-8">
             {/* Desktop Sidebar Filters */}
@@ -311,6 +324,33 @@ export default function CollectionPage() {
           </div>
         </div>
       )}
+
+      {/* CTA Section */}
+      <section className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/bg-image.webp"
+            alt="Begin Your Bridal Journey"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center text-white">
+          <h2 className="text-xl md:text-4xl font-light tracking-[0.2em] mb-10 uppercase">
+            Begin Your Bridal Journey
+          </h2>
+          <Link
+            href="/book-appointment"
+            className="relative inline-block px-12 py-3 border-1 border-white text-white font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+          >
+            <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+              Book Your Appointment
+            </span>
+            <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }

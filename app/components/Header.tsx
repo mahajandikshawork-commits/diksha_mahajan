@@ -67,7 +67,7 @@ export default function Header() {
                                     pathname === '/collection' ? 'text-[#DCC898]' : ''
                                 }`}
                             >
-                                Collection
+                                From the Atelier
                             </Link>
                             <Link 
                                 href="/book-appointment"

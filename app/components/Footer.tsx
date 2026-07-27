@@ -1,11 +1,77 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsInstagram, BsWhatsapp } from 'react-icons/bs';
 
 export default function Footer() {
+  const [subscribeEmail, setSubscribeEmail] = useState('');
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeMessage, setSubscribeMessage] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!subscribeEmail.trim() || !/^\S+@\S+\.\S+$/.test(subscribeEmail)) {
+      setSubscribeMessage('Please enter a valid email');
+      return;
+    }
+    setSubscribing(true);
+    setSubscribeMessage('');
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: subscribeEmail }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSubscribeMessage('Thank you for subscribing!');
+        setSubscribeEmail('');
+      } else {
+        setSubscribeMessage(data.message || 'Something went wrong.');
+      }
+    } catch {
+      setSubscribeMessage('Failed to subscribe. Please try again.');
+    } finally {
+      setSubscribing(false);
+    }
+  };
+
   return (
     <footer className="bg-[#1a1a1a] text-white py-12 pb-20 md:pb-12 px-8">
       <div className="max-w-7xl mx-auto">
+        {/* Subscribe Section */}
+        <div className="text-center mb-12 pb-12 border-b border-white/10">
+          <p className="text-sm md:text-base text-gray-300 mb-6 max-w-8xl mx-auto tracking-wide">
+            Subscribe to receive updates on new collections, journal stories, and exclusive releases
+          </p>
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              value={subscribeEmail}
+              onChange={(e) => setSubscribeEmail(e.target.value)}
+              placeholder="Enter your email"
+              className="flex-1 bg-white/10 border border-white/20 px-4 py-3 text-sm text-white placeholder-white/50 focus:outline-none focus:border-[#DCC898] transition-colors"
+            />
+            <button
+              type="submit"
+              disabled={subscribing}
+              className="relative px-8 py-3 bg-[#DCC898] text-black font-medium tracking-wider text-xs uppercase overflow-hidden group border-1 border-[#DCC898] disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+            >
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                {subscribing ? '...' : 'Subscribe'}
+              </span>
+              <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+            </button>
+          </form>
+          {subscribeMessage && (
+            <p className={`text-xs mt-3 ${subscribeMessage.includes('Thank') ? 'text-[#DCC898]' : 'text-red-400'}`}>
+              {subscribeMessage}
+            </p>
+          )}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Logo */}
           <div className="flex justify-center md:justify-start">
