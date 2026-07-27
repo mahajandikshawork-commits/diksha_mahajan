@@ -4,10 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsInstagram, BsWhatsapp } from 'react-icons/bs';
-import { IoClose } from 'react-icons/io5';
 
 export default function Footer() {
-  const [showSubscribePopup, setShowSubscribePopup] = useState(false);
   const [subscribeName, setSubscribeName] = useState('');
   const [subscribeEmail, setSubscribeEmail] = useState('');
   const [subscribing, setSubscribing] = useState(false);
@@ -36,10 +34,6 @@ export default function Footer() {
         setSubscribeMessage('Thank you for subscribing!');
         setSubscribeName('');
         setSubscribeEmail('');
-        setTimeout(() => {
-          setShowSubscribePopup(false);
-          setSubscribeMessage('');
-        }, 2000);
       } else {
         setSubscribeMessage(data.message || 'Something went wrong.');
       }
@@ -54,7 +48,7 @@ export default function Footer() {
     <footer className="bg-[#1a1a1a] text-white py-12 pb-20 md:pb-12 px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Logo + Newsletter */}
+          {/* Column 1: Logo + Support */}
           <div className="flex flex-col items-center md:items-start gap-6">
             <Image
               src="/logo.webp"
@@ -64,37 +58,21 @@ export default function Footer() {
               className="object-contain"
             />
 
-            {/* Newsletter Subscribe */}
-            <div className="w-full max-w-xs">
-              <p className="text-sm text-gray-300 mb-4 tracking-wide">
-                Subscribe to receive updates on new collections, journal stories, and exclusive releases
-              </p>
-              <button
-                onClick={() => setShowSubscribePopup(true)}
-                className="relative w-full px-8 py-3 bg-[#DCC898] text-black font-medium tracking-wider text-xs uppercase overflow-hidden group border-1 border-[#DCC898]"
-              >
-                <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                  Subscribe
-                </span>
-                <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-              </button>
+            {/* Support Links */}
+            <div>
+              <h3 className="text-sm font-medium mb-4 uppercase tracking-wider">Support</h3>
+              <nav className="flex flex-col gap-3">
+                <Link href="/returns-exchange" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Returns & Exchange Policy
+                </Link>
+                <Link href="/shipping" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Shipping Policy
+                </Link>
+              </nav>
             </div>
           </div>
 
-          {/* Support Links */}
-          <div>
-            <h3 className="text-sm font-medium mb-4 uppercase tracking-wider">Support</h3>
-            <nav className="flex flex-col gap-3">
-              <Link href="/returns-exchange" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Returns & Exchange Policy
-              </Link>
-              <Link href="/shipping" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Shipping Policy
-              </Link>
-            </nav>
-          </div>
-
-          {/* Contact Info */}
+          {/* Column 2: Keep in touch */}
           <div>
             <h3 className="text-sm font-medium mb-4 uppercase tracking-wider">Keep in touch</h3>
             <div className="space-y-3">
@@ -134,54 +112,26 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Subscribe Popup */}
-      {showSubscribePopup && (
-        <div
-          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4"
-          onClick={() => {
-            setShowSubscribePopup(false);
-            setSubscribeMessage('');
-          }}
-        >
-          <div
-            className="bg-[#FAF8F5] rounded-lg shadow-2xl p-8 md:p-10 w-full max-w-md relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => {
-                setShowSubscribePopup(false);
-                setSubscribeMessage('');
-              }}
-              className="absolute top-4 right-4 text-gray-500 hover:text-black transition-colors"
-              aria-label="Close"
-            >
-              <IoClose size={24} />
-            </button>
-
-            <h3 className="text-lg md:text-xl font-light tracking-[0.15em] uppercase mb-2 text-center text-black">
-              Subscribe
-            </h3>
-            <p className="text-sm text-gray-500 mb-6 text-center tracking-wide">
-              Receive updates on new collections, journal stories, and exclusive releases
+          {/* Column 3: Newsletter Subscribe */}
+          <div className="w-full max-w-xl md:justify-self-end">
+            <p className="text-sm text-gray-300 mb-4 tracking-wide">
+              Subscribe to receive updates on new collections, journal stories, and exclusive releases
             </p>
-
             <form onSubmit={handleSubscribe} className="space-y-4">
               <input
                 type="text"
                 value={subscribeName}
                 onChange={(e) => setSubscribeName(e.target.value)}
                 placeholder="Your name"
-                className="w-full border border-gray-300 px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
+                className="w-full bg-transparent border-0 border-b border-white/30 px-0 py-2 text-sm text-white placeholder-white/50 focus:outline-none focus:border-[#DCC898] transition-colors"
               />
               <input
                 type="email"
                 value={subscribeEmail}
                 onChange={(e) => setSubscribeEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full border border-gray-300 px-4 py-3 text-sm text-black bg-white focus:outline-none focus:border-black transition-colors"
+                className="w-full bg-transparent border-0 border-b border-white/30 px-0 py-2 text-sm text-white placeholder-white/50 focus:outline-none focus:border-[#DCC898] transition-colors"
               />
               <button
                 type="submit"
@@ -194,15 +144,14 @@ export default function Footer() {
                 <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
               </button>
             </form>
-
             {subscribeMessage && (
-              <p className={`text-xs mt-4 text-center ${subscribeMessage.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>
+              <p className={`text-xs mt-3 ${subscribeMessage.includes('Thank') ? 'text-[#DCC898]' : 'text-red-400'}`}>
                 {subscribeMessage}
               </p>
             )}
           </div>
         </div>
-      )}
+      </div>
     </footer>
   );
 }

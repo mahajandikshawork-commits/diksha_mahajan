@@ -19,6 +19,7 @@ export default function BookAppointmentPage() {
   const [formData, setFormData] = useState({
     name: '',
     city: '',
+    countryCode: '+91',
     phone: '',
     email: '',
     event: '',
@@ -36,6 +37,29 @@ export default function BookAppointmentPage() {
       setErrors({ ...errors, [name]: '' });
     }
   };
+
+  const COUNTRY_CODES = [
+    { code: '+91', flag: '\u{1F1EE}\u{1F1F3}', label: 'India' },
+    { code: '+1', flag: '\u{1F1FA}\u{1F1F8}', label: 'USA/Canada' },
+    { code: '+44', flag: '\u{1F1EC}\u{1F1E7}', label: 'UK' },
+    { code: '+971', flag: '\u{1F1E6}\u{1F1EA}', label: 'UAE' },
+    { code: '+965', flag: '\u{1F1F0}\u{1F1FC}', label: 'Kuwait' },
+    { code: '+966', flag: '\u{1F1F8}\u{1F1E6}', label: 'Saudi Arabia' },
+    { code: '+974', flag: '\u{1F1F6}\u{1F1E6}', label: 'Qatar' },
+    { code: '+968', flag: '\u{1F1F4}\u{1F1F2}', label: 'Oman' },
+    { code: '+973', flag: '\u{1F1E7}\u{1F1ED}', label: 'Bahrain' },
+    { code: '+65', flag: '\u{1F1F8}\u{1F1EC}', label: 'Singapore' },
+    { code: '+61', flag: '\u{1F1E6}\u{1F1FA}', label: 'Australia' },
+    { code: '+49', flag: '\u{1F1E9}\u{1F1EA}', label: 'Germany' },
+    { code: '+33', flag: '\u{1F1EB}\u{1F1F7}', label: 'France' },
+    { code: '+31', flag: '\u{1F1F3}\u{1F1F1}', label: 'Netherlands' },
+    { code: '+27', flag: '\u{1F1FF}\u{1F1E6}', label: 'South Africa' },
+    { code: '+92', flag: '\u{1F1F5}\u{1F1F0}', label: 'Pakistan' },
+    { code: '+880', flag: '\u{1F1E7}\u{1F1E9}', label: 'Bangladesh' },
+    { code: '+94', flag: '\u{1F1F8}\u{1F1F0}', label: 'Sri Lanka' },
+    { code: '+977', flag: '\u{1F1F3}\u{1F1F5}', label: 'Nepal' },
+    { code: '+60', flag: '\u{1F1F2}\u{1F1FE}', label: 'Malaysia' },
+  ];
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -96,7 +120,7 @@ export default function BookAppointmentPage() {
 
       {/* Floating Card with Form */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-16 md:py-24">
-        <div className="w-full max-w-xl bg-[#FAF8F5] rounded-lg shadow-2xl p-8 md:p-12">
+        <div className="w-full max-w-2xl bg-[#FAF8F5] rounded-lg shadow-2xl p-8 md:p-12">
           {submitted ? (
             <div className="text-center py-8">
               <h2 className="text-xl md:text-3xl font-light tracking-wider uppercase mb-6">
@@ -179,18 +203,36 @@ export default function BookAppointmentPage() {
                     <label className="block text-sm font-medium mb-2 tracking-wide">
                       Phone No <span className="text-red-500">*</span>
                     </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={`w-full border px-4 py-3 focus:outline-none transition-colors bg-white ${
-                        errors.phone
-                          ? 'border-red-500'
-                          : 'border-gray-300 focus:border-black'
-                      }`}
-                      placeholder="10-digit mobile number"
-                    />
+                    <div className="flex">
+                      <select
+                        name="countryCode"
+                        value={formData.countryCode}
+                        onChange={handleChange}
+                        className={`flex-shrink-0 items-center justify-center flex w-[80px] border border-r-0 px-1 py-3 focus:outline-none transition-colors bg-white text-sm whitespace-nowrap ${
+                          errors.phone
+                            ? 'border-red-500'
+                            : 'border-gray-300 focus:border-black'
+                        }`}
+                      >
+                        {COUNTRY_CODES.map((cc) => (
+                          <option key={cc.code} value={cc.code}>
+                            {cc.flag} {cc.code}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className={`w-full min-w-0 border px-4 py-3 focus:outline-none transition-colors bg-white ${
+                          errors.phone
+                            ? 'border-red-500'
+                            : 'border-gray-300 focus:border-black'
+                        }`}
+                        placeholder="10-digit number"
+                      />
+                    </div>
                     {errors.phone && (
                       <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
                     )}

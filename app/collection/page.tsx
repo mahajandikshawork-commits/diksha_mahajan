@@ -262,7 +262,7 @@ export default function CollectionPage() {
 
           {/* Description Paragraph */}
           <p className="text-sm md:text-sm text-gray-600 text-center max-w-8xl mx-auto mb-10 md:mb-16 leading-relaxed">
-            Every ensemble from Diksha Mahajan bridal is built on three promises: craft, comfort, and character. From the first consultation to the final drape, we design around your silhouette, your skin tone, and the way you move, so your outfit looks unmistakably yours & not just another catalogue piece.
+            Every ensemble from Diksha Mahajan bridal is built on three promises: <strong>craft</strong>, <strong>comfort</strong>, and <strong>character</strong>. From the first consultation to the final drape, we design around your silhouette, your skin tone, and the way you move, so your outfit looks unmistakably yours & not just another catalogue piece.
           </p>
           
           <div className="flex gap-8">
@@ -370,35 +370,17 @@ export default function CollectionPage() {
       )}
 
       {/* CTA Section */}
-      <section className="relative h-[20vh] md:h-[20vh] w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/bg-image.webp"
-            alt="Begin Your Couture Journey"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center text-white">
+      <section className="w-full py-12 md:py-16">
+        <div className="flex flex-col items-center justify-center px-8 text-center">
           <div className="flex flex-col sm:flex-row gap-4 md:gap-12">
-            <Link
-              href="/book-appointment"
-              className="relative inline-block px-10 py-3 border-1 border-white text-white font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
-            >
-              <span className="relative z-10 group-hover:text-black transition-colors duration-300">
-                Begin Your Couture Journey
-              </span>
-              <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-            </Link>
             <button
               onClick={() => setShowSubscribePopup(true)}
-              className="relative inline-block px-10 py-3 border-1 border-white text-white font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+              className="relative inline-block px-10 py-3 border-1 border-[#DCC898] text-black font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
             >
-              <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+              <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                 Subscribe to Receive Updates
               </span>
-              <div className="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+              <div className="absolute inset-0 bg-black transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
             </button>
           </div>
         </div>
