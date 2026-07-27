@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { supabase } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   try {
@@ -115,15 +114,6 @@ export async function POST(req: NextRequest) {
       </body>
       </html>
     `;
-
-    // Store in Supabase
-    const { error: dbError } = await supabase
-      .from('newsletter_subscriptions')
-      .upsert({ name, email }, { onConflict: 'email' });
-
-    if (dbError) {
-      console.error('Supabase error (newsletter):', dbError);
-    }
 
     // Send to subscriber
     await transporter.sendMail({
