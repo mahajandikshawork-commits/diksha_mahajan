@@ -70,10 +70,12 @@ export default function Header() {
                                 From the Atelier
                             </Link>
                             <Link 
-                                href="/book-appointment"
-                                className="hover:opacity-70 transition-opacity uppercase"
+                                href="/client-diaries"
+                                className={`hover:opacity-70 transition-opacity uppercase ${
+                                    pathname === '/client-diaries' ? 'text-[#DCC898]' : ''
+                                }`}
                             >
-                                Book Your Appointment
+                                Client Diaries
                             </Link>
                         </nav>
 
@@ -90,7 +92,7 @@ export default function Header() {
                             </Link>
                         </div>
 
-                        <div className="flex items-center gap-4 justify-end">
+                        <div className="flex items-center gap-6 justify-end">
                             {/* <button
                                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                                 className="hover:opacity-70 transition-opacity focus:outline-none"
@@ -98,6 +100,15 @@ export default function Header() {
                             >
                                 <IoSearch size={22} />
                             </button> */}
+
+                            <Link 
+                                href="/book-appointment"
+                                className={`hover:opacity-70 transition-opacity uppercase text-xs tracking-wider ${
+                                    pathname === '/book-appointment' ? 'text-[#DCC898]' : ''
+                                }`}
+                            >
+                                Book Your Appointment
+                            </Link>
 
                             <Link href="/cart" className="relative hover:opacity-70 transition-opacity focus:outline-none" aria-label="Cart">
                                 <BsHandbag size={24} className="outline-none" />
@@ -171,6 +182,15 @@ export default function Header() {
                                     }`}
                                 >
                                     From the Atelier
+                                </Link>
+                                <Link
+                                    href="/client-diaries"
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className={`text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase ${
+                                        pathname === '/client-diaries' ? 'text-[#DCC898]' : ''
+                                    }`}
+                                >
+                                    Client Diaries
                                 </Link>
                                 <Link
                                     href="/book-appointment"
