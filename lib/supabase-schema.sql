@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS newsletter_subscriptions (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   name TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE,
+  phone TEXT,
+  source TEXT DEFAULT 'footer',
   subscribed_at TIMESTAMPTZ DEFAULT NOW()
 );
 
