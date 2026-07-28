@@ -73,11 +73,8 @@ export async function POST(req: NextRequest) {
 
     // Store in Supabase
     const { error: dbError } = await supabase
-      .from('newsletter_subscriptions')
-      .upsert(
-        { name, email, phone: phone || null, source: 'welcome_popup' },
-        { onConflict: 'email' }
-      );
+      .from('welcome_popup_submissions')
+      .insert({ name, email, phone: phone || null });
 
     if (dbError) {
       console.error('Supabase error (welcome popup):', dbError);

@@ -10,6 +10,15 @@ CREATE TABLE IF NOT EXISTS newsletter_subscriptions (
   subscribed_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- Welcome popup submissions table
+CREATE TABLE IF NOT EXISTS welcome_popup_submissions (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
+  submitted_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- Book appointment table
 CREATE TABLE IF NOT EXISTS appointment_bookings (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -59,6 +68,7 @@ CREATE TABLE IF NOT EXISTS order_items (
 
 -- Enable Row Level Security (optional, adjust as needed)
 ALTER TABLE newsletter_subscriptions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE welcome_popup_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE appointment_bookings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE order_items ENABLE ROW LEVEL SECURITY;
