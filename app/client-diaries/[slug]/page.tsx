@@ -169,7 +169,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
       </section>
 
       {/* Back to Client Diaries */}
-      <section className="px-8 pt-3 pb-4 text-center">
+      <section className="px-8 pt-5 pb-6 text-center">
         <Link
           href="/client-diaries"
           className="text-xs md:text-sm tracking-wider uppercase text-gray-500 hover:text-black transition-colors border-b border-gray-300 hover:border-black pb-1"
