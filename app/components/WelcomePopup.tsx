@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { IoClose } from 'react-icons/io5';
+import { trackWelcomePopupSubmit } from '@/lib/tracking';
 
 export default function WelcomePopup() {
     const [isVisible, setIsVisible] = useState(false);
@@ -51,6 +52,7 @@ export default function WelcomePopup() {
 
         setIsSubmitting(true);
         try {
+            await trackWelcomePopupSubmit(formData);
             await fetch('/api/welcome-popup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

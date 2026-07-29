@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { trackPurchase } from '@/lib/tracking';
 
 
 export default function CheckoutPage() {
@@ -245,6 +246,16 @@ export default function CheckoutPage() {
                 couponCode: appliedCoupon,
                 total: `Rs.${finalTotal.toLocaleString('en-IN')}`,
               }));
+
+              // Track purchase
+              await trackPurchase({
+                orderId: response.razorpay_order_id,
+                value: finalTotal,
+                currency: 'INR',
+                items: cartItems.map(item => ({ name: item.name, price: item.priceNumber, quantity: item.quantity })),
+                customerName: formData.name,
+                customerEmail: formData.email,
+              });
 
               // Clear cart and redirect to success page
               clearCart();

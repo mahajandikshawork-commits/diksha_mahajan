@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { trackAppointmentSubmit } from '@/lib/tracking';
 
 const EVENT_OPTIONS = [
   'Wedding',
@@ -93,6 +94,7 @@ export default function BookAppointmentPage() {
       });
       const data = await response.json();
       if (data.success) {
+        await trackAppointmentSubmit(formData);
         setSubmitted(true);
       } else {
         alert(data.message || 'Something went wrong. Please try again.');

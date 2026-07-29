@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsInstagram, BsWhatsapp } from 'react-icons/bs';
+import { trackNewsletterSubscribe } from '@/lib/tracking';
 
 export default function Footer() {
   const [subscribeName, setSubscribeName] = useState('');
@@ -31,6 +32,7 @@ export default function Footer() {
       });
       const data = await response.json();
       if (data.success) {
+        await trackNewsletterSubscribe({ name: subscribeName, email: subscribeEmail });
         setSubscribeMessage('Thank you for subscribing!');
         setSubscribeName('');
         setSubscribeEmail('');
