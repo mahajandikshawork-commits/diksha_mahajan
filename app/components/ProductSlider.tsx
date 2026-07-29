@@ -91,7 +91,7 @@ export default function ProductSlider() {
   return (
     <>
       {/* Desktop View */}
-      <section className="hidden md:block pt-24 pb-16 px-8 bg-gray-50">
+      <section className="hidden md:block pt-24 pb-10 px-8 bg-gray-50">
         <div className="w-full mx-auto">
           <div className="relative">
             <div ref={desktopScrollRef} className="overflow-x-auto scrollbar-hide">

@@ -37,7 +37,7 @@ export default function ClientDiariesPage() {
       </section>
 
       {/* Client Diary Cards Grid */}
-      <section className="px-4 md:px-8 pb-16 md:pb-24">
+      <section className="px-4 md:px-8 pb-8">
         {loading ? (
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {[...Array(3)].map((_, i) => (
@@ -83,7 +83,7 @@ export default function ClientDiariesPage() {
                   </p>
 
                   {/* Explore Full Story - Gold Border Box */}
-                  <div className="inline-block border border-[#DCC898] px-6 py-2.5 text-xs tracking-wider uppercase text-[#DCC898] group-hover:bg-[#DCC898] group-hover:text-black transition-all duration-300">
+                  <div className="inline-block border border-[#DCC898] px-6 py-2.5 text-xs tracking-wider uppercase text-black group-hover:bg-[#DCC898] group-hover:text-black transition-all duration-300">
                     Explore Full Story
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export default function ClientDiariesPage() {
       </section>
 
       {/* Closing CTA Section */}
-      <section className="px-8 py-16 md:py-24 text-center bg-[#F5F1E8]">
+      <section className="px-8 py-8 text-center bg-[#F5F1E8]">
         <div className="max-w-3xl mx-auto">
           <p className="text-base md:text-lg font-light leading-relaxed text-gray-700 mb-8">
             If one of our client stories speaks to you, we&apos;d be delighted to help you create something similar for your occasion.

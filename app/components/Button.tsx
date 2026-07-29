@@ -9,13 +9,13 @@ interface ButtonProps {
 
 export default function Button({ text, href, onClick, variant = 'outline' }: ButtonProps) {
   const buttonClasses = variant === 'outline'
-    ? "relative md:px-12 px-8 py-3 border-1 border-black text-black font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+    ? "relative md:px-12 px-8 py-3 border-1 border-[#DCC898] text-black font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
     : variant === 'inverted'
     ? "relative md:px-12 px-8 py-3 border-1 border-white text-white font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
-    : "relative md:px-12 px-8 py-3 bg-black text-white md:text-base text-xs border-1 border-black font-medium tracking-wider uppercase overflow-hidden group";
+    : "relative md:px-12 px-8 py-3 bg-[#DCC898] text-white md:text-base text-xs border-1 border-[#DCC898] font-medium tracking-wider uppercase overflow-hidden group";
 
   const textHoverColor = variant === 'inverted' ? 'group-hover:text-black' : 'group-hover:text-white';
-  const bgColor = variant === 'inverted' ? 'bg-white' : 'bg-black';
+  const bgColor = variant === 'inverted' ? 'bg-white' : 'bg-[#DCC898]';
 
   const content = (
     <>

@@ -5,11 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BsWhatsapp } from 'react-icons/bs';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ClientDiary, fetchDiaryBySlug } from '@/lib/clientDiaries';
 
 export default function ClientDiaryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [entry, setEntry] = useState<ClientDiary | null>(null);
   const [loading, setLoading] = useState(true);
@@ -20,6 +21,19 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
       setLoading(false);
     });
   }, [slug]);
+
+  useEffect(() => {
+    if (lightboxIndex === null || !entry) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxIndex(null);
+      if (e.key === 'ArrowLeft')
+        setLightboxIndex(prev => prev === null ? 0 : (prev - 1 + entry.images.length) % entry.images.length);
+      if (e.key === 'ArrowRight')
+        setLightboxIndex(prev => prev === null ? 0 : (prev + 1) % entry.images.length);
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [lightboxIndex, entry]);
 
   if (loading) {
     return (
@@ -56,7 +70,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
         <h1 className="text-3xl md:text-5xl font-light tracking-[0.15em] uppercase mb-4">
           {entry.outfit_name}
         </h1>
-        <p className="text-sm md:text-base font-bold tracking-wide">
+        <p className="text-sm md:text-base font-light tracking-wide">
           {entry.client_name} <span className="font-normal text-gray-400">|</span> {entry.city} <span className="font-normal text-gray-400">|</span> {entry.occasion}
         </p>
       </section>
@@ -69,7 +83,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
       </section>
 
       {/* Gallery */}
-      <section className="px-4 md:px-8 pb-12 md:pb-16">
+      <section className="px-4 md:px-8 pb-0">
         <div className="max-w-7xl mx-auto">
           {entry.images.length === 1 ? (
             <div className="relative w-full aspect-[3/4] max-w-2xl mx-auto overflow-hidden bg-gray-100">
@@ -83,21 +97,16 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
               />
             </div>
           ) : (
-            <div className={`grid grid-cols-2 gap-3 md:gap-6 ${
-              entry.images.length === 2 ? 'md:grid-cols-2 max-w-4xl' :
-              entry.images.length === 3 ? 'md:grid-cols-2 max-w-4xl' :
-              entry.images.length === 4 ? 'md:grid-cols-2 max-w-4xl' :
-              'md:grid-cols-3'
-            } mx-auto`}>
+            <div className={`grid grid-cols-2 gap-3 md:gap-6 mx-auto ${
+              entry.images.length === 2 || entry.images.length === 4
+                ? 'md:grid-cols-2 max-w-4xl'
+                : 'md:grid-cols-3'
+            }`}>
               {entry.images.map((image, index) => (
                 <div
                   key={index}
-                  className={`relative overflow-hidden bg-gray-100 cursor-pointer group ${
-                    entry.images.length === 3 && index === 0 ? 'col-span-2 aspect-[16/9] md:col-span-2' :
-                    entry.images.length === 5 && index === 0 ? 'col-span-2 aspect-[3/2] md:col-span-2 md:aspect-[3/2]' :
-                    'aspect-[3/4]'
-                  }`}
-                  onClick={() => setSelectedImage(image)}
+                  className="relative aspect-[3/4] overflow-hidden bg-gray-100 cursor-pointer group"
+                  onClick={() => setLightboxIndex(index)}
                 >
                   {!loadedImages.has(index) && (
                     <div className="absolute inset-0 animate-pulse bg-gray-200" />
@@ -147,7 +156,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
       </section>
 
       {/* Client Testimonial */}
-      <section className="px-8 py-12 md:py-20 bg-[#F5F1E8]">
+      <section className="px-8 py-8 bg-[#F5F1E8]">
         <div className="max-w-3xl mx-auto text-center">
           <div className="text-4xl text-[#DCC898] mb-4">&ldquo;</div>
           <p className="text-base md:text-xl font-light italic leading-relaxed text-gray-700 mb-6">
@@ -170,27 +179,63 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
       </section>
 
       {/* Lightbox */}
-      {selectedImage && (
+      {lightboxIndex !== null && entry && (
         <div
           className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 animate-fadeIn"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => setLightboxIndex(null)}
         >
           <button
-            className="absolute top-6 right-6 text-white text-2xl hover:opacity-70 transition-opacity"
-            onClick={() => setSelectedImage(null)}
+            className="absolute top-6 right-6 text-white text-2xl hover:opacity-70 transition-opacity z-10"
+            onClick={() => setLightboxIndex(null)}
             aria-label="Close"
           >
             ✕
           </button>
-          <div className="relative w-full h-full max-w-5xl max-h-[90vh]">
+
+          {entry.images.length > 1 && (
+            <>
+              <button
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex((prev) =>
+                    prev === null ? 0 : (prev - 1 + entry.images.length) % entry.images.length
+                  );
+                }}
+                aria-label="Previous image"
+              >
+                <FiChevronLeft size={24} />
+              </button>
+              <button
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex((prev) =>
+                    prev === null ? 0 : (prev + 1) % entry.images.length
+                  );
+                }}
+                aria-label="Next image"
+              >
+                <FiChevronRight size={24} />
+              </button>
+            </>
+          )}
+
+          <div className="relative w-full h-full max-w-5xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
             <Image
-              src={selectedImage}
-              alt={entry.outfit_name}
+              src={entry.images[lightboxIndex]}
+              alt={`${entry.outfit_name} - Image ${lightboxIndex + 1}`}
               fill
               className="object-contain"
               sizes="100vw"
             />
           </div>
+
+          {entry.images.length > 1 && (
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm tracking-wider">
+              {lightboxIndex + 1} / {entry.images.length}
+            </div>
+          )}
         </div>
       )}
     </div>
