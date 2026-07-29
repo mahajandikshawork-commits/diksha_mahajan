@@ -156,10 +156,10 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
       </section>
 
       {/* Client Testimonial */}
-      <section className="px-8 py-8 bg-[#F5F1E8]">
+      <section className="px-7 py-6 bg-[#F5F1E8]">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="text-4xl text-[#DCC898] mb-4">&ldquo;</div>
-          <p className="text-base md:text-xl font-light italic leading-relaxed text-gray-700 mb-6">
+          <div className="text-4xl text-[#DCC898] mb-2">&ldquo;</div>
+          <p className="text-sm md:text-xl font-light italic leading-relaxed text-gray-700 mb-6">
             {entry.testimonial}
           </p>
           <p className="text-sm tracking-wider uppercase text-gray-500">
@@ -169,7 +169,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
       </section>
 
       {/* Back to Client Diaries */}
-      <section className="px-8 py-12 text-center">
+      <section className="px-8 pt-3 pb-4 text-center">
         <Link
           href="/client-diaries"
           className="text-xs md:text-sm tracking-wider uppercase text-gray-500 hover:text-black transition-colors border-b border-gray-300 hover:border-black pb-1"

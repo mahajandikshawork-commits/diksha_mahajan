@@ -78,7 +78,7 @@ export default function ClientDiariesPage() {
                   <h2 className="text-lg md:text-xl font-light tracking-wider uppercase mb-2">
                     {entry.outfit_name}
                   </h2>
-                  <p className="text-sm font-semibold tracking-wide mb-4">
+                  <p className="text-sm font-light tracking-wide mb-4">
                     {entry.client_name} <span className="font-normal text-gray-400">|</span> {entry.city} <span className="font-normal text-gray-400">|</span> {entry.occasion}
                   </p>
 
@@ -94,14 +94,14 @@ export default function ClientDiariesPage() {
       </section>
 
       {/* Closing CTA Section */}
-      <section className="px-8 py-8 text-center bg-[#F5F1E8]">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-base md:text-lg font-light leading-relaxed text-gray-700 mb-8">
+      <section className="px-8 py-6 text-center bg-[#F5F1E8]">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-base font-light leading-relaxed text-gray-700 mb-4">
             If one of our client stories speaks to you, we&apos;d be delighted to help you create something similar for your occasion.
           </p>
           <Link
             href="/book-appointment"
-            className="inline-block relative md:px-12 px-8 py-3 border-1 border-black text-black font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+            className="inline-block relative md:px-8 px-6 py-2 border-1 border-black text-black font-medium tracking-wider text-xs md:text-sm uppercase overflow-hidden group"
           >
             <span className="relative z-10 group-hover:text-white transition-colors duration-300">
               Book Your Appointment
