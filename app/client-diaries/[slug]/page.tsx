@@ -1,24 +1,39 @@
 'use client';
 
-import { useState, use } from 'react';
+import { useState, useEffect, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { BsWhatsapp } from 'react-icons/bs';
-import clientDiariesData from '@/data/client-diaries.json';
+import { ClientDiary, fetchDiaryBySlug } from '@/lib/clientDiaries';
 
 export default function ClientDiaryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const [entry, setEntry] = useState<ClientDiary | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const entry = clientDiariesData.find(e => e.id === slug);
+  useEffect(() => {
+    fetchDiaryBySlug(slug).then((diary) => {
+      setEntry(diary);
+      setLoading(false);
+    });
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white pt-28 flex items-center justify-center">
+        <div className="animate-pulse text-gray-400 tracking-wider">Loading...</div>
+      </div>
+    );
+  }
 
   if (!entry) {
     notFound();
   }
 
-  const whatsappMessage = encodeURIComponent(`Hi Diksha Mahajan, I'd like to enquire about the "${entry.outfitName}" outfit from the Client Diaries.`);
+  const whatsappMessage = encodeURIComponent(`Hi Diksha Mahajan, I'd like to enquire about the "${entry.outfit_name}" outfit from the Client Diaries.`);
   const whatsappUrl = `https://wa.me/919871907315?text=${whatsappMessage}`;
 
   const handleImageLoad = (index: number) => {
@@ -33,16 +48,16 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
           Client Diaries
         </Link>
         <span className="mx-2">/</span>
-        <span className="text-black">{entry.outfitName}</span>
+        <span className="text-black">{entry.outfit_name}</span>
       </div>
 
       {/* Title Section */}
       <section className="px-8 py-8 md:py-12 text-center max-w-4xl mx-auto">
         <h1 className="text-3xl md:text-5xl font-light tracking-[0.15em] uppercase mb-4">
-          {entry.outfitName}
+          {entry.outfit_name}
         </h1>
         <p className="text-sm md:text-base font-bold tracking-wide">
-          {entry.clientName} <span className="font-normal text-gray-400">|</span> {entry.city} <span className="font-normal text-gray-400">|</span> {entry.occasion}
+          {entry.client_name} <span className="font-normal text-gray-400">|</span> {entry.city} <span className="font-normal text-gray-400">|</span> {entry.occasion}
         </p>
       </section>
 
@@ -60,7 +75,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
             <div className="relative w-full aspect-[3/4] max-w-2xl mx-auto overflow-hidden bg-gray-100">
               <Image
                 src={entry.images[0]}
-                alt={entry.outfitName}
+                alt={entry.outfit_name}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -89,7 +104,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
                   )}
                   <Image
                     src={image}
-                    alt={`${entry.outfitName} - Image ${index + 1}`}
+                    alt={`${entry.outfit_name} - Image ${index + 1}`}
                     fill
                     className={`object-cover transition-all duration-500 group-hover:scale-105 ${
                       loadedImages.has(index) ? 'opacity-100' : 'opacity-0'
@@ -139,7 +154,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
             {entry.testimonial}
           </p>
           <p className="text-sm tracking-wider uppercase text-gray-500">
-            &ndash; {entry.testimonialAuthor}
+            &ndash; {entry.testimonial_author}
           </p>
         </div>
       </section>
@@ -170,7 +185,7 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
           <div className="relative w-full h-full max-w-5xl max-h-[90vh]">
             <Image
               src={selectedImage}
-              alt={entry.outfitName}
+              alt={entry.outfit_name}
               fill
               className="object-contain"
               sizes="100vw"

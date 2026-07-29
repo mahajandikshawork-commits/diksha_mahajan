@@ -1,8 +1,17 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import clientDiariesData from '@/data/client-diaries.json';
+import { ClientDiary, fetchFeaturedDiaries } from '@/lib/clientDiaries';
 
 export default function ClientDiariesSection() {
-  const featuredEntries = clientDiariesData.filter(e => e.featuredOnHomepage);
+  const [featuredEntries, setFeaturedEntries] = useState<ClientDiary[]>([]);
+
+  useEffect(() => {
+    fetchFeaturedDiaries().then(setFeaturedEntries);
+  }, []);
+
+  if (featuredEntries.length === 0) return null;
 
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -16,7 +25,7 @@ export default function ClientDiariesSection() {
                 {entry.testimonial}
               </p>
               <p className="text-xs tracking-wider uppercase text-gray-500">
-                &ndash; {entry.testimonialAuthor}
+                &ndash; {entry.testimonial_author}
               </p>
             </div>
           ))}

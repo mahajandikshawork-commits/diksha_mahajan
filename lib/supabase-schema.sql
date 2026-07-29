@@ -66,12 +66,94 @@ CREATE TABLE IF NOT EXISTS order_items (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- Enable Row Level Security (optional, adjust as needed)
+-- ============================================================
+-- Client Diaries (managed via the admin panel)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS client_diaries (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  slug TEXT NOT NULL UNIQUE,
+  outfit_name TEXT NOT NULL,
+  client_name TEXT NOT NULL,
+  city TEXT NOT NULL,
+  occasion TEXT NOT NULL,
+  description TEXT NOT NULL,
+  testimonial TEXT,
+  testimonial_author TEXT,
+  images JSONB NOT NULL DEFAULT '[]'::jsonb,
+  featured_on_homepage BOOLEAN NOT NULL DEFAULT false,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ============================================================
+-- Enable Row Level Security
+-- ============================================================
 ALTER TABLE newsletter_subscriptions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE welcome_popup_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE appointment_bookings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE order_items ENABLE ROW LEVEL SECURITY;
+ALTER TABLE client_diaries ENABLE ROW LEVEL SECURITY;
 
--- Allow inserts from the service role (server-side only)
--- The service role key bypasses RLS, so no additional policies needed for server-side inserts.
+-- The service role key bypasses RLS, so the form-submission tables
+-- (newsletter, appointments, orders) need no extra policies for server-side inserts.
+
+-- ============================================================
+-- Client Diaries RLS policies
+-- Public can read; authenticated admins can create/update/delete.
+-- ============================================================
+DROP POLICY IF EXISTS "client_diaries_public_read" ON client_diaries;
+CREATE POLICY "client_diaries_public_read"
+  ON client_diaries FOR SELECT
+  USING (true);
+
+DROP POLICY IF EXISTS "client_diaries_admin_insert" ON client_diaries;
+CREATE POLICY "client_diaries_admin_insert"
+  ON client_diaries FOR INSERT
+  TO authenticated
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "client_diaries_admin_update" ON client_diaries;
+CREATE POLICY "client_diaries_admin_update"
+  ON client_diaries FOR UPDATE
+  TO authenticated
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "client_diaries_admin_delete" ON client_diaries;
+CREATE POLICY "client_diaries_admin_delete"
+  ON client_diaries FOR DELETE
+  TO authenticated
+  USING (true);
+
+-- ============================================================
+-- Storage bucket for client diary images
+-- Run once. Public read, authenticated write.
+-- ============================================================
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('client-diaries', 'client-diaries', true)
+ON CONFLICT (id) DO NOTHING;
+
+DROP POLICY IF EXISTS "client_diaries_storage_public_read" ON storage.objects;
+CREATE POLICY "client_diaries_storage_public_read"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'client-diaries');
+
+DROP POLICY IF EXISTS "client_diaries_storage_admin_write" ON storage.objects;
+CREATE POLICY "client_diaries_storage_admin_write"
+  ON storage.objects FOR INSERT
+  TO authenticated
+  WITH CHECK (bucket_id = 'client-diaries');
+
+DROP POLICY IF EXISTS "client_diaries_storage_admin_update" ON storage.objects;
+CREATE POLICY "client_diaries_storage_admin_update"
+  ON storage.objects FOR UPDATE
+  TO authenticated
+  USING (bucket_id = 'client-diaries');
+
+DROP POLICY IF EXISTS "client_diaries_storage_admin_delete" ON storage.objects;
+CREATE POLICY "client_diaries_storage_admin_delete"
+  ON storage.objects FOR DELETE
+  TO authenticated
+  USING (bucket_id = 'client-diaries');

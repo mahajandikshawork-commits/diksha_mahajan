@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.9",
+    "browser-image-compression": "^2.0.2",
     "crypto": "^1.0.1",
     "dotenv": "^17.2.3",
     "ffmpeg": "^0.0.4",

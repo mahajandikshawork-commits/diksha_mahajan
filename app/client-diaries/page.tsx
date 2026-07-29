@@ -1,12 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import clientDiariesData from '@/data/client-diaries.json';
+import { ClientDiary, fetchAllDiaries } from '@/lib/clientDiaries';
 
 export default function ClientDiariesPage() {
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const [clientDiariesData, setClientDiariesData] = useState<ClientDiary[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchAllDiaries().then((data) => {
+      setClientDiariesData(data);
+      setLoading(false);
+    });
+  }, []);
 
   const handleImageLoad = (index: number) => {
     setLoadedImages(prev => new Set(prev).add(index));
@@ -29,47 +38,59 @@ export default function ClientDiariesPage() {
 
       {/* Client Diary Cards Grid */}
       <section className="px-4 md:px-8 pb-16 md:pb-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {clientDiariesData.map((entry, index) => (
-            <Link
-              key={entry.id}
-              href={`/client-diaries/${entry.id}`}
-              className="group block"
-            >
-              {/* Image */}
-              <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-100">
-                {!loadedImages.has(index) && (
-                  <div className="absolute inset-0 animate-pulse bg-gray-200" />
-                )}
-                <Image
-                  src={entry.images[0]}
-                  alt={entry.outfitName}
-                  fill
-                  className={`object-cover transition-all duration-700 group-hover:scale-105 ${
-                    loadedImages.has(index) ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  onLoad={() => handleImageLoad(index)}
-                />
-              </div>
-
-              {/* Text Content */}
-              <div className="pt-5 text-center">
-                <h2 className="text-lg md:text-xl font-light tracking-wider uppercase mb-2">
-                  {entry.outfitName}
-                </h2>
-                <p className="text-sm font-semibold tracking-wide mb-4">
-                  {entry.clientName} <span className="font-normal text-gray-400">|</span> {entry.city} <span className="font-normal text-gray-400">|</span> {entry.occasion}
-                </p>
-
-                {/* Explore Full Story - Gold Border Box */}
-                <div className="inline-block border border-[#DCC898] px-6 py-2.5 text-xs tracking-wider uppercase text-[#DCC898] group-hover:bg-[#DCC898] group-hover:text-black transition-all duration-300">
-                  Explore Full Story
+        {loading ? (
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="w-full aspect-[3/4] animate-pulse bg-gray-100" />
+            ))}
+          </div>
+        ) : clientDiariesData.length === 0 ? (
+          <p className="text-center text-gray-400 py-16">
+            No client diaries yet. Check back soon.
+          </p>
+        ) : (
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {clientDiariesData.map((entry, index) => (
+              <Link
+                key={entry.id}
+                href={`/client-diaries/${entry.slug}`}
+                className="group block"
+              >
+                {/* Image */}
+                <div className="relative w-full aspect-[3/4] overflow-hidden bg-gray-100">
+                  {!loadedImages.has(index) && (
+                    <div className="absolute inset-0 animate-pulse bg-gray-200" />
+                  )}
+                  <Image
+                    src={entry.images[0]}
+                    alt={entry.outfit_name}
+                    fill
+                    className={`object-cover transition-all duration-700 group-hover:scale-105 ${
+                      loadedImages.has(index) ? 'opacity-100' : 'opacity-0'
+                    }`}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    onLoad={() => handleImageLoad(index)}
+                  />
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+
+                {/* Text Content */}
+                <div className="pt-5 text-center">
+                  <h2 className="text-lg md:text-xl font-light tracking-wider uppercase mb-2">
+                    {entry.outfit_name}
+                  </h2>
+                  <p className="text-sm font-semibold tracking-wide mb-4">
+                    {entry.client_name} <span className="font-normal text-gray-400">|</span> {entry.city} <span className="font-normal text-gray-400">|</span> {entry.occasion}
+                  </p>
+
+                  {/* Explore Full Story - Gold Border Box */}
+                  <div className="inline-block border border-[#DCC898] px-6 py-2.5 text-xs tracking-wider uppercase text-[#DCC898] group-hover:bg-[#DCC898] group-hover:text-black transition-all duration-300">
+                    Explore Full Story
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Closing CTA Section */}

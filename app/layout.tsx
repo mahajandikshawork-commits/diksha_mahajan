@@ -2,16 +2,9 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { CartProvider } from "./context/CartContext";
-import CartSidebar from "./components/CartSidebar";
-import LoadingBar from "./components/LoadingBar";
-import ClientLayout from "./components/ClientLayout";
-import Link from 'next/link';
-import { BsWhatsapp } from 'react-icons/bs';
+import SiteShell from "./components/SiteShell";
 import GoogleAnalytics from "./components/GoogleAnalytics";
-import WelcomePopup from "./components/WelcomePopup";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -157,25 +150,7 @@ fbq('track', 'PageView');`}
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}
         <CartProvider>
-          <ClientLayout>
-            <LoadingBar />
-            <Header />
-            {children}
-            <Footer />
-            <CartSidebar />
-            <WelcomePopup />
-
-            {/* Fixed WhatsApp Button */}
-            <Link
-              href="https://wa.me/919871907315"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:bg-[#20BA5A] transition-all hover:scale-110 z-50"
-              aria-label="Chat on WhatsApp"
-            >
-              <BsWhatsapp className="text-white" size={28} />
-            </Link>
-          </ClientLayout>
+          <SiteShell>{children}</SiteShell>
         </CartProvider>
       </body>
     </html>
