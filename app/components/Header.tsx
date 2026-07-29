@@ -54,7 +54,7 @@ export default function Header() {
 
                     {/* Desktop Layout */}
                     <div className="hidden lg:grid lg:grid-cols-3 items-center">
-                        <nav className="flex items-center gap-8 text-xs tracking-wider">
+                        <nav className="flex items-center gap-8 text-[12px] tracking-wider">
                             <Link      
                                 href="/about" 
                                 className="hover:opacity-70 transition-opacity uppercase"
@@ -84,7 +84,7 @@ export default function Header() {
                                 <Image
                                     src="/logo.webp"
                                     alt="Diksha Mahajan"
-                                    width={250}
+                                    width={200}
                                     height={50}
                                     priority
                                     className="object-contain cursor-pointer"
@@ -103,7 +103,7 @@ export default function Header() {
 
                             <Link 
                                 href="/book-appointment"
-                                className={`hover:opacity-70 transition-opacity uppercase text-xs tracking-wider ${
+                                className={`hover:opacity-70 transition-opacity uppercase text-[12px] tracking-wider ${
                                     pathname === '/book-appointment' ? 'text-[#DCC898]' : ''
                                 }`}
                             >
@@ -111,7 +111,7 @@ export default function Header() {
                             </Link>
 
                             <Link href="/cart" className="relative hover:opacity-70 transition-opacity focus:outline-none" aria-label="Cart">
-                                <BsHandbag size={24} className="outline-none" />
+                                <BsHandbag size={20} className="outline-none" />
                                 {cartCount > 0 && (
                                     <span className="absolute -top-2 -right-2 bg-white text-black text-xs w-5 h-5 rounded-full flex items-center justify-center">
                                         {cartCount}

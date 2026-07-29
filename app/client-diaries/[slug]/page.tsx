@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -8,27 +8,11 @@ import { BsWhatsapp } from 'react-icons/bs';
 import clientDiariesData from '@/data/client-diaries.json';
 
 export default function ClientDiaryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-  const [resolvedSlug, setResolvedSlug] = useState<string | null>(null);
 
-  // Resolve params promise
-  useMemo(() => {
-    params.then(p => setResolvedSlug(p.slug));
-  }, [params]);
-
-  const entry = useMemo(() => {
-    if (!resolvedSlug) return null;
-    return clientDiariesData.find(e => e.id === resolvedSlug);
-  }, [resolvedSlug]);
-
-  if (!resolvedSlug) {
-    return (
-      <div className="min-h-screen bg-white pt-28 flex items-center justify-center">
-        <div className="animate-pulse text-gray-400 tracking-wider">Loading...</div>
-      </div>
-    );
-  }
+  const entry = clientDiariesData.find(e => e.id === slug);
 
   if (!entry) {
     notFound();
@@ -84,18 +68,18 @@ export default function ClientDiaryDetailPage({ params }: { params: Promise<{ sl
               />
             </div>
           ) : (
-            <div className={`grid gap-4 md:gap-6 ${
-              entry.images.length === 2 ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' :
-              entry.images.length === 3 ? 'grid-cols-1 md:grid-cols-2 max-w-4xl' :
-              entry.images.length === 4 ? 'grid-cols-2 md:grid-cols-2 max-w-4xl' :
-              'grid-cols-2 md:grid-cols-3'
+            <div className={`grid grid-cols-2 gap-3 md:gap-6 ${
+              entry.images.length === 2 ? 'md:grid-cols-2 max-w-4xl' :
+              entry.images.length === 3 ? 'md:grid-cols-2 max-w-4xl' :
+              entry.images.length === 4 ? 'md:grid-cols-2 max-w-4xl' :
+              'md:grid-cols-3'
             } mx-auto`}>
               {entry.images.map((image, index) => (
                 <div
                   key={index}
                   className={`relative overflow-hidden bg-gray-100 cursor-pointer group ${
-                    entry.images.length === 3 && index === 0 ? 'md:col-span-2 aspect-[16/9]' :
-                    entry.images.length === 5 && index === 0 ? 'md:col-span-2 aspect-[3/2]' :
+                    entry.images.length === 3 && index === 0 ? 'col-span-2 aspect-[16/9] md:col-span-2' :
+                    entry.images.length === 5 && index === 0 ? 'col-span-2 aspect-[3/2] md:col-span-2 md:aspect-[3/2]' :
                     'aspect-[3/4]'
                   }`}
                   onClick={() => setSelectedImage(image)}
