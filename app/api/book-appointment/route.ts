@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { supabase } from '@/lib/supabase';
+import { sendMetaCapiEvent } from '@/lib/metaCapi';
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, city, countryCode, phone, email, event } = await req.json();
+    const { name, city, countryCode, phone, email, event, eventId } = await req.json();
 
     if (!name || !email || !phone || !city || !event) {
       return NextResponse.json(
@@ -98,6 +99,25 @@ export async function POST(req: NextRequest) {
       subject: `New Appointment Booking - ${name} (${event})`,
       html: emailHtml,
     });
+
+    // Send Meta Conversions API event (server-side, deduped with browser Pixel via eventId)
+    if (eventId) {
+      await sendMetaCapiEvent({
+        eventName: 'Schedule',
+        eventId,
+        eventSourceUrl: req.headers.get('referer') || undefined,
+        userData: {
+          email,
+          phone: `${countryCode}${phone}`,
+          clientIpAddress: req.headers.get('x-forwarded-for') || undefined,
+          clientUserAgent: req.headers.get('user-agent') || undefined,
+        },
+        customData: {
+          content_name: 'Appointment Booking',
+          content_category: event,
+        },
+      });
+    }
 
     return NextResponse.json({ success: true, message: 'Email sent successfully' });
   } catch (error) {

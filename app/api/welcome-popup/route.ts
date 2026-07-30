@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { supabase } from '@/lib/supabase';
+import { sendMetaCapiEvent } from '@/lib/metaCapi';
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone } = await req.json();
+    const { name, email, phone, eventId } = await req.json();
 
     if (!name || !email) {
       return NextResponse.json(
@@ -86,6 +87,25 @@ export async function POST(req: NextRequest) {
       subject: `New Welcome Popup Submission - ${name}`,
       html,
     });
+
+    // Send Meta Conversions API event (server-side, deduped with browser Pixel via eventId)
+    if (eventId) {
+      await sendMetaCapiEvent({
+        eventName: 'Lead',
+        eventId,
+        eventSourceUrl: req.headers.get('referer') || undefined,
+        userData: {
+          email,
+          phone: phone || undefined,
+          clientIpAddress: req.headers.get('x-forwarded-for') || undefined,
+          clientUserAgent: req.headers.get('user-agent') || undefined,
+        },
+        customData: {
+          content_name: 'Welcome Popup Signup',
+          content_category: 'Newsletter',
+        },
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {

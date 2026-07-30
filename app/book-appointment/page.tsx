@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { trackAppointmentSubmit } from '@/lib/tracking';
+import { trackAppointmentSubmit, generateEventId } from '@/lib/tracking';
 
 const EVENT_OPTIONS = [
   'Wedding',
@@ -86,15 +86,16 @@ export default function BookAppointmentPage() {
     if (!validate()) return;
 
     setSubmitting(true);
+    const eventId = generateEventId();
     try {
       const response = await fetch('/api/book-appointment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, eventId }),
       });
       const data = await response.json();
       if (data.success) {
-        await trackAppointmentSubmit(formData);
+        await trackAppointmentSubmit(formData, eventId);
         setSubmitted(true);
       } else {
         alert(data.message || 'Something went wrong. Please try again.');

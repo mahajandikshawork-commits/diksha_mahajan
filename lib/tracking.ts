@@ -5,7 +5,7 @@ declare global {
   }
 }
 
-function generateEventId() {
+export function generateEventId() {
   return 'evt_' + Date.now() + '_' + Math.random().toString(36).substring(2, 10);
 }
 
@@ -47,8 +47,7 @@ interface PurchaseData {
   customerEmail: string;
 }
 
-export async function trackAppointmentSubmit(data: AppointmentData) {
-  const eventId = generateEventId();
+export async function trackAppointmentSubmit(data: AppointmentData, eventId: string = generateEventId()) {
   const fullPhone = `${data.countryCode}${data.phone}`;
   const [hashedEmail, hashedPhone] = await Promise.all([
     hashPII(data.email),
@@ -74,8 +73,7 @@ export async function trackAppointmentSubmit(data: AppointmentData) {
   }
 }
 
-export async function trackNewsletterSubscribe(data: SubscribeData) {
-  const eventId = generateEventId();
+export async function trackNewsletterSubscribe(data: SubscribeData, eventId: string = generateEventId()) {
   const hashedEmail = await hashPII(data.email);
 
   window.dataLayer = window.dataLayer || [];
@@ -93,8 +91,7 @@ export async function trackNewsletterSubscribe(data: SubscribeData) {
   }
 }
 
-export async function trackWelcomePopupSubmit(data: WelcomePopupData) {
-  const eventId = generateEventId();
+export async function trackWelcomePopupSubmit(data: WelcomePopupData, eventId: string = generateEventId()) {
   const [hashedEmail, hashedPhone] = await Promise.all([
     data.email ? hashPII(data.email) : Promise.resolve(undefined),
     data.phone ? hashPII(data.phone) : Promise.resolve(undefined),
@@ -116,8 +113,7 @@ export async function trackWelcomePopupSubmit(data: WelcomePopupData) {
   }
 }
 
-export async function trackPurchase(data: PurchaseData) {
-  const eventId = generateEventId();
+export async function trackPurchase(data: PurchaseData, eventId: string = generateEventId()) {
   const hashedEmail = await hashPII(data.customerEmail);
 
   window.dataLayer = window.dataLayer || [];

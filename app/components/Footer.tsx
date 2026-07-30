@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BsInstagram, BsWhatsapp } from 'react-icons/bs';
-import { trackNewsletterSubscribe } from '@/lib/tracking';
+import { trackNewsletterSubscribe, generateEventId } from '@/lib/tracking';
 
 export default function Footer() {
   const [subscribeName, setSubscribeName] = useState('');
@@ -24,15 +24,16 @@ export default function Footer() {
     }
     setSubscribing(true);
     setSubscribeMessage('');
+    const eventId = generateEventId();
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: subscribeName, email: subscribeEmail }),
+        body: JSON.stringify({ name: subscribeName, email: subscribeEmail, eventId }),
       });
       const data = await response.json();
       if (data.success) {
-        await trackNewsletterSubscribe({ name: subscribeName, email: subscribeEmail });
+        await trackNewsletterSubscribe({ name: subscribeName, email: subscribeEmail }, eventId);
         setSubscribeMessage('Thank you for subscribing!');
         setSubscribeName('');
         setSubscribeEmail('');

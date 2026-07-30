@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { trackPurchase } from '@/lib/tracking';
+import { trackPurchase, generateEventId } from '@/lib/tracking';
 
 
 export default function CheckoutPage() {
@@ -186,6 +186,8 @@ export default function CheckoutPage() {
         throw new Error(orderData.message || 'Failed to create order');
       }
 
+      const purchaseEventId = generateEventId();
+
       // Initialize Razorpay payment
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
@@ -209,6 +211,7 @@ export default function CheckoutPage() {
                   total: `Rs.${cartTotal.toLocaleString('en-IN')}`,
                 },
                 customerDetails: formData,
+                eventId: purchaseEventId,
               }),
             });
 
@@ -255,7 +258,7 @@ export default function CheckoutPage() {
                 items: cartItems.map(item => ({ name: item.name, price: item.priceNumber, quantity: item.quantity })),
                 customerName: formData.name,
                 customerEmail: formData.email,
-              });
+              }, purchaseEventId);
 
               // Clear cart and redirect to success page
               clearCart();

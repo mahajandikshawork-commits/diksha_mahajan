@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 import { supabase } from '@/lib/supabase';
+import { sendMetaCapiEvent } from '@/lib/metaCapi';
 
 export async function POST(req: NextRequest) {
   try {
@@ -22,6 +23,7 @@ export async function POST(req: NextRequest) {
       razorpay_signature,
       orderDetails,
       customerDetails,
+      eventId,
     } = await req.json();
 
     // Verify payment signature
@@ -103,6 +105,34 @@ export async function POST(req: NextRequest) {
     } catch (emailError) {
       console.error('Error sending emails:', emailError);
       // Don't fail the payment if email fails
+    }
+
+    // Send Meta Conversions API event (server-side, deduped with browser Pixel via eventId)
+    if (eventId) {
+      const purchaseValue = parseFloat(
+        String(orderDetails.finalTotal || orderDetails.total || '0').replace(/[^0-9.]/g, '')
+      );
+      await sendMetaCapiEvent({
+        eventName: 'Purchase',
+        eventId,
+        eventSourceUrl: req.headers.get('referer') || undefined,
+        userData: {
+          email: customerDetails.email,
+          phone: customerDetails.phone,
+          clientIpAddress: req.headers.get('x-forwarded-for') || undefined,
+          clientUserAgent: req.headers.get('user-agent') || undefined,
+        },
+        customData: {
+          currency: 'INR',
+          value: purchaseValue,
+          content_type: 'product',
+          contents: (orderDetails.items || []).map((item: any) => ({
+            id: item.id,
+            quantity: item.quantity,
+            item_price: item.priceNumber,
+          })),
+        },
+      });
     }
 
     return NextResponse.json({

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { IoClose } from 'react-icons/io5';
-import { trackWelcomePopupSubmit } from '@/lib/tracking';
+import { trackWelcomePopupSubmit, generateEventId } from '@/lib/tracking';
 
 export default function WelcomePopup() {
     const [isVisible, setIsVisible] = useState(false);
@@ -51,12 +51,13 @@ export default function WelcomePopup() {
         if (!validate()) return;
 
         setIsSubmitting(true);
+        const eventId = generateEventId();
         try {
-            await trackWelcomePopupSubmit(formData);
+            await trackWelcomePopupSubmit(formData, eventId);
             await fetch('/api/welcome-popup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, eventId }),
             });
         } catch (err) {
             console.error('Failed to submit form:', err);
