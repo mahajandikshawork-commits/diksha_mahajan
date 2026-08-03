@@ -77,14 +77,14 @@ export default function Header() {
                             >
                                 Client Diaries
                             </Link>
-                            <Link 
+                            {/* <Link 
                                 href="/blog"
                                 className={`hover:opacity-70 transition-opacity uppercase ${
                                     pathname.startsWith('/blog') ? 'text-[#DCC898]' : ''
                                 }`}
                             >
                                 Journal
-                            </Link>
+                            </Link> */}
                         </nav>
 
                         <div className="flex justify-center items-center">
@@ -200,7 +200,7 @@ export default function Header() {
                                 >
                                     Client Diaries
                                 </Link>
-                                <Link
+                                {/* <Link
                                     href="/blog"
                                     onClick={() => setIsMenuOpen(false)}
                                     className={`text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase ${
@@ -208,7 +208,7 @@ export default function Header() {
                                     }`}
                                 >
                                     Journal
-                                </Link>
+                                </Link> */}
                                 <Link
                                     href="/book-appointment"
                                     onClick={() => setIsMenuOpen(false)}
