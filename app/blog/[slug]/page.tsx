@@ -1,0 +1,89 @@
+'use client';
+
+import { useEffect, useState, use } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { Blog, DEFAULT_BLOG_COVER, fetchBlogBySlug } from '@/lib/blogs';
+import BlogContent from '@/app/components/BlogContent';
+
+export default function BlogDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = use(params);
+  const [blog, setBlog] = useState<Blog | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBlogBySlug(slug).then((data) => {
+      setBlog(data);
+      setLoading(false);
+    });
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white pt-28 flex items-center justify-center">
+        <div className="animate-pulse text-gray-400 tracking-wider">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!blog) {
+    notFound();
+  }
+
+  return (
+    <div className="min-h-screen bg-white pt-20 md:pt-28">
+      {/* Breadcrumb */}
+      <div className="px-8 py-4 text-xs tracking-wider uppercase text-gray-500">
+        <Link href="/blog" className="hover:text-black transition-colors">
+          Journal
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-black line-clamp-1">{blog.title}</span>
+      </div>
+
+      <article className="mx-auto max-w-5xl px-6 md:px-8 pb-8">
+        {/* Title */}
+        <header className="text-center py-6 md:py-10">
+          <h1 className="text-3xl md:text-5xl font-light tracking-[0.12em] uppercase mb-4 leading-tight">
+            {blog.title}
+          </h1>
+          {blog.excerpt && (
+            <p className="text-sm md:text-base text-gray-500 font-light italic leading-relaxed max-w-xl mx-auto">
+              {blog.excerpt}
+            </p>
+          )}
+        </header>
+
+        {/* Cover */}
+        <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 mb-10 rounded-sm">
+          <Image
+            src={blog.cover_image || DEFAULT_BLOG_COVER}
+            alt={blog.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            priority
+          />
+        </div>
+
+        {/* Body */}
+        <BlogContent blocks={blog.blocks} />
+      </article>
+
+      {/* Back link */}
+      <section className="px-8 pt-2 pb-12 text-center">
+        <Link
+          href="/blog"
+          className="text-xs md:text-sm tracking-wider uppercase text-gray-500 hover:text-black transition-colors border-b border-gray-300 hover:border-black pb-1"
+        >
+          Back to Journal
+        </Link>
+      </section>
+    </div>
+  );
+}

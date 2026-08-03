@@ -87,6 +87,27 @@ CREATE TABLE IF NOT EXISTS client_diaries (
 );
 
 -- ============================================================
+-- Blogs (managed via the admin panel)
+-- Content is stored as an ordered array of blocks in `blocks` (jsonb).
+-- Each block: { id, type, ... } where type is one of
+-- heading | subheading | paragraph | bullet | numbered | quote | image.
+-- Rich text (paragraph/quote/heading/list items) stores sanitized HTML
+-- supporting <b>/<strong>, <i>/<em>, <u>.
+-- ============================================================
+CREATE TABLE IF NOT EXISTS blogs (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  slug TEXT NOT NULL UNIQUE,
+  title TEXT NOT NULL,
+  excerpt TEXT,
+  cover_image TEXT,
+  blocks JSONB NOT NULL DEFAULT '[]'::jsonb,
+  published BOOLEAN NOT NULL DEFAULT false,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ============================================================
 -- Enable Row Level Security
 -- ============================================================
 ALTER TABLE newsletter_subscriptions ENABLE ROW LEVEL SECURITY;
@@ -95,6 +116,7 @@ ALTER TABLE appointment_bookings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE order_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE client_diaries ENABLE ROW LEVEL SECURITY;
+ALTER TABLE blogs ENABLE ROW LEVEL SECURITY;
 
 -- The service role key bypasses RLS, so the form-submission tables
 -- (newsletter, appointments, orders) need no extra policies for server-side inserts.
@@ -157,3 +179,39 @@ CREATE POLICY "client_diaries_storage_admin_delete"
   ON storage.objects FOR DELETE
   TO authenticated
   USING (bucket_id = 'client-diaries');
+
+-- ============================================================
+-- Blogs RLS policies
+-- Public can read published blogs; authenticated admins have full access.
+-- Blog images are stored in the existing `client-diaries` bucket under the
+-- `blogs/` folder, so the storage policies above already cover them.
+-- ============================================================
+DROP POLICY IF EXISTS "blogs_public_read" ON blogs;
+CREATE POLICY "blogs_public_read"
+  ON blogs FOR SELECT
+  USING (published = true);
+
+DROP POLICY IF EXISTS "blogs_admin_read" ON blogs;
+CREATE POLICY "blogs_admin_read"
+  ON blogs FOR SELECT
+  TO authenticated
+  USING (true);
+
+DROP POLICY IF EXISTS "blogs_admin_insert" ON blogs;
+CREATE POLICY "blogs_admin_insert"
+  ON blogs FOR INSERT
+  TO authenticated
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "blogs_admin_update" ON blogs;
+CREATE POLICY "blogs_admin_update"
+  ON blogs FOR UPDATE
+  TO authenticated
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "blogs_admin_delete" ON blogs;
+CREATE POLICY "blogs_admin_delete"
+  ON blogs FOR DELETE
+  TO authenticated
+  USING (true);

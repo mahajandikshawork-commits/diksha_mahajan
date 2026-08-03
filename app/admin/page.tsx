@@ -25,7 +25,6 @@ const CARDS: DashboardCard[] = [
     href: '/admin/blogs',
     icon: FileText,
     description: 'Publish and manage journal articles.',
-    disabled: true,
   },
   {
     label: 'Products',

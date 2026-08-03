@@ -26,6 +26,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
@@ -67,5 +73,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
   }
 
-  return [...staticPages, ...productPages, ...clientDiaryPages];
+  // Dynamic blog pages (fetched from Supabase; published only)
+  let blogPages: MetadataRoute.Sitemap = [];
+  const { data: blogData } = await supabase
+    .from('blogs')
+    .select('slug')
+    .eq('published', true);
+  if (blogData) {
+    blogPages = blogData.map((entry: { slug: string }) => ({
+      url: `${baseUrl}/blog/${entry.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    }));
+  }
+
+  return [...staticPages, ...productPages, ...clientDiaryPages, ...blogPages];
 }

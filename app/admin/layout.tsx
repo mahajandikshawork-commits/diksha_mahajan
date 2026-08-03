@@ -27,7 +27,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { label: 'Client Diaries', href: '/admin/client-diaries', icon: BookHeart },
-  { label: 'Blogs', href: '/admin/blogs', icon: FileText, disabled: true },
+  { label: 'Blogs', href: '/admin/blogs', icon: FileText },
   { label: 'Products', href: '/admin/products', icon: ShoppingBag, disabled: true },
   { label: 'Celebrity Images', href: '/admin/celebrities', icon: Star, disabled: true },
 ];
