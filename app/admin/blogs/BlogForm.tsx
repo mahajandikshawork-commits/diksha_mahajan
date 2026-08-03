@@ -542,6 +542,13 @@ function BlockEditor({
     };
     const removeImage = (i: number) =>
       onUpdate({ images: block.images.filter((_, idx) => idx !== i) });
+    const moveImage = (i: number, dir: -1 | 1) => {
+      const target = i + dir;
+      if (target < 0 || target >= block.images.length) return;
+      const images = [...block.images];
+      [images[i], images[target]] = [images[target], images[i]];
+      onUpdate({ images });
+    };
     const setField = (i: number, field: 'caption' | 'linkUrl', value: string) => {
       const images = [...block.images];
       images[i] = { ...images[i], [field]: value };
@@ -587,14 +594,34 @@ function BlockEditor({
                 <div className="relative aspect-square overflow-hidden rounded-md border border-gray-200 bg-gray-100">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={img.url} alt={img.caption || `Image ${i + 1}`} className="h-full w-full object-cover" />
-                  <button
-                    type="button"
-                    onClick={() => removeImage(i)}
-                    className="absolute top-1 right-1 rounded bg-red-500 p-1 text-white opacity-0 group-hover:opacity-100 transition-opacity"
-                    aria-label="Remove image"
-                  >
-                    <X size={12} />
-                  </button>
+                  <div className="absolute top-1 right-1 flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button
+                      type="button"
+                      onClick={() => moveImage(i, -1)}
+                      disabled={i === 0}
+                      className="rounded bg-black/60 p-1 text-white hover:bg-black/80 disabled:opacity-30"
+                      aria-label="Move left"
+                    >
+                      <ChevronUp size={12} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => moveImage(i, 1)}
+                      disabled={i === block.images.length - 1}
+                      className="rounded bg-black/60 p-1 text-white hover:bg-black/80 disabled:opacity-30"
+                      aria-label="Move right"
+                    >
+                      <ChevronDown size={12} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => removeImage(i)}
+                      className="rounded bg-red-500 p-1 text-white hover:bg-red-600"
+                      aria-label="Remove image"
+                    >
+                      <X size={12} />
+                    </button>
+                  </div>
                 </div>
                 <input
                   className={`${colClass} text-xs`}
@@ -823,10 +850,6 @@ function BlogPreview({
           <p className="text-center text-sm md:text-base text-gray-500 italic mb-8">
             {excerpt}
           </p>
-        )}
-        {cover && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={cover} alt={title} className="mb-8 w-full rounded-sm object-cover" />
         )}
         <BlogContent blocks={blocks} />
       </article>

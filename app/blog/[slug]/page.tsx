@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useState, use } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Blog, DEFAULT_BLOG_COVER, fetchBlogBySlug } from '@/lib/blogs';
+import { Blog, fetchBlogBySlug } from '@/lib/blogs';
 import BlogContent from '@/app/components/BlogContent';
 
 export default function BlogDetailPage({
@@ -53,23 +52,11 @@ export default function BlogDetailPage({
             {blog.title}
           </h1>
           {blog.excerpt && (
-            <p className="text-sm md:text-base text-gray-500 font-light italic leading-relaxed max-w-xl mx-auto">
+            <p className="text-center text-sm md:text-base text-gray-500 italic mb-8">
               {blog.excerpt}
             </p>
           )}
         </header>
-
-        {/* Cover */}
-        <div className="relative w-full aspect-[16/9] overflow-hidden bg-gray-100 mb-10 rounded-sm">
-          <Image
-            src={blog.cover_image || DEFAULT_BLOG_COVER}
-            alt={blog.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 1024px"
-            priority
-          />
-        </div>
 
         {/* Body */}
         <BlogContent blocks={blog.blocks} />
