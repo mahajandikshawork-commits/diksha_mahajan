@@ -45,9 +45,9 @@ export default function BlogDetailPage({
         <span className="text-black line-clamp-1">{blog.title}</span>
       </div>
 
-      <article className="mx-auto max-w-5xl px-6 md:px-8 pb-8">
+      <article className="mx-auto max-w-5xl px-6 md:px-8 pb-0">
         {/* Title */}
-        <header className="text-center py-6 md:py-10">
+        <header className="text-center py-0 md:py-4">
           <h1 className="text-3xl md:text-5xl font-light tracking-[0.12em] uppercase mb-4 leading-tight">
             {blog.title}
           </h1>
