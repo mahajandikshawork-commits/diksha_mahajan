@@ -22,6 +22,7 @@ import {
   ListOrdered,
   Image as ImageIcon,
   Images,
+  Columns2,
   X,
 } from 'lucide-react';
 import { supabaseBrowser } from '@/lib/supabase-browser';
@@ -35,7 +36,10 @@ import {
   isImageBlock,
   isListBlock,
   isRichBlock,
+  isSplitBlock,
   slugify,
+  SplitTextBlock,
+  SplitTextType,
 } from '@/lib/blogs';
 import RichText from './RichText';
 import SingleImageUpload from './SingleImageUpload';
@@ -54,6 +58,7 @@ const PALETTE: { type: BlockType; icon: React.ElementType }[] = [
   { type: 'quote', icon: QuoteIcon },
   { type: 'image', icon: ImageIcon },
   { type: 'gallery', icon: Images },
+  { type: 'split', icon: Columns2 },
 ];
 
 export default function BlogForm({ initial }: BlogFormProps) {
@@ -533,28 +538,36 @@ function BlockEditor({
   if (isGalleryBlock(block)) {
     const addImage = (img: { url: string; width: number; height: number } | null) => {
       if (!img) return;
-      onUpdate({ images: [...block.images, { url: img.url, caption: '', width: img.width, height: img.height }] });
+      onUpdate({ images: [...block.images, { url: img.url, caption: '', linkUrl: '', width: img.width, height: img.height }] });
     };
     const removeImage = (i: number) =>
       onUpdate({ images: block.images.filter((_, idx) => idx !== i) });
-    const setCaption = (i: number, caption: string) => {
+    const setField = (i: number, field: 'caption' | 'linkUrl', value: string) => {
       const images = [...block.images];
-      images[i] = { ...images[i], caption };
+      images[i] = { ...images[i], [field]: value };
       onUpdate({ images });
     };
 
     const colClass = 'w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-[#1a1a1a] bg-white focus:outline-none focus:border-[#DCC898] transition-colors';
 
+    const gridColsMap: Record<number, string> = {
+      2: 'grid-cols-2',
+      3: 'grid-cols-2 md:grid-cols-3',
+      4: 'grid-cols-2 md:grid-cols-4',
+      5: 'grid-cols-2 md:grid-cols-5',
+      6: 'grid-cols-3 md:grid-cols-6',
+    };
+
     return (
       <div className="space-y-3">
         {/* Columns selector */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs uppercase tracking-wider text-gray-500">Columns:</span>
-          {[2, 3, 4].map((c) => (
+          {[2, 3, 4, 5, 6].map((c) => (
             <button
               key={c}
               type="button"
-              onClick={() => onUpdate({ columns: c as 2 | 3 | 4 })}
+              onClick={() => onUpdate({ columns: c as 2 | 3 | 4 | 5 | 6 })}
               className={`px-3 py-1 rounded-md text-sm transition-colors ${
                 block.columns === c
                   ? 'bg-[#1a1a1a] text-white'
@@ -568,11 +581,9 @@ function BlockEditor({
 
         {/* Existing images */}
         {block.images.length > 0 && (
-          <div className={`grid gap-3 ${
-            block.columns === 2 ? 'grid-cols-2' : block.columns === 4 ? 'grid-cols-2 md:grid-cols-4' : 'grid-cols-2 md:grid-cols-3'
-          }`}>
+          <div className={`grid gap-3 ${gridColsMap[block.columns] || 'grid-cols-2 md:grid-cols-3'}`}>
             {block.images.map((img, i) => (
-              <div key={i} className="group relative">
+              <div key={i} className="group relative space-y-1.5">
                 <div className="relative aspect-square overflow-hidden rounded-md border border-gray-200 bg-gray-100">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={img.url} alt={img.caption || `Image ${i + 1}`} className="h-full w-full object-cover" />
@@ -586,10 +597,16 @@ function BlockEditor({
                   </button>
                 </div>
                 <input
-                  className={`${colClass} mt-1.5 text-xs`}
+                  className={`${colClass} text-xs`}
                   value={img.caption}
-                  onChange={(e) => setCaption(i, e.target.value)}
+                  onChange={(e) => setField(i, 'caption', e.target.value)}
                   placeholder="Caption (optional)"
+                />
+                <input
+                  className={`${colClass} text-xs`}
+                  value={img.linkUrl || ''}
+                  onChange={(e) => setField(i, 'linkUrl', e.target.value)}
+                  placeholder="Link URL (optional)"
                 />
               </div>
             ))}
@@ -602,6 +619,163 @@ function BlockEditor({
           aspect="aspect-square"
           label="Add image to gallery"
         />
+      </div>
+    );
+  }
+
+  if (isSplitBlock(block)) {
+    const SPLIT_TEXT_TYPES: { type: SplitTextType; label: string }[] = [
+      { type: 'heading', label: 'Heading' },
+      { type: 'subheading', label: 'Subheading' },
+      { type: 'paragraph', label: 'Paragraph' },
+      { type: 'quote', label: 'Quote' },
+      { type: 'bullet', label: 'Bullet List' },
+      { type: 'numbered', label: 'Numbered List' },
+    ];
+
+    const addTextBlock = (type: SplitTextType) => {
+      const id = crypto.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
+      const newBlock: SplitTextBlock =
+        type === 'bullet' || type === 'numbered'
+          ? { id, type, items: [''] }
+          : { id, type, html: '' };
+      onUpdate({ textBlocks: [...block.textBlocks, newBlock] });
+    };
+    const removeTextBlock = (i: number) =>
+      onUpdate({ textBlocks: block.textBlocks.filter((_, idx) => idx !== i) });
+    const updateTextBlock = (i: number, patch: Partial<SplitTextBlock>) => {
+      const textBlocks = [...block.textBlocks];
+      textBlocks[i] = { ...textBlocks[i], ...patch } as SplitTextBlock;
+      onUpdate({ textBlocks });
+    };
+
+    const subInputClass = 'w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-[#1a1a1a] bg-white focus:outline-none focus:border-[#DCC898] transition-colors';
+
+    return (
+      <div className="space-y-3">
+        {/* Image position toggle */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs uppercase tracking-wider text-gray-500">Image side:</span>
+          {(['left', 'right'] as const).map((pos) => (
+            <button
+              key={pos}
+              type="button"
+              onClick={() => onUpdate({ imagePosition: pos })}
+              className={`px-3 py-1 rounded-md text-sm capitalize transition-colors ${
+                block.imagePosition === pos
+                  ? 'bg-[#1a1a1a] text-white'
+                  : 'border border-gray-300 text-gray-600 hover:border-[#DCC898]'
+              }`}
+            >
+              {pos}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {/* Image side */}
+          <div className="space-y-2 rounded-md border border-gray-200 p-3 bg-white">
+            <span className="text-[11px] font-medium uppercase tracking-wider text-gray-400">Image</span>
+            <SingleImageUpload
+              value={block.image.url || undefined}
+              onChange={(img) =>
+                onUpdate(
+                  img
+                    ? { image: { url: img.url, caption: block.image.caption, width: img.width, height: img.height } }
+                    : { image: { url: '', caption: block.image.caption } },
+                )
+              }
+              aspect="aspect-[4/3]"
+              label="Upload image"
+            />
+            <input
+              className={subInputClass}
+              value={block.image.caption}
+              onChange={(e) => onUpdate({ image: { ...block.image, caption: e.target.value } })}
+              placeholder="Image caption (optional)"
+            />
+          </div>
+
+          {/* Text side */}
+          <div className="space-y-2 rounded-md border border-gray-200 p-3 bg-white">
+            <span className="text-[11px] font-medium uppercase tracking-wider text-gray-400">Text content</span>
+            {block.textBlocks.length === 0 && (
+              <p className="text-xs text-gray-400 py-4 text-center">No text blocks yet. Add one below.</p>
+            )}
+            {block.textBlocks.map((tb, i) => (
+              <div key={tb.id} className="rounded border border-gray-100 bg-gray-50/60 p-2 space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-wider text-gray-400">{BLOCK_LABELS[tb.type]}</span>
+                  <button
+                    type="button"
+                    onClick={() => removeTextBlock(i)}
+                    className="p-0.5 text-gray-400 hover:text-red-500"
+                    aria-label="Remove text block"
+                  >
+                    <X size={13} />
+                  </button>
+                </div>
+                {isListBlock(tb) ? (
+                  <div className="space-y-1.5">
+                    {tb.items.map((item, j) => (
+                      <div key={j} className="flex items-start gap-1.5">
+                        <span className="mt-2 w-4 shrink-0 text-center text-xs text-gray-400">
+                          {tb.type === 'numbered' ? `${j + 1}.` : '•'}
+                        </span>
+                        <div className="flex-1">
+                          <RichText
+                            value={item}
+                            onChange={(html) => {
+                              const items = [...tb.items];
+                              items[j] = html;
+                              updateTextBlock(i, { items });
+                            }}
+                            placeholder={`Item ${j + 1}`}
+                          />
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => updateTextBlock(i, { items: tb.items.filter((_, idx) => idx !== j) })}
+                          disabled={tb.items.length === 1}
+                          className="mt-1.5 p-0.5 text-gray-400 hover:text-red-500 disabled:opacity-30"
+                          aria-label="Remove item"
+                        >
+                          <X size={13} />
+                        </button>
+                      </div>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={() => updateTextBlock(i, { items: [...tb.items, ''] })}
+                      className="inline-flex items-center gap-1 text-xs text-[#1a1a1a] hover:text-[#DCC898] transition-colors"
+                    >
+                      <Plus size={12} /> Add item
+                    </button>
+                  </div>
+                ) : (
+                  <RichText
+                    value={tb.html}
+                    onChange={(html) => updateTextBlock(i, { html })}
+                    placeholder={`${tb.type} text…`}
+                  />
+                )}
+              </div>
+            ))}
+            {/* Add text sub-block */}
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {SPLIT_TEXT_TYPES.map(({ type, label }) => (
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => addTextBlock(type)}
+                  className="inline-flex items-center gap-1 rounded border border-gray-300 px-2 py-1 text-xs text-gray-600 hover:border-[#DCC898] hover:bg-[#DCC898]/10 transition-colors"
+                >
+                  <Plus size={11} /> {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

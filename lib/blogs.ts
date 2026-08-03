@@ -12,7 +12,11 @@ export type BlockType =
   | 'numbered'
   | 'quote'
   | 'image'
-  | 'gallery';
+  | 'gallery'
+  | 'split';
+
+// Sub-block types allowed inside a split block's text column.
+export type SplitTextType = 'heading' | 'subheading' | 'paragraph' | 'quote' | 'bullet' | 'numbered';
 
 // Rich-text blocks (single HTML string).
 export interface RichBlock {
@@ -42,6 +46,7 @@ export interface ImageBlock {
 export interface GalleryImage {
   url: string;
   caption: string;
+  linkUrl?: string;
   width?: number;
   height?: number;
 }
@@ -50,10 +55,26 @@ export interface GalleryBlock {
   id: string;
   type: 'gallery';
   images: GalleryImage[];
-  columns: 2 | 3 | 4;
+  columns: 2 | 3 | 4 | 5 | 6;
 }
 
-export type BlogBlock = RichBlock | ListBlock | ImageBlock | GalleryBlock;
+// Split block — image on one side, text content on the other.
+export type SplitTextBlock = RichBlock | ListBlock;
+
+export interface SplitBlock {
+  id: string;
+  type: 'split';
+  image: {
+    url: string;
+    caption: string;
+    width?: number;
+    height?: number;
+  };
+  textBlocks: SplitTextBlock[];
+  imagePosition: 'left' | 'right';
+}
+
+export type BlogBlock = RichBlock | ListBlock | ImageBlock | GalleryBlock | SplitBlock;
 
 export interface Blog {
   id: string;
@@ -88,6 +109,9 @@ export function isImageBlock(b: BlogBlock): b is ImageBlock {
 export function isGalleryBlock(b: BlogBlock): b is GalleryBlock {
   return b.type === 'gallery';
 }
+export function isSplitBlock(b: BlogBlock): b is SplitBlock {
+  return b.type === 'split';
+}
 
 export function slugify(value: string): string {
   return value
@@ -108,6 +132,7 @@ export function createBlock(type: BlockType): BlogBlock {
 
   if (type === 'image') return { id, type, url: '', caption: '' };
   if (type === 'gallery') return { id, type, images: [], columns: 3 };
+  if (type === 'split') return { id, type, image: { url: '', caption: '' }, textBlocks: [], imagePosition: 'left' };
   if (type === 'bullet' || type === 'numbered') return { id, type, items: [''] };
   return { id, type, html: '' };
 }
@@ -122,6 +147,7 @@ export const BLOCK_LABELS: Record<BlockType, string> = {
   quote: 'Quote',
   image: 'Image',
   gallery: 'Gallery',
+  split: 'Image + Text',
 };
 
 // Whitelist-based HTML sanitizer for the inline formatting we allow
