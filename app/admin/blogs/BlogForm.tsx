@@ -23,6 +23,7 @@ import {
   Image as ImageIcon,
   Images,
   Columns2,
+  MousePointerClick,
   X,
 } from 'lucide-react';
 import { supabaseBrowser } from '@/lib/supabase-browser';
@@ -37,9 +38,11 @@ import {
   isListBlock,
   isRichBlock,
   isSplitBlock,
+  isButtonsBlock,
   slugify,
   SplitTextBlock,
   SplitTextType,
+  ButtonStyle,
 } from '@/lib/blogs';
 import RichText from './RichText';
 import SingleImageUpload from './SingleImageUpload';
@@ -59,6 +62,7 @@ const PALETTE: { type: BlockType; icon: React.ElementType }[] = [
   { type: 'image', icon: ImageIcon },
   { type: 'gallery', icon: Images },
   { type: 'split', icon: Columns2 },
+  { type: 'buttons', icon: MousePointerClick },
 ];
 
 export default function BlogForm({ initial }: BlogFormProps) {
@@ -803,6 +807,83 @@ function BlockEditor({
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (isButtonsBlock(block)) {
+    const subInputClass = 'w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-[#1a1a1a] bg-white focus:outline-none focus:border-[#DCC898] transition-colors';
+
+    const updateButton = (i: number, field: 'text' | 'url' | 'style', value: string) => {
+      const buttons = [...block.buttons];
+      buttons[i] = { ...buttons[i], [field]: value };
+      onUpdate({ buttons });
+    };
+    const addButton = () => {
+      if (block.buttons.length >= 2) return;
+      onUpdate({ buttons: [...block.buttons, { text: '', url: '', style: 'solid' }] });
+    };
+    const removeButton = (i: number) =>
+      onUpdate({ buttons: block.buttons.filter((_, idx) => idx !== i) });
+
+    return (
+      <div className="space-y-3">
+        {block.buttons.map((btn, i) => (
+          <div key={i} className="rounded border border-gray-100 bg-gray-50/60 p-3 space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] uppercase tracking-wider text-gray-400">Button {i + 1}</span>
+              {block.buttons.length > 1 && (
+                <button
+                  type="button"
+                  onClick={() => removeButton(i)}
+                  className="p-0.5 text-gray-400 hover:text-red-500"
+                  aria-label="Remove button"
+                >
+                  <X size={13} />
+                </button>
+              )}
+            </div>
+            {/* Style selector */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs uppercase tracking-wider text-gray-500">Style:</span>
+              {(['solid', 'underline'] as ButtonStyle[]).map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => updateButton(i, 'style', s)}
+                  className={`px-3 py-1 rounded-md text-sm capitalize transition-colors ${
+                    btn.style === s
+                      ? 'bg-[#1a1a1a] text-white'
+                      : 'border border-gray-300 text-gray-600 hover:border-[#DCC898]'
+                  }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+            <input
+              className={subInputClass}
+              value={btn.text}
+              onChange={(e) => updateButton(i, 'text', e.target.value)}
+              placeholder="Button text (e.g. Shop The Collection)"
+            />
+            <input
+              className={subInputClass}
+              value={btn.url}
+              onChange={(e) => updateButton(i, 'url', e.target.value)}
+              placeholder="Button URL (e.g. /collection)"
+            />
+          </div>
+        ))}
+        {block.buttons.length < 2 && (
+          <button
+            type="button"
+            onClick={addButton}
+            className="inline-flex items-center gap-1.5 text-sm text-[#1a1a1a] hover:text-[#DCC898] transition-colors"
+          >
+            <Plus size={14} /> Add second button
+          </button>
+        )}
       </div>
     );
   }

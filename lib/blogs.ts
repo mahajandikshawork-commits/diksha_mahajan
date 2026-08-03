@@ -13,7 +13,8 @@ export type BlockType =
   | 'quote'
   | 'image'
   | 'gallery'
-  | 'split';
+  | 'split'
+  | 'buttons';
 
 // Sub-block types allowed inside a split block's text column.
 export type SplitTextType = 'heading' | 'subheading' | 'paragraph' | 'quote' | 'bullet' | 'numbered';
@@ -74,7 +75,22 @@ export interface SplitBlock {
   imagePosition: 'left' | 'right';
 }
 
-export type BlogBlock = RichBlock | ListBlock | ImageBlock | GalleryBlock | SplitBlock;
+// Buttons block — 1 or 2 CTA buttons side by side.
+export type ButtonStyle = 'underline' | 'solid';
+
+export interface ButtonItem {
+  text: string;
+  url: string;
+  style: ButtonStyle;
+}
+
+export interface ButtonsBlock {
+  id: string;
+  type: 'buttons';
+  buttons: ButtonItem[];
+}
+
+export type BlogBlock = RichBlock | ListBlock | ImageBlock | GalleryBlock | SplitBlock | ButtonsBlock;
 
 export interface Blog {
   id: string;
@@ -112,6 +128,9 @@ export function isGalleryBlock(b: BlogBlock): b is GalleryBlock {
 export function isSplitBlock(b: BlogBlock): b is SplitBlock {
   return b.type === 'split';
 }
+export function isButtonsBlock(b: BlogBlock): b is ButtonsBlock {
+  return b.type === 'buttons';
+}
 
 export function slugify(value: string): string {
   return value
@@ -133,6 +152,7 @@ export function createBlock(type: BlockType): BlogBlock {
   if (type === 'image') return { id, type, url: '', caption: '' };
   if (type === 'gallery') return { id, type, images: [], columns: 3 };
   if (type === 'split') return { id, type, image: { url: '', caption: '' }, textBlocks: [], imagePosition: 'left' };
+  if (type === 'buttons') return { id, type, buttons: [{ text: '', url: '', style: 'solid' }] };
   if (type === 'bullet' || type === 'numbered') return { id, type, items: [''] };
   return { id, type, html: '' };
 }
@@ -148,6 +168,7 @@ export const BLOCK_LABELS: Record<BlockType, string> = {
   image: 'Image',
   gallery: 'Gallery',
   split: 'Image + Text',
+  buttons: 'Buttons',
 };
 
 // Whitelist-based HTML sanitizer for the inline formatting we allow

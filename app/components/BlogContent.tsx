@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import {
   BlogBlock,
+  isButtonsBlock,
   isGalleryBlock,
   isImageBlock,
   isListBlock,
@@ -234,6 +235,46 @@ export default function BlogContent({ blocks }: BlogContentProps) {
                     <div className="md:order-1">{textSide}</div>
                   </>
                 )}
+              </div>
+            </div>
+          );
+        }
+
+        if (isButtonsBlock(block) && block.buttons.some((b) => b.text)) {
+          const validButtons = block.buttons.filter((b) => b.text.trim());
+          if (validButtons.length === 0) return null;
+          return (
+            <div key={block.id} className="my-2">
+              <div className={`flex flex-wrap items-center gap-6 ${validButtons.length > 1 ? 'justify-center' : 'justify-center'}`}>
+                {validButtons.map((btn, i) => {
+                  if (btn.style === 'underline') {
+                    return (
+                      <a
+                        key={i}
+                        href={btn.url}
+                        target={btn.url.startsWith('http') ? '_blank' : undefined}
+                        rel={btn.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="text-xs md:text-sm tracking-wider uppercase text-[#1a1a1a] hover:text-[#DCC898] transition-colors border-b border-[#1a1a1a] hover:border-[#DCC898] pb-1"
+                      >
+                        {btn.text}
+                      </a>
+                    );
+                  }
+                  return (
+                    <a
+                      key={i}
+                      href={btn.url}
+                      target={btn.url.startsWith('http') ? '_blank' : undefined}
+                      rel={btn.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="relative px-8 md:px-12 py-3 border border-[#DCC898] text-black font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+                    >
+                      <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                        {btn.text}
+                      </span>
+                      <div className="absolute inset-0 bg-[#DCC898] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           );
