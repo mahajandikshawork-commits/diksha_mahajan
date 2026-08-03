@@ -245,7 +245,7 @@ export default function BlogContent({ blocks }: BlogContentProps) {
           if (validButtons.length === 0) return null;
           return (
             <div key={block.id} className="my-2">
-              <div className="flex flex-nowrap items-center justify-center gap-6">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
                 {validButtons.map((btn, i) => {
                   if (btn.style === 'underline') {
                     return (

@@ -38,11 +38,11 @@ export default function BlogDetailPage({
     <div className="min-h-screen bg-white pt-20 md:pt-28">
       {/* Breadcrumb */}
       <div className="px-8 py-4 text-xs tracking-wider uppercase text-gray-500">
-        <Link href="/blog" className="hover:text-black transition-colors">
+        <Link href="/blog" className="hidden md:inline hover:text-black transition-colors">
           Journal
         </Link>
-        <span className="mx-2">/</span>
-        <span className="text-black line-clamp-1">{blog.title}</span>
+        <span className="mx-2 hidden md:inline">/</span>
+        <span className="hidden md:inline text-black line-clamp-1">{blog.title}</span>
       </div>
 
       <article className="mx-auto max-w-5xl px-6 md:px-8 pb-0">
