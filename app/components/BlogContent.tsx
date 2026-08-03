@@ -162,7 +162,7 @@ export default function BlogContent({ blocks }: BlogContentProps) {
 
         if (isSplitBlock(block) && (block.image.url || block.textBlocks.length > 0)) {
           const imageSide = block.image.url && (
-            <div className="relative w-full h-full min-h-[200px] overflow-hidden rounded-sm bg-gray-100">
+            <div className="relative w-full h-full min-h-[500px] overflow-hidden rounded-sm bg-gray-100">
               <Image
                 src={block.image.url}
                 alt={block.image.caption || 'Blog image'}
