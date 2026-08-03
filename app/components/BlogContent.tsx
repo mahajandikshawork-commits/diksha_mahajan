@@ -49,7 +49,7 @@ export default function BlogContent({ blocks }: BlogContentProps) {
             return (
               <blockquote
                 key={block.id}
-                className="border-l-2 border-[#DCC898] bg-[#F5F1E8] px-6 py-5 text-base md:text-lg font-light italic leading-relaxed text-gray-700 [&_b]:font-semibold [&_i]:italic [&_u]:underline"
+                className="border-l-2 border-[#DCC898] bg-[#F5F1E8] px-6 py-5 text-base font-light italic leading-relaxed text-gray-700 [&_b]:font-semibold [&_i]:italic [&_u]:underline"
                 dangerouslySetInnerHTML={{ __html: html }}
               />
             );
@@ -223,16 +223,16 @@ export default function BlogContent({ blocks }: BlogContentProps) {
 
           return (
             <div key={block.id} className="my-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-stretch">
                 {block.imagePosition === 'left' ? (
                   <>
-                    <div className="relative min-h-[200px]">{imageSide}</div>
-                    <div>{textSide}</div>
+                    <div className="relative min-h-[200px] h-full">{imageSide}</div>
+                    <div className="flex items-center">{textSide}</div>
                   </>
                 ) : (
                   <>
-                    <div className="md:order-2 relative min-h-[200px]">{imageSide}</div>
-                    <div className="md:order-1">{textSide}</div>
+                    <div className="md:order-2 relative min-h-[200px] h-full">{imageSide}</div>
+                    <div className="md:order-1 flex items-center">{textSide}</div>
                   </>
                 )}
               </div>
@@ -245,7 +245,7 @@ export default function BlogContent({ blocks }: BlogContentProps) {
           if (validButtons.length === 0) return null;
           return (
             <div key={block.id} className="my-2">
-              <div className={`flex flex-wrap items-center gap-6 ${validButtons.length > 1 ? 'justify-center' : 'justify-center'}`}>
+              <div className="flex flex-nowrap items-center justify-center gap-6">
                 {validButtons.map((btn, i) => {
                   if (btn.style === 'underline') {
                     return (
@@ -266,7 +266,7 @@ export default function BlogContent({ blocks }: BlogContentProps) {
                       href={btn.url}
                       target={btn.url.startsWith('http') ? '_blank' : undefined}
                       rel={btn.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="relative px-8 md:px-12 py-3 border border-[#DCC898] text-black font-medium tracking-wider text-xs md:text-base uppercase overflow-hidden group"
+                      className="relative px-8 md:px-12 py-3 border border-[#DCC898] text-black font-medium tracking-wider text-xs uppercase overflow-hidden group"
                     >
                       <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                         {btn.text}
