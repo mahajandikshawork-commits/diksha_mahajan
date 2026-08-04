@@ -98,6 +98,7 @@ export interface Blog {
   title: string;
   excerpt: string | null;
   cover_image: string | null;
+  seo_keywords: string | null;
   blocks: BlogBlock[];
   published: boolean;
   sort_order: number;

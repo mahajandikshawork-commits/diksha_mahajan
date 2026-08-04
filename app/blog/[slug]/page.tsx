@@ -22,6 +22,36 @@ export default function BlogDetailPage({
     });
   }, [slug]);
 
+  // Inject SEO meta tags when blog data is available.
+  useEffect(() => {
+    if (!blog) return;
+
+    const tags: { name: string; content: string }[] = [];
+
+    if (blog.seo_keywords) {
+      tags.push({ name: 'keywords', content: blog.seo_keywords });
+    }
+    if (blog.excerpt) {
+      tags.push({ name: 'description', content: blog.excerpt });
+    }
+    tags.push({ name: 'og:title', content: blog.title });
+    if (blog.excerpt) {
+      tags.push({ name: 'og:description', content: blog.excerpt });
+    }
+
+    const created = tags.map((t) => {
+      const el = document.createElement('meta');
+      el.setAttribute('name', t.name);
+      el.setAttribute('content', t.content);
+      document.head.appendChild(el);
+      return el;
+    });
+
+    return () => {
+      created.forEach((el) => el.remove());
+    };
+  }, [blog]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-white pt-28 flex items-center justify-center">

@@ -72,6 +72,7 @@ export default function BlogForm({ initial }: BlogFormProps) {
   const [title, setTitle] = useState(initial?.title ?? '');
   const [excerpt, setExcerpt] = useState(initial?.excerpt ?? '');
   const [cover, setCover] = useState(initial?.cover_image ?? '');
+  const [seoKeywords, setSeoKeywords] = useState(initial?.seo_keywords ?? '');
   const [published, setPublished] = useState(initial?.published ?? false);
   const [sortOrder, setSortOrder] = useState(initial?.sort_order ?? 0);
   const [blocks, setBlocks] = useState<BlogBlock[]>(initial?.blocks ?? []);
@@ -150,6 +151,7 @@ export default function BlogForm({ initial }: BlogFormProps) {
       title: title.trim(),
       excerpt: excerpt.trim() || null,
       cover_image: cover || null,
+      seo_keywords: seoKeywords.trim() || null,
       blocks,
       published: nextPublished,
       sort_order: sortOrder,
@@ -243,6 +245,18 @@ export default function BlogForm({ initial }: BlogFormProps) {
                 aspect="aspect-[16/9]"
                 label="Click to upload cover image"
               />
+            </div>
+            <div>
+              <label className={labelClass}>SEO Keywords</label>
+              <input
+                className={inputClass}
+                value={seoKeywords}
+                onChange={(e) => setSeoKeywords(e.target.value)}
+                placeholder="e.g. bridal couture, indian wedding, designer lehenga"
+              />
+              <p className="text-xs text-gray-400 mt-1">
+                Comma-separated keywords for search engine optimization.
+              </p>
             </div>
           </div>
 

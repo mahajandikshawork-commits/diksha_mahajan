@@ -100,6 +100,7 @@ CREATE TABLE IF NOT EXISTS blogs (
   title TEXT NOT NULL,
   excerpt TEXT,
   cover_image TEXT,
+  seo_keywords TEXT,
   blocks JSONB NOT NULL DEFAULT '[]'::jsonb,
   published BOOLEAN NOT NULL DEFAULT false,
   sort_order INTEGER NOT NULL DEFAULT 0,
