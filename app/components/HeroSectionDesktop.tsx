@@ -11,9 +11,21 @@ interface VideoItem {
   coverImage: string;
   title: string;
   subtitle: string;
+  /** Full-bleed panel (100vw) instead of the default third-width panel. */
+  fullWidth?: boolean;
+  /** Transparent title lockup drawn over the cover, positioned like the artwork. */
+  lockup?: string;
 }
 
 const videos: VideoItem[] = [
+  {
+    src: '',
+    coverImage: '/qla-hero.webp',
+    title: 'QLA',
+    subtitle: 'The Skill to Make it Look Effortless',
+    fullWidth: true,
+    lockup: '/qla-lockup.png',
+  },
   {
     src: '/videos/heritage_edit.mp4',
     coverImage: '/the_heritage_edit.webp',
@@ -41,12 +53,13 @@ const videos: VideoItem[] = [
 ];
 
 // Extract video sources for preloading
-const videoSources = videos.map(v => v.src);
+const videoSources = videos.filter(v => v.src).map(v => v.src);
 
 export default function HeroSectionDesktop() {
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleVideoInteraction = async (index: number, play: boolean) => {
@@ -69,19 +82,27 @@ export default function HeroSectionDesktop() {
     }
   };
 
+  /*
+   * Panels are no longer a uniform third of the viewport — the QLA cover is
+   * full-bleed — so step to the next panel's own offset. A fixed third-viewport
+   * step would land short of the 100vw panel and snap-mandatory would pull it
+   * straight back.
+   */
   const scroll = (direction: 'left' | 'right') => {
-    if (containerRef.current) {
-      const scrollAmount = containerRef.current.clientWidth / 3;
-      const newPosition = direction === 'left' 
-        ? Math.max(0, scrollPosition - scrollAmount)
-        : Math.min(containerRef.current.scrollWidth - containerRef.current.clientWidth, scrollPosition + scrollAmount);
-      
-      containerRef.current.scrollTo({
-        left: newPosition,
-        behavior: 'smooth'
-      });
-      setScrollPosition(newPosition);
-    }
+    const container = containerRef.current;
+    if (!container) return;
+
+    const offsets = panelRefs.current
+      .filter((el): el is HTMLDivElement => el !== null)
+      .map((el) => el.offsetLeft);
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    const current = container.scrollLeft;
+
+    const target = direction === 'right'
+      ? offsets.find((offset) => offset > current + 10) ?? maxScroll
+      : [...offsets].reverse().find((offset) => offset < current - 10) ?? 0;
+
+    container.scrollTo({ left: Math.min(target, maxScroll), behavior: 'smooth' });
   };
 
   const handleScroll = () => {
@@ -106,7 +127,12 @@ export default function HeroSectionDesktop() {
         {videos.map((video, index) => (
           <div
             key={index}
-            className="relative flex-shrink-0 w-1/3 overflow-hidden cursor-pointer group snap-start"
+            ref={(el) => {
+              panelRefs.current[index] = el;
+            }}
+            className={`relative flex-shrink-0 overflow-hidden cursor-pointer group snap-start ${
+              video.fullWidth ? 'w-full' : 'w-1/3'
+            }`}
             onMouseEnter={() => video.src && handleVideoInteraction(index, true)}
             onMouseLeave={() => video.src && handleVideoInteraction(index, false)}
             onClick={() => {
@@ -126,10 +152,28 @@ export default function HeroSectionDesktop() {
                 alt={video.title}
                 fill
                 className="object-cover"
-                sizes="33vw"
+                sizes={video.fullWidth ? '100vw' : '33vw'}
                 priority={index === 0}
               />
             </div>
+
+            {/*
+              Title lockup kept as a separate layer rather than baked into the
+              cover, so it stays on screen when a non-16:9 window crops the
+              photo. Percentages mirror its placement in the source artwork.
+            */}
+            {video.lockup && (
+              <div className="absolute bottom-[17.4%] left-[5.5%] w-[40%] max-w-[640px] pointer-events-none">
+                <Image
+                  src={video.lockup}
+                  alt=""
+                  width={1023}
+                  height={380}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+            )}
 
             {/* Video */}
             {video.src && (

@@ -11,9 +11,18 @@ interface VideoItem {
   coverImage: string;
   title: string;
   subtitle: string;
+  /** Transparent title lockup drawn over the cover, positioned like the artwork. */
+  lockup?: string;
 }
 
 const videos: VideoItem[] = [
+  {
+    src: '',
+    coverImage: '/qla-hero-portrait.webp',
+    title: 'QLA',
+    subtitle: 'The Skill to Make it Look Effortless',
+    lockup: '/qla-lockup.png',
+  },
   {
     src: '/videos/heritage_edit.mp4',
     coverImage: '/the_heritage_edit.webp',
@@ -41,7 +50,7 @@ const videos: VideoItem[] = [
 ];
 
 // Extract video sources for preloading (mobile-sized variants)
-const videoSources = videos.map(v => getMobileVideoUrl(v.src));
+const videoSources = videos.filter(v => v.src).map(v => getMobileVideoUrl(v.src));
 
 export default function HeroSectionMobile() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -150,6 +159,28 @@ export default function HeroSectionMobile() {
             )}
 
             <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+
+            {/*
+              Portrait crop of the same shoot plus the lockup as its own layer —
+              the 16:9 artwork can't be cropped to a phone screen without losing
+              the title, so it is placed over the photo instead. The scrim keeps
+              the tagline legible where it falls across the lehenga.
+            */}
+            {video.lockup && (
+              <>
+                <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/65 via-black/25 to-transparent pointer-events-none" />
+                <div className="absolute bottom-[14%] left-[8%] w-[78%] sm:w-[62%] md:w-[52%] pointer-events-none">
+                  <Image
+                    src={video.lockup}
+                    alt=""
+                    width={1023}
+                    height={380}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
+              </>
+            )}
           </div>
         ))}
       </div>

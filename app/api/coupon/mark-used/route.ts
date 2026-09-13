@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    markCouponAsUsed(code, userIdentifier);
+    await markCouponAsUsed(code, userIdentifier);
 
     return NextResponse.json({
       success: true,

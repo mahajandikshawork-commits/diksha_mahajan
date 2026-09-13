@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const result = validateCoupon(code, cartTotal, userIdentifier);
+    const result = await validateCoupon(code, cartTotal, userIdentifier);
 
     return NextResponse.json({
       success: result.valid,

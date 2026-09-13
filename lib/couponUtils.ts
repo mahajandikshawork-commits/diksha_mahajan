@@ -1,21 +1,28 @@
 import { Coupon, CouponValidationResult } from '@/types/coupon';
-import { getCouponUsage, addCouponUsage } from './couponStorage';
+import {
+  hasUserUsedCoupon,
+  getCouponActivatedAt,
+  addCouponUsage,
+} from './couponStorage';
 
+// Active promo codes. Add an entry here to make a code redeemable at checkout;
+// remove it to retire the code. An empty object means no code will validate.
 export const COUPON_DEFINITIONS: Record<string, Omit<Coupon, 'usedBy' | 'activatedAt'>> = {
-  WLBAZAAR6000: {
-    code: 'WLBAZAAR6000',
+  SYRUP6000: {
+    code: 'SYRUP6000',
     discount: 6000,
     minCartValue: 50000,
     validityDays: 30,
   },
 };
 
-export function validateCoupon(
+export async function validateCoupon(
   code: string,
   cartTotal: number,
   userIdentifier: string
-): CouponValidationResult {
-  const couponDef = COUPON_DEFINITIONS[code.toUpperCase()];
+): Promise<CouponValidationResult> {
+  const normalizedCode = code.toUpperCase();
+  const couponDef = COUPON_DEFINITIONS[normalizedCode];
 
   if (!couponDef) {
     return {
@@ -31,20 +38,34 @@ export function validateCoupon(
     };
   }
 
-  const usage = getCouponUsage(code.toUpperCase());
-  
-  if (usage.usedBy.includes(userIdentifier)) {
+  // Fail closed: if redemption history can't be read, refuse the coupon rather
+  // than assume it is unused, which would let it be redeemed more than once.
+  let alreadyUsed: boolean;
+  let activatedAt: string | null;
+  try {
+    [alreadyUsed, activatedAt] = await Promise.all([
+      hasUserUsedCoupon(normalizedCode, userIdentifier),
+      getCouponActivatedAt(normalizedCode),
+    ]);
+  } catch (error) {
+    console.error('Coupon usage lookup failed:', error);
+    return {
+      valid: false,
+      message: 'Unable to verify this coupon right now. Please try again.',
+    };
+  }
+
+  if (alreadyUsed) {
     return {
       valid: false,
       message: 'This coupon has already been used with this email/mobile',
     };
   }
 
-  if (usage.activatedAt) {
-    const activatedDate = new Date(usage.activatedAt);
-    const expiryDate = new Date(activatedDate);
+  if (activatedAt) {
+    const expiryDate = new Date(activatedAt);
     expiryDate.setDate(expiryDate.getDate() + couponDef.validityDays);
-    
+
     if (new Date() > expiryDate) {
       return {
         valid: false,
@@ -60,6 +81,9 @@ export function validateCoupon(
   };
 }
 
-export function markCouponAsUsed(code: string, userIdentifier: string): void {
-  addCouponUsage(code.toUpperCase(), userIdentifier);
+export async function markCouponAsUsed(
+  code: string,
+  userIdentifier: string
+): Promise<void> {
+  await addCouponUsage(code.toUpperCase(), userIdentifier);
 }

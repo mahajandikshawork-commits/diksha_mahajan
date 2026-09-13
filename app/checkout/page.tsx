@@ -498,7 +498,63 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              {/* Coupon code section disabled */}
+              <div className="mt-6 border-t pt-4">
+                {appliedCoupon ? (
+                  <div className="flex items-center justify-between border border-green-600 px-4 py-3">
+                    <div>
+                      <p className="text-sm font-medium text-green-700">{appliedCoupon}</p>
+                      <p className="text-xs text-gray-600">
+                        Rs.{couponDiscount.toLocaleString('en-IN')} off applied
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={handleRemoveCoupon}
+                      className="text-xs text-gray-600 underline hover:text-black transition-colors"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <label htmlFor="couponCode" className="block text-sm mb-2">
+                      Promo code
+                    </label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        id="couponCode"
+                        value={couponCode}
+                        onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleApplyCoupon();
+                          }
+                        }}
+                        placeholder="Enter code"
+                        className={`w-full border px-4 py-2 uppercase focus:outline-none ${
+                          couponError ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-black'
+                        }`}
+                      />
+                      <button
+                        type="button"
+                        onClick={handleApplyCoupon}
+                        disabled={couponLoading || !couponCode.trim()}
+                        className="shrink-0 border border-black px-5 py-2 text-sm hover:bg-black hover:text-white transition-colors disabled:border-gray-300 disabled:text-gray-400 disabled:hover:bg-transparent disabled:cursor-not-allowed"
+                      >
+                        {couponLoading ? 'Applying...' : 'Apply'}
+                      </button>
+                    </div>
+                  </>
+                )}
+
+                {couponMessage && (
+                  <p className={`text-xs mt-2 ${couponError ? 'text-red-500' : 'text-green-600'}`}>
+                    {couponMessage}
+                  </p>
+                )}
+              </div>
 
               <div className="mt-6 text-xs md:text-sm text-gray-600 space-y-2">
                   <p>✓ Free shipping on all orders PAN India</p>

@@ -109,6 +109,22 @@ CREATE TABLE IF NOT EXISTS blogs (
 );
 
 -- ============================================================
+-- Coupon redemptions
+-- One row per (code, customer identifier). Written server-side only via the
+-- service role key. The validity countdown for a code starts at its earliest
+-- used_at, so no separate "activated" column is needed.
+-- ============================================================
+CREATE TABLE IF NOT EXISTS coupon_usage (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  code TEXT NOT NULL,
+  user_identifier TEXT NOT NULL,
+  used_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE (code, user_identifier)
+);
+
+CREATE INDEX IF NOT EXISTS coupon_usage_code_idx ON coupon_usage (code);
+
+-- ============================================================
 -- Enable Row Level Security
 -- ============================================================
 ALTER TABLE newsletter_subscriptions ENABLE ROW LEVEL SECURITY;
@@ -118,9 +134,12 @@ ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE order_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE client_diaries ENABLE ROW LEVEL SECURITY;
 ALTER TABLE blogs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE coupon_usage ENABLE ROW LEVEL SECURITY;
 
 -- The service role key bypasses RLS, so the form-submission tables
 -- (newsletter, appointments, orders) need no extra policies for server-side inserts.
+-- coupon_usage deliberately has NO policies: redemptions must never be readable
+-- or writable with the public anon key, only via the server's service role.
 
 -- ============================================================
 -- Client Diaries RLS policies
