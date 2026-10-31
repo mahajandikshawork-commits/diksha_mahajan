@@ -7,6 +7,7 @@ import {
   getMobileVideoUrl,
   getPosterUrl,
   useIsMobileViewport,
+  useShouldRespectSaveData,
 } from './useResponsiveVideo';
 
 interface ProductCardProps {
@@ -15,6 +16,8 @@ interface ProductCardProps {
   tagline?: string;
   mediaType: 'image' | 'video';
   mediaSrc: string;
+  /** Short clip of the full video for cards to loop, cut without re-encoding. */
+  previewSrc?: string;
   mainImage?: string;
   slug: string;
   status?: string;
@@ -30,6 +33,7 @@ export default function ProductCard({
   tagline,
   mediaType,
   mediaSrc,
+  previewSrc,
   mainImage,
   slug,
   status,
@@ -42,9 +46,30 @@ export default function ProductCard({
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   const isMobile = useIsMobileViewport();
+  const saveData = useShouldRespectSaveData();
+  const [inView, setInView] = useState(false);
 
-  const isVideo = mediaType === 'video' && showVideo;
-  const sourceSrc = isMobile ? getMobileVideoUrl(mediaSrc) : mediaSrc;
+  // Start the video only once the card is on screen: the slider renders a hidden
+  // duplicate per breakpoint, and it sits under the hero, which is still loading.
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card || mediaType !== 'video' || !showVideo) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, [mediaType, showVideo]);
+
+  const isVideo = mediaType === 'video' && showVideo && inView && !saveData;
+  const videoSrc = previewSrc || mediaSrc;
+  const sourceSrc = isMobile ? getMobileVideoUrl(videoSrc) : videoSrc;
   const posterSrc = mainImage || getPosterUrl(mediaSrc);
 
   // When sourceSrc changes (mobile<->desktop swap after hydration), force the
@@ -125,7 +150,6 @@ export default function ProductCard({
                 playsInline
                 autoPlay={autoplay}
                 preload="auto"
-                poster={posterSrc}
                 onPlaying={() => setPosterFaded(true)}
                 onPause={() => setPosterFaded(false)}
               />

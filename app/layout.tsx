@@ -116,9 +116,6 @@ fbq('init', '1077955564560473');
 fbq('track', 'PageView');`}
         </Script>
         {/* End Meta Pixel Code */}
-        <link rel="preconnect" href="https://checkout.razorpay.com" />
-        <link rel="dns-prefetch" href="https://checkout.razorpay.com" />
-        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       </head>
       <body
         className={`${montserrat.variable} antialiased`}

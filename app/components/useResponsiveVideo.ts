@@ -59,8 +59,9 @@ export function useIsMobileViewport(breakpoint = 768): boolean {
 }
 
 /**
- * True when the device reports a slow connection or has Save-Data enabled.
- * Components can use this to skip auto-loading hero/product videos entirely.
+ * True when the device reports a very slow connection or has Save-Data enabled.
+ * Components use this to stay on the image. 3G isn't included because short
+ * previews and adaptive streams both play there. iPhones report nothing here.
  */
 export function useShouldRespectSaveData(): boolean {
   const [respect, setRespect] = useState(false);
@@ -69,7 +70,7 @@ export function useShouldRespectSaveData(): boolean {
     if (!conn) return;
     const update = () => {
       const slow = conn.saveData === true ||
-        (conn.effectiveType && /^(slow-2g|2g|3g)$/.test(conn.effectiveType));
+        (conn.effectiveType && /^(slow-2g|2g)$/.test(conn.effectiveType));
       setRespect(!!slow);
     };
     update();

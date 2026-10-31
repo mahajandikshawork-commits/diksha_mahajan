@@ -76,6 +76,9 @@ export default function VideoPreloader({
       video.playsInline = true;
 
       const done = () => {
+        // Detach, or the element keeps buffering the whole file in the background.
+        video.removeAttribute('src');
+        video.load();
         markLoaded(src);
         resolve();
       };

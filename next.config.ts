@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // A stray lockfile higher up the tree otherwise becomes the inferred root, and
+  // `@import "tailwindcss"` then resolves from outside this project.
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -28,10 +33,18 @@ const nextConfig: NextConfig = {
       {
         // Long-cache videos: filenames are content-stable, so we can give
         // them an aggressive immutable cache and let CDN/browser keep them.
-        source: '/:path*\\.(mp4|webm|mov)',
+        source: '/:path*\\.(mp4|m4s|webm|mov)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
           { key: 'Accept-Ranges', value: 'bytes' },
+        ],
+      },
+      {
+        // Stream playlists are as content-stable as the videos they point at.
+        source: '/:path*\\.m3u8',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+          { key: 'Content-Type', value: 'application/vnd.apple.mpegurl' },
         ],
       },
       {

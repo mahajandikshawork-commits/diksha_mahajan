@@ -111,6 +111,7 @@ export default function ProductSlider() {
                         tagline={(product as any).tagline}
                         mediaType={product.mediaType as 'image' | 'video'}
                         mediaSrc={product.mediaSrc}
+                        previewSrc={(product as any).previewSrc}
                         mainImage={product.mainImage}
                         slug={product.slug}
                         status={(product as any).status}
@@ -174,6 +175,7 @@ export default function ProductSlider() {
                       tagline={(product as any).tagline}
                       mediaType={product.mediaType as 'image' | 'video'}
                       mediaSrc={product.mediaSrc}
+                      previewSrc={(product as any).previewSrc}
                       mainImage={product.mainImage}
                       slug={product.slug}
                       status={(product as any).status}

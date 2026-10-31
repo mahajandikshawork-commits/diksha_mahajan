@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import VideoPreloader from './VideoPreloader';
-import { getPosterUrl } from './useResponsiveVideo';
+import AdaptiveVideo from './AdaptiveVideo';
+import { useShouldRespectSaveData } from './useResponsiveVideo';
 
 interface VideoItem {
   src: string;
@@ -15,16 +16,22 @@ interface VideoItem {
   fullWidth?: boolean;
   /** Transparent title lockup drawn over the cover, positioned like the artwork. */
   lockup?: string;
+  /** Tiny inline preview, so a photo is in the first paint before the cover arrives. */
+  blur?: string;
+  /** Adaptive stream. Plays while on screen; a full-bleed panel has nothing to hover between. */
+  hls?: string;
 }
 
 const videos: VideoItem[] = [
   {
-    src: '',
+    src: '/videos/qla.mp4',
     coverImage: '/qla-hero.webp',
+    blur: 'data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABQBACdASoYAA4APtFUo0uoJKMhsAgBABoJZACdEfqgJwtvslrxYM/QHAGAAP7CjeR3WkV9MJfub66/PxrUBwU6o9t+ftQfME9rKHmfTAxrtQpjra8S6u9wO+6BvSjUr37pfCPzeiJFMPQsPNTaYN/xeuL9H9TE7YzPPMQTJ/VNASH1dHKHaL0z7R8xqUh5M4wmS8ZFAH9Jjz6znk9hxfp6Qn6nxOAA',
     title: 'QLA',
     subtitle: 'The Skill to Make it Look Effortless',
     fullWidth: true,
     lockup: '/qla-lockup.png',
+    hls: '/videos/qla-hls/desktop/master.m3u8',
   },
   {
     src: '/videos/heritage_edit.mp4',
@@ -52,15 +59,32 @@ const videos: VideoItem[] = [
   },
 ];
 
-// Extract video sources for preloading
-const videoSources = videos.filter(v => v.src).map(v => v.src);
+// Extract video sources for preloading (the first panel streams on load)
+const videoSources = videos.slice(1).filter(v => v.src).map(v => v.src);
 
 export default function HeroSectionDesktop() {
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [autoPlaying, setAutoPlaying] = useState(false);
+  const [heroOnScreen, setHeroOnScreen] = useState(false);
+  const saveData = useShouldRespectSaveData();
   const [scrollPosition, setScrollPosition] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // An observer rather than the autoplay attribute: it pauses off screen, and it
+  // never fires in this copy on phones, where the section is hidden.
+  useEffect(() => {
+    const panel = panelRefs.current[videos.findIndex((v) => v.hls)];
+    if (!panel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroOnScreen(entry.isIntersecting),
+      { threshold: 0.5 }
+    );
+    observer.observe(panel);
+    return () => observer.disconnect();
+  }, []);
 
   const handleVideoInteraction = async (index: number, play: boolean) => {
     const video = videoRefs.current[index];
@@ -111,6 +135,9 @@ export default function HeroSectionDesktop() {
     }
   };
 
+  const isVideoShowing = (index: number) =>
+    videos[index].hls ? autoPlaying : activeVideo === index;
+
   const canScrollLeft = scrollPosition > 0;
   const canScrollRight = containerRef.current 
     ? scrollPosition < containerRef.current.scrollWidth - containerRef.current.clientWidth - 10
@@ -133,10 +160,10 @@ export default function HeroSectionDesktop() {
             className={`relative flex-shrink-0 overflow-hidden cursor-pointer group snap-start ${
               video.fullWidth ? 'w-full' : 'w-1/3'
             }`}
-            onMouseEnter={() => video.src && handleVideoInteraction(index, true)}
-            onMouseLeave={() => video.src && handleVideoInteraction(index, false)}
+            onMouseEnter={() => video.src && !video.hls && handleVideoInteraction(index, true)}
+            onMouseLeave={() => video.src && !video.hls && handleVideoInteraction(index, false)}
             onClick={() => {
-              if (video.src) {
+              if (video.src && !video.hls) {
                 if (activeVideo === index) {
                   handleVideoInteraction(index, false);
                 } else {
@@ -146,7 +173,7 @@ export default function HeroSectionDesktop() {
             }}
           >
             {/* Cover Image */}
-            <div className={`absolute inset-0 transition-opacity duration-300 ${activeVideo === index ? 'opacity-0' : 'opacity-100'}`}>
+            <div className={`absolute inset-0 transition-opacity duration-300 ${isVideoShowing(index) ? 'opacity-0' : 'opacity-100'}`}>
               <Image
                 src={video.coverImage}
                 alt={video.title}
@@ -154,6 +181,8 @@ export default function HeroSectionDesktop() {
                 className="object-cover"
                 sizes={video.fullWidth ? '100vw' : '33vw'}
                 priority={index === 0}
+                placeholder={video.blur ? 'blur' : 'empty'}
+                blurDataURL={video.blur}
               />
             </div>
 
@@ -161,9 +190,10 @@ export default function HeroSectionDesktop() {
               Title lockup kept as a separate layer rather than baked into the
               cover, so it stays on screen when a non-16:9 window crops the
               photo. Percentages mirror its placement in the source artwork.
+              Fades with the cover because the film ends on its own baked-in lockup.
             */}
             {video.lockup && (
-              <div className="absolute bottom-[17.4%] left-[5.5%] w-[40%] max-w-[640px] pointer-events-none">
+              <div className={`absolute bottom-[17.4%] left-[5.5%] w-[40%] max-w-[640px] pointer-events-none transition-opacity duration-300 ${isVideoShowing(index) ? 'opacity-0' : 'opacity-100'}`}>
                 <Image
                   src={video.lockup}
                   alt=""
@@ -176,7 +206,18 @@ export default function HeroSectionDesktop() {
             )}
 
             {/* Video */}
-            {video.src && (
+            {video.hls ? (
+              <AdaptiveVideo
+                hlsSrc={video.hls}
+                fallbackSrc={video.src}
+                playing={heroOnScreen && !saveData}
+                className="w-full h-full object-cover pointer-events-none"
+                loop
+                muted
+                playsInline
+                onPlaying={() => setAutoPlaying(true)}
+              />
+            ) : video.src && (
               <video
                 ref={(el) => {
                   videoRefs.current[index] = el;
@@ -185,8 +226,7 @@ export default function HeroSectionDesktop() {
                 loop
                 muted
                 playsInline
-                preload="metadata"
-                poster={getPosterUrl(video.src) || video.coverImage}
+                preload="none"
               >
                 <source src={video.src} type="video/mp4" />
               </video>
@@ -215,16 +255,18 @@ export default function HeroSectionDesktop() {
         </button>
       )}
       
-      {/* Video Preloader */}
-      <VideoPreloader 
-        videoSources={videoSources}
-        onProgress={(loaded, total) => {
-          console.log(`Videos preloaded: ${loaded}/${total}`);
-        }}
-        onComplete={() => {
-          console.log('All hero videos preloaded');
-        }}
-      />
+      {/* Video Preloader — waits for the film so the hover panels never compete with it */}
+      {autoPlaying && (
+        <VideoPreloader
+          videoSources={videoSources}
+          onProgress={(loaded, total) => {
+            console.log(`Videos preloaded: ${loaded}/${total}`);
+          }}
+          onComplete={() => {
+            console.log('All hero videos preloaded');
+          }}
+        />
+      )}
     </section>
   );
 }

@@ -15,8 +15,10 @@
     "components": "3",
     "modelSize": "Small",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/mumtaz/PRI01219.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/zarrin/zarrin-mumtaz.mp4",
+    "previewSrc": "/products/zarrin/mumtaz-preview.mp4",
+    "hlsSrc": "/products/zarrin/hls/master.m3u8",
     "mainImage": "/products/mumtaz/PRI01285.webp",
     "images": [
       "/products/mumtaz/PRI01219.webp",
@@ -80,8 +82,10 @@
     "components": "3",
     "modelSize": "Small",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/dawn-and-dusk/PRI00714.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/dawn-and-dusk/dawn-and-dusk.mp4",
+    "previewSrc": "/products/dawn-and-dusk/dawn-and-dusk-preview.mp4",
+    "hlsSrc": "/products/dawn-and-dusk/hls/master.m3u8",
     "mainImage": "/products/dawn-and-dusk/PRI00714.webp",
     "images": [
       "/products/dawn-and-dusk/PRI00714.webp",
@@ -107,8 +111,10 @@
     "components": "3",
     "modelSize": "XSmall",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/rose-veil/PRI00268.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/rose-veil/rose-veil-naghma.mp4",
+    "previewSrc": "/products/rose-veil/rose-veil-preview.mp4",
+    "hlsSrc": "/products/rose-veil/hls/master.m3u8",
     "mainImage": "/products/rose-veil/PRI00268.webp",
     "images": [
       "/products/rose-veil/PRI00268.webp",
@@ -160,8 +166,10 @@
     "components": "2",
     "modelSize": "Small",
     "modelHeight": "5'10\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/naghma/PRI00570.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/rose-veil/rose-veil-naghma.mp4",
+    "previewSrc": "/products/rose-veil/naghma-preview.mp4",
+    "hlsSrc": "/products/rose-veil/hls/master.m3u8",
     "mainImage": "/products/naghma/PRI00672.webp",
     "images": [
       "/products/naghma/PRI00570.webp",
@@ -188,8 +196,10 @@
     "components": "3",
     "modelSize": "XSmall",
     "modelHeight": "5'11\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/zarrin/PRI01421.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/zarrin/zarrin-mumtaz.mp4",
+    "previewSrc": "/products/zarrin/zarrin-preview.mp4",
+    "hlsSrc": "/products/zarrin/hls/master.m3u8",
     "mainImage": "/products/zarrin/PRI01568_copy.tiff",
     "images": [
       "/products/zarrin/PRI01421.webp",
@@ -216,8 +226,9 @@
     "components": "2",
     "modelSize": "Small",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/kashish/PRI01746.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/kashish/kashish.mp4",
+    "previewSrc": "/products/kashish/kashish-preview.mp4",
     "mainImage": "/products/kashish/PRI01829.webp",
     "images": [
       "/products/kashish/PRI01746.webp",
@@ -271,8 +282,10 @@
     "components": "3",
     "modelSize": "XSmall",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/afterglow/PRI00969.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/afterglow/afterglow.mp4",
+    "previewSrc": "/products/afterglow/afterglow-preview.mp4",
+    "hlsSrc": "/products/afterglow/hls/master.m3u8",
     "mainImage": "/products/afterglow/PRI01033.webp",
     "images": [
       "/products/afterglow/PRI00969.webp",
@@ -299,8 +312,10 @@
     "components": "3",
     "modelSize": "Small",
     "modelHeight": "5'9\"",
-    "mediaType": "image",
-    "mediaSrc": "/products/malkiyat/PRI01609.webp",
+    "mediaType": "video",
+    "mediaSrc": "/products/malkiyat/malkiyat.mp4",
+    "previewSrc": "/products/malkiyat/malkiyat-preview.mp4",
+    "hlsSrc": "/products/malkiyat/hls/master.m3u8",
     "mainImage": "/products/malkiyat/PRI01705.webp",
     "images": [
       "/products/malkiyat/PRI01609.webp",
@@ -408,6 +423,7 @@
     "modelHeight": "5'6\"",
     "mediaType": "video",
     "mediaSrc": "/products/Naaz/naaz.mp4",
+    "previewSrc": "/products/Naaz/naaz-preview.mp4",
     "mainImage": "/products/Naaz/IMG_1573.webp",
     "images": [
       "/products/Naaz/IMG_1573.webp",
@@ -439,6 +455,7 @@
     "modelHeight": "5'9\"",
     "mediaType": "video",
     "mediaSrc": "/products/Gulmohar/gulmohar.mp4",
+    "previewSrc": "/products/Gulmohar/gulmohar-preview.mp4",
     "mainImage": "/products/Gulmohar/DSC06072.webp",
     "images": [
       "/products/Gulmohar/DSC06072.webp",
@@ -466,6 +483,7 @@
     "modelHeight": "5'12\"",
     "mediaType": "video",
     "mediaSrc": "/products/Riwaayat/riwayat_heer.mp4",
+    "previewSrc": "/products/Riwaayat/riwayat_heer-preview.mp4",
     "mainImage": "/products/Heer/DSC06549.webp",
     "images": [
       "/products/Heer/DSC06441.webp",
@@ -497,6 +515,7 @@
     "modelHeight": "5'12\"",
     "mediaType": "video",
     "mediaSrc": "/products/Zahira/zahira.mp4",
+    "previewSrc": "/products/Zahira/zahira-preview.mp4",
     "mainImage": "/products/Zahira/DSC06924.webp",
     "images": [
       "/products/Zahira/DSC06924.webp",
@@ -527,6 +546,7 @@
     "modelHeight": "5'12\"",
     "mediaType": "video",
     "mediaSrc": "/products/Gul-Noor/gulnoor.mp4",
+    "previewSrc": "/products/Gul-Noor/gulnoor-preview.mp4",
     "mainImage": "/products/Gul-Noor/DSC06754.webp",
     "images": [
       "/products/Gul-Noor/DSC06754.webp",
@@ -556,6 +576,7 @@
     "modelHeight": "5'9\"",
     "mediaType": "video",
     "mediaSrc": "/products/Mehr/mehr.mp4",
+    "previewSrc": "/products/Mehr/mehr-preview.mp4",
     "mainImage": "/products/Mehr/DSC06632.webp",
     "images": [
       "/products/Mehr/DSC06628.webp",
@@ -583,6 +604,7 @@
     "modelHeight": "5'9\"",
     "mediaType": "video",
     "mediaSrc": "/products/Riwaayat/riwayat_heer.mp4",
+    "previewSrc": "/products/Riwaayat/riwayat_heer-preview.mp4",
     "mainImage": "/products/Riwaayat/DSC06357.webp",
     "images": [
       "/products/Riwaayat/DSC06334.webp",
@@ -615,6 +637,7 @@
     "modelHeight": "5'9\"",
     "mediaType": "video",
     "mediaSrc": "/products/Saanjh/saanjh.mp4",
+    "previewSrc": "/products/Saanjh/saanjh-preview.mp4",
     "mainImage": "/products/Saanjh/DSC06862.webp",
     "images": [
       "/products/Saanjh/DSC06822.webp",
@@ -669,6 +692,7 @@
     "modelHeight": "5'8\"",
     "mediaType": "video",
     "mediaSrc": "/products/Ruhani/Ruhani.mp4",
+    "previewSrc": "/products/Ruhani/Ruhani-preview.mp4",
     "mainImage": "/products/Ruhani/Main.webp",
     "images": [
       "/products/Ruhani/Main.webp",
@@ -695,6 +719,7 @@
     "modelHeight": "5'7\"",
     "mediaType": "video",
     "mediaSrc": "/products/The-Blue-Affaire/The_Blue_Affaire.mp4",
+    "previewSrc": "/products/The-Blue-Affaire/The_Blue_Affaire-preview.mp4",
     "mainImage": "/products/The-Blue-Affaire/main.webp",
     "images": [
       "/products/The-Blue-Affaire/main.webp",
@@ -721,6 +746,7 @@
     "modelHeight": "5'8\"",
     "mediaType": "video",
     "mediaSrc": "/products/Midnight Hour/Midnight_hour.mp4",
+    "previewSrc": "/products/Midnight Hour/Midnight_hour-preview.mp4",
     "mainImage": "/products/Midnight Hour/main.webp",
     "images": [
       "/products/Midnight Hour/main.webp",
@@ -752,6 +778,7 @@
     "modelHeight": "5'7\"",
     "mediaType": "video",
     "mediaSrc": "/products/Ombre_Mirage/Ombré_mirage.mp4",
+    "previewSrc": "/products/Ombre_Mirage/Ombré_mirage-preview.mp4",
     "mainImage": "/products/Ombre_Mirage/DSC06024.webp",
     "images": [
       "/products/Ombre_Mirage/DSC06024.webp",
@@ -777,6 +804,7 @@
     "modelHeight": "5'8\"",
     "mediaType": "video",
     "mediaSrc": "/products/Evening wine/Evening_wine.mp4",
+    "previewSrc": "/products/Evening wine/Evening_wine-preview.mp4",
     "mainImage": "/products/Evening wine/main.webp",
     "images": [
       "/products/Evening wine/main.webp",
@@ -804,6 +832,7 @@
     "modelHeight": "5'8\"",
     "mediaType": "video",
     "mediaSrc": "/products/Emerald Whispers/Emerald_Whispers.mp4",
+    "previewSrc": "/products/Emerald Whispers/Emerald_Whispers-preview.mp4",
     "mainImage": "/products/Emerald Whispers/Main.webp",
     "images": [
       "/products/Emerald Whispers/Main.webp",
@@ -830,6 +859,7 @@
     "modelHeight": "6'3\"",
     "mediaType": "video",
     "mediaSrc": "/products/Chaand Saaya/Chaand_saya.mp4",
+    "previewSrc": "/products/Chaand Saaya/Chaand_saya-preview.mp4",
     "mainImage": "/products/Chaand Saaya/DSC06032.webp",
     "images": [
       "/products/Chaand Saaya/DSC06032.webp",
@@ -856,6 +886,7 @@
     "modelHeight": "5'7\"",
     "mediaType": "video",
     "mediaSrc": "/products/Fiza-After-Midnight/Fiza_after_midnight.mp4",
+    "previewSrc": "/products/Fiza-After-Midnight/Fiza_after_midnight-preview.mp4",
     "mainImage": "/products/Fiza-After-Midnight/Main.webp",
     "images": [
       "/products/Fiza-After-Midnight/Main.webp",
@@ -883,6 +914,7 @@
     "modelHeight": "6'3\"",
     "mediaType": "video",
     "mediaSrc": "/products/Mint Sovereign/Mint_sovereign.mp4",
+    "previewSrc": "/products/Mint Sovereign/Mint_sovereign-preview.mp4",
     "mainImage": "/products/Mint Sovereign/Main.webp",
     "images": [
       "/products/Mint Sovereign/Main.webp",
@@ -908,6 +940,7 @@
     "modelHeight": "5'10\"",
     "mediaType": "video",
     "mediaSrc": "/products/silver_lullaby/Silver_Lullaby.mp4",
+    "previewSrc": "/products/silver_lullaby/Silver_Lullaby-preview.mp4",
     "mainImage": "/products/silver_lullaby/main.webp",
     "images": [
       "/products/silver_lullaby/main.webp",
@@ -946,6 +979,7 @@
     "modelHeight": "5'12\"",
     "mediaType": "video",
     "mediaSrc": "/products/shaan-e-dupatta/shaan-e-dupatta.mp4",
+    "previewSrc": "/products/shaan-e-dupatta/shaan-e-dupatta-preview.mp4",
     "mainImage": "/products/shaan-e-dupatta/main.webp",
     "images": [
       "/products/shaan-e-dupatta/main.webp",
@@ -975,6 +1009,7 @@
     "modelHeight": "5'10\"",
     "mediaType": "video",
     "mediaSrc": "/products/feathered_rose/Feathered_Rose.mp4",
+    "previewSrc": "/products/feathered_rose/Feathered_Rose-preview.mp4",
     "mainImage": "/products/feathered_rose/main.webp",
     "images": [
       "/products/feathered_rose/main.webp",
@@ -1004,6 +1039,7 @@
     "modelHeight": "5'10\"",
     "mediaType": "video",
     "mediaSrc": "/products/sage_symphony/Sage_Symphony.mp4",
+    "previewSrc": "/products/sage_symphony/Sage_Symphony-preview.mp4",
     "mainImage": "/products/sage_symphony/main.webp",
     "images": [
       "/products/sage_symphony/main.webp",
@@ -1028,6 +1064,7 @@
     "modelHeight": "5'10\"",
     "mediaType": "video",
     "mediaSrc": "/products/swarovski_series/Swarovski_Series.mp4",
+    "previewSrc": "/products/swarovski_series/Swarovski_Series-preview.mp4",
     "mainImage": "/products/swarovski_series/main.webp",
     "images": [
       "/products/swarovski_series/main.webp",
@@ -1058,6 +1095,7 @@
     "modelHeight": "5'10\"",
     "mediaType": "video",
     "mediaSrc": "/products/glided_grace/Glided_Grace_.mp4",
+    "previewSrc": "/products/glided_grace/Glided_Grace_-preview.mp4",
     "mainImage": "/products/glided_grace/main.webp",
     "images": [
       "/products/glided_grace/main.webp",
@@ -1083,6 +1121,7 @@
     "modelHeight": "5'12\"",
     "mediaType": "video",
     "mediaSrc": "/products/gulaabi_noor/gulabi_noor.mp4",
+    "previewSrc": "/products/gulaabi_noor/gulabi_noor-preview.mp4",
     "mainImage": "/products/gulaabi_noor/main.webp",
     "images": [
       "/products/gulaabi_noor/main.webp",
@@ -1109,6 +1148,7 @@
     "modelHeight": "5'9\"",
     "mediaType": "video",
     "mediaSrc": "/products/Golden Hour/golden_hour_video.mp4",
+    "previewSrc": "/products/Golden Hour/golden_hour_video-preview.mp4",
     "mainImage": "/products/Golden Hour/Main.webp",
     "images": [
       "/products/Golden Hour/Main.webp",
@@ -1134,6 +1174,7 @@
     "modelHeight": "5'9\"",
     "mediaType": "video",
     "mediaSrc": "/products/Saffron Dusk/Saffron_Dusk.mp4",
+    "previewSrc": "/products/Saffron Dusk/Saffron_Dusk-preview.mp4",
     "mainImage": "/products/Saffron Dusk/Main.webp",
     "images": [
       "/products/Saffron Dusk/Main.webp",
@@ -1160,6 +1201,7 @@
     "modelHeight": "5'11\"",
     "mediaType": "video",
     "mediaSrc": "/products/Moonlit Pause/moonlit_pause_video.mp4",
+    "previewSrc": "/products/Moonlit Pause/moonlit_pause_video-preview.mp4",
     "mainImage": "/products/Moonlit Pause/Main.webp",
     "images": [
       "/products/Moonlit Pause/Main.webp",
@@ -1184,6 +1226,7 @@
     "modelHeight": "5'11\"",
     "mediaType": "video",
     "mediaSrc": "/products/Crimson Whispers/Crimson_Whispers.mp4",
+    "previewSrc": "/products/Crimson Whispers/Crimson_Whispers-preview.mp4",
     "mainImage": "/products/Crimson Whispers/Main.webp",
     "images": [
       "/products/Crimson Whispers/Main.webp",

@@ -10,6 +10,7 @@ import { BsWhatsapp, BsHeart } from 'react-icons/bs';
 import productsData from '@/data/products.json';
 import { useCart } from '../../context/CartContext';
 import Link from 'next/link';
+import AdaptiveVideo from '../../components/AdaptiveVideo';
 import { getMobileVideoUrl, getPosterUrl, useIsMobileViewport } from '../../components/useResponsiveVideo';
 
 export default function ProductPage() {
@@ -38,7 +39,7 @@ export default function ProductPage() {
   const activePriceNumber = selectedVariant ? selectedVariant.priceNumber : parseInt(product.price.replace(/[^0-9]/g, ''));
 
   // Build media array combining images and video if available
-  const productMedia: Array<{ type: 'image' | 'video', src: string }> = [];
+  const productMedia: Array<{ type: 'image' | 'video', src: string, hls?: string }> = [];
 
   // Add images
   if ((product as any).images && Array.isArray((product as any).images)) {
@@ -49,7 +50,7 @@ export default function ProductPage() {
 
   // Add video if available and mediaType is video
   if (product.mediaType === 'video' && product.mediaSrc) {
-    productMedia.push({ type: 'video', src: product.mediaSrc });
+    productMedia.push({ type: 'video', src: product.mediaSrc, hls: (product as any).hlsSrc });
   }
 
   // Fallback to mediaSrc if no media available
@@ -180,7 +181,19 @@ export default function ProductPage() {
 
               {/* Main Image/Video Display */}
               <div className="flex-1 relative max-h-[85vh]">
-                {productMedia[selectedImage]?.type === 'video' ? (
+                {productMedia[selectedImage]?.hls ? (
+                  <AdaptiveVideo
+                    key={productMedia[selectedImage].src}
+                    hlsSrc={productMedia[selectedImage].hls}
+                    fallbackSrc={isMobile ? getMobileVideoUrl(productMedia[selectedImage].src) : productMedia[selectedImage].src}
+                    playing
+                    poster={getPosterUrl(productMedia[selectedImage].src)}
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover max-h-[85vh]"
+                  />
+                ) : productMedia[selectedImage]?.type === 'video' ? (
                   <video
                     key={productMedia[selectedImage].src}
                     src={isMobile ? getMobileVideoUrl(productMedia[selectedImage].src) : productMedia[selectedImage].src}

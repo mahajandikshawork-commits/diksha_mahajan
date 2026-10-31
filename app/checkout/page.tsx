@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Script from 'next/script';
 import { trackPurchase, generateEventId } from '@/lib/tracking';
 
 
@@ -157,6 +158,11 @@ export default function CheckoutPage() {
   const handlePayment = async () => {
     if (!validateForm()) return;
     if (cartItems.length === 0) {
+      return;
+    }
+    // Checked before the order is created, so a tap during load can't leave one unpaid.
+    if (!(window as any).Razorpay) {
+      alert('Payment is still loading. Please try again in a moment.');
       return;
     }
 
@@ -319,6 +325,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen bg-white pt-40 pb-16 px-4">
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl font-light tracking-wider mb-8 text-center">CHECKOUT</h1>
 

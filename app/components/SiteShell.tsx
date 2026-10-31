@@ -1,10 +1,9 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { BsWhatsapp } from 'react-icons/bs';
-import LoadingScreen from './LoadingScreen';
 import Header from './Header';
 import Footer from './Footer';
 import CartSidebar from './CartSidebar';
@@ -15,27 +14,12 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith('/admin');
 
-  const [isLoading, setIsLoading] = useState(true);
-
+  // WelcomePopup counts its delay from this event, so fire it when the old 3.2 s
+  // splash would have finished and the popup keeps appearing at the same moment.
   useEffect(() => {
-    if (isAdmin) {
-      document.body.style.overflow = 'unset';
-      return;
-    }
-    if (isLoading) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isLoading, isAdmin]);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    window.dispatchEvent(new Event('loading-complete'));
-  };
+    const timer = setTimeout(() => window.dispatchEvent(new Event('loading-complete')), 3200);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Admin routes render without the public site chrome.
   if (isAdmin) {
@@ -44,8 +28,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-      <div className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
+      <div>
         <LoadingBar />
         <Header />
         {children}
