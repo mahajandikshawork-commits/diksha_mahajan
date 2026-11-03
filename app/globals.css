@@ -29,3 +29,120 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Display face (Bodoni Moda) for press mastheads: `font-display` */
+@theme inline {
+  --font-display: var(--font-bodoni), "Bodoni 72", Didot, "Times New Roman", serif;
+}
+
+/* Press: images dissolve into the page at their edges instead of ending in a hard frame.
+   Two linear masks intersect, which also softens the corners. */
+.press-feather {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 9%, #000 91%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 9%, #000 91%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* Press: homepage cover that runs the full height of the section. Mobile fades
+   top and bottom; desktop bleeds off the left edge and dissolves to the right. */
+.press-feather-bleed {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 70%, transparent 100%);
+}
+
+@media (min-width: 1024px) {
+  .press-feather-bleed {
+    -webkit-mask-image:
+      linear-gradient(to right, #000 0%, #000 55%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, #000 0%, #000 55%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    mask-composite: intersect;
+  }
+}
+
+/* Press: crossfading cover images on the homepage */
+.press-cover {
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1), transform 1600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press-cover {
+    transition: none;
+  }
+}
+
+/* Press: entrance motion, replayed each time a slide/row changes */
+@keyframes press-rise {
+  from { transform: translateY(105%); }
+  to { transform: translateY(0); }
+}
+@keyframes press-fade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes press-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.press-rise {
+  animation: press-rise 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.press-fade {
+  animation: press-fade 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.press-progress {
+  animation-name: press-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press-rise,
+  .press-fade,
+  .press-progress {
+    animation: none;
+  }
+}
+
+/* Press: hero image settles in once on load */
+@keyframes press-settle {
+  from { transform: scale(1.08); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Press: slow publication marquee on /media */
+@keyframes press-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.press-marquee {
+  animation: press-marquee 60s linear infinite;
+}
+.press-marquee:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .press-marquee {
+    animation: none;
+  }
+}
+
+/* Press: images dissolve to black on the side facing the text (desktop) */
+@media (min-width: 1024px) {
+  .press-fade-right {
+    -webkit-mask-image: linear-gradient(to right, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 70%, transparent 100%);
+  }
+  .press-fade-left {
+    -webkit-mask-image: linear-gradient(to left, #000 70%, transparent 100%);
+    mask-image: linear-gradient(to left, #000 70%, transparent 100%);
+  }
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "vogue-india-diwali-edit-2025",
+    "publication": "Vogue India",
+    "title": "Step into the Diwali festivities with these showstopping ensembles",
+    "category": "Diwali edit",
+    "date": "2025-10-06",
+    "excerpt": "Vogue India's festive edit presents the label's bridalwear as keepsakes, and singles out the grey-blue Swarovski Series gown with its embroidered corset bodice and feathered sleeves.",
+    "quote": "Combining glamour with a sense of poetry in motion.",
+    "url": "https://www.vogue.in/shopping/promotion/step-into-the-diwali-festivities-with-these-showstopping-ensembles",
+    "image": "/products/swarovski_series/img2.webp",
+    "look": {
+      "name": "Swarovski Series",
+      "slug": "swarovski-series"
+    },
+    "featured": true,
+    "homepage": true
+  },
+  {
+    "slug": "the-best-list-navratri-dussehra-2026",
+    "publication": "The Best List",
+    "title": "The new Indian occasion wardrobe: dressing for Dussehra and Navratri",
+    "category": "Style guide",
+    "date": "2026-10-12",
+    "excerpt": "Adaa is one of The Best List's picks for the festive season, in a guide to dressing for Dussehra and Navratri.",
+    "url": "https://thebestlistindia.com/fashion/new-indian-occasion-wardrobe-navratri-dussehra-style-guide/",
+    "image": "/products/adaa/PRI00884.webp",
+    "look": {
+      "name": "Adaa",
+      "slug": "adaa"
+    },
+    "homepage": true
+  },
+  {
+    "slug": "the-brides-of-india-wedding-picks-2026",
+    "publication": "The Brides of India",
+    "title": "Wedding celebrations call for outfits that make an impression",
+    "category": "Instagram carousel",
+    "date": "2026-10-12",
+    "excerpt": "A carousel of the label's looks, chosen as inspiration for brides and bridesmaids planning their wedding wardrobes.",
+    "url": "https://www.instagram.com/p/DeZPJ_HjGFG/",
+    "image": "https://ddnckiuudgmvtyzmjmvn.supabase.co/storage/v1/object/public/client-diaries/client-diaries/1785304367845-3x6ynv.webp",
+    "homepage": true,
+    "quote": "Stunning picks for every occasion.",
+    "diary": "golden-aria"
+  },
+  {
+    "slug": "the-brides-of-india-new-collection-2026",
+    "publication": "The Brides of India",
+    "title": "If your festive wardrobe needs a little update, start here",
+    "category": "Instagram reel",
+    "date": "2026-10-08",
+    "excerpt": "A collab reel introducing the new collection: rich colours, detailed embroidery and striking silhouettes. Creative direction by @paranoia.pictures and @arora_kunal1.",
+    "quote": "Pieces that are made to stand out.",
+    "url": "https://www.instagram.com/reel/DeO7gNAM1ge/",
+    "image": "/products/naghma/PRI00570.webp",
+    "homepage": true
+  }
+]

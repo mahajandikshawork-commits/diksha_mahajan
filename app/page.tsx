@@ -1,7 +1,7 @@
 import HeroSection from './components/HeroSection';
 import ProductSlider from './components/ProductSlider';
 import ClientDiariesSection from './components/ClientDiariesSection';
-import AboutSection from './components/AboutSection';
+import MediaSection from './components/MediaSection';
 import SpotlightSection from './components/SpotlightSection';
 import AppointmentSection from './components/AppointmentSection';
 
@@ -11,7 +11,7 @@ export default function Home() {
       <HeroSection />
       <div className="md:pt-24 pt-8"><ProductSlider /></div>
       <ClientDiariesSection />
-      <AboutSection />
+      <MediaSection />
       <SpotlightSection />
       <AppointmentSection />
     </div>

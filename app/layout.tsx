@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Montserrat } from "next/font/google";
+import { Bodoni_Moda, Montserrat } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 import SiteShell from "./components/SiteShell";
@@ -10,6 +10,15 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+// Didone display face for press mastheads and pull quotes.
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -118,7 +127,7 @@ fbq('track', 'PageView');`}
         {/* End Meta Pixel Code */}
       </head>
       <body
-        className={`${montserrat.variable} antialiased`}
+        className={`${montserrat.variable} ${bodoni.variable} antialiased`}
         style={{ fontFamily: 'var(--font-montserrat)' }}
       >
         {/* Google Tag Manager (noscript) */}
