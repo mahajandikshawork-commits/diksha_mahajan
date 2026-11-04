@@ -9,10 +9,10 @@ interface SpotlightModalProps {
   onClose: () => void;
   title: string;
   images: string[];
-  slug: string;
+  href: string;
 }
 
-export default function SpotlightModal({ isOpen, onClose, title, images, slug }: SpotlightModalProps) {
+export default function SpotlightModal({ isOpen, onClose, title, images, href }: SpotlightModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -100,7 +100,7 @@ export default function SpotlightModal({ isOpen, onClose, title, images, slug }:
 
         {/* More Info Button */}
         <div className="px-4 py-4 border-t">
-          <Link href={`/product/${slug}`} prefetch={true}>
+          <Link href={href} prefetch={true}>
             <button
               className="w-full bg-black text-white py-2.5 uppercase tracking-wider text-sm hover:bg-gray-800 transition-colors"
             >

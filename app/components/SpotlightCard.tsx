@@ -7,10 +7,10 @@ import SpotlightModal from './SpotlightModal';
 interface SpotlightCardProps {
   title: string;
   images: string[];
-  slug: string;
+  href: string;
 }
 
-export default function SpotlightCard({ title, images, slug }: SpotlightCardProps) {
+export default function SpotlightCard({ title, images, href }: SpotlightCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = () => {
@@ -48,7 +48,7 @@ export default function SpotlightCard({ title, images, slug }: SpotlightCardProp
         onClose={() => setIsModalOpen(false)}
         title={title}
         images={images}
-        slug={slug}
+        href={href}
       />
     </>
   );

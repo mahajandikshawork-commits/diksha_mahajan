@@ -34,11 +34,10 @@ const CARDS: DashboardCard[] = [
     disabled: true,
   },
   {
-    label: 'Celebrity Images',
-    href: '/admin/celebrities',
+    label: 'Celebrity Closet',
+    href: '/admin/spotlight',
     icon: Star,
-    description: 'Curate celebrity and spotlight imagery.',
-    disabled: true,
+    description: 'Add celebrity looks with images and a product link.',
   },
 ];
 

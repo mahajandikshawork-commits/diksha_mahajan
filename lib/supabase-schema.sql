@@ -235,3 +235,46 @@ CREATE POLICY "blogs_admin_delete"
   ON blogs FOR DELETE
   TO authenticated
   USING (true);
+
+-- ============================================================
+-- Celebrity Closet / Spotlight (managed via the admin panel)
+-- product_link is a site path (/product/<slug>) or a full URL.
+-- Images live in the `client-diaries` bucket under `spotlight/`, so the
+-- storage policies above already cover them. Seeded rows keep their
+-- original /public paths.
+-- ============================================================
+CREATE TABLE IF NOT EXISTS spotlight (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  images JSONB NOT NULL DEFAULT '[]'::jsonb,
+  product_link TEXT NOT NULL,
+  sort_order INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE spotlight ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "spotlight_public_read" ON spotlight;
+CREATE POLICY "spotlight_public_read"
+  ON spotlight FOR SELECT
+  USING (true);
+
+DROP POLICY IF EXISTS "spotlight_admin_insert" ON spotlight;
+CREATE POLICY "spotlight_admin_insert"
+  ON spotlight FOR INSERT
+  TO authenticated
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "spotlight_admin_update" ON spotlight;
+CREATE POLICY "spotlight_admin_update"
+  ON spotlight FOR UPDATE
+  TO authenticated
+  USING (true)
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "spotlight_admin_delete" ON spotlight;
+CREATE POLICY "spotlight_admin_delete"
+  ON spotlight FOR DELETE
+  TO authenticated
+  USING (true);

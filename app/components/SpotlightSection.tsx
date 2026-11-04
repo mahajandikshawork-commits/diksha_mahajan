@@ -1,12 +1,17 @@
  'use client';
 
- import { useRef } from 'react';
+ import { useEffect, useRef, useState } from 'react';
  import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import SpotlightCard from './SpotlightCard';
-import spotlightData from '@/data/spotlight.json';
+import { SpotlightEntry, fetchSpotlight } from '@/lib/spotlight';
 
 export default function SpotlightSection() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [entries, setEntries] = useState<SpotlightEntry[]>([]);
+
+  useEffect(() => {
+    fetchSpotlight().then(setEntries);
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     const el = scrollRef.current;
@@ -14,6 +19,8 @@ export default function SpotlightSection() {
     const amount = Math.max(260, Math.floor(el.clientWidth * 0.8));
     el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
   };
+
+  if (entries.length === 0) return null;
 
   return (
     <section className="py-16 md:pb-32 md:pt-16 bg-[#F5F1E8]">
@@ -30,12 +37,12 @@ export default function SpotlightSection() {
         <div className="relative -mx-8 px-8">
           <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
-            {spotlightData.map((category, index) => (
-              <div key={index} className="w-64 md:w-80 flex-shrink-0">
+            {entries.map((entry) => (
+              <div key={entry.id} className="w-64 md:w-80 flex-shrink-0">
                 <SpotlightCard
-                  title={category.title}
-                  images={category.images}
-                  slug={category.slug}
+                  title={entry.name}
+                  images={entry.images}
+                  href={entry.product_link}
                 />
               </div>
             ))}
@@ -59,20 +66,6 @@ export default function SpotlightSection() {
             <FiChevronRight size={18} />
           </button>
         </div>
-
-        {/* Desktop: Grid Layout - 4 columns first row, 3 columns second row */}
-        {/* <div className="hidden lg:block"> */}
-          {/* First Row - 4 items */}
-          {/* <div className="grid grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto"> */}
-            {/* {spotlightData.map((category, index) => (
-              <SpotlightCard
-                key={index}
-                title={category.title}
-                images={category.images}
-              />
-            ))}
-          </div>
-        </div> */}
       </div>
     </section>
   );

@@ -29,7 +29,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Client Diaries', href: '/admin/client-diaries', icon: BookHeart },
   { label: 'Blogs', href: '/admin/blogs', icon: FileText },
   { label: 'Products', href: '/admin/products', icon: ShoppingBag, disabled: true },
-  { label: 'Celebrity Images', href: '/admin/celebrities', icon: Star, disabled: true },
+  { label: 'Celebrity Closet', href: '/admin/spotlight', icon: Star },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
