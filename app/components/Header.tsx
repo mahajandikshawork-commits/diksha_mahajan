@@ -17,7 +17,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="fixed top-0 left-0 right-0 z-50 w-full bg-black/90 backdrop-blur-sm text-white">
+            <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-white/10 bg-black/90 supports-[backdrop-filter]:bg-black backdrop-blur-2xl backdrop-saturate-150 text-white">
                 <div className="w-full px-8 py-4">
                     {/* Mobile Layout */}
                     <div className="flex lg:hidden items-center justify-between">
@@ -53,8 +53,8 @@ export default function Header() {
                     </div>
 
                     {/* Desktop Layout */}
-                    <div className="hidden lg:grid lg:grid-cols-3 items-center">
-                        <nav className="flex items-center gap-8 text-[12px] tracking-wider">
+                    <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] items-center gap-8">
+                        <nav className="flex items-center gap-5 xl:gap-8 whitespace-nowrap text-[11px] xl:text-[12px] tracking-wider">
                             <Link      
                                 href="/about" 
                                 className="hover:opacity-70 transition-opacity uppercase"
@@ -77,6 +77,30 @@ export default function Header() {
                             >
                                 Client Diaries
                             </Link>
+                        </nav>
+
+                        <div className="flex justify-center items-center">
+                            <Link href="/" className="block w-[170px] xl:w-[200px]">
+                                <Image
+                                    src="/logo.webp"
+                                    alt="Diksha Mahajan"
+                                    width={200}
+                                    height={50}
+                                    priority
+                                    className="object-contain cursor-pointer w-full h-auto"
+                                />
+                            </Link>
+                        </div>
+
+                        <div className="flex items-center gap-5 xl:gap-8 justify-end whitespace-nowrap text-[11px] xl:text-[12px] tracking-wider">
+                            <Link 
+                                href="/media"
+                                className={`hover:opacity-70 transition-opacity uppercase ${
+                                    pathname === '/media' ? 'text-[#DCC898]' : ''
+                                }`}
+                            >
+                                Media
+                            </Link>
                             <Link 
                                 href="/blog"
                                 className={`hover:opacity-70 transition-opacity uppercase ${
@@ -85,22 +109,7 @@ export default function Header() {
                             >
                                 Journal
                             </Link>
-                        </nav>
 
-                        <div className="flex justify-center items-center">
-                            <Link href="/">
-                                <Image
-                                    src="/logo.webp"
-                                    alt="Diksha Mahajan"
-                                    width={200}
-                                    height={50}
-                                    priority
-                                    className="object-contain cursor-pointer"
-                                />
-                            </Link>
-                        </div>
-
-                        <div className="flex items-center gap-6 justify-end">
                             {/* <button
                                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                                 className="hover:opacity-70 transition-opacity focus:outline-none"
@@ -111,7 +120,7 @@ export default function Header() {
 
                             <Link 
                                 href="/book-appointment"
-                                className={`hover:opacity-70 transition-opacity uppercase text-[12px] tracking-wider ${
+                                className={`hover:opacity-70 transition-opacity uppercase ${
                                     pathname === '/book-appointment' ? 'text-[#DCC898]' : ''
                                 }`}
                             >
@@ -199,6 +208,15 @@ export default function Header() {
                                     }`}
                                 >
                                     Client Diaries
+                                </Link>
+                                <Link
+                                    href="/media"
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className={`text-base md:text-3xl font-light tracking-wider hover:opacity-70 transition-opacity uppercase ${
+                                        pathname === '/media' ? 'text-[#DCC898]' : ''
+                                    }`}
+                                >
+                                    Media
                                 </Link>
                                 <Link
                                     href="/blog"

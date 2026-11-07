@@ -9,15 +9,13 @@ export default function AnnouncementBar() {
   ];
 
   return (
-    <div className="w-full bg-[#1a1a1a] text-white text-xs tracking-widest py-1.5">
+    <div className="w-full border-t border-white/10 bg-white/[0.04] text-white text-xs tracking-widest py-1.5">
       <LogoLoop
         logos={messages}
         speed={70}
         direction="left"
         logoHeight={12}
         gap={40}
-        fadeOut
-        fadeOutColor="#1a1a1a"
         ariaLabel="Announcements"
       />
     </div>

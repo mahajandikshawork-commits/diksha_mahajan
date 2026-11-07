@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "vogue-india-diwali-edit-2025",
+    "publication": "Vogue India",
+    "category": "The Diwali Edit",
+    "date": "2025-10-06",
+    "title": "A festive expression of Diksha Mahajan",
+    "excerpt": "Featured in Vogue India’s Diwali Edit 2025, Diksha Mahajan brings its perspective on bridal and occasion dressing to the festive wardrobe.",
+    "url": "https://www.vogue.in/shopping/promotion/step-into-the-diwali-festivities-with-these-showstopping-ensembles",
+    "linkLabel": "Explore the Feature",
+    "image": "/products/swarovski_series/img2.webp",
+    "featured": true,
+    "homepage": true
+  },
+  {
+    "slug": "femina-miss-diva-fashion-designer-2026",
+    "publication": "Femina",
+    "category": "Miss Diva Fashion Designer",
+    "date": "2026-11-02",
+    "title": "Among the Top 8 finalists",
+    "excerpt": "Founder and designer Diksha Mahajan is named among the Top 8 finalists of Miss Diva Fashion Designer 2026. A milestone in her journey, the recognition marks a new chapter for the creative voice behind the label.",
+    "url": "https://www.femina.in/beauty-pageants/miss-diva-fashion-designer-2026-meet-the-top-8-emerging-design-talents/eventshow/156453906.cms",
+    "linkLabel": "Meet the Finalists",
+    "image": "/media/femina-miss-diva-top-8-2026.webp",
+    "imageFit": "contain",
+    "homepage": true
+  },
+  {
+    "slug": "the-brides-of-india-bridal-feature-2026",
+    "publication": "The Brides of India",
+    "category": "Bridal feature",
+    "date": "2026-10-08",
+    "title": "A moment in our bridal world",
+    "excerpt": "A glimpse into the bridal world of Diksha Mahajan, featured on The Brides of India. Discover the label through a story of wedding dressing, personal expression and the moments that make an occasion one's own.",
+    "url": "https://www.instagram.com/reel/DeO7gNAM1ge/",
+    "linkLabel": "Watch the Feature",
+    "more": [
+      { "label": "View the Carousel", "href": "https://www.instagram.com/p/DeZPJ_HjGFG/" }
+    ],
+    "image": "/products/naghma/PRI00570.webp",
+    "homepage": true
+  },
+  {
+    "slug": "the-best-list-navratri-dussehra-2026",
+    "publication": "The Best List India",
+    "category": "Navratri & festive edit",
+    "date": "2026-10-12",
+    "title": "The new Indian occasion wardrobe",
+    "excerpt": "Adaa by Diksha Mahajan features in The Best List India’s Navratri and Dussehra style guide. The inclusion places the label within a festive wardrobe shaped by celebration, individuality and Indian occasion dressing.",
+    "url": "https://thebestlistindia.com/fashion/new-indian-occasion-wardrobe-navratri-dussehra-style-guide/",
+    "linkLabel": "Read the Feature",
+    "more": [
+      { "label": "Discover Adaa", "href": "/product/adaa" }
+    ],
+    "image": "/products/adaa/PRI00884.webp",
+    "homepage": true
+  }
+]
