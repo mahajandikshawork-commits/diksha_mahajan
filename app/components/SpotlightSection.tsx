@@ -25,7 +25,7 @@ export default function SpotlightSection() {
   return (
     <section className="py-16 md:pb-32 md:pt-16 bg-[#F5F1E8]">
       <div className="w-full mx-auto px-8">
-        <h2 className="text-2xl md:text-4xl font-light tracking-[0.2em] text-center mb-4 uppercase">
+        <h2 className="text-2xl md:text-4xl font-light tracking-[0.1em] text-center mb-4 uppercase">
           Celebrity Closet
         </h2>
         
