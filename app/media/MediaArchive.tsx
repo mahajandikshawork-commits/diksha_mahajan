@@ -24,7 +24,7 @@ export default function MediaArchive({ items }: { items: MediaFeature[] }) {
 
   return (
     <section aria-labelledby="archive-heading" className="bg-black text-white">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-12 pt-24 md:pt-32 pb-10 md:pb-14">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12 pt-12 md:pt-16 pb-10 md:pb-14">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-[11px] uppercase tracking-[0.35em] text-[#DCC898]">The archive</p>
