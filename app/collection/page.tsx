@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProductCard from '../components/ProductCard';
@@ -68,6 +68,14 @@ export default function CollectionPage() {
   const genderOptions = ['All', 'Menswear', 'Womenswear'];
   const categoryOptions = ['All', 'Concept Saree', 'Gown', 'Trouser set', 'Lehenga set', 'Suit set', 'Jacket set', 'Anarkali set', 'Sharara set', 'Drape Skirt', 'Cape set', 'Shirt', 'Scarf'];
   const collectionOptions = ['All', 'Nazm', 'Aaina', 'Noor-e-Fiza', 'The Heritage Edit', 'QLA'];
+
+  // Deep link: /collection?collection=qla opens with that collection selected.
+  useEffect(() => {
+    const wanted = new URLSearchParams(window.location.search).get('collection')?.toLowerCase();
+    const match = collectionOptions.find((c) => c.toLowerCase() === wanted);
+    if (match) setSelectedCollection(match);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const filteredProducts = productsData.filter((product: any) => {
     const genderMatch = selectedGender === 'All' || product.gender === selectedGender;

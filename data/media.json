@@ -10,7 +10,11 @@
     "linkLabel": "Explore the Feature",
     "image": "/products/swarovski_series/img2.webp",
     "featured": true,
-    "homepage": true
+    "homepage": true,
+    "more": [
+      { "label": "Discover Silver Lullaby", "href": "/product/silver-lullaby" },
+      { "label": "Discover Swarovski Series", "href": "/product/swarovski-series" }
+    ]
   },
   {
     "slug": "femina-miss-diva-fashion-designer-2026",
@@ -35,7 +39,8 @@
     "url": "https://www.instagram.com/reel/DeO7gNAM1ge/",
     "linkLabel": "Watch the Feature",
     "more": [
-      { "label": "View the Carousel", "href": "https://www.instagram.com/p/DeZPJ_HjGFG/" }
+      { "label": "View the Carousel", "href": "https://www.instagram.com/p/DeZPJ_HjGFG/" },
+      { "label": "Discover QLA", "href": "/collection?collection=qla" }
     ],
     "image": "/products/naghma/PRI00570.webp",
     "homepage": true

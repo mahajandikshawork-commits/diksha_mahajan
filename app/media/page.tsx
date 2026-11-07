@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatMediaDate, getAllMedia, getCoverStory, uniquePublications } from '@/lib/media';
-import MediaLinks from '../components/MediaLinks';
 import MediaArchive from './MediaArchive';
 
 const SITE_URL = 'https://dikshamahajan.com';
@@ -114,7 +113,6 @@ export default function MediaPage() {
                 <p className="mt-3 font-display italic text-[1.15rem] leading-snug text-white/80">
                   {cover.title}
                 </p>
-                <MediaLinks item={cover} tone="dark" className="mt-5" />
               </div>
             )}
           </div>
