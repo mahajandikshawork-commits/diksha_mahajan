@@ -89,7 +89,7 @@ export default function MediaShowcase({ groups }: MediaShowcaseProps) {
     <section
       aria-labelledby="press-heading"
       aria-roledescription="carousel"
-      className="relative isolate min-h-[min(92svh,48rem)] overflow-hidden bg-black text-white lg:min-h-[min(calc(100svh-3rem),46rem)]"
+      className="relative isolate min-h-[calc(100svh-6rem)] overflow-hidden bg-black text-white"
     >
       {/* Covers */}
       <div className="absolute inset-0 -z-10">
@@ -154,7 +154,7 @@ export default function MediaShowcase({ groups }: MediaShowcaseProps) {
               </time>
             </p>
 
-            <h3 className="mt-4 overflow-hidden pb-[0.12em]">
+            <h3 className="mt-4 pb-[0.12em]">
               <span className="press-rise block font-display text-[clamp(2.75rem,5.2vw,5.25rem)] leading-[0.94] tracking-[-0.02em]">
                 {group.publication}
               </span>

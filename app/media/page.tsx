@@ -57,7 +57,7 @@ export default function MediaPage() {
       {/* Hero */}
       <section className="relative isolate flex min-h-[100svh] lg:min-h-[min(100svh,54rem)] overflow-hidden bg-black text-white">
         {cover && (
-          <div className="absolute inset-y-0 right-0 -z-10 w-full lg:w-[58%]">
+          <div className="absolute inset-y-0 right-0 -z-10 w-full overflow-hidden lg:w-[58%]">
             <Image
               src={cover.image}
               alt={`${cover.publication}: ${cover.title}`}
@@ -79,18 +79,18 @@ export default function MediaPage() {
             <span className="press-fade text-[#DCC898]">Press &amp; media</span>
           </div>
 
-          <h1 className="mt-auto font-display text-[clamp(3.75rem,11vw,10rem)] leading-[0.86] tracking-[-0.035em]">
-            <span className="block overflow-hidden pb-[0.06em]">
+          <h1 className="mt-auto pt-8 md:pt-10 font-display text-[clamp(3.75rem,11vw,10rem)] leading-[0.86] tracking-[-0.035em]">
+            <span className="block pb-[0.06em]">
               <span className="press-rise block" style={{ animationDelay: '100ms' }}>In the</span>
             </span>
-            <span className="block overflow-hidden pb-[0.1em]">
+            <span className="block pb-[0.1em]">
               <span className="press-rise block italic pl-[0.6em]" style={{ animationDelay: '250ms' }}>press</span>
             </span>
           </h1>
 
           <div className="mt-10 md:mt-14 grid gap-10 border-t border-white/15 pt-8 md:grid-cols-12">
             <p
-              className="press-fade md:col-span-5 max-w-[36ch] text-[15px] leading-7 text-white/65"
+              className="press-fade md:col-span-6 max-w-[60ch] text-[15px] leading-7 text-white/65"
               style={{ animationDelay: '500ms' }}
             >
               A considered edit of features, conversations and milestones from Diksha Mahajan&rsquo;s
@@ -168,7 +168,7 @@ export default function MediaPage() {
                 href="/book-appointment"
                 className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white"
               >
-                book an appointment at the atelier
+                book your appointment at the atelier
               </Link>
               .
             </p>

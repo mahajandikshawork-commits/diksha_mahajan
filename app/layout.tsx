@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Bodoni_Moda, Montserrat } from "next/font/google";
+import { Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./context/CartContext";
 import SiteShell from "./components/SiteShell";
@@ -12,12 +12,11 @@ const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-// Didone display face for press mastheads and pull quotes.
-const bodoni = Bodoni_Moda({
-  variable: "--font-bodoni",
+// Didone display face for press mastheads; sturdier hairlines than Bodoni at large sizes.
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
   display: "swap",
 });
 
@@ -127,7 +126,7 @@ fbq('track', 'PageView');`}
         {/* End Meta Pixel Code */}
       </head>
       <body
-        className={`${montserrat.variable} ${bodoni.variable} antialiased`}
+        className={`${montserrat.variable} ${playfair.variable} antialiased`}
         style={{ fontFamily: 'var(--font-montserrat)' }}
       >
         {/* Google Tag Manager (noscript) */}
