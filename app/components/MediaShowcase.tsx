@@ -128,7 +128,8 @@ export default function MediaShowcase({ groups }: MediaShowcaseProps) {
         {/* Story */}
         <div className="mt-auto pt-[30svh] lg:pt-6 lg:my-auto lg:ml-auto lg:w-[48%] xl:w-[44%] lg:pb-6">
           <div className="mb-6 flex items-center justify-between gap-6">
-            <h2 id="press-heading" className="text-[11px] uppercase tracking-[0.35em] text-white/60">
+            {/* Hidden on phones to declutter, kept for screen readers */}
+            <h2 id="press-heading" className="sr-only lg:not-sr-only text-[11px] uppercase tracking-[0.35em] text-white/60">
               In the press
             </h2>
             <Link
@@ -200,59 +201,79 @@ export default function MediaShowcase({ groups }: MediaShowcaseProps) {
           </div>
         </div>
 
-        {/* Index bar with the slide timer */}
-        <div
-          role="tablist"
-          aria-label="Publications"
-          onKeyDown={onKeyDown}
-          className="mt-10 lg:mt-8 grid gap-4 md:gap-8"
-          style={{ gridTemplateColumns: `repeat(${groups.length}, minmax(0, 1fr))` }}
-        >
-          {groups.map((g, index) => {
-            const isActive = index === active;
-            return (
-              <button
-                key={g.publication}
-                ref={(el) => {
-                  tabRefs.current[index] = el;
-                }}
-                type="button"
-                role="tab"
-                id={`press-tab-${index}`}
-                aria-selected={isActive}
-                aria-controls="press-panel"
-                tabIndex={isActive ? 0 : -1}
-                onClick={() => choose(index)}
-                className="group py-2 text-left focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#DCC898]"
-              >
-                <span className="relative block h-px w-full overflow-hidden bg-white/20">
-                  <span
-                    ref={(el) => {
-                      barRefs.current[index] = el;
-                    }}
-                    className="absolute inset-y-0 left-0 w-full origin-left bg-[#DCC898]"
-                    style={{ transform: `scaleX(${isActive && !autoplay ? 1 : 0})` }}
-                  />
-                </span>
-                <span className="mt-3 flex items-baseline gap-3">
-                  <span
-                    className={`text-[11px] tabular-nums tracking-[0.2em] transition-colors ${
-                      isActive ? 'text-[#DCC898]' : 'text-white/40'
-                    }`}
-                  >
-                    {pad(index + 1)}
+        {/* Index bar with the slide timer; phones get arrows instead of numbers */}
+        <div className="mt-10 lg:mt-8 flex items-center gap-5">
+          {groups.length > 1 && (
+            <div className="flex shrink-0 gap-2 sm:hidden">
+              {[
+                { label: 'Previous publication', step: -1, glyph: '←' },
+                { label: 'Next publication', step: 1, glyph: '→' },
+              ].map(({ label, step, glyph }) => (
+                <button
+                  key={label}
+                  type="button"
+                  aria-label={label}
+                  onClick={() => choose((active + step + groups.length) % groups.length)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white/80 hover:border-white hover:text-white transition-colors"
+                >
+                  {glyph}
+                </button>
+              ))}
+            </div>
+          )}
+          <div
+            role="tablist"
+            aria-label="Publications"
+            onKeyDown={onKeyDown}
+            className="grid flex-1 gap-4 md:gap-8"
+            style={{ gridTemplateColumns: `repeat(${groups.length}, minmax(0, 1fr))` }}
+          >
+            {groups.map((g, index) => {
+              const isActive = index === active;
+              return (
+                <button
+                  key={g.publication}
+                  ref={(el) => {
+                    tabRefs.current[index] = el;
+                  }}
+                  type="button"
+                  role="tab"
+                  id={`press-tab-${index}`}
+                  aria-selected={isActive}
+                  aria-controls="press-panel"
+                  tabIndex={isActive ? 0 : -1}
+                  onClick={() => choose(index)}
+                  className="group py-2 text-left focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-[#DCC898]"
+                >
+                  <span className="relative block h-px w-full overflow-hidden bg-white/20">
+                    <span
+                      ref={(el) => {
+                        barRefs.current[index] = el;
+                      }}
+                      className="absolute inset-y-0 left-0 w-full origin-left bg-[#DCC898]"
+                      style={{ transform: `scaleX(${isActive && !autoplay ? 1 : 0})` }}
+                    />
                   </span>
-                  <span
-                    className={`hidden sm:block truncate text-[11px] uppercase tracking-[0.22em] transition-colors duration-500 ${
-                      isActive ? 'text-white' : 'text-white/45 group-hover:text-white/80'
-                    }`}
-                  >
-                    {g.publication}
+                  <span className="mt-3 hidden sm:flex items-baseline gap-3">
+                    <span
+                      className={`text-[11px] tabular-nums tracking-[0.2em] transition-colors ${
+                        isActive ? 'text-[#DCC898]' : 'text-white/40'
+                      }`}
+                    >
+                      {pad(index + 1)}
+                    </span>
+                    <span
+                      className={`hidden sm:block truncate text-[11px] uppercase tracking-[0.22em] transition-colors duration-500 ${
+                        isActive ? 'text-white' : 'text-white/45 group-hover:text-white/80'
+                      }`}
+                    >
+                      {g.publication}
+                    </span>
                   </span>
-                </span>
-              </button>
-            );
-          })}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
